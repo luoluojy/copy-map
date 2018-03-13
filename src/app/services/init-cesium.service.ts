@@ -8,6 +8,7 @@ export class InitCesiumService {
   constructor() { }
 
   initCesium() {
+    Cesium.BingMapsApi.defaultKey= "AtCjSjc6kRhasDrx-5bt8VIkUvI6fNAVz3zRK_8cD9kqS_EwiT8ohYDMwVrPSYfO";
     let viewer = new Cesium.Viewer('cesiumContainer', {
       animation: false,
       fullscreenButton: false,
