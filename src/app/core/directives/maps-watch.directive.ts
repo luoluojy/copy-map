@@ -33,7 +33,6 @@ export class MapsWatchDirective {
         let elem: any = document.querySelector('#maps');
         elem.style.width = "0px";
         elem.style.height= "0px";
-
       }
     })
   }
