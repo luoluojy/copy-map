@@ -1,0 +1,51 @@
+<header style="position:absolute;width:100%;top:0px;z-index:1">
+  <ul style="position:absolute;right:10px;top:10px;" class="control">
+    <li>
+      <div appToolsToggle>
+        <i class="fas fa-wrench fa-lg"></i>工具箱
+      </div>
+    </li>
+    <li>
+      <div appMapsToggle>
+        <i class="fas fa-tasks  fa-lg"></i>地图集
+      </div>
+    </li>
+    <li>
+      <div appUserToggle>
+        <i class="fas fa-user  fa-lg"></i>用户中心
+      </div>
+    </li>
+  </ul>
+  <app-tools></app-tools>
+  <app-maps></app-maps>
+  <app-user></app-user>
+  <div style="position:absolute;top:10px;left:10px;background-color:white;">
+    <button appSidernavToggle title="菜单" style="padding:10px 20px;" class="unfocus">
+      <i class="fas fa-bars fa-lg"></i>
+    </button>
+    <input type="text" placeholder="Search" style="padding:10px;" />
+    <button appSearchContainerToggle type="submit" title="搜索" style="padding:10px 20px" class="unfocus">
+      <i class="fas fa-search fa-lg"></i>
+    </button>
+  </div>
+  <app-search-container></app-search-container>
+
+</header>
+
+<div id="cesiumContainer"></div>
+<app-sidenav></app-sidenav>
+<div id="test1" style="position:fixed;top:0px;left:0px;"></div>
+<div id="expand" style="position:absolute;bottom:20px;right:10px;padding:10px">
+  <button appBottomContainerToggle title="展开" class="unfocus">
+    <span>展开数据</span>
+    <div style="display:inline-block">
+      <i class="fas fa-angle-double-up"></i>
+    </div>
+  </button>
+</div>
+<app-bottom-container></app-bottom-container>
+
+<footer style="position:absolute;bottom:0px;z-index:1;width:100%;">
+  <span style="position:absolute;bottom:0px;left:10px;">GeoThinking</span>
+  <span style="position:absolute;bottom:0px;right:10px;">&copy; 2018 China Nanjing 反馈 </span>
+</footer>
