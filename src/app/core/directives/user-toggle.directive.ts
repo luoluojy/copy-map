@@ -1,4 +1,4 @@
-import { Directive, Input, HostListener } from '@angular/core';
+import { Directive, Input, HostListener,ElementRef } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
@@ -15,17 +15,20 @@ export class UserToggleDirective {
   bottomContainerState: boolean;
 
   @HostListener('click', ['$event']) onClick(e) {
+      let mapDiv=this.elementRef.nativeElement;
     if (!this.userState) {
       if(this.toolsState) {this.store.dispatch(new CloseToolsAction());}
       if(this.mapsState){this.store.dispatch(new CloseMapsAction());}
       if(this.bottomContainerState) {this.store.dispatch(new CloseBottomContainerAction());}
       this.store.dispatch(new OpenUserAction());
+      mapDiv.style.color="#0C88E8";
     } else {
+      mapDiv.style.color="#9A9A9A";
       this.store.dispatch(new CloseUserAction());
     }
   }
 
-  constructor(private store: Store<AppState>) {
+  constructor(private elementRef:ElementRef,private store: Store<AppState>) {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
       this.toolsState = state.toolsOpened;
       this.mapsState = state.mapsOpened;

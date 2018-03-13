@@ -1,39 +1,45 @@
 <header style="position:absolute;width:100%;top:0px;z-index:1">
-  <ul style="position:absolute;right:10px;top:10px;" class="control">
+  <ul style="position:absolute;right:60px;top:10px;background-color:white" class="control">
+    <li>
+      <div appMapsToggle>
+        <i class="fas fa-tasks  fa-lg"></i>视图
+        <i class="fas fa-angle-down  fa-lg"></i>
+      </div>
+    </li>
     <li>
       <div appToolsToggle>
         <i class="fas fa-wrench fa-lg"></i>工具箱
-      </div>
-    </li>
-    <li>
-      <div appMapsToggle>
-        <i class="fas fa-tasks  fa-lg"></i>地图集
-      </div>
-    </li>
-    <li>
-      <div appUserToggle>
-        <i class="fas fa-user  fa-lg"></i>用户中心
+        <i class="fas fa-angle-down  fa-lg"></i>
       </div>
     </li>
   </ul>
+  <div title="用户中心" style="display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;border-radius:50%;height:40px;width:40px;position:absolute;top:10px;right:10px;margin-left:20px;background-color:white"
+    appUserToggle>
+    <i class="fas fa-user  fa-lg"></i>
+  </div>
+
   <app-tools></app-tools>
   <app-maps></app-maps>
   <app-user></app-user>
+
   <div style="position:absolute;top:10px;left:10px;background-color:white;">
     <button appSidernavToggle title="菜单" style="padding:10px 20px;" class="unfocus">
       <i class="fas fa-bars fa-lg"></i>
     </button>
+
+    <app-sidenav></app-sidenav>
+
     <input type="text" placeholder="Search" style="padding:10px;" />
     <button appSearchContainerToggle type="submit" title="搜索" style="padding:10px 20px" class="unfocus">
       <i class="fas fa-search fa-lg"></i>
     </button>
   </div>
+
   <app-search-container></app-search-container>
 
 </header>
 
 <div id="cesiumContainer"></div>
-<app-sidenav></app-sidenav>
 <div id="test1" style="position:fixed;top:0px;left:0px;"></div>
 <div id="expand" style="position:absolute;bottom:20px;right:10px;padding:10px">
   <button appBottomContainerToggle title="展开" class="unfocus">
