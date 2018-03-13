@@ -21,18 +21,18 @@ export class AppComponent implements OnInit {
   constructor(private initCesiumService: InitCesiumService, private store: Store<AppState>) {
 
   }
-  
+
   ngOnInit() {
     this.initCesiumService.initCesium();
     this.blurElements()
   }
 
-  blurElements(){
+  blurElements() {
     let elements = document.querySelectorAll('.unfocus');
     for (let i = 0; i < elements.length; i++) {
       let element = <HTMLElement>elements[i];
-      element.onfocus = function () { 
-        element.blur(); 
+      element.onfocus = function () {
+        element.blur();
       }
     }
   }

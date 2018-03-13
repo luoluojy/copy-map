@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { StoreModule } from '@ngrx/store';
-import { openedReducer} from './common/reducer'; 
+import { openedReducer } from './common/reducer';
 import { AppComponent } from './app.component';
 
 import { MenuModule } from './core/modules/menu/menu.module';
@@ -44,7 +44,7 @@ import { SearchContainerComponent } from './core/components/search-container/sea
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({opened:openedReducer}),
+    StoreModule.forRoot({ opened: openedReducer }),
     MenuModule
   ],
   providers: [],
