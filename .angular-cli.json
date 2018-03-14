@@ -13,7 +13,7 @@
         {
           "glob": "**/*",
           "input": "../node_modules/cesium/Build/Cesium",
-          "output": "./"
+          "output": "assets/plugin/cesium"
         }
       ],
       "index": "index.html",
