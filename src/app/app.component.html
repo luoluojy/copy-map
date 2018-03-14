@@ -1,57 +1,60 @@
-<header style="position:absolute;width:100%;top:0px;z-index:1">
-  <ul style="position:absolute;right:60px;top:10px;background-color:white" class="control">
+<div id="cesiumContainer"></div>
+
+<header>
+  <ul class="control">
     <li>
-      <div appMapsToggle>
-        <i class="fas fa-tasks  fa-lg"></i>视图
+      <div class="map-bar" appToolsToggle>
+        <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
         <i class="fas fa-angle-down  fa-lg"></i>
       </div>
     </li>
     <li>
-      <div appToolsToggle>
-        <i class="fas fa-wrench fa-lg"></i>工具箱
+      <div class="map-bar" appMapsToggle>
+        <i class="fas fa-tasks  fa-lg"></i> 图册
+        <i class="fas fa-angle-down  fa-lg"></i>
+      </div>
+    </li>
+    <li>
+      <div class="map-bar" appToolsToggle>
+        <i class="fas fa-box fa-lg"></i> 工具箱
         <i class="fas fa-angle-down  fa-lg"></i>
       </div>
     </li>
   </ul>
-  <div title="用户中心" style="display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;border-radius:50%;height:40px;width:40px;position:absolute;top:10px;right:10px;margin-left:20px;background-color:white"
-    appUserToggle>
+  <div id="notice" title="通知" appUserToggle>
+    <i class="fas fa-comment-alt fa-lg"></i>
+  </div>
+  <div id="user-center" title="用户中心" appUserToggle>
     <i class="fas fa-user  fa-lg"></i>
   </div>
 
-  <app-tools></app-tools>
-  <app-maps></app-maps>
-  <app-user></app-user>
-
-  <div style="position:absolute;top:10px;left:10px;background-color:white;">
-    <button appSidernavToggle title="菜单" style="padding:10px 20px;" class="unfocus">
+  <div id="nav-bar">
+    <button id="menu" appSidernavToggle title="菜单" class="unfocus">
       <i class="fas fa-bars fa-lg"></i>
     </button>
 
-    <app-sidenav></app-sidenav>
-
-    <input type="text" placeholder="Search" style="padding:10px;" />
-    <button appSearchContainerToggle type="submit" title="搜索" style="padding:10px 20px" class="unfocus">
+    <input type="text" placeholder="Search" />
+    <button id="search" appSearchContainerToggle type="submit" title="搜索" class="unfocus">
       <i class="fas fa-search fa-lg"></i>
     </button>
   </div>
 
-  <app-search-container></app-search-container>
-
 </header>
 
-<div id="cesiumContainer"></div>
-<div id="test1" style="position:fixed;top:0px;left:0px;"></div>
-<div id="expand" style="position:absolute;bottom:20px;right:10px;padding:10px">
-  <button appBottomContainerToggle title="展开" class="unfocus">
-    <span>展开数据</span>
-    <div style="display:inline-block">
-      <i class="fas fa-angle-double-up"></i>
-    </div>
-  </button>
-</div>
+
+<app-tools></app-tools>
+<app-maps></app-maps>
+<app-user></app-user>
+<app-sidenav></app-sidenav>
+<app-search-container></app-search-container>
 <app-bottom-container></app-bottom-container>
 
-<footer style="position:absolute;bottom:0px;z-index:1;width:100%;">
-  <span style="position:absolute;bottom:0px;left:10px;">GeoThinking</span>
-  <span style="position:absolute;bottom:0px;right:10px;">&copy; 2018 中国南京 Crime Analysis 反馈 </span>
+<button id="dataview" appBottomContainerToggle title="展开" class="unfocus">
+  展开
+  <i class="fas fa-angle-double-up"></i>
+</button>
+
+<footer>
+  <span>Copyright &copy;1902-2018 南京师范大学•虚拟地理环境教育部重点实验室 版权所有</span>
 </footer>
+<div id="overlay"></div>

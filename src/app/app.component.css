@@ -1,20 +1,95 @@
-ul{
-    padding-left:15px;    
-    border-radius: 2px;
-    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+header{
+    position:absolute;
+    width:100%;
+    top:0px;
+    left:0px;
 }
-header ul li div{
-    color:#9A9A9A;
-    padding:8px 0px;
-    font-size:15px;
+header > ul{
+    position:absolute;
+    right:110px;
+    top:10px;
+    background-color:white;
 }
-header ul li div:hover, div:active{
-    color:#0C88E8;
-    cursor: pointer;
-}
-.control li{
+header > ul li{
     list-style: none;
     float:left;
     margin:0 10px;
 }
 
+ul{
+    padding-left:8px;    
+    border-radius: 2px;
+    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+}
+.map-bar{
+    color:#9A9A9A;
+    padding:8px 0px;
+    font-size:12px;
+}
+#notice{
+    position:absolute;
+    right:60px;
+    top:10px;
+    background-color:white;
+    font-size:12px;
+    padding:8px;
+    border-radius:5px;
+}
+#user-center{
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    border-radius:50%;
+    height:40px;
+    width:40px;
+    position:absolute;
+    top:8px;
+    right:10px;
+    margin-left:20px;
+    background-color:white
+}
+#nav-bar{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background-color:white;    
+    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+}
+
+#nav-bar button, input{
+    padding:5px 10px;
+}
+
+.map-bar:hover{
+    color:#0C88E8;
+    cursor: pointer;
+}
+#overlay{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+#dataview{
+    position:absolute;
+    bottom:0px;
+    right:10px;
+    font-size:12px;
+}
+footer{
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    height:22px;
+    width:600px;
+    height:22px;
+    background-color: rgba(47,53,60,.8);
+}
+footer span{
+    position:absolute;
+    bottom:0px;
+    left:140px;
+    font-size:12px;
+    line-height:22px;
+    text-align:left;
+    color:white;
+}
