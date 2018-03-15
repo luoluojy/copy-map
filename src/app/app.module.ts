@@ -21,6 +21,9 @@ import { BottomContainerToggleDirective } from './core/directives/bottom-contain
 import { SearchContainerWatchDirective } from './core/directives/search-container-watch.directive';
 import { SearchContainerToggleDirective } from './core/directives/search-container-toggle.directive';
 import { SearchContainerComponent } from './core/components/search-container/search-container.component';
+import { RegionContainerComponent } from './core/components/region-container/region-container.component';
+import { RegionContainerWatchDirective } from './core/directives/region-container-watch.directive';
+import { RegionContainerToggleDirective } from './core/directives/region-container-toggle.directive';
 
 
 @NgModule({
@@ -41,6 +44,9 @@ import { SearchContainerComponent } from './core/components/search-container/sea
     SearchContainerWatchDirective,
     SearchContainerToggleDirective,
     SearchContainerComponent,
+    RegionContainerComponent,
+    RegionContainerWatchDirective,
+    RegionContainerToggleDirective,
   ],
   imports: [
     BrowserModule,

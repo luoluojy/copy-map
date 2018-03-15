@@ -13,6 +13,8 @@ export enum LayoutActionTypes{
     CLOSE_BOTTOM_CONTAINER = '[Layout] Close Bottom Container',
     OPEN_SEARCH_CONTAINER = '[Layout] Open Search Container',
     CLOSE_SEARCH_CONTAINER = '[Layout] Close Search Container',
+    OPEN_REGION_CONTAINER = '[Layout] Open Region Container',
+    CLOSE_REGION_CONTAINER = '[Layout] Close Region Container',
 }
 
 export class OpenSidenavAction implements Action{
@@ -63,5 +65,16 @@ export class CloseSearchContainerAction implements Action{
     readonly type = LayoutActionTypes.CLOSE_SEARCH_CONTAINER;
 }
 
+export class OpenRegionContainerAction implements Action{
+    readonly type = LayoutActionTypes.OPEN_REGION_CONTAINER;
+}
 
-export type LayoutActions = OpenSidenavAction | CloseSidenavAction | OpenToolsAction | CloseToolsAction | OpenMapsAction | CloseMapsAction | OpenUserAction | CloseUserAction | OpenBottomContainerAction | CloseBottomContainerAction | OpenSearchContainerAction | CloseSearchContainerAction
+export class CloseRegionContainerAction implements Action{
+    readonly type = LayoutActionTypes.CLOSE_REGION_CONTAINER;
+}
+
+
+
+export type LayoutActions = OpenSidenavAction | CloseSidenavAction | OpenToolsAction | CloseToolsAction |
+ OpenMapsAction | CloseMapsAction | OpenUserAction | CloseUserAction | OpenBottomContainerAction | CloseBottomContainerAction |
+  OpenSearchContainerAction | CloseSearchContainerAction | OpenRegionContainerAction | CloseRegionContainerAction

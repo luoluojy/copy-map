@@ -18,7 +18,7 @@ export class SearchContainerWatchDirective {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#search-container');
         elem.style.width = "400px";
-        elem.style.zIndex ="-1"
+        elem.style.zIndex ="2"
         let store = this.store;
         let searchContainerState = state.searchContainerOpened;
         setTimeout(function () {

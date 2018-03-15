@@ -2,7 +2,7 @@ import { Directive, Input, HostListener,ElementRef } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
-import { OpenToolsAction, CloseToolsAction,CloseUserAction,CloseMapsAction,CloseBottomContainerAction } from '../../common/action';
+import { OpenToolsAction, CloseToolsAction,CloseUserAction,CloseMapsAction,CloseBottomContainerAction ,CloseRegionContainerAction} from '../../common/action';
 
 @Directive({
   selector: '[appToolsToggle]'
@@ -13,7 +13,8 @@ export class ToolsToggleDirective {
   mapsState: boolean;
   userState: boolean;
   bottomContainerState: boolean;
-
+  regionContainerState:boolean;
+  
   @HostListener('click', ['$event']) onClick(e) {
       let mapDiv=this.elementRef.nativeElement;
       let is=mapDiv.getElementsByTagName("i");
@@ -21,6 +22,7 @@ export class ToolsToggleDirective {
       if(this.userState) {this.store.dispatch(new CloseUserAction());}
       if(this.mapsState) {this.store.dispatch(new CloseMapsAction());}
       if(this.bottomContainerState) {this.store.dispatch(new CloseBottomContainerAction());}
+      if(this.regionContainerState) {this.store.dispatch(new CloseRegionContainerAction());}
       this.store.dispatch(new OpenToolsAction());
       mapDiv.style.color="#0C88E8";
       is[1].setAttribute("class","fas fa-angle-up  fa-lg")
@@ -37,6 +39,7 @@ export class ToolsToggleDirective {
       this.mapsState = state.mapsOpened;
       this.userState = state.userOpened;
       this.bottomContainerState = state.bottomContainerOpened;
+      this.regionContainerState = state.regionContainerOpened;
     })
   }
 

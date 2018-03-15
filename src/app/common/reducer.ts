@@ -6,7 +6,8 @@ export interface AppState {
     mapsOpened: boolean,
     userOpened: boolean,
     bottomContainerOpened: boolean,
-    searchContainerOpened: boolean
+    searchContainerOpened: boolean,
+    regionContainerOpened: boolean
 }
 
 const initAppState: AppState = {
@@ -15,7 +16,8 @@ const initAppState: AppState = {
     mapsOpened: false,
     userOpened: false,
     bottomContainerOpened: false,
-    searchContainerOpened: false
+    searchContainerOpened: false,
+    regionContainerOpened: false
 }
 
 export function openedReducer(
@@ -47,6 +49,10 @@ export function openedReducer(
             return Object.assign({}, state, { searchContainerOpened: true });
         case LayoutActionTypes.CLOSE_SEARCH_CONTAINER:
             return Object.assign({}, state, { searchContainerOpened: false });
+        case LayoutActionTypes.OPEN_REGION_CONTAINER:
+            return Object.assign({}, state, { regionContainerOpened: true });
+        case LayoutActionTypes.CLOSE_REGION_CONTAINER:
+            return Object.assign({}, state, { regionContainerOpened: false });
         default:
             return state
 

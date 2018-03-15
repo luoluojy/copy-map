@@ -22,6 +22,7 @@ export class BottomContainerWatchDirective {
         let elem: any = document.querySelector('#bottom-container');
         elem.style.width = document.body.clientWidth + 'px';
         elem.style.height = "180px";
+        elem.style.zIndex="2";
         elem.style.backgroundColor = "white";
 
         let expandBottom = window.getComputedStyle(expand, null).bottom
