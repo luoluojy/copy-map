@@ -52,8 +52,8 @@ export class NoticeContainerToggleDirective {
       this.regionContainerState=state.regionContainerOpened;
       this.searchContainerState=state.searchContainerOpened;
       this.sidenavState=state.sidenavOpened;
-      this.toolsState=this.toolsState;
-      this.userState=this.userState;
+      this.toolsState=state.toolsOpened;
+      this.userState=state.userOpened;
     })
   }
 
