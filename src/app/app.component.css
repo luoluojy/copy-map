@@ -7,8 +7,8 @@ header{
 }
 header > ul{
     position:absolute;
-    right:110px;
-    top:10px;
+    right:120px;
+    top:20px;
     background-color:white;
 }
 header > ul li{
@@ -29,8 +29,8 @@ ul{
 }
 #notice{
     position:absolute;
-    right:60px;
-    top:10px;
+    right:70px;
+    top:20px;
     background-color:white;
     font-size:12px;
     padding:8px;
@@ -44,15 +44,15 @@ ul{
     height:40px;
     width:40px;
     position:absolute;
-    top:8px;
-    right:10px;
+    top:18px;
+    right:20px;
     margin-left:20px;
     background-color:white
 }
 #nav-bar{
     position:absolute;
-    top:10px;
-    left:10px;
+    top:20px;
+    left:20px;
     background-color:white;    
     box-shadow: 1px 2px 1px rgba(0,0,0,.15);
 }
@@ -70,28 +70,36 @@ ul{
     top:0px;
     left:0px;
 }
+
 #dataview{
     position:absolute;
-    bottom:0px;
-    right:10px;
+    bottom:20px;
+    right:30px;
+    padding:5px 0px;
     font-size:12px;
+    text-align: center;
+    width:100px;
+    color:white;
+    background-color: rgba(47,53,60,.8);
 }
+
+#dataview:hover{
+    cursor: pointer;
+}
+
 footer{
     position:absolute;
     left:0px;
     bottom:0px;
-    height:22px;
-    width:600px;
-    height:22px;
+    height:18px;
+    width:560px;
     background-color: rgba(47,53,60,.8);
     z-index: 1;
 }
 footer span{
     position:absolute;
-    bottom:0px;
-    left:140px;
+    left:20px;
     font-size:12px;
-    line-height:22px;
     text-align:left;
     color:white;
 }

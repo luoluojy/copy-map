@@ -34,26 +34,25 @@ export class SidenavWatchDirective implements OnInit {
         footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 400 + 'px'
         let store = this.store;
         let sidenavState = state.sidenavOpened;
-        let elemref=this.elementRef;
+        let elemref = this.elementRef;
         setTimeout(function () {
           document.onclick = function (e) {
             let el = document.querySelector('section');
-            let elems=elemref.nativeElement.getElementsByTagName('*');
-            let i=0;
-            for(;i<elems.length;i++){
-              if((e.target==elems[i]&&sidenavState)||e.target==el){
+            let elems = elemref.nativeElement.getElementsByTagName('*');
+            let i = 0;
+            for (; i < elems.length; i++) {
+              if ((e.target == elems[i] && sidenavState) || e.target == el) {
                 break;
               }
             }
-              if (i==elems.length && sidenavState) {
-                console.log(e.target,elems);
-                let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-                let footerLeft = window.getComputedStyle(footer, null).left;
-                let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
-                distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 400 + 'px';
-                footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 400 + 'px'
-                store.dispatch(new CloseSidenavAction());
-              }
+            if (i == elems.length && sidenavState) {
+              let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+              let footerLeft = window.getComputedStyle(footer, null).left;
+              let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
+              distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 400 + 'px';
+              footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 400 + 'px'
+              store.dispatch(new CloseSidenavAction());
+            }
 
           }
         }, 100)

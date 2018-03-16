@@ -2,24 +2,39 @@ import { Directive, Input, HostListener } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
-import { OpenMapsAction, OpenSearchContainerAction, CloseSearchContainerAction, CloseMapsAction,CloseToolsAction,CloseUserAction,CloseBottomContainerAction } from '../../common/action';
+import {
+  OpenSearchContainerAction,
+  CloseBottomContainerAction, CloseMapsAction, CloseToolsAction, CloseUserAction,
+  CloseNoticeContainerAction, CloseRegionContainerAction, CloseSearchContainerAction,
+  CloseSidenavAction
+}
+  from '../../common/action';
 
 @Directive({
   selector: '[appSearchContainerToggle]'
 })
 export class SearchContainerToggleDirective {
 
+
+  bottomContainerState: boolean;
+  sidenavState: boolean;
   toolsState: boolean;
   mapsState: boolean;
   userState: boolean;
-  bottomContainerState: boolean;
-  searchContainerState:boolean;
+  searchContainerState: boolean;
+  regionContainerState: boolean;
+  noticeContainerState: boolean;
 
   @HostListener('click', ['$event']) onClick(e) {
     if (!this.searchContainerState) {
-      if(this.userState) {this.store.dispatch(new CloseUserAction());}
-      if(this.mapsState) {this.store.dispatch(new CloseMapsAction());}
-      if(this.bottomContainerState) {this.store.dispatch(new CloseBottomContainerAction());}
+      if(this.userState){this.store.dispatch(new CloseUserAction());}
+      if(this.toolsState){this.store.dispatch(new CloseToolsAction());}
+      if(this.mapsState){this.store.dispatch(new CloseMapsAction());}
+      if(this.sidenavState){this.store.dispatch(new CloseSidenavAction());}
+      if(this.bottomContainerState){this.store.dispatch(new CloseBottomContainerAction());}
+      if(this.regionContainerState){this.store.dispatch(new CloseRegionContainerAction());}
+      if(this.noticeContainerState){this.store.dispatch(new CloseNoticeContainerAction());}
+
       this.store.dispatch(new OpenSearchContainerAction());
     } else {
       this.store.dispatch(new CloseSearchContainerAction());
@@ -28,11 +43,14 @@ export class SearchContainerToggleDirective {
 
   constructor(private store: Store<AppState>) {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
-      this.toolsState = state.toolsOpened;
-      this.mapsState = state.mapsOpened;
-      this.userState = state.userOpened;
       this.bottomContainerState = state.bottomContainerOpened;
-      this.searchContainerState = state.searchContainerOpened;
+      this.mapsState=state.mapsOpened;
+      this.noticeContainerState=state.noticeContainerOpened;
+      this.regionContainerState=state.regionContainerOpened;
+      this.searchContainerState=state.searchContainerOpened;
+      this.sidenavState=state.sidenavOpened;
+      this.toolsState=this.toolsState;
+      this.userState=this.userState;
     })
   }
 }

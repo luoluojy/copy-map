@@ -2,49 +2,49 @@ import { Directive, ElementRef, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
 
-import { CloseRegionContainerAction } from '../../common/action';
-
+import { CloseNoticeContainerAction } from '../../common/action';
 @Directive({
-  selector: '[appRegionContainerWatch]'
+  selector: '[appNoticeContainerWatch]'
 })
-export class RegionContainerWatchDirective {
+export class NoticeContainerWatchDirective {
 
 
   constructor(private elementRef: ElementRef, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
-      if (state.regionContainerOpened) {
+      if (state.noticeContainerOpened) {
         // 打开侧边导航栏
-        let elem: any = document.querySelector('#region-container');
+        let elem: any = document.querySelector('#notice-container');
         elem.style.width = "250px";
         elem.style.height= "200px";
         elem.style.backgroundColor="white";
         let store = this.store;
-        let regionContainerState = state.regionContainerOpened;
+        let noticeContainerState = state.noticeContainerOpened;
         let elemref=this.elementRef;
         setTimeout(function () {
           document.onclick = function (e) {
-            let el = document.querySelector('#region-container');
+            let el = document.querySelector('#notice-container');
             let elems = elemref.nativeElement.getElementsByTagName('*');
             let i = 0;
             for (; i < elems.length; i++) {
-              if ((e.target == elems[i] && regionContainerState) || e.target == el) {
+              if ((e.target == elems[i] && noticeContainerState) || e.target == el) {
                 break;
               }
             }
 
-            if (i==elems.length && regionContainerState) {
-              store.dispatch(new CloseRegionContainerAction());
+            if (i==elems.length && noticeContainerState) {
+              store.dispatch(new CloseNoticeContainerAction());
             }
           }
         }, 100)
       } else {
         document.onclick=null;
-        let elem: any = document.querySelector('#region-container');
+        let elem: any = document.querySelector('#notice-container');
         elem.style.width = "0px";
         elem.style.height= "0px";
       }
     })
   }
+
 }

@@ -26,14 +26,14 @@ export class BottomContainerWatchDirective {
         elem.style.backgroundColor = "white";
 
         let expandBottom = window.getComputedStyle(expand, null).bottom
-        let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) + 220 + 'px';
+        let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) + 190 + 'px';
         expand.style.bottom = newExpandBottom;
 
         let compassBottom = window.getComputedStyle(compass, null).bottom
-        let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) + 220 + 'px';
+        let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) + 190 + 'px';
         compass.style.bottom = newCompassBottom;
         let navigationControlsBottom = window.getComputedStyle(navigation_controls, null).bottom
-        let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) + 220 + 'px';
+        let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) + 190 + 'px';
         navigation_controls.style.bottom = newNavigationControlsBottom;
 
         let store = this.store;
@@ -53,14 +53,14 @@ export class BottomContainerWatchDirective {
         elem.style.height = "0px";
         let expandBottom = window.getComputedStyle(expand, null).bottom;
         if (parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 200 > 0) {
-          let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 220 + 'px';
+          let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 190 + 'px';
           expand.style.bottom = newExpandBottom;
 
           let compassBottom = window.getComputedStyle(compass, null).bottom
-          let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) - 220 + 'px';
+          let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) - 190 + 'px';
           compass.style.bottom = newCompassBottom;
           let navigationControlsBottom = window.getComputedStyle(navigation_controls, null).bottom
-          let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) - 220 + 'px';
+          let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) - 190 + 'px';
           navigation_controls.style.bottom = newNavigationControlsBottom;
 
         }

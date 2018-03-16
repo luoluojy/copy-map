@@ -2,27 +2,41 @@ import { Directive, Input, HostListener,ElementRef } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
-import { OpenToolsAction, CloseToolsAction,CloseUserAction,CloseMapsAction,CloseBottomContainerAction ,CloseRegionContainerAction} from '../../common/action';
+import {
+  OpenToolsAction,
+  CloseBottomContainerAction, CloseMapsAction, CloseToolsAction, CloseUserAction,
+  CloseNoticeContainerAction, CloseRegionContainerAction, CloseSearchContainerAction,
+  CloseSidenavAction
+}
+  from '../../common/action';
 
 @Directive({
   selector: '[appToolsToggle]'
 })
 export class ToolsToggleDirective {
 
+
+  bottomContainerState: boolean;
+  sidenavState: boolean;
   toolsState: boolean;
   mapsState: boolean;
   userState: boolean;
-  bottomContainerState: boolean;
-  regionContainerState:boolean;
+  searchContainerState: boolean;
+  regionContainerState: boolean;
+  noticeContainerState: boolean;
   
   @HostListener('click', ['$event']) onClick(e) {
       let mapDiv=this.elementRef.nativeElement;
       let is=mapDiv.getElementsByTagName("i");
     if (!this.toolsState) {
-      if(this.userState) {this.store.dispatch(new CloseUserAction());}
-      if(this.mapsState) {this.store.dispatch(new CloseMapsAction());}
-      if(this.bottomContainerState) {this.store.dispatch(new CloseBottomContainerAction());}
-      if(this.regionContainerState) {this.store.dispatch(new CloseRegionContainerAction());}
+      if(this.userState){this.store.dispatch(new CloseUserAction());}
+      if(this.bottomContainerState){this.store.dispatch(new CloseBottomContainerAction());}
+      if(this.mapsState){this.store.dispatch(new CloseMapsAction());}
+      if(this.sidenavState){this.store.dispatch(new CloseSidenavAction());}
+      if(this.searchContainerState){this.store.dispatch(new CloseSearchContainerAction());}
+      if(this.regionContainerState){this.store.dispatch(new CloseRegionContainerAction());}
+      if(this.noticeContainerState){this.store.dispatch(new CloseNoticeContainerAction());}
+
       this.store.dispatch(new OpenToolsAction());
       mapDiv.style.color="#0C88E8";
       is[1].setAttribute("class","fas fa-angle-up  fa-lg")
@@ -35,11 +49,14 @@ export class ToolsToggleDirective {
 
   constructor(private elementRef:ElementRef,private store: Store<AppState>) {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
-      this.toolsState = state.toolsOpened;
-      this.mapsState = state.mapsOpened;
-      this.userState = state.userOpened;
       this.bottomContainerState = state.bottomContainerOpened;
-      this.regionContainerState = state.regionContainerOpened;
+      this.mapsState=state.mapsOpened;
+      this.noticeContainerState=state.noticeContainerOpened;
+      this.regionContainerState=state.regionContainerOpened;
+      this.searchContainerState=state.searchContainerOpened;
+      this.sidenavState=state.sidenavOpened;
+      this.toolsState=this.toolsState;
+      this.userState=this.userState;
     })
   }
 

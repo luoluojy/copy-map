@@ -1,9 +1,9 @@
-import { Directive, Input, HostListener } from '@angular/core';
+import { Directive, Input, HostListener, ElementRef } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
 import {
-  OpenSidenavAction,
+  OpenNoticeContainerAction,
   CloseBottomContainerAction, CloseMapsAction, CloseToolsAction, CloseUserAction,
   CloseNoticeContainerAction, CloseRegionContainerAction, CloseSearchContainerAction,
   CloseSidenavAction
@@ -11,10 +11,11 @@ import {
   from '../../common/action';
 
 @Directive({
-  selector: '[appSidernavToggle]'
+  selector: '[appNoticeContainerToggle]'
 })
-export class SidernavToggleDirective {
-
+export class NoticeContainerToggleDirective {
+  
+ 
   bottomContainerState: boolean;
   sidenavState: boolean;
   toolsState: boolean;
@@ -24,24 +25,26 @@ export class SidernavToggleDirective {
   regionContainerState: boolean;
   noticeContainerState: boolean;
 
-
   @HostListener('click', ['$event']) onClick(e) {
-    if (!this.sidenavState) {
+      let mapDiv=this.elementRef.nativeElement;
+    if (!this.noticeContainerState) {
       if(this.userState){this.store.dispatch(new CloseUserAction());}
       if(this.toolsState){this.store.dispatch(new CloseToolsAction());}
       if(this.mapsState){this.store.dispatch(new CloseMapsAction());}
-      if(this.bottomContainerState){this.store.dispatch(new CloseBottomContainerAction());}
+      if(this.sidenavState){this.store.dispatch(new CloseSidenavAction());}
       if(this.searchContainerState){this.store.dispatch(new CloseSearchContainerAction());}
       if(this.regionContainerState){this.store.dispatch(new CloseRegionContainerAction());}
-      if(this.noticeContainerState){this.store.dispatch(new CloseNoticeContainerAction());}
+      if(this.bottomContainerState){this.store.dispatch(new CloseBottomContainerAction());}
 
-      this.store.dispatch(new OpenSidenavAction());
+      this.store.dispatch(new OpenNoticeContainerAction());
+      mapDiv.style.color="#0C88E8";
     } else {
-      this.store.dispatch(new CloseSidenavAction());
+      mapDiv.style.color="#9A9A9A";
+      this.store.dispatch(new CloseNoticeContainerAction());
     }
   }
 
-  constructor(private store: Store<AppState>) {
+  constructor(private elementRef:ElementRef,private store: Store<AppState>) {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
       this.bottomContainerState = state.bottomContainerOpened;
       this.mapsState=state.mapsOpened;

@@ -20,7 +20,7 @@
       </div>
     </li>
   </ul>
-  <div id="notice" title="通知" appUserToggle>
+  <div id="notice" title="通知" appNoticeContainerToggle>
     <i class="fas fa-comment-alt fa-lg"></i>
   </div>
   <div id="user-center" title="用户中心" appUserToggle>
@@ -45,15 +45,16 @@
 <app-region-container></app-region-container>
 <app-tools></app-tools>
 <app-maps></app-maps>
+<app-notice-container></app-notice-container>
 <app-user></app-user>
 <app-sidenav></app-sidenav>
 <app-search-container></app-search-container>
 <app-bottom-container></app-bottom-container>
 
-<button id="dataview" appBottomContainerToggle title="展开" class="unfocus">
+<div id="dataview" appBottomContainerToggle title="展开" class="unfocus">
   展开
   <i class="fas fa-angle-double-up"></i>
-</button>
+</div>
 
 <footer>
   <span>Copyright &copy;1902-2018 南京师范大学•虚拟地理环境教育部重点实验室 版权所有</span>

@@ -24,6 +24,9 @@ import { SearchContainerComponent } from './core/components/search-container/sea
 import { RegionContainerComponent } from './core/components/region-container/region-container.component';
 import { RegionContainerWatchDirective } from './core/directives/region-container-watch.directive';
 import { RegionContainerToggleDirective } from './core/directives/region-container-toggle.directive';
+import { NoticeContainerComponent } from './core/components/notice-container/notice-container.component';
+import { NoticeContainerToggleDirective } from './core/directives/notice-container-toggle.directive';
+import { NoticeContainerWatchDirective } from './core/directives/notice-container-watch.directive';
 
 
 @NgModule({
@@ -47,6 +50,9 @@ import { RegionContainerToggleDirective } from './core/directives/region-contain
     RegionContainerComponent,
     RegionContainerWatchDirective,
     RegionContainerToggleDirective,
+    NoticeContainerComponent,
+    NoticeContainerToggleDirective,
+    NoticeContainerWatchDirective,
   ],
   imports: [
     BrowserModule,
