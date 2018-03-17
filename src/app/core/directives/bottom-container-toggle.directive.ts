@@ -26,6 +26,12 @@ export class BottomContainerToggleDirective {
 
   @HostListener('click', ['$event']) onClick(e) {
     if (!this.bottomContainerState) {
+      let mapDivs: any = document.querySelectorAll('.map-bar');
+      for(let i=0;i<mapDivs.length;i++){
+        let is = mapDivs[i].getElementsByTagName("i");
+        mapDivs[i].style.color = "#9A9A9A";
+        is[1].setAttribute("class", "fas fa-angle-down  fa-lg");
+      }
       if(this.userState){this.store.dispatch(new CloseUserAction());}
       if(this.toolsState){this.store.dispatch(new CloseToolsAction());}
       if(this.mapsState){this.store.dispatch(new CloseMapsAction());}

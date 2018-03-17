@@ -31,10 +31,20 @@ export class ToolsToggleDirective {
     if (!this.toolsState) {
       if(this.userState){this.store.dispatch(new CloseUserAction());}
       if(this.bottomContainerState){this.store.dispatch(new CloseBottomContainerAction());}
-      if(this.mapsState){this.store.dispatch(new CloseMapsAction());}
+      if(this.mapsState){
+        let mapDiv: any = document.querySelectorAll('.map-bar')[1];
+        let is = mapDiv.getElementsByTagName("i");
+        mapDiv.style.color = "#9A9A9A";
+        is[1].setAttribute("class", "fas fa-angle-down  fa-lg");
+        this.store.dispatch(new CloseMapsAction());}
       if(this.sidenavState){this.store.dispatch(new CloseSidenavAction());}
       if(this.searchContainerState){this.store.dispatch(new CloseSearchContainerAction());}
-      if(this.regionContainerState){this.store.dispatch(new CloseRegionContainerAction());}
+      if(this.regionContainerState){
+        let mapDiv: any = document.querySelectorAll('.map-bar')[0];
+        let is = mapDiv.getElementsByTagName("i");
+        mapDiv.style.color = "#9A9A9A";
+        is[1].setAttribute("class", "fas fa-angle-down  fa-lg");
+        this.store.dispatch(new CloseRegionContainerAction());}
       if(this.noticeContainerState){this.store.dispatch(new CloseNoticeContainerAction());}
 
       this.store.dispatch(new OpenToolsAction());

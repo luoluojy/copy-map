@@ -26,12 +26,15 @@ export class ToolsWatchDirective {
           document.onclick = function (e) {
             let el = document.querySelector('#tools');
             if (e.target !== el && toolsState) {
+              let mapDiv: any = document.querySelectorAll('.map-bar')[2];
+              let is = mapDiv.getElementsByTagName("i");
+              mapDiv.style.color = "#9A9A9A";
+              is[1].setAttribute("class", "fas fa-angle-down  fa-lg")
               store.dispatch(new CloseToolsAction());
             }
           }
         }, 100)
       } else {
-        document.onclick=null;
         let elem: any = document.querySelector('#tools');
         elem.style.width = "0px";
         elem.style.height= "0px";

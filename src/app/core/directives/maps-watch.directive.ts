@@ -24,6 +24,10 @@ export class MapsWatchDirective {
           document.onclick = function (e) {
             let el = document.querySelector('#maps');
             if (e.target !== el && mapsState) {
+              let mapDiv: any = document.querySelectorAll('.map-bar')[1];
+              let is = mapDiv.getElementsByTagName("i");
+              mapDiv.style.color = "#9A9A9A";
+              is[1].setAttribute("class", "fas fa-angle-down  fa-lg")
               store.dispatch(new CloseMapsAction());
             }
           }

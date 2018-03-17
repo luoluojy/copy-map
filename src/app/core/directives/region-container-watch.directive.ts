@@ -18,11 +18,11 @@ export class RegionContainerWatchDirective {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#region-container');
         elem.style.width = "250px";
-        elem.style.height= "200px";
-        elem.style.backgroundColor="white";
+        elem.style.height = "200px";
+        elem.style.backgroundColor = "white";
         let store = this.store;
         let regionContainerState = state.regionContainerOpened;
-        let elemref=this.elementRef;
+        let elemref = this.elementRef;
         setTimeout(function () {
           document.onclick = function (e) {
             let el = document.querySelector('#region-container');
@@ -34,16 +34,20 @@ export class RegionContainerWatchDirective {
               }
             }
 
-            if (i==elems.length && regionContainerState) {
+            if (i == elems.length && regionContainerState) {
+              let mapDiv: any = document.querySelectorAll('.map-bar')[0];
+              let is = mapDiv.getElementsByTagName("i");
+              mapDiv.style.color = "#9A9A9A";
+              is[1].setAttribute("class", "fas fa-angle-down  fa-lg")
               store.dispatch(new CloseRegionContainerAction());
             }
           }
         }, 100)
       } else {
-        document.onclick=null;
+        document.onclick = null;
         let elem: any = document.querySelector('#region-container');
         elem.style.width = "0px";
-        elem.style.height= "0px";
+        elem.style.height = "0px";
       }
     })
   }
