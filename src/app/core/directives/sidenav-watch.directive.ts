@@ -38,14 +38,17 @@ export class SidenavWatchDirective implements OnInit {
         setTimeout(function () {
           document.onclick = function (e) {
             let el = document.querySelector('section');
+            let btn= el.querySelector('button i');
             let elems = elemref.nativeElement.getElementsByTagName('*');
             let i = 0;
+            let flag=false;
             for (; i < elems.length; i++) {
+              if(e.target==btn){flag=true;break;}
               if ((e.target == elems[i] && sidenavState) || e.target == el) {
                 break;
               }
             }
-            if (i == elems.length && sidenavState) {
+            if ((i == elems.length && sidenavState)||flag) {
               let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
               let footerLeft = window.getComputedStyle(footer, null).left;
               let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
