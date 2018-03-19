@@ -31,7 +31,6 @@ export class UserWatchDirective {
           }
         }, 100)
       } else {
-        document.onclick=null;
         let elem: any = document.querySelector('#user');
         elem.style.width = "0px";
         elem.style.height= "0px";

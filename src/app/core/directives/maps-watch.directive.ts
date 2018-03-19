@@ -16,23 +16,27 @@ export class MapsWatchDirective {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#maps');
         elem.style.width = "100px";
-        elem.style.height= "200px";
-        elem.style.backgroundColor="white";
+        elem.style.height = "200px";
+        elem.style.backgroundColor = "white";
         let store = this.store;
         let mapsState = state.mapsOpened;
         setTimeout(function () {
           document.onclick = function (e) {
             let el = document.querySelector('#maps');
             if (e.target !== el && mapsState) {
+              let mapDiv: any = document.querySelectorAll('.map-bar')[1];
+              let is = mapDiv.getElementsByTagName("i");
+              mapDiv.style.color = "#9A9A9A";
+              is[1].setAttribute("class", "fas fa-angle-down  fa-lg")
               store.dispatch(new CloseMapsAction());
             }
           }
         }, 100)
       } else {
-        document.onclick=null;
+        document.onclick = null;
         let elem: any = document.querySelector('#maps');
         elem.style.width = "0px";
-        elem.style.height= "0px";
+        elem.style.height = "0px";
       }
     })
   }

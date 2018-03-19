@@ -3,16 +3,18 @@ import { Directive, Input, HostListener, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
 import {
-  OpenMapsAction,
+  OpenRegionContainerAction,
   CloseBottomContainerAction, CloseMapsAction, CloseToolsAction, CloseUserAction,
   CloseNoticeContainerAction, CloseRegionContainerAction, CloseSearchContainerAction,
   CloseSidenavAction
 }
   from '../../common/action';
+
 @Directive({
-  selector: '[appMapsToggle]'
+  selector: '[appRegionContainerToggle]'
 })
-export class MapsToggleDirective {
+export class RegionContainerToggleDirective {
+  
 
   bottomContainerState: boolean;
   sidenavState: boolean;
@@ -26,7 +28,7 @@ export class MapsToggleDirective {
   @HostListener('click', ['$event']) onClick(e) {
       let mapDiv=this.elementRef.nativeElement;
       let is=mapDiv.getElementsByTagName("i");
-    if (!this.mapsState) {
+    if (!this.regionContainerState) {
       let mapDivs: any = document.querySelectorAll('.map-bar');
       for(let i=0;i<mapDivs.length;i++){
         let is = mapDivs[i].getElementsByTagName("i");
@@ -35,19 +37,19 @@ export class MapsToggleDirective {
       }
       if(this.userState){this.store.dispatch(new CloseUserAction());}
       if(this.toolsState){this.store.dispatch(new CloseToolsAction());}
-      if(this.bottomContainerState){this.store.dispatch(new CloseBottomContainerAction());}
+      if(this.mapsState){this.store.dispatch(new CloseMapsAction());}
       if(this.sidenavState){this.store.dispatch(new CloseSidenavAction());}
       if(this.searchContainerState){this.store.dispatch(new CloseSearchContainerAction());}
-      if(this.regionContainerState){this.store.dispatch(new CloseRegionContainerAction());}
+      if(this.bottomContainerState){this.store.dispatch(new CloseBottomContainerAction());}
       if(this.noticeContainerState){this.store.dispatch(new CloseNoticeContainerAction());}
 
-      this.store.dispatch(new OpenMapsAction());
+      this.store.dispatch(new OpenRegionContainerAction());
       mapDiv.style.color="#0C88E8";
       is[1].setAttribute("class","fas fa-angle-up  fa-lg")
     } else {
       mapDiv.style.color="#9A9A9A";
       is[1].setAttribute("class","fas fa-angle-down  fa-lg")
-      this.store.dispatch(new CloseMapsAction());
+      this.store.dispatch(new CloseRegionContainerAction());
     }
   }
 
@@ -63,4 +65,5 @@ export class MapsToggleDirective {
       this.userState=state.userOpened;
     })
   }
+
 }

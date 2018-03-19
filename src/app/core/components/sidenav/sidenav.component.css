@@ -3,6 +3,5 @@ section{
     background-color: white;
     position: absolute;
     top:0px;
-    z-index: 1;
     overflow:auto;
 }
