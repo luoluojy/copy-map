@@ -15,7 +15,7 @@ export class SearchContainerWatchDirective {
   ngOnInit() {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
       let elem: any = document.querySelector('#search-container');
-      // let collapse:any=document.querySelector('#collapse');
+      let collapse: any = document.querySelector('#collapse');
       let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
       let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
       let footer = <HTMLElement>document.querySelector('footer');
@@ -24,7 +24,7 @@ export class SearchContainerWatchDirective {
       let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
       if (state.searchContainerOpened) {
         // 打开侧边导航栏
-        //  collapse.style.width="20px";
+        collapse.style.width = "20px";
         elem.style.width = "400px";
         let store = this.store;
         console.log(parseInt(footerLeft.substr(0, footerLeft.length - 2), 10));
@@ -40,19 +40,19 @@ export class SearchContainerWatchDirective {
             let el = document.querySelector('#search-container');
             let search = document.querySelector('#search i');
             let btn = el.querySelector('div i');
-            let input=document.querySelector('#nav-bar input')
+            let input = document.querySelector('#nav-bar input')
             let elems = elemref.nativeElement.getElementsByTagName('*');
             let i = 0;
 
             let flag = false;
             for (; i < elems.length; i++) {
-              if (e.target == search || e.target==input ) { break; }
+              if (e.target == search || e.target == input) { break; }
               if (e.target == btn) { flag = true; break; }
               if ((e.target == elems[i] && searchContainerState) || e.target == el) {
                 break;
               }
             }
-            if ((elems.length!=0)&&((i == elems.length && searchContainerState) || flag)) {
+            if ((elems.length != 0) && ((i == elems.length && searchContainerState) || flag)) {
               let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
               let footerLeft = window.getComputedStyle(footer, null).left;
               let footerSpanLeft = window.getComputedStyle(footer_span, null).left;

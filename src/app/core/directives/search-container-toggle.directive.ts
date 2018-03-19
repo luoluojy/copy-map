@@ -3,7 +3,7 @@ import { Directive, Input, HostListener } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../common/reducer';
 import {
-  OpenSearchContainerAction,
+  OpenSearchContainerAction,OpenBottomContainerAction,
   CloseBottomContainerAction, CloseMapsAction, CloseToolsAction, CloseUserAction,
   CloseNoticeContainerAction, CloseRegionContainerAction, CloseSearchContainerAction,
   CloseSidenavAction
@@ -43,6 +43,7 @@ export class SearchContainerToggleDirective {
       if(this.noticeContainerState){this.store.dispatch(new CloseNoticeContainerAction());}
 
       this.store.dispatch(new OpenSearchContainerAction());
+      this.store.dispatch(new OpenBottomContainerAction());
     } else {
       let serachContent=document.getElementById('search-container').querySelector('h3');
       serachContent.innerText=Math.random().toString();
