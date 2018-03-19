@@ -16,8 +16,8 @@ export class NoticeContainerWatchDirective {
       if (state.noticeContainerOpened) {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#notice-container');
-        elem.style.width = "250px";
-        elem.style.height= "200px";
+        elem.style.width = "499px";
+        elem.style.height= "468px";
         elem.style.backgroundColor="white";
         let store = this.store;
         let noticeContainerState = state.noticeContainerOpened;

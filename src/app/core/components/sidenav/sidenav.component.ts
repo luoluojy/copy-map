@@ -1,5 +1,10 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../common/reducer';
+
+import { CloseSidenavAction } from '../../../common/action';
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
@@ -7,8 +12,26 @@ import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor(private elementRef:ElementRef) { }
+  panel: HTMLElement;
 
-  ngOnInit() {}
+  constructor(private elementRef: ElementRef, private store: Store<AppState>) {
+
+  }
+
+  ngOnInit() {
+    this.panel = this.elementRef.nativeElement.children[0];
+    // this.initClickEvent();
+  }
+
+  initClickEvent() {
+    let closeBtn = this.panel.querySelector('button');
+    let closeIcon = this.panel.querySelector('i');
+    closeBtn.addEventListener('click', () => {
+      this.store.dispatch(new CloseSidenavAction());
+    });
+    closeIcon.addEventListener('click', () => {
+      this.store.dispatch(new CloseSidenavAction());
+    });
+  }
 
 }

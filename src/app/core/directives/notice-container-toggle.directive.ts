@@ -31,7 +31,6 @@ export class NoticeContainerToggleDirective {
       let mapDivs: any = document.querySelectorAll('.map-bar');
       for(let i=0;i<mapDivs.length;i++){
         let is = mapDivs[i].getElementsByTagName("i");
-        mapDivs[i].style.color = "#9A9A9A";
         is[1].setAttribute("class", "fas fa-angle-down  fa-lg");
       }
       if(this.userState){this.store.dispatch(new CloseUserAction());}

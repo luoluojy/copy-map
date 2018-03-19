@@ -16,9 +16,9 @@ export class SidenavWatchDirective implements OnInit {
       let elem2 = document.getElementById('overlay');
       let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
       let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-      let footer = <HTMLElement>document.querySelector('footer');
+      let footer = <HTMLElement>document.querySelector('#footer');
       let footerLeft = window.getComputedStyle(footer, null).left;
-      let footer_span = <HTMLElement>document.querySelector('footer > span');
+      let footer_span = <HTMLElement>document.querySelector('#footer > span');
       let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
       if (state.sidenavOpened) {
         // 打开侧边导航栏
@@ -51,6 +51,7 @@ export class SidenavWatchDirective implements OnInit {
               }
             }
             if ((i == elems.length && sidenavState) || flag) {
+              
               let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
               let footerLeft = window.getComputedStyle(footer, null).left;
               let footerSpanLeft = window.getComputedStyle(footer_span, null).left;

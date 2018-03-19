@@ -1,17 +1,8 @@
-header{
-    position:absolute;
-    width:100%;
-    top:0px;
-    left:0px;
-    z-index:1;
+
+#map{
+    position:absolute;top:20px;right:120px;background-color:white;z-index:1;
 }
-header > ul{
-    position:absolute;
-    right:120px;
-    top:20px;
-    background-color:white;
-}
-header > ul li{
+#map li{
     list-style: none;
     float:left;
     margin:0 10px;
@@ -47,6 +38,7 @@ ul{
     top:18px;
     right:20px;
     margin-left:20px;
+    color:#3C82FF;
     background-color:white
 }
 #nav-bar{
@@ -54,7 +46,9 @@ ul{
     top:20px;
     left:20px;
     background-color:white;    
+    z-index:3;
     box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+    overflow: auto;
 }
 
 #nav-bar button, input{
@@ -81,13 +75,14 @@ ul{
     width:100px;
     color:white;
     background-color: rgba(47,53,60,.8);
+    z-index:1;
 }
 
 #dataview:hover{
     cursor: pointer;
 }
 
-footer{
+#footer{
     position:absolute;
     left:0px;
     bottom:0px;
@@ -96,7 +91,7 @@ footer{
     background-color: rgba(47,53,60,.8);
     z-index: 1;
 }
-footer span{
+#footer span{
     position:absolute;
     left:20px;
     font-size:12px;

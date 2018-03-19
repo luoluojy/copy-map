@@ -20,11 +20,15 @@ export class BottomContainerWatchDirective {
       if (state.bottomContainerOpened) {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#bottom-container');
+    
         elem.style.width = document.body.clientWidth + 'px';
         elem.style.height = "180px";
-        elem.style.zIndex="2";
-        elem.style.backgroundColor = "white";
-
+        elem.style.backgroundColor = "#4285F4";   
+         if(state.searchContainerOpened){
+          let elemLeft = window.getComputedStyle(elem, null).left;
+          let newElemLeft = parseInt(elemLeft.substr(0, elemLeft.length - 2), 10) + 400 + 'px';
+          elem.style.left = newElemLeft;
+        }
         let expandBottom = window.getComputedStyle(expand, null).bottom
         let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) + 190 + 'px';
         expand.style.bottom = newExpandBottom;
@@ -38,19 +42,13 @@ export class BottomContainerWatchDirective {
 
         let store = this.store;
         let bottomContainerState = state.bottomContainerOpened;
-        setTimeout(function () {
-          document.onclick = function (e) {
-            let el = document.querySelector('#bottom-container');
-            if (e.target !== el && bottomContainerState) {
-              store.dispatch(new CloseBottomContainerAction());
-            }
-          }
-        }, 100)
+   
       } else {
         document.onclick = null;
         let elem: any = document.querySelector('#bottom-container');
         elem.style.width = "0px";
         elem.style.height = "0px";
+        elem.style.left="0px"
         let expandBottom = window.getComputedStyle(expand, null).bottom;
         if (parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 200 > 0) {
           let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 190 + 'px';

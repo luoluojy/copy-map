@@ -16,8 +16,8 @@ export class UserWatchDirective {
       if (state.userOpened) {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#user');
-        elem.style.width = "100px";
-        elem.style.height= "200px";
+        elem.style.width = "300px";
+        elem.style.height= "367px";
         elem.style.backgroundColor="white";
 
         let store = this.store;

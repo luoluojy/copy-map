@@ -17,8 +17,8 @@ export class RegionContainerWatchDirective {
       if (state.regionContainerOpened) {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#region-container');
-        elem.style.width = "250px";
-        elem.style.height = "200px";
+        elem.style.width = "310px";
+        elem.style.height = "400px";
         elem.style.backgroundColor = "white";
         let store = this.store;
         let regionContainerState = state.regionContainerOpened;
