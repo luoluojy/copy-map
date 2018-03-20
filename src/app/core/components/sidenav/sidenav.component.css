@@ -5,3 +5,15 @@ section{
     top:0px;
     overflow:auto;
 }
+section ul{
+    border-bottom: 1px solid #d9d9d9;
+}
+section ul li{
+    padding:5px;
+    font-size:12px;
+    line-height: 24px;
+    list-style-type: none;
+}
+section ul li:hover{
+    cursor: pointer;
+}

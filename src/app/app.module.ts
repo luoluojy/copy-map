@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { openedReducer} from './common/reducer'; 
 import { AppComponent } from './app.component';
+import { ResizableModule } from 'angular-resizable-element';
 
 import { MenuModule } from './core/modules/menu/menu.module';
 import { ToolsToggleDirective } from './core/directives/tools-toggle.directive';
@@ -57,7 +58,8 @@ import { NoticeContainerWatchDirective } from './core/directives/notice-containe
   imports: [
     BrowserModule,
     StoreModule.forRoot({opened:openedReducer}),
-    MenuModule
+    MenuModule,
+    ResizableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

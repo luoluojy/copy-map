@@ -27,6 +27,7 @@
     "@ngrx/schematics": "^5.1.0",
     "@ngrx/store": "^5.1.0",
     "@ngrx/store-devtools": "^5.1.0",
+    "angular-resizable-element": "^2.0.0",
     "bootstrap": "^4.0.0",
     "cesium": "^1.43.0",
     "cesiumnavigation": "^1.0.0",

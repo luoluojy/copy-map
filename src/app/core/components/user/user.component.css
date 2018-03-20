@@ -1,0 +1,12 @@
+#user ul{
+   margin:0px;
+   padding:0px;
+}
+#user ul li{
+    list-style-type: none;
+    padding:5px;
+}
+
+#user ul li:hover{
+    cursor: pointer;
+}

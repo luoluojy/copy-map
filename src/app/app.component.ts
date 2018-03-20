@@ -6,7 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { AppState } from './common/reducer';
 
-import { CloseSidenavAction, CloseToolsAction, CloseMapsAction, CloseUserAction } from './common/action';
+import { OpenRegionContainerAction, OpenMapsAction, OpenToolsAction,CloseSidenavAction, CloseToolsAction, CloseMapsAction, CloseUserAction } from './common/action';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
@@ -29,7 +29,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.initCesiumService.initCesium();
     this.blurElements();
-  
   }
 
   blurElements() {
@@ -41,4 +40,5 @@ export class AppComponent implements OnInit {
       }
     }
   }
+
 }

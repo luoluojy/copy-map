@@ -16,7 +16,7 @@ export class InitCesiumService {
       homeButton: false,
       timeline: false,
       navigationHelpButton: false,
-      baseLayerPicker: false,
+      baseLayerPicker: true,
       geocoder: false,
       sceneModePicker: false,
     });
