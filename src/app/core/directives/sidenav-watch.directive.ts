@@ -22,7 +22,7 @@ export class SidenavWatchDirective implements OnInit {
       let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
       if (state.sidenavOpened) {
         // 打开侧边导航栏
-        elem.style.width = "400px";
+        elem.style.width = "320px";
         elem.style.zIndex = "1023";
         elem.style.height = document.body.clientHeight + 'px'
         elem2.style.height = document.body.clientHeight + 'px'
@@ -31,8 +31,8 @@ export class SidenavWatchDirective implements OnInit {
         elem2.style.opacity = "0.3";
         elem2.style.zIndex = "3";
         if (parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) == 0) {
-          distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 400 + 'px'
-          footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 400 + 'px'
+          distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 320 + 'px'
+          footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 320 + 'px'
         }
         let store = this.store;
         let sidenavState = state.sidenavOpened;
@@ -51,12 +51,11 @@ export class SidenavWatchDirective implements OnInit {
               }
             }
             if ((i == elems.length && sidenavState) || flag) {
-              
               let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
               let footerLeft = window.getComputedStyle(footer, null).left;
               let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
-              distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 400 + 'px';
-              footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 400 + 'px'
+              distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 320 + 'px';
+              footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 320 + 'px'
               store.dispatch(new CloseSidenavAction());
             }
 

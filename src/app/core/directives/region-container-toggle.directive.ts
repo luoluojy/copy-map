@@ -47,8 +47,7 @@ export class RegionContainerToggleDirective {
       mapDiv.style.color="#0C88E8";
       is[1].setAttribute("class","fas fa-angle-up  fa-lg")
     } else {
-      mapDiv.style.color="#9A9A9A";
-      is[1].setAttribute("class","fas fa-angle-down  fa-lg")
+      
       this.store.dispatch(new CloseRegionContainerAction());
     }
   }

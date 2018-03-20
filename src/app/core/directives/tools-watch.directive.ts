@@ -16,8 +16,7 @@ export class ToolsWatchDirective {
       if (state.toolsOpened) {
         // 打开侧边导航栏
         let elem: any = document.querySelector('#tools');
-        elem.style.width = "80px";
-        elem.style.height= "100px";
+        elem.style.height= "160px";
         elem.style.backgroundColor="white";
 
         let store = this.store;
@@ -36,9 +35,7 @@ export class ToolsWatchDirective {
         }, 100)
       } else {
         let elem: any = document.querySelector('#tools');
-        elem.style.width = "0px";
         elem.style.height= "0px";
-
       }
     })
   }

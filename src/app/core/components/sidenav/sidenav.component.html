@@ -1,11 +1,19 @@
 <section appSidenavWatch>
-    <h3>Crime Analysis</h3>
-    <button appSidernavToggle class="unfocus" style="position:absolute;top:5px;right:5px;"><i class="fas fa-angle-double-left fa-lg"></i></button>
+    <div style="position:absolute;top:0px;left:0px;width:100%;height:50px;border-bottom:1px solid #d9d9d9"></div>
+    <h2>Crime Analysis</h2>
+    <button appSidernavToggle class="unfocus" style="position:absolute;top:5px;right:5px;">
+        <i class="fas fa-angle-double-left fa-lg"></i>
+    </button>
+
     <ul>
-        <li>卫星图像</li>
-        <li>实时路况</li>
-        <li>公交线路</li>
-        <li>骑车</li>
-        <li>地形</li>
-      </ul>
+        <li (click)="tests()">新建项目</li>
+        <li>打开项目</li>
+        <li>项目管理</li>
+        <li>目录内容</li>
+    </ul>
+
+    <ul>
+        <li>数据查询</li>
+        <li>数据分析</li>
+    </ul>
 </section>

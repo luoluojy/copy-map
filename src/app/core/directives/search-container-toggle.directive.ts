@@ -27,6 +27,7 @@ export class SearchContainerToggleDirective {
   noticeContainerState: boolean;
 
   @HostListener('click', ['$event']) onClick(e) {
+    console.log(1)
     if (!this.searchContainerState) {
       let mapDivs: any = document.querySelectorAll('.map-bar');
       for (let i = 0; i < mapDivs.length; i++) {
@@ -37,7 +38,10 @@ export class SearchContainerToggleDirective {
       if (this.userState) { this.store.dispatch(new CloseUserAction()); }
       if (this.toolsState) { this.store.dispatch(new CloseToolsAction()); }
       if (this.mapsState) { this.store.dispatch(new CloseMapsAction()); }
-      if (this.sidenavState) { this.store.dispatch(new CloseSidenavAction()); }
+      if (this.sidenavState) { 
+        this.store.dispatch(new CloseSidenavAction()); 
+      
+      }
       if (this.bottomContainerState) { this.store.dispatch(new CloseBottomContainerAction()); }
       if (this.regionContainerState) { this.store.dispatch(new CloseRegionContainerAction()); }
       if (this.noticeContainerState) { this.store.dispatch(new CloseNoticeContainerAction()); }
@@ -55,8 +59,8 @@ export class SearchContainerToggleDirective {
     let searchContainer = document.getElementById('search-container');
     let bottomContainer = document.getElementById('bottom-container');
     let searchContainerWidth = window.getComputedStyle(searchContainer, null).width;
-    let closeicon = document.getElementById('closeicon');
     
+      let collapseIcon: HTMLElement = <HTMLElement>collapse.querySelector('i');
     
            
     collapse.addEventListener('click', () => {
@@ -70,21 +74,21 @@ export class SearchContainerToggleDirective {
       if(navBar.style.width != "0px"){
         navBar.style.width = "0px"
         searchContainer.style.width = "0px";
-        closeicon.style.width = "0px";
         collapse.style.left="0px";
+        collapseIcon.setAttribute('class','fas fa-caret-right fa-lg')
         bottomContainer.style.height="0px"
-        distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 400 + 'px';
-        footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 400 + 'px'
+        distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 480 + 'px';
+        footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 480 + 'px'
       }else{
         navBar.style.width = navBarWidth
         searchContainer.style.width = searchContainerWidth;
-        closeicon.style.width = "20px";
-        collapse.style.left="400px";
+        collapse.style.left="480px";
+        collapseIcon.setAttribute('class','fas fa-caret-left fa-lg')
         bottomContainer.style.height="180px";
         bottomContainer.style.width = document.body.clientWidth + 'px';
-        bottomContainer.style.left =  '400px';
-        distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 400 + 'px';
-        footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 400 + 'px'
+        bottomContainer.style.left =  '480px';
+        distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 480 + 'px';
+        footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 480 + 'px'
         
       }
     

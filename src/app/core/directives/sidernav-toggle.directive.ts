@@ -52,8 +52,8 @@ export class SidernavToggleDirective {
       let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
       let footerLeft = window.getComputedStyle(footer, null).left;
       let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
-      distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 400 + 'px';
-      footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 400 + 'px'
+      distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 320 + 'px';
+      footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 320 + 'px'
       this.store.dispatch(new CloseSidenavAction());
 
     }

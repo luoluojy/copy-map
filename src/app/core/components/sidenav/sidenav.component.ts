@@ -3,7 +3,7 @@ import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../common/reducer';
 
-import { CloseSidenavAction } from '../../../common/action';
+import { OpenSearchContainerAction,CloseSidenavAction } from '../../../common/action';
 
 @Component({
   selector: 'app-sidenav',
@@ -32,6 +32,10 @@ export class SidenavComponent implements OnInit {
     closeIcon.addEventListener('click', () => {
       this.store.dispatch(new CloseSidenavAction());
     });
+  }
+  tests(){
+    this.store.dispatch(new CloseSidenavAction());
+    this.store.dispatch(new OpenSearchContainerAction())
   }
 
 }

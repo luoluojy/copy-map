@@ -16,8 +16,8 @@ export class RegionContainerWatchDirective {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
       if (state.regionContainerOpened) {
         // 打开侧边导航栏
+        console.log(1)
         let elem: any = document.querySelector('#region-container');
-        elem.style.width = "310px";
         elem.style.height = "400px";
         elem.style.backgroundColor = "white";
         let store = this.store;
@@ -46,7 +46,7 @@ export class RegionContainerWatchDirective {
       } else {
         document.onclick = null;
         let elem: any = document.querySelector('#region-container');
-        elem.style.width = "0px";
+       
         elem.style.height = "0px";
       }
     })

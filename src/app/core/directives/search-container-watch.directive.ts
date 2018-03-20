@@ -15,7 +15,8 @@ export class SearchContainerWatchDirective {
   ngOnInit() {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
       let elem: any = document.querySelector('#search-container');
-      let close = document.getElementById('closeicon');
+      let close = document.getElementById('close');
+      let direction = document.getElementById('direction');
       let collapse: HTMLElement = <HTMLElement>document.querySelector('#collapse');
       let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
       let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
@@ -25,16 +26,16 @@ export class SearchContainerWatchDirective {
       let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
       if (state.searchContainerOpened) {
         // 打开侧边导航栏
-        close.style.width = "20px";
+        direction.style.display="none"
+        close.style.display="inline-block"
         collapse.style.width = "20px";
+        elem.style.width = "480px";
 
-
-        elem.style.width = "400px";
         let store = this.store;
         if (parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) == 0) {
 
-          distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 400 + 'px'
-          footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 400 + 'px'
+          distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 480 + 'px'
+          footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 480 + 'px'
         }
         let searchContainerState = state.searchContainerOpened;
         let elemref = this.elementRef;
@@ -47,9 +48,7 @@ export class SearchContainerWatchDirective {
             let input = document.querySelector('#nav-bar input')
             let elems = elemref.nativeElement.getElementsByTagName('*');
             let i = 0;
-
-            
-            let closeicon = document.getElementById('closeicon');
+            let closeicon = document.getElementById('close');
             let childcloseicon = closeicon.querySelector('i');
 
             if (e.target == closeicon || e.target == childcloseicon) {
@@ -61,8 +60,8 @@ export class SearchContainerWatchDirective {
               let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
               let footerLeft = window.getComputedStyle(footer, null).left;
               let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
-              distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 400 + 'px';
-              footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 400 + 'px';
+              distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 480 + 'px';
+              footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 480 + 'px';
               store.dispatch(new CloseSearchContainerAction());
               let expand = <HTMLElement>document.getElementById('dataview');
               let compass = <HTMLElement>document.getElementsByClassName('compass')[0];
@@ -87,7 +86,8 @@ export class SearchContainerWatchDirective {
         }, 100)
       } else {
         elem.style.width = "0px";
-        close.style.width = "0px";
+        direction.style.display="inline-block"
+        close.style.display="none"
 
       }
     })
