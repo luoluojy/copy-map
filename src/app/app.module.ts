@@ -28,6 +28,7 @@ import { RegionContainerToggleDirective } from './core/directives/region-contain
 import { NoticeContainerComponent } from './core/components/notice-container/notice-container.component';
 import { NoticeContainerToggleDirective } from './core/directives/notice-container-toggle.directive';
 import { NoticeContainerWatchDirective } from './core/directives/notice-container-watch.directive';
+import { CommonClickDirective } from './core/directives/common-click.directive';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { NoticeContainerWatchDirective } from './core/directives/notice-containe
     NoticeContainerComponent,
     NoticeContainerToggleDirective,
     NoticeContainerWatchDirective,
+    CommonClickDirective,
   ],
   imports: [
     BrowserModule,
