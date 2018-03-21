@@ -26,6 +26,13 @@ export class RegionContainerToggleDirective {
   noticeContainerState: boolean;
 
   @HostListener('click', ['$event']) onClick(e) {
+
+    // if(this.elementRef.nativeElement.contains(event.target)){
+    //   console.log('aaa');
+    // }else{
+    //   if(!this.mapsState)
+    //   console.log('bbb');
+    //}
       let mapDiv=this.elementRef.nativeElement;
       let is=mapDiv.getElementsByTagName("i");
     if (!this.regionContainerState) {

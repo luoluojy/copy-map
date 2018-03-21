@@ -24,6 +24,15 @@ export class MapsToggleDirective {
   noticeContainerState: boolean;
 
   @HostListener('click', ['$event']) onClick(e) {
+
+    // if(this.elementRef.nativeElement.contains(event.target)){
+    //   console.log(1111);
+    // }else{
+    //   if(!this.regionContainerState)
+    //     console.log(2222);
+      
+    // }
+    
       let mapDiv=this.elementRef.nativeElement;
       let is=mapDiv.getElementsByTagName("i");
     if (!this.mapsState) {
