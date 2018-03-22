@@ -1,0 +1,9 @@
+<div id="action-panel">
+  <app-new-project  (flagNewEmitter)="recNewFlag($event)" *ngIf="showNewProject"></app-new-project>
+  <app-open-project  (flagOpenEmitter)="recOpenFlag($event)" *ngIf="showOpenProject"></app-open-project>
+  <app-manage-project  (flagManageEmitter)="recManageFlag($event)" *ngIf="showManageProject"></app-manage-project>
+  <app-content  (flagContentEmitter)="recContentFlag($event)" *ngIf="showContent"></app-content>
+  <app-data-query  (flagQueryEmitter)="recQueryFlag($event)" *ngIf="showQuery"></app-data-query>
+  <app-data-analysis  (flagAnalysisEmitter)="recAnalysisFlag($event)" *ngIf="showAnalysis"></app-data-analysis>
+  <!-- <span style="position: absolute;top:100px;right:200px;color:red;z-index:3">{{showNewProject}}</span> -->
+</div>

@@ -23,15 +23,8 @@ export class SidernavToggleDirective {
   searchContainerState: boolean;
   regionContainerState: boolean;
   noticeContainerState: boolean;
-
-
+  
   @HostListener('click', ['$event']) onClick(e) {
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    let footer = <HTMLElement>document.querySelector('#footer');
-    let footerLeft = window.getComputedStyle(footer, null).left;
-    let footer_span = <HTMLElement>document.querySelector('#footer > span');
-    let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
     if (!this.sidenavState) {
       let mapDivs: any = document.querySelectorAll('.map-bar');
       for(let i=0;i<mapDivs.length;i++){
@@ -49,11 +42,6 @@ export class SidernavToggleDirective {
 
       this.store.dispatch(new OpenSidenavAction());
     } else {       
-      let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-      let footerLeft = window.getComputedStyle(footer, null).left;
-      let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
-      distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 320 + 'px';
-      footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 320 + 'px'
       this.store.dispatch(new CloseSidenavAction());
 
     }
