@@ -24,11 +24,12 @@ export class SearchContainerWatchDirective {
       let footerLeft = window.getComputedStyle(footer, null).left;
       let footer_span = <HTMLElement>document.querySelector('#footer > span');
       let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
+      
       if (state.searchContainerOpened) {
         // 打开侧边导航栏
         direction.style.display="none"
         close.style.display="inline-block"
-        collapse.style.width = "20px";
+        collapse.style.display = "-webkit-box";
         elem.style.width = "480px";
 
         let store = this.store;
@@ -48,14 +49,14 @@ export class SearchContainerWatchDirective {
             let input = document.querySelector('#nav-bar input')
             let elems = elemref.nativeElement.getElementsByTagName('*');
             let i = 0;
-            let closeicon = document.getElementById('close');
-            let childcloseicon = closeicon.querySelector('i');
+            // let closeicon = document.getElementById('close');
+            // let childcloseicon = closeicon.querySelector('i');
 
-            if (e.target == closeicon || e.target == childcloseicon) {
-              store.dispatch(new CloseSearchContainerAction());
+            // if (e.target == closeicon || e.target == childcloseicon) {
+            //   store.dispatch(new CloseSearchContainerAction());
 
-              store.dispatch(new CloseBottomContainerAction());
-            }
+            //   store.dispatch(new CloseBottomContainerAction());
+            // }
             if (searchContainerState &&(e.target == btn)) {
               let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
               let footerLeft = window.getComputedStyle(footer, null).left;
@@ -67,7 +68,7 @@ export class SearchContainerWatchDirective {
               let compass = <HTMLElement>document.getElementsByClassName('compass')[0];
               let navigation_controls = <HTMLElement>document.getElementsByClassName('navigation-controls')[0];
               let expandBottom = window.getComputedStyle(expand, null).bottom;
-              if (parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 200 > 0) {
+              if (parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 190 > 0) {
                 let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 190 + 'px';
                 expand.style.bottom = newExpandBottom;
 
@@ -77,7 +78,6 @@ export class SearchContainerWatchDirective {
                 let navigationControlsBottom = window.getComputedStyle(navigation_controls, null).bottom
                 let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) - 190 + 'px';
                 navigation_controls.style.bottom = newNavigationControlsBottom;
-
               }
               store.dispatch(new CloseBottomContainerAction());
             }

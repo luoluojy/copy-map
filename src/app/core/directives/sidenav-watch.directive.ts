@@ -14,12 +14,6 @@ export class SidenavWatchDirective implements OnInit {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
       let elem: HTMLElement = document.querySelector('section');
       let elem2 = document.getElementById('overlay');
-      let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-      let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-      let footer = <HTMLElement>document.querySelector('#footer');
-      let footerLeft = window.getComputedStyle(footer, null).left;
-      let footer_span = <HTMLElement>document.querySelector('#footer > span');
-      let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
       if (state.sidenavOpened) {
         // 打开侧边导航栏
         elem.style.width = "320px";
@@ -30,10 +24,6 @@ export class SidenavWatchDirective implements OnInit {
         elem2.style.backgroundColor = "white";
         elem2.style.opacity = "0.3";
         elem2.style.zIndex = "3";
-        if (parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) == 0) {
-          distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 320 + 'px'
-          footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) + 320 + 'px'
-        }
         let store = this.store;
         let sidenavState = state.sidenavOpened;
         let elemref = this.elementRef;
@@ -51,11 +41,7 @@ export class SidenavWatchDirective implements OnInit {
               }
             }
             if ((i == elems.length && sidenavState) || flag) {
-              let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-              let footerLeft = window.getComputedStyle(footer, null).left;
-              let footerSpanLeft = window.getComputedStyle(footer_span, null).left;
-              distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 320 + 'px';
-              footer.style.left = parseInt(footerLeft.substr(0, footerLeft.length - 2), 10) - 320 + 'px'
+
               store.dispatch(new CloseSidenavAction());
             }
 

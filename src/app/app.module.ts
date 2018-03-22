@@ -56,6 +56,7 @@ import { CommonClickDirective } from './core/directives/common-click.directive';
     NoticeContainerToggleDirective,
     NoticeContainerWatchDirective,
     CommonClickDirective,
+    
   ],
   imports: [
     BrowserModule,
