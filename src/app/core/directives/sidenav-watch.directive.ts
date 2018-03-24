@@ -14,10 +14,12 @@ export class SidenavWatchDirective implements OnInit {
     this.store.pipe(select('opened')).subscribe((state: AppState) => {
       let elem: HTMLElement = document.querySelector('section');
       let elem2 = document.getElementById('overlay');
+      let collapse = document.getElementById('collapse');
       if (state.sidenavOpened) {
         // 打开侧边导航栏
         elem.style.width = "320px";
         elem.style.zIndex = "1023";
+        collapse.style.display="none"
         elem.style.height = document.body.clientHeight + 'px'
         elem2.style.height = document.body.clientHeight + 'px'
         elem2.style.width = document.body.clientWidth + 'px'

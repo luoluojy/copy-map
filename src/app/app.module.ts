@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { openedReducer} from './common/reducer'; 
 import { AppComponent } from './app.component';
-import { ResizableModule } from 'angular-resizable-element';
 
 import { MenuModule } from './core/modules/menu/menu.module';
 import { ToolsToggleDirective } from './core/directives/tools-toggle.directive';
@@ -59,10 +59,9 @@ import { CommonClickDirective } from './core/directives/common-click.directive';
     
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,BrowserAnimationsModule,
     StoreModule.forRoot({opened:openedReducer}),
     MenuModule,
-    ResizableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
