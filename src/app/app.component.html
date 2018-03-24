@@ -61,20 +61,6 @@
   </div>
 
   <!-- layer1 -->
-  <div id="dataview">
-    <div  style="display:none" title="左右" class="unfocus">
-      
-      <i class="fas fa-arrows-alt-h"></i>
-    </div>
-    <div  style="display:none" title="上下" class="unfocus">
-      
-      <i class="fas fa-arrows-alt-v"></i>
-    </div>
-    <div style="display:inline-block" appBottomContainerToggle title="展开">
-      展开
-      <i class="fas fa-angle-double-up"></i>
-    </div>
-  </div>
 
   <!-- layer2 -->
   <app-search-container></app-search-container>
@@ -83,17 +69,17 @@
   <app-maps></app-maps>
   <app-notice-container></app-notice-container>
   <app-user></app-user>
-  <app-bottom-container></app-bottom-container>
+
+  <app-bottom-container (flagEmitter)="recBottomFlag($event)" [flag]="flag">
+    
+  </app-bottom-container>
 
   <!-- layer4 -->
-  <app-sidenav></app-sidenav>
+  <app-sidenav  (flagEmitter)="recFlag($event)" [bottomFlag]="bottomFlag" >
+
+  </app-sidenav>
 
   <!-- layer3 -->
   <div id="overlay"></div>
-
-
-  <div id="footer">
-    <span>Copyright &copy;1902-2018 南京师范大学•虚拟地理环境教育部重点实验室 版权所有</span>
-  </div>
 
 </div>

@@ -1,36 +1,17 @@
-<div id="bottom-container" class="rectangle" [ngStyle]="style" mwlResizable [validateResize]="validate" [resizeEdges]="{bottom: true, right: true, top: true, left: true}"
-    [enableGhostResize]="true" [resizeSnapGrid]="{left: 50, right: 50}" (resizeEnd)="onResizeEnd($event)" appBottomContainerWatch
-    style="position:absolute;bottom:15px;right:0px;z-index:2;">
-    <table>
-    
-        <thead>
-        
-            <tr>
-            
-                <td>
-                    This text is in the table head.
-                    </td>
-                    </tr>
-            </thead>
-    
-        <tbody>
-        
-            <tr>
-            
-                <td>
-                    This text is in the table body.
-                </td>
-                </tr>
-            </tbody>
-    
-        <tfoot>
-        
-            <tr>
-            
-                <td>
-                    This text is in the table footer.
-                </td>
-                </tr>
-            </tfoot>
-    </table>
+<div id="viewer-wrapper" [@rightState]="flag" style="position:absolute;bottom:18px;right:0px;z-index:2;">
+    <div id="viewer-detail-wrapper" style="float:right;margin-top:-30px;background-color:rgba(47,53,60,.8);color:white;font-size:12px;text-align: center; padding: 6px 30px;margin-right: 30px; display: inline-block;">
+        <div class="viewer-detail" style="display:none" title="左右">
+            <i class="fas fa-arrows-alt-h"></i>
+        </div>
+        <div  class="viewer-detail" style="display:none" title="上下">
+            <i class="fas fa-arrows-alt-v"></i>
+        </div>
+        <div  class="viewer-detail" style="display:inline-block" title="展开">展开
+            <i class="fas fa-angle-double-up"></i>
+        </div>
+    </div>
+
+    <div id="viewer-container" [@displayFlagState]="displayFlagState" style="height:180px;background-color:#eeeeee">
+
+    </div>
 </div>

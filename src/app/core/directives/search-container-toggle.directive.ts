@@ -27,7 +27,6 @@ export class SearchContainerToggleDirective {
   noticeContainerState: boolean;
 
   @HostListener('click', ['$event']) onClick(e) {
-    console.log(1)
     if (!this.searchContainerState) {
       let mapDivs: any = document.querySelectorAll('.map-bar');
       for (let i = 0; i < mapDivs.length; i++) {

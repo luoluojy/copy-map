@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, EventEmitter, Output, Input } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../common/reducer';
 
-import { OpenSearchContainerAction,CloseSidenavAction } from '../../../common/action';
+import { OpenSearchContainerAction, CloseSidenavAction } from '../../../common/action';
 import { ActionComponent } from '../../../core/components/action/action.component'
 import * as OpenedActions from '../../../common/action';
 
@@ -15,7 +15,7 @@ import * as OpenedActions from '../../../common/action';
 export class SidenavComponent implements OnInit {
 
   panel: HTMLElement;
-
+@Input() bottomFlag:string='false';
   constructor(private elementRef: ElementRef, private store: Store<AppState>) {
 
   }
@@ -33,23 +33,25 @@ export class SidenavComponent implements OnInit {
     closeIcon.addEventListener('click', () => {
       this.store.dispatch(new CloseSidenavAction());
     });
-    
   }
-  tests(){
+
+  tests() {
     this.store.dispatch(new CloseSidenavAction());
     this.store.dispatch(new OpenSearchContainerAction())
   }
-  
-flag:number=-1;
-  showView(flag){
-    this.flag=flag;
+
+  flag: number = -1;
+  showView(flag) {
+    this.flag = flag;
     this.store.dispatch(new OpenedActions.CloseSidenavAction());
   }
 
-  recFlag(event){
-    this.flag=event;
+  @Output() flagEmitter: EventEmitter<string> = new EventEmitter<string>()
+
+  
+  recFlag(event) {
+    this.flag = event;
+    this.flagEmitter.emit(this.flag.toString());
   }
-
-
-
+  
 }
