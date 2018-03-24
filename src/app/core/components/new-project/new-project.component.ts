@@ -8,17 +8,17 @@ import * as OpenedActions from '../../../common/action';
   templateUrl: './new-project.component.html',
   styleUrls: ['./new-project.component.css']
 })
-export class NewProjectComponent implements OnInit,OnChanges {
+export class NewProjectComponent implements OnInit, OnChanges {
 
   constructor(private elementRef: ElementRef, private store: Store<AppState>) { }
-@Input()flagBottom:string='false';
+  @Input() flagBottom: string = 'false';
   flag: boolean = false;
   nativeElement: any;
   @Output() flagNewEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   checkFlag() {
     this.flagNewEmitter.emit(this.flag);
   }
-  ngOnChanges(changes:SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     console.log(changes['flagBottom'])
   }
   ngOnInit() {
@@ -28,9 +28,9 @@ export class NewProjectComponent implements OnInit,OnChanges {
     let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
     let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
 
-  
+
     distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
-  
+
     Observable.fromEvent(icons[0], 'click').subscribe(() => {
       let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
       let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
