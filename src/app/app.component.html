@@ -1,0 +1,85 @@
+<!-- layer0 -->
+<div id="cesiumContainer">
+
+  <!-- layer1 -->
+  <ul id="map" class="control">
+    <li>
+      <div class="map-bar" appRegionContainerToggle>
+        <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
+        <i class="fas fa-angle-down  fa-lg"></i>
+      </div>
+    </li>
+    <li>
+      <div class="map-bar" appMapsToggle>
+        <i class="fas fa-map  fa-lg"></i> 图册
+        <i class="fas fa-angle-down  fa-lg"></i>
+      </div>
+    </li>
+    <li>
+      <div class="map-bar" appToolsToggle>
+        <i class="fas fa-box fa-lg"></i> 工具箱
+        <i class="fas fa-angle-down  fa-lg"></i>
+      </div>
+    </li>
+  </ul>
+
+
+  <div style="z-index:1;position:absolute;top:0px;right:0px;">
+    <div id="notice" title="通知" appNoticeContainerToggle>
+      <i class="far fa-bell fa-lg"></i>
+    </div>
+
+    <div id="user-center" title="用户中心" appUserToggle>
+      <i class="fas fa-user  fa-lg"></i>
+    </div>
+
+  </div>
+
+  <!-- layer3 -->
+  <div id="nav-bar">
+    <button id="menu" appSidernavToggle title="菜单" class="unfocus">
+      <i class="fas fa-bars fa-lg"></i>
+    </button>
+
+    <input type="text" style="width:290px;" placeholder="Search" />
+
+    <button id="search" appSearchContainerToggle type="button" title="搜索" class="unfocus">
+      <i class="fas fa-search fa-lg"></i>
+    </button>
+    <span style="font-size:20px;padding:0 5px">|</span>
+    <button title="路径" id="direction" style="display:inline-block;width:20px;height:20px;border-left:1px soild #d9d9d9;padding:3px 0px;margin-right:10px;text-align:center;background:url(assets/icon/png/directions.png) no-repeat 1px">
+    </button>
+
+    <button title="关闭" id="close" style="display:none;width:20px;height:20px;padding:3px 0px;margin-right:15px;text-align:center;">
+      <i class="fas fa-times fa-lg"></i>
+    </button>
+  </div>
+
+<!-- layer1 -->
+  <div title="折叠" id="collapse" style="z-index:1;overflow:auto;display:none;width:20px;height:40px;background-color:#F3F3F3;position:absolute;top:20px;left:480px;text-align:center;-webkit-box-pack: center;-webkit-box-align: center;">
+    <i class="fas fa-caret-left fa-lg"></i>
+  </div>
+
+  <!-- layer1 -->
+
+  <!-- layer2 -->
+  <app-search-container></app-search-container>
+  <app-region-container></app-region-container>
+  <app-tools></app-tools>
+  <app-maps></app-maps>
+  <app-notice-container></app-notice-container>
+  <app-user></app-user>
+
+  <app-bottom-container (flagEmitter)="recBottomFlag($event)" [flag]="flag">
+    
+  </app-bottom-container>
+
+  <!-- layer4 -->
+  <app-sidenav  (flagEmitter)="recFlag($event)" [bottomFlag]="bottomFlag" >
+
+  </app-sidenav>
+
+  <!-- layer3 -->
+  <div id="overlay"></div>
+
+</div>

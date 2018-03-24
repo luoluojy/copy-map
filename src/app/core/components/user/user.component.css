@@ -1,0 +1,17 @@
+#user ul{
+   margin:0px;
+   padding:0px;
+}
+#user ul li{
+    list-style-type: none;
+    height: 40px;
+    line-height: 42px;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+    text-indent: 5px;
+    font-size:12px;
+}
+
+#user ul li:hover{
+    cursor: pointer;
+}

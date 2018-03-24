@@ -1,0 +1,14 @@
+#maps ul{
+    margin:0px;
+    padding:0px;
+}
+
+#maps ul li{
+    list-style-type: none;
+    padding:5px;
+    text-align: center;
+}
+
+#maps ul li:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,16 @@
+#tools ul{
+    padding:0px;
+    margin:0px;
+}
+#tools ul li{
+    list-style: none;
+    font-size: 12px;
+    padding:7px ;
+    cursor: pointer;
+    color:#9A9A9A;
+}
+
+
+.baidu-icon,.google-icon{
+    text-indent: 20px;
+}
