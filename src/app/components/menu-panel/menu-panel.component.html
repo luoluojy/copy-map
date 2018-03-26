@@ -1,8 +1,8 @@
-<section appSidenavWatch>
+<div id="menu-panel" style="z-index:3;width: 410px;height: 100%">
     <div style="position:absolute;top:0px;left:0px;width:100%;height:50px;border-bottom:1px solid #d9d9d9"></div>
     <h2>Crime Analysis</h2>
-    <button appSidernavToggle title=""class="unfocus" style="position:absolute;top:0px;right:0px;color:#9A9A9A;">
-        <i class="fas fa-angle-double-left"></i>
+    <button (click)="checkShown()" title=""class="unfocus" style="position:absolute;top:0px;right:0px;color:#9A9A9A;">
+        <i (click)="checkShown()" class="fas fa-angle-double-left"></i>
     </button>
 
     <ul class="project">
@@ -16,4 +16,4 @@
         <li>数据查询</li>
         <li>数据分析</li>
     </ul>
-</section>
+</div>

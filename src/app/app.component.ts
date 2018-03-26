@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 
 import { InitCesiumService } from './services/init-cesium.service';
 
@@ -11,12 +11,26 @@ import { InitCesiumService } from './services/init-cesium.service';
   ]
 })
 export class AppComponent implements OnInit {
-  
-  constructor(private elementRef: ElementRef, private initCesiumService: InitCesiumService) {}
-  
+
+  constructor(private elementRef: ElementRef, private initCesiumService: InitCesiumService) { }
+
   ngOnInit() {
     this.initCesiumService.initCesium();
     this.blurElements();
+  }
+  @Input()shown: boolean = false;
+
+  viewState:string;
+  rightState:string;
+  recShown(event){
+    this.shown = event;
+  }
+  recViewState(event){
+    this.viewState = event;
+  }
+  recRightState(event){
+    console.log(11111,event)
+    this.rightState=event
   }
 
   blurElements() {

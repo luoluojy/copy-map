@@ -1,21 +1,22 @@
 <!-- layer0 -->
-<div id="cesiumContainer">
-  <!-- layer1 -->
-  <div>
-    <app-main-bar> </app-main-bar>
+<div style="z-index:0" id="cesiumContainer">
 
-    <!-- layer2 -->
-    <div>
-      <app-view-panel></app-view-panel>
-      <app-footer-info></app-footer-info>
-      
-      <!-- layer3 -->
-      <div><app-menu-panel></app-menu-panel></div>
+</div>
 
-    </div>
+<!-- layer1 -->
+<div style="z-index:1">
+  <app-main-bar (shownEmitter)="recShown($event)" (rightEmitter)="recRightState($event)"> </app-main-bar>
+  <app-map-bar> </app-map-bar>
+</div>
 
-    <!-- layer1 -->
-    <app-map-bar> </app-map-bar>
-  </div>
 
+<!-- layer2 -->
+<div style="z-index:2">
+  <app-view-panel (rightStateEmitter)="recRightState($event)" [rightState]="rightState"></app-view-panel>
+  <app-footer-info></app-footer-info>
+</div>
+
+<!-- layer3 -->
+<div *ngIf="shown" style="z-index:3">
+  <app-menu-panel  (shownEmitter)="recShown($event)" [shown]="shown" [viewState]="viewState" (rightEmitter)="recRightState($event)" ></app-menu-panel>
 </div>
