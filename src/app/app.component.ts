@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
   viewState: string;
   rightState: string;
   recShown(event) {
-    console.log(event)
     this.shown = event;
     this.actionShown = !this.shown
   }

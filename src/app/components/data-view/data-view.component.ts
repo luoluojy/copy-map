@@ -27,11 +27,12 @@ import { Observable } from 'rxjs/Observable';
     ])
   ]
 })
-export class DataViewComponent implements OnInit, AfterViewInit {
+export class DataViewComponent implements OnInit, AfterViewInit,OnChanges {
 
   nativeElement: any;
   
   @Input() displayFlagState: string;
+  @Input() actionFlag :boolean;
   constructor(private elementRef: ElementRef) {
     this.displayFlagState = 'false';
     this.nativeElement = this.elementRef.nativeElement;
@@ -41,11 +42,22 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     let viewerContainer: any = this.nativeElement.querySelector('#viewer-container');
     viewerContainer.style.width = document.body.clientWidth + 'px';
   }
+  ngOnChanges(changes:SimpleChanges){
+    if(changes['actionFlag']){
+      this.actionFlag=changes['actionFlag'].currentValue;
+      let expandDiv = this.nativeElement.querySelector('.viewer-detail')
+      if(this.actionFlag){
+        expandDiv.style.marginLeft="1380px"
+      }else{
+        expandDiv.style.marginLeft="1790px"
+      }
+    }
+  }
 
   ngAfterViewInit() {
     let viewerDetails = this.nativeElement.getElementsByClassName('viewer-detail');
     let expand = viewerDetails[viewerDetails.length - 1];
-
+    
     Observable.fromEvent(expand, 'click').subscribe((event: any) => {
       if (this.displayFlagState.search('false') != -1) {
         this.displayFlagState = 'true';
