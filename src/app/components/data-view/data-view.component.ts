@@ -24,44 +24,18 @@ import { Observable } from 'rxjs/Observable';
       })),
       transition('false => true', animate('200ms ease-in')),
       transition('true => false', animate('200ms ease-out')),
-    ]),
-    trigger('rightState', [
-      state('-1', style({
-        left: '0'
-      })),
-      state('0', style({
-        left: '410px',
-      })),
-      transition('-1 => 0', animate('200ms ease-in')),
-      transition('0 => -1', animate('200ms ease-out')),
     ])
   ]
 })
-export class DataViewComponent implements OnInit, AfterViewInit, OnChanges {
+export class DataViewComponent implements OnInit, AfterViewInit {
 
   nativeElement: any;
   
   @Input() displayFlagState: string;
   constructor(private elementRef: ElementRef) {
-    this.rightState = '-1';
     this.displayFlagState = 'false';
     this.nativeElement = this.elementRef.nativeElement;
   }
-  @Input() rightState;
-  
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes['rightState'], 4444444444444)
-    if (changes['rightState']) {
-      if (changes['rightState'].currentValue == '-1') {
-        this.rightState = '-1';
-      } else {
-        this.rightState = '0';
-      }
-    }
-    
-  }
-  @Output() flagEmitter: EventEmitter<string> = new EventEmitter<string>();
-  @Output() rightStateEmitter: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit() {
     let viewerContainer: any = this.nativeElement.querySelector('#viewer-container');
@@ -71,6 +45,7 @@ export class DataViewComponent implements OnInit, AfterViewInit, OnChanges {
   ngAfterViewInit() {
     let viewerDetails = this.nativeElement.getElementsByClassName('viewer-detail');
     let expand = viewerDetails[viewerDetails.length - 1];
+
     Observable.fromEvent(expand, 'click').subscribe((event: any) => {
       if (this.displayFlagState.search('false') != -1) {
         this.displayFlagState = 'true';

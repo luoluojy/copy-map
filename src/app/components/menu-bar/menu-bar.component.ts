@@ -15,8 +15,7 @@ export class MenuBarComponent implements OnInit {
   @Output() rightEmitter:EventEmitter<string>=new EventEmitter<string>();
   ngOnInit() {
     Observable.fromEvent(this.elementRef.nativeElement.querySelector('#menu'), 'click').subscribe(() => {
-      this.shownEmitter.emit(false);
-      this.rightEmitter.emit('0');
+      this.shownEmitter.emit(true);
     })
   }
 

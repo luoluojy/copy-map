@@ -12,7 +12,11 @@ ul{
 #menu-panel ul{
     border-bottom: 1px solid #d9d9d9;
 }
-#menu-panel ul li{
+.project li:first-child{
+    cursor: pointer;
+    color:#3C82FF;
+}
+.project li, .operator li{
     padding:5px;
     font-size:12px;
     line-height: 24px;
@@ -20,7 +24,7 @@ ul{
     color:#9A9A9A;
 }
 
-#menu-panel ul li:hover,.project > li:first-child{
+#menu-panel ul li:hover{
     cursor: pointer;
     color:#3C82FF;
 }

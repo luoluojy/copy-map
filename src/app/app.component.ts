@@ -18,19 +18,25 @@ export class AppComponent implements OnInit {
     this.initCesiumService.initCesium();
     this.blurElements();
   }
-  shown: boolean = true;
-
-  viewState:string;
-  rightState:string;
-  recShown(event){
+  shown: boolean = false;
+  actionShown: boolean = false;
+  topShown: boolean = false;
+  viewState: string;
+  rightState: string;
+  recShown(event) {
+    console.log(event)
     this.shown = event;
+    this.actionShown = !this.shown
   }
-  recViewState(event){
+  recActionShown(event){
+    this.actionShown = event
+  }
+  recViewState(event) {
     this.viewState = event;
   }
-  recRightState(event){
-    console.log(11111,event)
-    this.rightState=event
+  recRightState(event) {
+    console.log(11111, event)
+    this.rightState = event
   }
 
   blurElements() {

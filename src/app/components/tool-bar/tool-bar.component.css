@@ -1,6 +1,9 @@
 
 #map{
-    position:absolute;top:20px;right:120px;background-color:white;z-index:1;
+    position: absolute;
+    right:100px;
+    background-color:white;z-index:1;
+    width:280px;
 }
 #map li{
     list-style: none;
@@ -18,16 +21,10 @@ ul{
     padding:8px 0px;
     font-size:12px;
 }
-#menu{
-    margin-left:10px;
-}
-#search{
-    color:#9A9A9A;
-}
+
 #notice{
     position:absolute;
-    right:70px;
-    top:20px;
+    right:50px;
     background-color:white;
     font-size:12px;
     padding:8px;
@@ -41,50 +38,13 @@ ul{
     height:40px;
     width:40px;
     position:absolute;
-    top:18px;
-    right:20px;
+    top:-2px;
+    right:0px;
     margin-left:20px;
     color:#3C82FF;
     background-color:white
 }
-#nav-bar{
-    position:absolute;
-    top:20px;
-    left:20px;
-    background-color:white;
-    width:440px;    
-    z-index:3;
-    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
-    overflow: auto;
-}
-
-#nav-bar button, input{
-    padding:10px 8px;
-}
-
 .map-bar:hover{
     color:#0C88E8;
-    cursor: pointer;
-}
-#overlay{
-    position:absolute;
-    top:0px;
-    left:0px;
-}
-
-#dataview{
-    position:absolute;
-    bottom:20px;
-    right:30px;
-    padding:5px 0px;
-    font-size:12px;
-    text-align: center;
-    width:100px;
-    color:white;
-    background-color: rgba(47,53,60,.8);
-    z-index:1;
-}
-
-#dataview:hover{
     cursor: pointer;
 }

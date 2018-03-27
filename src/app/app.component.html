@@ -1,35 +1,45 @@
-<!-- root -->
 <div id="root">
 
-  <!-- layer0  -->
-  <div class="layer0">
+  <!-- layer0 -->
+  <div id="container">
     <app-map></app-map>
   </div>
 
   <!-- layer1  -->
   <div class="layer1">
-    <app-menu-bar (shownEmitter)="recShown($event)"></app-menu-bar>
-    <app-tool-bar></app-tool-bar>
+    <div class="menu-bar" style="position: absolute;top:20px;left:20px;" ><app-menu-bar (shownEmitter)="recShown($event)"></app-menu-bar></div>
+    <div class="tool-bar"  style="position: absolute;top:20px;right:20px;" ><app-tool-bar></app-tool-bar></div>
   </div>
 
   <!-- layer2 -->
   <div class="layer2">
 
     <!-- left -->
-    <div class="layer2 layer2-left">
-      <app-action></app-action>
+    <div id="left" *ngIf="actionShown">
+      <app-action ></app-action>
     </div>
 
     <!-- right -->
-    <div class="layer2 layer2-right">
-      <app-data-view></app-data-view>
-      <app-footer></app-footer>
-    </div>
+    <div id="right">
 
+      <!-- top -->
+      <div>
+        <app-top *ngIf="topShown"></app-top>
+      </div>
+
+      <div id = "data-view-container">
+        <app-data-view></app-data-view>
+      </div>
+
+      <div id="footer-container">
+        <app-footer></app-footer>
+      </div>
+
+    </div>
   </div>
 
   <!-- layer3 -->
-  <div class="layer3" *ngIf="!shown">
+  <div class="layer3" *ngIf="shown">
     <app-menu (shownEmitter)="recShown($event)"></app-menu>
   </div>
 

@@ -26,8 +26,7 @@ export class MenuComponent implements OnInit, OnChanges {
   }
   checkShown() {
     this.shown = false;
-    this.shownEmitter.emit(!this.shown);
-    this.rightEmitter.emit('-1')
+    this.shownEmitter.emit(this.shown);
   }
   ngOnInit() { }
 
