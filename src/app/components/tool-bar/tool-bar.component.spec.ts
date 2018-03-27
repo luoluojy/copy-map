@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewPanelComponent } from './view-panel.component';
+import { ToolBarComponent } from './tool-bar.component';
 
-describe('BottomContainerComponent', () => {
-  let component: ViewPanelComponent;
-  let fixture: ComponentFixture<ViewPanelComponent>;
+describe('ToolBarComponent', () => {
+  let component: ToolBarComponent;
+  let fixture: ComponentFixture<ToolBarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewPanelComponent ]
+      declarations: [ ToolBarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewPanelComponent);
+    fixture = TestBed.createComponent(ToolBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

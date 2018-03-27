@@ -2,11 +2,11 @@ import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/co
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-main-bar',
-  templateUrl: './main-bar.component.html',
-  styleUrls: ['./main-bar.component.css']
+  selector: 'app-menu-bar',
+  templateUrl: './menu-bar.component.html',
+  styleUrls: ['./menu-bar.component.css']
 })
-export class MainBarComponent implements OnInit {
+export class MenuBarComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) { }
 
@@ -15,7 +15,7 @@ export class MainBarComponent implements OnInit {
   @Output() rightEmitter:EventEmitter<string>=new EventEmitter<string>();
   ngOnInit() {
     Observable.fromEvent(this.elementRef.nativeElement.querySelector('#menu'), 'click').subscribe(() => {
-      this.shownEmitter.emit(true);
+      this.shownEmitter.emit(false);
       this.rightEmitter.emit('0');
     })
   }

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     this.initCesiumService.initCesium();
     this.blurElements();
   }
-  @Input()shown: boolean = false;
+  shown: boolean = true;
 
   viewState:string;
   rightState:string;

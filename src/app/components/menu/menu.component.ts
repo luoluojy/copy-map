@@ -3,11 +3,11 @@ import { Component, OnInit, ElementRef, HostListener, EventEmitter, Output, Inpu
 import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'app-menu-panel',
-  templateUrl: './menu-panel.component.html',
-  styleUrls: ['./menu-panel.component.css']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class MenuPanelComponent implements OnInit, OnChanges {
+export class MenuComponent implements OnInit, OnChanges {
 
   constructor(private elementRef: ElementRef) { }
   @Input() shown;
@@ -26,7 +26,7 @@ export class MenuPanelComponent implements OnInit, OnChanges {
   }
   checkShown() {
     this.shown = false;
-    this.shownEmitter.emit(this.shown);
+    this.shownEmitter.emit(!this.shown);
     this.rightEmitter.emit('-1')
   }
   ngOnInit() { }

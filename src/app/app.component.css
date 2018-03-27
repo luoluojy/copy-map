@@ -88,3 +88,15 @@ ul{
 #dataview:hover{
     cursor: pointer;
 }
+
+
+
+.layer2{
+    z-index:2;
+}
+
+.layer2-left{
+    background-color: white;
+    width: 410px;
+    height: 949px;
+}

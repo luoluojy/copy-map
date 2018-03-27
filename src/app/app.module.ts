@@ -3,20 +3,24 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { ViewPanelComponent } from './components/view-panel/view-panel.component';
-import { MapBarComponent } from './components/map-bar/map-bar.component';
-import { MainBarComponent } from './components/main-bar/main-bar.component';
-import { MenuPanelComponent } from './components/menu-panel/menu-panel.component';
-import { FooterInfoComponent } from './components/footer-info/footer-info.component';
+import { DataViewComponent } from './components/data-view/data-view.component';
+import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MapComponent } from './components/map/map.component';
+import { ActionComponent } from './components/action/action.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewPanelComponent,
-    MainBarComponent,
-    MapBarComponent,
-    MenuPanelComponent,
-    FooterInfoComponent
+    DataViewComponent,
+    MenuBarComponent,
+    ToolBarComponent,
+    MenuComponent,
+    FooterComponent,
+    ActionComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

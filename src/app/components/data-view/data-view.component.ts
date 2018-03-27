@@ -11,9 +11,9 @@ import 'rxjs/add/observable/fromEvent'
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-view-panel.',
-  templateUrl: './view-panel.component.html',
-  styleUrls: ['./view-panel.component.css'],
+  selector: 'app-data-view.',
+  templateUrl: './data-view.component.html',
+  styleUrls: ['./data-view.component.css'],
   animations: [
     trigger('displayFlagState', [
       state('false', style({
@@ -37,7 +37,7 @@ import { Observable } from 'rxjs/Observable';
     ])
   ]
 })
-export class ViewPanelComponent implements OnInit, AfterViewInit, OnChanges {
+export class DataViewComponent implements OnInit, AfterViewInit, OnChanges {
 
   nativeElement: any;
   
