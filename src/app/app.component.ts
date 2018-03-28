@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     this.actionShown = !this.shown
   }
   recActionShown(event){
-    this.actionShown = event
+    this.actionShown = event;
   }
   recViewState(event) {
     this.viewState = event;

@@ -106,6 +106,4 @@ export class ToolBarComponent implements OnInit {
     }
     
   }
-
-
 }
