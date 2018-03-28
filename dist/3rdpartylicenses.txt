@@ -122,6 +122,10 @@ MIT
 MIT
 MIT
 
+@angular/animations@5.2.7
+MIT
+MIT
+
 @ngrx/store@5.1.0
 MIT
 The MIT License (MIT)
@@ -147,10 +151,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 @angular/common@5.2.7
-MIT
-MIT
-
-@angular/animations@5.2.7
 MIT
 MIT
 

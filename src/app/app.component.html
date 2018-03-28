@@ -23,12 +23,12 @@
     <div id="right">
 
       <!-- top -->
-      <div id="top" style="position: right;bottom:18px;right:30px;">
-        <app-top *ngIf="topShown"></app-top>
+      <div id="top">
+        <app-top [collapseShown]="actionShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)"></app-top>
       </div>
 
       <div id = "data-view-container">
-        <app-data-view [actionFlag]="actionShown"></app-data-view>
+        <app-data-view [actionFlag]="actionShown" *ngIf="viewState"></app-data-view>
       </div>
 
       <div id="footer-container">

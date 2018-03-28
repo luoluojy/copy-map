@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   shown: boolean = false;
   actionShown: boolean = false;
   topShown: boolean = false;
-  viewState: string;
+  viewState: boolean = false;
   rightState: string;
   recShown(event) {
     this.shown = event;
