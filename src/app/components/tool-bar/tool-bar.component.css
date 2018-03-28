@@ -30,7 +30,7 @@ ul{
     padding:8px;
     border-radius:5px;
 }
-#user-center{
+#user{
     display:-webkit-box;
     -webkit-box-pack:center;
     -webkit-box-align:center;
