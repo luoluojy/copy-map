@@ -1,0 +1,25 @@
+#user-container{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 300px;
+    background-color: white;
+}
+
+#user-container ul{
+    margin:0px;
+    padding:0px;
+ }
+ #user-container ul li{
+     list-style-type: none;
+     height: 40px;
+     line-height: 42px;
+     border-bottom: 1px dashed #eee;
+     position: relative;
+     text-indent: 5px;
+     font-size:12px;
+ }
+ 
+ #user-container ul li:hover{
+     cursor: pointer;
+ }

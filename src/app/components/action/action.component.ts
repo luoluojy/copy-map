@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-action',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class ActionComponent implements OnInit {
 
   constructor() { }
-
+  
   ngOnInit() {
+    let closeDiv = document.querySelectorAll('.action-head div');
   }
 
 }

@@ -9,7 +9,15 @@ export class ToolBarComponent implements OnInit {
 
   constructor() { }
 
+toolsShown:any={
+  regionsShown:false,
+  mapsShown:false,
+  toolsShown:false,
+  noticeShown:false,
+  userShown:false,
+};
   ngOnInit() {
+    console.log(this.toolsShown.regionsShown)
   }
 
 }

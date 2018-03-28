@@ -1,0 +1,11 @@
+.viewer-detail{
+    margin-top:-30px;
+    background-color:rgba(47,53,60,.8);
+    color:white;
+    font-size:12px;
+    text-align: center; 
+    padding: 6px 30px;
+    width:100px;
+    cursor: pointer;
+    float: left;
+}

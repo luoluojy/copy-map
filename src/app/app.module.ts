@@ -11,6 +11,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MapComponent } from './components/map/map.component';
 import { ActionComponent } from './components/action/action.component';
 import { TopComponent } from './components/top/top.component';
+import { RegionsComponent } from './components/tool-bar/regions/regions.component';
+import { MapsComponent } from './components/tool-bar/maps/maps.component';
+import { ToolsComponent } from './components/tool-bar/tools/tools.component';
+import { NoticeComponent } from './components/tool-bar/notice/notice.component';
+import { UserComponent } from './components/tool-bar/user/user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { TopComponent } from './components/top/top.component';
     FooterComponent,
     ActionComponent,
     MapComponent,
-    TopComponent
+    TopComponent,
+    RegionsComponent,
+    MapsComponent,
+    ToolsComponent,
+    NoticeComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@
     position: absolute;
     right:100px;
     background-color:white;z-index:1;
-    width:280px;
+    width:260px;
 }
 #map li{
     list-style: none;
@@ -47,4 +47,8 @@ ul{
 .map-bar:hover{
     color:#0C88E8;
     cursor: pointer;
+}
+
+#tool-main{
+    position: absolute;top:35px;right:0px;
 }

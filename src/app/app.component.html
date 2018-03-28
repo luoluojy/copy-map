@@ -7,8 +7,8 @@
 
   <!-- layer1  -->
   <div class="layer1">
-    <div class="menu-bar" style="position: absolute;top:20px;left:20px;" ><app-menu-bar (shownEmitter)="recShown($event)"></app-menu-bar></div>
-    <div class="tool-bar"  style="position: absolute;top:20px;right:20px;" ><app-tool-bar></app-tool-bar></div>
+    <div id="menu-bar"  ><app-menu-bar (shownEmitter)="recShown($event)"></app-menu-bar></div>
+    <div id="tool-bar"  ><app-tool-bar></app-tool-bar></div>
   </div>
 
   <!-- layer2 -->
@@ -23,7 +23,7 @@
     <div id="right">
 
       <!-- top -->
-      <div>
+      <div id="top" style="position: right;bottom:18px;right:30px;">
         <app-top *ngIf="topShown"></app-top>
       </div>
 

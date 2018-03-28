@@ -1,0 +1,23 @@
+#tools-container{
+    position:absolute;
+    top:6px;
+    right:100px;
+    width:85px;
+    background-color: white;
+}
+#tools-container ul{
+    padding:0px;
+    margin:0px;
+}
+#tools-container ul li{
+    list-style: none;
+    font-size: 12px;
+    padding:7px 15px ;
+    cursor: pointer;
+    color:#9A9A9A;
+}
+
+
+.baidu-icon,.google-icon{
+    text-indent: 20px;
+}
