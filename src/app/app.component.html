@@ -16,7 +16,7 @@
 
     <!-- left -->
     <div id="left" *ngIf="actionShown">
-      <app-action (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"  (menuBarEmitter)="recMenuBarState($event)"></app-action>
+      <app-control-view (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"  (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
     </div>
 
     <!-- right -->

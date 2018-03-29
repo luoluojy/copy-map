@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActionComponent } from './action.component';
+import { ControlViewComponent } from './control-view.component';
 
 describe('ActionComponent', () => {
-  let component: ActionComponent;
-  let fixture: ComponentFixture<ActionComponent>;
+  let component: ControlViewComponent;
+  let fixture: ComponentFixture<ControlViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ActionComponent ]
+      declarations: [ ControlViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActionComponent);
+    fixture = TestBed.createComponent(ControlViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

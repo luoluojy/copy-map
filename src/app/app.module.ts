@@ -11,7 +11,7 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
-import { ActionComponent } from './components/action/action.component';
+import { ControlViewComponent } from './components/control-view/control-view.component';
 import { TopComponent } from './components/top/top.component';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { TopComponent } from './components/top/top.component';
     ToolBarComponent,
     MenuComponent,
     FooterComponent,
-    ActionComponent,
+    ControlViewComponent,
     MapViewComponent,
     TopComponent,
   ],

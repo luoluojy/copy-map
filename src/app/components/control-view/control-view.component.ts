@@ -2,11 +2,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-action',
-  templateUrl: './action.component.html',
-  styleUrls: ['./action.component.css']
+  selector: 'app-control-view',
+  templateUrl: './control-view.component.html',
+  styleUrls: ['./control-view.component.css']
 })
-export class ActionComponent implements OnInit {
+export class ControlViewComponent implements OnInit {
 
   constructor() { }
   @Output() actionCloseEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
