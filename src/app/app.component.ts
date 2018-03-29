@@ -22,10 +22,14 @@ export class AppComponent implements OnInit {
   actionShown: boolean = false;
   topShown: boolean = false;
   viewState: boolean = false;
+  menuBarShown:boolean = true;
+  recMenuBarState(event){
+    this.menuBarShown = event;
+  }
+
   rightState: string;
   recShown(event) {
     this.shown = event;
-    this.actionShown = !this.shown
   }
   recActionShown(event){
     this.actionShown = event;
@@ -34,7 +38,6 @@ export class AppComponent implements OnInit {
     this.viewState = event;
   }
   recRightState(event) {
-    console.log(11111, event)
     this.rightState = event
   }
 

@@ -2,20 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToolBarModule } from './components/tool-bar/tool-bar.module';
+
 import { AppComponent } from './app.component';
 import { DataViewComponent } from './components/data-view/data-view.component';
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MapComponent } from './components/map/map.component';
+import { MapViewComponent } from './components/map-view/map-view.component';
 import { ActionComponent } from './components/action/action.component';
 import { TopComponent } from './components/top/top.component';
-import { RegionsComponent } from './components/tool-bar/regions/regions.component';
-import { MapsComponent } from './components/tool-bar/maps/maps.component';
-import { ToolsComponent } from './components/tool-bar/tools/tools.component';
-import { NoticeComponent } from './components/tool-bar/notice/notice.component';
-import { UserComponent } from './components/tool-bar/user/user.component';
 
 @NgModule({
   declarations: [
@@ -26,17 +23,13 @@ import { UserComponent } from './components/tool-bar/user/user.component';
     MenuComponent,
     FooterComponent,
     ActionComponent,
-    MapComponent,
+    MapViewComponent,
     TopComponent,
-    RegionsComponent,
-    MapsComponent,
-    ToolsComponent,
-    NoticeComponent,
-    UserComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToolBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

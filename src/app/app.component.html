@@ -2,12 +2,12 @@
 
   <!-- layer0 -->
   <div id="container">
-    <app-map></app-map>
+    <app-map-view></app-map-view>
   </div>
 
   <!-- layer1  -->
   <div class="layer1">
-    <div id="menu-bar"  ><app-menu-bar (shownEmitter)="recShown($event)"></app-menu-bar></div>
+    <div id="menu-bar"  ><app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown"  (menuBarEmitter)="recMenuBarState($event)"></app-menu-bar></div>
     <div id="tool-bar"  ><app-tool-bar></app-tool-bar></div>
   </div>
 
@@ -16,7 +16,7 @@
 
     <!-- left -->
     <div id="left" *ngIf="actionShown">
-      <app-action (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"></app-action>
+      <app-action (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"  (menuBarEmitter)="recMenuBarState($event)"></app-action>
     </div>
 
     <!-- right -->
@@ -40,7 +40,7 @@
 
   <!-- layer3 -->
   <div class="layer3" *ngIf="shown">
-    <app-menu (shownEmitter)="recShown($event)"></app-menu>
+    <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)"></app-menu>
   </div>
 
 </div>

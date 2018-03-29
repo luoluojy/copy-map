@@ -12,11 +12,13 @@ export class ActionComponent implements OnInit {
   @Output() actionCloseEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
 
   @Output() actionMenuEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
+  @Output() menuBarEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
   ngOnInit() {
     let closeDiv = document.querySelectorAll('#action-close');
     let menuDiv = document.querySelectorAll('#action-menu');
     Observable.fromEvent(closeDiv,'click').subscribe(()=>{
       this.actionCloseEmitter.emit(false);
+      this.menuBarEmitter.emit(true)
 
       let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
       let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
