@@ -11,6 +11,9 @@ export class TopComponent implements OnInit {
   @Input() collapseShown: boolean = false;
   @Input() viewShown: boolean = false;
   @Output() viewEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() menuEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() collapseEmitter: EventEmitter<true> = new EventEmitter<true>();
+
 
   constructor() { }
 
@@ -48,6 +51,26 @@ export class TopComponent implements OnInit {
       this.viewEmitter.emit(this.viewShown);
 
     })
+  }
+
+  collapse(elem) {
+    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    let collapseLeft = window.getComputedStyle(elem, null).left;
+    let icon = elem.querySelector('i');
+    if (collapseLeft != '0px') {
+      distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
+      elem.style.left = "0px";
+      this.menuEmitter.emit(false);
+      icon.setAttribute('class', 'fas fa-caret-right fa-lg')
+    } else {
+      distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+      elem.style.left = "410px";
+      this.menuEmitter.emit(true)
+      icon.setAttribute('class', 'fas fa-caret-left fa-lg')
+    }
+    this.collapseEmitter.emit(true);
+
   }
 
 }

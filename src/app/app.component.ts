@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   }
   shown: boolean = false;
   actionShown: boolean = false;
+  collapseShown:boolean=false;
   topShown: boolean = false;
   viewState: boolean = false;
   menuBarShown:boolean = true;
@@ -33,6 +34,7 @@ export class AppComponent implements OnInit {
   }
   recActionShown(event){
     this.actionShown = event;
+    this.collapseShown = event;
   }
   recViewState(event) {
     this.viewState = event;
@@ -40,7 +42,9 @@ export class AppComponent implements OnInit {
   recRightState(event) {
     this.rightState = event
   }
-
+  recCollapseState(event){
+    this.collapseShown = event
+  }
   blurElements() {
     let elements = document.querySelectorAll('.unfocus');
     for (let i = 0; i < elements.length; i++) {

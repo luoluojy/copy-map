@@ -15,8 +15,9 @@
     bottom:18px;
     right:30px;
     width:100px;
-    background-color:rgba(47,53,60,.8);
-    color:white;
+    /* background-color:rgba(47,53,60,.8);
+    color:white; */
+    background-color: rgb(238, 238, 238);
     font-size:12px;
     text-align: center;
      padding: 6px 30px;
