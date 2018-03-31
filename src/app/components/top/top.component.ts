@@ -17,42 +17,40 @@ export class TopComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  expandDataView(){
     let expand = document.getElementById('expand');
+    let expandBottom = window.getComputedStyle(expand, null).bottom
+    if (this.viewShown == false) {
+      this.viewShown = true;
+      let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) + 180 + 'px';
+      expand.style.bottom = newExpandBottom;
+      let compass = <HTMLElement>document.getElementsByClassName('compass')[0];
+      let navigation_controls = <HTMLElement>document.getElementsByClassName('navigation-controls')[0];
+      let compassBottom = window.getComputedStyle(compass, null).bottom
+      let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) + 180 + 'px';
+      compass.style.bottom = newCompassBottom;
+      let navigationControlsBottom = window.getComputedStyle(navigation_controls, null).bottom
+      let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) + 180 + 'px';
+      navigation_controls.style.bottom = newNavigationControlsBottom;
+    } else if (this.viewShown = true) {
+      this.viewShown = false;
 
-    Observable.fromEvent(expand, 'click').subscribe((event: any) => {
-      let expandBottom = window.getComputedStyle(expand, null).bottom
-      if (this.viewShown == false) {
-        this.viewShown = true;
-        let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) + 180 + 'px';
-        expand.style.bottom = newExpandBottom;
-        let compass = <HTMLElement>document.getElementsByClassName('compass')[0];
-        let navigation_controls = <HTMLElement>document.getElementsByClassName('navigation-controls')[0];
-        let compassBottom = window.getComputedStyle(compass, null).bottom
-        let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) + 180 + 'px';
-        compass.style.bottom = newCompassBottom;
-        let navigationControlsBottom = window.getComputedStyle(navigation_controls, null).bottom
-        let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) + 180 + 'px';
-        navigation_controls.style.bottom = newNavigationControlsBottom;
-      } else if (this.viewShown = true) {
-        this.viewShown = false;
+      let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 180 + 'px';
+      expand.style.bottom = newExpandBottom;
+      let compass = <HTMLElement>document.getElementsByClassName('compass')[0];
+      let navigation_controls = <HTMLElement>document.getElementsByClassName('navigation-controls')[0];
+      let compassBottom = window.getComputedStyle(compass, null).bottom
+      let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) - 180 + 'px';
+      compass.style.bottom = newCompassBottom;
+      let navigationControlsBottom = window.getComputedStyle(navigation_controls, null).bottom
+      let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) - 180 + 'px';
+      navigation_controls.style.bottom = newNavigationControlsBottom;
+    }
+    this.viewEmitter.emit(this.viewShown);
 
-        let newExpandBottom = parseInt(expandBottom.substr(0, expandBottom.length - 2), 10) - 180 + 'px';
-        expand.style.bottom = newExpandBottom;
-        let compass = <HTMLElement>document.getElementsByClassName('compass')[0];
-        let navigation_controls = <HTMLElement>document.getElementsByClassName('navigation-controls')[0];
-        let compassBottom = window.getComputedStyle(compass, null).bottom
-        let newCompassBottom = parseInt(compassBottom.substr(0, compassBottom.length - 2), 10) - 180 + 'px';
-        compass.style.bottom = newCompassBottom;
-        let navigationControlsBottom = window.getComputedStyle(navigation_controls, null).bottom
-        let newNavigationControlsBottom = parseInt(navigationControlsBottom.substr(0, navigationControlsBottom.length - 2), 10) - 180 + 'px';
-        navigation_controls.style.bottom = newNavigationControlsBottom;
-      }
-      this.viewEmitter.emit(this.viewShown);
-
-    })
   }
-
   collapse(elem) {
     let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
     let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;

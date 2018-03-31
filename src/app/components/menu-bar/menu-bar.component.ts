@@ -14,11 +14,12 @@ export class MenuBarComponent implements OnInit {
   
   @Output() rightEmitter:EventEmitter<string>=new EventEmitter<string>();
   @Output() menuBarEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
-  ngOnInit() {
-    Observable.fromEvent(this.elementRef.nativeElement.querySelector('#menu'), 'click').subscribe(() => {
-      this.shownEmitter.emit(true);
-      this.menuBarEmitter.emit(false);
-    })
+  ngOnInit() {}
+
+  openMenu(){
+    this.shownEmitter.emit(true);
+    this.menuBarEmitter.emit(false);
+  
   }
 
 }

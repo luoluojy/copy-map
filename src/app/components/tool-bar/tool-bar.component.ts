@@ -10,38 +10,13 @@ export class ToolBarComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) { }
 
-
   regionsShown: boolean = false;
   mapsShown: boolean = false;
   toolsShown: boolean = false;
   noticeShown: boolean = false;
   userShown: boolean = false;
   
-  ngOnInit() {
-    let mapBar =document.getElementsByClassName('map-bar');
-    let regionsElement = mapBar[0];
-    let mapsElement = mapBar[1];
-    let toolsElement = mapBar[2];
-    let noticeElement = document.getElementById('notice');
-    let userElement = document.getElementById('user');
- 
-    Observable.fromEvent(regionsElement,'click').subscribe(()=>{
-      this.initRegionsClick();
-    })
-    Observable.fromEvent(mapsElement,'click').subscribe(()=>{
-      this.initMapsClick();
-    })
-    Observable.fromEvent(toolsElement,'click').subscribe(()=>{
-      this.initToolsClick();
-    })
-    Observable.fromEvent(noticeElement,'click').subscribe(()=>{
-      this.initNoticeClick();
-    })
-    Observable.fromEvent(userElement,'click').subscribe(()=>{
-      this.initUserClick();
-    })
-    
-  }
+  ngOnInit() {}
 
   initRegionsClick(){
     if(this.regionsShown==false){

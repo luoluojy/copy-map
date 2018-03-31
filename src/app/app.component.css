@@ -55,3 +55,9 @@
 #tool-bar{
     position: relative;top:20px;right:20px;
 }
+
+#modal{
+    position: absolute;
+    top:0px;
+    left: 0px;
+}

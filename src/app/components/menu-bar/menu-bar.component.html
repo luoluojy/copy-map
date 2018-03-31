@@ -1,5 +1,5 @@
 <div id="menu-bar">
-  <button id="menu" title="菜单" class="unfocus">
+  <button id="menu" title="菜单" (click)="openMenu()" class="unfocus">
     <i class="fas fa-bars fa-lg"></i>
   </button>
 
@@ -9,10 +9,10 @@
     <i class="fas fa-search fa-lg"></i>
   </button>
   <span style="font-size:20px;padding:0 5px">|</span>
-  <button title="路径" id="direction" style="display:inline-block;width:20px;height:20px;border-left:1px soild #d9d9d9;padding:3px 0px;margin-right:10px;text-align:center;background:url(assets/icon/png/directions.png) no-repeat 1px">
+  <button title="路径" id="direction" >
   </button>
 
-  <button title="关闭" id="close" style="display:none;width:20px;height:20px;padding:3px 0px;margin-right:15px;text-align:center;">
+  <button title="关闭" id="close" >
     <i class="fas fa-times fa-lg"></i>
   </button>
 </div>

@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit, OnChanges {
   @Output() shownEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() createProjectEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   ngOnChanges(changes: SimpleChanges) {
     this.shown = changes['shown'].currentValue;
   }
@@ -29,6 +30,12 @@ export class MenuComponent implements OnInit, OnChanges {
   clsoeMenu(){
     this.shownEmitter.emit(false);
     this.menuBarEmitter.emit(true);
+  }
+
+
+  createProject(){
+    this.shownEmitter.emit(false);
+    this.createProjectEmitter.emit(true);
   }
   ngOnInit() { }
 

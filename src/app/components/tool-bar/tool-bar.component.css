@@ -52,3 +52,6 @@ ul{
 #tool-main{
     position: absolute;top:35px;right:0px;
 }
+#user-notic{
+    z-index:1;position:absolute;top:0px;right:0px;
+}

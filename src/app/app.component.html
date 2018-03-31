@@ -16,6 +16,7 @@
 
     <!-- left -->
     <div id="left" *ngIf="actionShown">
+      <app-new-project *ngIf="false"></app-new-project>
       <app-control-view (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"  (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
     </div>
 
@@ -40,7 +41,7 @@
 
   <!-- layer3 -->
   <div class="layer3" *ngIf="shown">
-    <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)"></app-menu>
+    <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-menu>
   </div>
-
+  <app-modal *ngIf="modalShown" (modalEmitter)="recModalShown($event)"></app-modal>
 </div>

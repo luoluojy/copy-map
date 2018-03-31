@@ -1,0 +1,14 @@
+<div id="modal" (click)="closeDialog()"style="z-index:2;position: fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:-webkit-flex;-webkit-justify-content:center;-webkit-align-items:center">
+    <div id="dialog" (click)="$event.stopPropagation();"style="z-index:3;height:200px;width:400px;background: rgba(238,238,238);border-radius: 4px;;padding: 4px;">
+      <div id="dialog-head" style="position: relative;border-bottom:1px solid black">
+        <span>新建项目</span>
+        <div title="关闭" (click)="closeDialog()"style="display:inline;position: absolute;top:0px;right:0px"><i class="fas fa-times fa-lg"></i></div>
+      </div>
+      <div id="dialog-main">
+        <h3>请确认您的操作！</h3>
+        <button>确定</button>
+        <button>取消</button>
+      </div>
+      </div>
+</div>
+

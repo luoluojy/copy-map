@@ -6,3 +6,6 @@
     height: 470px;
     background-color: white;
 }
+#notice-close{
+    position:absolute;top:0px;right:5px;color:black;
+}

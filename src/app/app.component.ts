@@ -45,6 +45,17 @@ export class AppComponent implements OnInit {
   recCollapseState(event){
     this.collapseShown = event
   }
+
+  modalShown:boolean = false;
+  recCreateProjectState(event){
+    console.log(2222)
+    this.modalShown = event;
+  }
+
+  recModalShown(event){
+    this.modalShown=event;
+    this.shown=!event;
+  }
   blurElements() {
     let elements = document.querySelectorAll('.unfocus');
     for (let i = 0; i < elements.length; i++) {

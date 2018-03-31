@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { ToolBarModule } from './components/tool-bar/tool-bar.module';
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
 import { ControlViewComponent } from './components/control-view/control-view.component';
 import { TopComponent } from './components/top/top.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { NewProjectComponent } from './components/new-project/new-project.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { TopComponent } from './components/top/top.component';
     ControlViewComponent,
     MapViewComponent,
     TopComponent,
+    ModalComponent,
+    NewProjectComponent,
   ],
   imports: [
     BrowserModule,
