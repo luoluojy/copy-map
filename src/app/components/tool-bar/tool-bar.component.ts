@@ -10,35 +10,35 @@ export class ToolBarComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) { }
 
-  regionsShown: boolean = false;
-  mapsShown: boolean = false;
+  locationsShown: boolean = false;
+  atlasShown: boolean = false;
   toolsShown: boolean = false;
   noticeShown: boolean = false;
   userShown: boolean = false;
   
   ngOnInit() {}
 
-  initRegionsClick(){
-    if(this.regionsShown==false){
-      this.regionsShown=true;
-      this.mapsShown=false;
+  initLocationsClick(){
+    if(this.locationsShown==false){
+      this.locationsShown=true;
+      this.atlasShown=false;
       this.toolsShown=false;
       this.noticeShown=false;
       this.userShown=false;
     }else{
-        this.regionsShown=false;
+        this.locationsShown=false;
     }
   }
 
-  initMapsClick(){
-    if(this.mapsShown==false){
-      this.mapsShown=true;
+  initAtlasClick(){
+    if(this.atlasShown==false){
+      this.atlasShown=true;
       this.toolsShown=false;
       this.noticeShown=false;
       this.userShown=false;
-      this.regionsShown=false;
+      this.locationsShown=false;
     }else{
-        this.mapsShown=false;
+        this.atlasShown=false;
     }
     
   }
@@ -46,8 +46,8 @@ export class ToolBarComponent implements OnInit {
   initToolsClick(){
     if(this.toolsShown==false){
       this.toolsShown=true;
-      this.mapsShown=false;
-      this.regionsShown=false;
+      this.atlasShown=false;
+      this.locationsShown=false;
       this.noticeShown=false;
       this.userShown=false;
     }else{
@@ -59,8 +59,8 @@ export class ToolBarComponent implements OnInit {
   initNoticeClick(){
     if(this.noticeShown==false){
       this.noticeShown=true;
-      this.regionsShown=false;
-      this.mapsShown=false;
+      this.locationsShown=false;
+      this.atlasShown=false;
       this.toolsShown=false;
       this.userShown=false;
     }else{
@@ -72,8 +72,8 @@ export class ToolBarComponent implements OnInit {
   initUserClick(){
     if(this.userShown==false){
       this.userShown=true;
-      this.regionsShown=false;
-      this.mapsShown=false;
+      this.locationsShown=false;
+      this.atlasShown=false;
       this.toolsShown=false;
       this.noticeShown=false;
     }else{

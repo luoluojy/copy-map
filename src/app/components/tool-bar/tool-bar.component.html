@@ -1,13 +1,13 @@
 
   <ul id="map" class="control">
     <li>
-      <div class="map-bar" (click)="initRegionsClick()" #regions>
+      <div class="map-bar" (click)="initLocationsClick()" #regions>
         <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
         <i class="fas fa-angle-down  fa-lg"></i>
       </div>
     </li>
     <li>
-      <div class="map-bar" (click)="initMapsClick()" #maps>
+      <div class="map-bar" (click)="initAtlasClick()" #maps>
         <i class="fas fa-map  fa-lg"></i> 图册
         <i class="fas fa-angle-down  fa-lg"></i>
       </div>
@@ -33,8 +33,8 @@
   </div>
 
   <div id="tool-main">
-    <app-regions  *ngIf="regionsShown"></app-regions>
-    <app-maps  *ngIf="mapsShown"></app-maps>
+    <app-locations  *ngIf="locationsShown"></app-locations>
+    <app-atlas  *ngIf="atlasShown"></app-atlas>
     <app-tools  *ngIf="toolsShown" ></app-tools>
     <app-notice  *ngIf="noticeShown" ></app-notice>
     <app-user   *ngIf="userShown"></app-user>

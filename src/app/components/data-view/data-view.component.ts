@@ -32,7 +32,6 @@ export class DataViewComponent implements OnInit, AfterViewInit {
   nativeElement: any;
   
   @Input() displayFlagState: string;
-  @Input() actionFlag :boolean;
   constructor(private elementRef: ElementRef) {
     this.displayFlagState = 'false';
     this.nativeElement = this.elementRef.nativeElement;

@@ -17,11 +17,10 @@ export class MenuComponent implements OnInit, OnChanges {
   @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() createProjectEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   ngOnChanges(changes: SimpleChanges) {
-    this.shown = changes['shown'].currentValue;
+    
   }
   checkShown() {
-    this.shown = false;
-    this.shownEmitter.emit(this.shown);
+    this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
     let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
     let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
@@ -33,7 +32,7 @@ export class MenuComponent implements OnInit, OnChanges {
   }
 
 
-  createProject(){
+  createProject(){.0
     this.shownEmitter.emit(false);
     this.createProjectEmitter.emit(true);
   }
