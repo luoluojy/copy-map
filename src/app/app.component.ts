@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     this.menuBarShown = event;
   }
 
-  rightState: string;
+  
   recShown(event) {
     this.shown = event;
   }
@@ -39,9 +39,7 @@ export class AppComponent implements OnInit {
   recViewState(event) {
     this.viewState = event;
   }
-  recRightState(event) {
-    this.rightState = event
-  }
+  
   recCollapseState(event){
     this.collapseShown = event
   }
@@ -49,19 +47,12 @@ export class AppComponent implements OnInit {
   modalShown:boolean = false;
   recCreateProjectState(event){
     this.modalShown = event;
-    if(event==0){
-      this.flag=0;
-    }
   }
 
   recModalShown(event){
     this.modalShown=event;
     this.shown=!event;
   }
-
-
-
-  flag:number = -1;
   
   blurElements() {
     let elements = document.querySelectorAll('.unfocus');

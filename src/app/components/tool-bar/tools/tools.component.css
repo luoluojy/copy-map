@@ -23,10 +23,10 @@
 }
 
 #distance-icon{
-    height: 34px;width: 29px;background-image: url(/assets/icon/baidumap/newtools_9ddbaad.png);background-position: -80px -117px;
+    height: 34px;width: 29px;background-image: url(assets/icon/baidumap/newtools_9ddbaad.png);background-position: -80px -117px;
             background-repeat: no-repeat;position: absolute;top: 0px;left: 6px;
 }
 #sign-icon{
-    height: 34px;width: 29px;background-image: url(/assets/icon/baidumap/newtools_9ddbaad.png);background-position: -80px -168px;
+    height: 34px;width: 29px;background-image: url(assets/icon/baidumap/newtools_9ddbaad.png);background-position: -80px -168px;
     background-repeat: no-repeat;position: absolute;top: 66px;left: 6px;
 }

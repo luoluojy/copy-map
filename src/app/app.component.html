@@ -16,7 +16,6 @@
 
     <!-- left -->
     <div id="left" >
-      <app-new-project *ngIf="flag==0"></app-new-project>
       <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"  (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
     </div>
 
