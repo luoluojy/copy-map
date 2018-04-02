@@ -1,0 +1,19 @@
+<div id="menu-panel" >
+    <div id="menu-head" ></div>
+    <h2>Crime Analysis</h2>
+    <button (click)="clsoeMenu()" title="收回" class="unfocus" >
+        <i class="fas fa-angle-double-left"></i>
+    </button>
+
+    <ul class="project">
+        <li (click)="createProject()">新建项目</li>
+        <li >打开项目</li>
+        <li >项目管理</li>
+        <li (click)="checkShown()">项目详情</li>
+    </ul>
+
+    <ul class="operator">
+        <li>数据查询</li>
+        <li>数据分析</li>
+    </ul>
+</div>

@@ -1,62 +1,46 @@
+<div id="root">
 
-<header>
-  <ul class="control">
-    <li>
-      <div class="map-bar" appRegionContainerToggle>
-        <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
-        <i class="fas fa-angle-down  fa-lg"></i>
-      </div>
-    </li>
-    <li>
-      <div class="map-bar" appMapsToggle>
-        <i class="fas fa-tasks  fa-lg"></i> 图册
-        <i class="fas fa-angle-down  fa-lg"></i>
-      </div>
-    </li>
-    <li>
-      <div class="map-bar" appToolsToggle>
-        <i class="fas fa-box fa-lg"></i> 工具箱
-        <i class="fas fa-angle-down  fa-lg"></i>
-      </div>
-    </li>
-  </ul>
-  <div id="notice" title="通知" appNoticeContainerToggle>
-    <i class="fas fa-comment-alt fa-lg"></i>
-  </div>
-  <div id="user-center" title="用户中心" appUserToggle>
-    <i class="fas fa-user  fa-lg"></i>
+  <!-- layer0 -->
+  <div id="container">
+    <app-map-view></app-map-view>
   </div>
 
-  <div id="nav-bar">
-    <button id="menu" appSidernavToggle title="菜单" class="unfocus">
-      <i class="fas fa-bars fa-lg"></i>
-    </button>
-
-    <input type="text" placeholder="Search" />
-    <button id="search" appSearchContainerToggle type="submit" title="搜索" class="unfocus">
-      <i class="fas fa-search fa-lg"></i>
-    </button>
+  <!-- layer1  -->
+  <div class="layer1">
+    <div id="menu-bar"  ><app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown"  (menuBarEmitter)="recMenuBarState($event)"></app-menu-bar></div>
+    <div id="tool-bar"  ><app-tool-bar></app-tool-bar></div>
   </div>
 
-</header>
+  <!-- layer2 -->
+  <div class="layer2">
 
-<div id="cesiumContainer"></div>
+    <!-- left -->
+    <div id="left" >
+      <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"  (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
+    </div>
 
-<app-region-container></app-region-container>
-<app-tools></app-tools>
-<app-maps></app-maps>
-<app-notice-container></app-notice-container>
-<app-user></app-user>
-<app-sidenav></app-sidenav>
-<app-search-container></app-search-container>
-<app-bottom-container></app-bottom-container>
+    <!-- right -->
+    <div id="right">
 
-<div id="dataview" appBottomContainerToggle title="展开" class="unfocus">
-  展开
-  <i class="fas fa-angle-double-up"></i>
+      <!-- top -->
+      <div id="top">
+        <app-top [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)" (collapseEmitter)="recCollapseState($event)"></app-top>
+      </div>
+
+      <div id = "data-view-container">
+        <app-data-view *ngIf="viewState"></app-data-view>
+      </div>
+
+      <div id="footer-container">
+        <app-footer></app-footer>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- layer3 -->
+  <div class="layer3" *ngIf="shown">
+    <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-menu>
+  </div>
+  <app-modal *ngIf="modalShown" (modalEmitter)="recModalShown($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-modal>
 </div>
-
-<footer>
-  <span>Copyright &copy;1902-2018 南京师范大学•虚拟地理环境教育部重点实验室 版权所有</span>
-</footer>
-<div id="overlay"></div>

@@ -1,0 +1,34 @@
+#control-view-container{
+    width:410px;
+    height: 100%;
+    position: relative;
+}
+
+.control-view-head-wrapper{
+    background-color:#007bff;
+    height:50px;
+    width:100%;
+}
+.control-view-head {
+    position:relative;
+    top:10px;
+    left:20px;
+    height:50px;
+    width:360px;
+}
+
+#control-view-menu{
+    position:relative;
+    top:0px;
+    left:15px;
+    display: inline-block;
+    color: white;
+}
+
+#control-view-close{
+    position:absolute;
+    top:0px;
+    right:15px;
+    display: inline-block;
+    color: white;
+}

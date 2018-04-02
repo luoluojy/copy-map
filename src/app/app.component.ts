@@ -1,12 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 
 import { InitCesiumService } from './services/init-cesium.service';
-import { Store, select } from '@ngrx/store';
-
-import { Observable } from 'rxjs/Observable';
-import { AppState } from './common/reducer';
-
-import { CloseSidenavAction, CloseToolsAction, CloseMapsAction, CloseUserAction } from './common/action';
 
 @Component({
   selector: 'app-root',
@@ -18,15 +12,56 @@ import { CloseSidenavAction, CloseToolsAction, CloseMapsAction, CloseUserAction 
 })
 export class AppComponent implements OnInit {
 
-  constructor(private initCesiumService: InitCesiumService, private store: Store<AppState>) {
+  constructor(private elementRef: ElementRef, private initCesiumService: InitCesiumService) { }
 
+<<<<<<< HEAD
   }
 
+=======
+>>>>>>> fd0a63570a55f7a09e6f43ede42d6657d24a78c6
   ngOnInit() {
     this.initCesiumService.initCesium();
-    this.blurElements()
+    this.blurElements();
+  }
+  shown: boolean = false;
+  actionShown: boolean = false;
+  collapseShown:boolean=false;
+  topShown: boolean = false;
+  viewState: boolean = false;
+  menuBarShown:boolean = true;
+  recMenuBarState(event){
+    this.menuBarShown = event;
   }
 
+<<<<<<< HEAD
+=======
+  
+  recShown(event) {
+    this.shown = event;
+  }
+  recActionShown(event){
+    this.actionShown = event;
+    this.collapseShown = event;
+  }
+  recViewState(event) {
+    this.viewState = event;
+  }
+  
+  recCollapseState(event){
+    this.collapseShown = event
+  }
+
+  modalShown:boolean = false;
+  recCreateProjectState(event){
+    this.modalShown = event;
+  }
+
+  recModalShown(event){
+    this.modalShown=event;
+    this.shown=!event;
+  }
+  
+>>>>>>> fd0a63570a55f7a09e6f43ede42d6657d24a78c6
   blurElements() {
     let elements = document.querySelectorAll('.unfocus');
     for (let i = 0; i < elements.length; i++) {
@@ -36,4 +71,5 @@ export class AppComponent implements OnInit {
       }
     }
   }
+
 }

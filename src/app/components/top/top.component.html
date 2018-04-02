@@ -1,0 +1,11 @@
+<div style="width:100%;float:right;">
+
+    <div *ngIf="collapseShown" id="collapse" #elem (click)="collapse(elem)" title="折叠">
+        <i class="fas fa-caret-left fa-lg"></i>
+      </div>
+    
+  <div id="expand" title="展开" (click)="expandDataView()">
+    展开
+    <i class="fas fa-angle-double-up"></i>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+
+#map{
+    position: absolute;
+    right:100px;
+    background-color:white;z-index:1;
+    width:260px;
+}
+#map li{
+    list-style: none;
+    float:left;
+    margin:0 10px;
+}
+
+ul{
+    padding-left:8px;    
+    border-radius: 2px;
+    box-shadow: 1px 2px 1px rgba(0,0,0,.15);
+}
+.map-bar{
+    color:#9A9A9A;
+    padding:8px 0px;
+    font-size:12px;
+}
+
+#notice{
+    position:absolute;
+    right:50px;
+    background-color:white;
+    font-size:12px;
+    padding:8px;
+    border-radius:5px;
+}
+#user{
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    border-radius:50%;
+    height:40px;
+    width:40px;
+    position:absolute;
+    top:-2px;
+    right:0px;
+    margin-left:20px;
+    color:#3C82FF;
+    background-color:white
+}
+.map-bar:hover{
+    color:#0C88E8;
+    cursor: pointer;
+}
+
+#tool-main{
+    position: absolute;top:35px;right:0px;
+}
+#user-notic{
+    z-index:1;position:absolute;top:0px;right:0px;
+}

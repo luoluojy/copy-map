@@ -1,0 +1,17 @@
+#footer{
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    height:18px;
+    width:435px;
+    /* background-color: rgba(47,53,60,.8); */
+    background-color: rgb(238, 238, 238);
+    z-index: 2;
+}
+#footer span{
+    position:absolute;
+    left:10px;
+    font-size:12px;
+    text-align:left;
+    /* color:white; */
+}
