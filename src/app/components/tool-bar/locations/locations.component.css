@@ -1,6 +1,13 @@
 #regions-container{
-    width:260px;height:390px;position: absolute;right:100px;top:6px;
+    width:260px;
+    height:390px;
+    position: absolute;
+    right:100px;
+    top:6px;
 }
 #regions-close{
-    position:absolute;top:0px;right:0px;font-size:12px;
+    position:absolute;
+    top:0px;
+    right:0px;
+    font-size:12px;
 }

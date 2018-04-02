@@ -49,10 +49,14 @@
 }
 
 #menu-bar{
-    position: absolute;top:20px;left:20px;
+    position: absolute;
+    top:20px;
+    left:20px;
 }
 #tool-bar{
-    position: relative;top:20px;right:20px;
+    position: relative;
+    top:20px;
+    right:20px;
 }
 
 #modal{
