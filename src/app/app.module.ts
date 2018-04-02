@@ -2,13 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-<<<<<<< HEAD
-import { StoreModule } from '@ngrx/store';
-import { openedReducer } from './common/reducer';
-import { AppComponent } from './app.component';
-=======
->>>>>>> fd0a63570a55f7a09e6f43ede42d6657d24a78c6
-
 import { ToolBarModule } from './components/tool-bar/tool-bar.module';
 
 import { AppComponent } from './app.component';
@@ -37,13 +30,8 @@ import { ModalComponent } from './components/modal/modal.component';
   ],
   imports: [
     BrowserModule,
-<<<<<<< HEAD
-    StoreModule.forRoot({ opened: openedReducer }),
-    MenuModule
-=======
     BrowserAnimationsModule,
     ToolBarModule
->>>>>>> fd0a63570a55f7a09e6f43ede42d6657d24a78c6
   ],
   providers: [],
   bootstrap: [AppComponent]
