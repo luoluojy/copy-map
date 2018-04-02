@@ -1,5 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tool-bar',
@@ -8,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ToolBarComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef) { }
+  constructor() { }
 
   locationsShown: boolean = false;
   atlasShown: boolean = false;
