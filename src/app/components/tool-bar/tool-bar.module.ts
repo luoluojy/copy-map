@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocationsComponent } from './locations/locations.component';
 import { AtlasComponent } from './atlas/atlas.component';
-import { ToolsComponent } from './tools/tools.component';
+import { UtilsComponent } from './utils/utils.component';
 import { NoticeComponent } from './notice/notice.component';
 import { UserComponent } from './user/user.component';
 
@@ -13,14 +13,14 @@ import { UserComponent } from './user/user.component';
   declarations: [
     LocationsComponent,
     AtlasComponent,
-    ToolsComponent,
+    UtilsComponent,
     NoticeComponent,
     UserComponent
   ],
   exports: [
     LocationsComponent,
     AtlasComponent,
-    ToolsComponent,
+    UtilsComponent,
     NoticeComponent,
     UserComponent
   ]
