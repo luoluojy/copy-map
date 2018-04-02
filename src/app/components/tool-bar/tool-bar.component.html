@@ -1,42 +1,40 @@
-
-  <ul id="map" class="control">
+<ul id="map" class="control">
     <li>
-      <div class="map-bar" (click)="initLocationsClick()" #regions>
-        <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
-        <i class="fas fa-angle-down  fa-lg"></i>
-      </div>
+        <div class="map-bar" (click)="initLocationsClick()" #regions>
+            <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
+            <i class="fas fa-angle-down  fa-lg"></i>
+        </div>
     </li>
     <li>
-      <div class="map-bar" (click)="initAtlasClick()" #maps>
-        <i class="fas fa-map  fa-lg"></i> 图册
-        <i class="fas fa-angle-down  fa-lg"></i>
-      </div>
+        <div class="map-bar" (click)="initAtlasClick()" #maps>
+            <i class="fas fa-map  fa-lg"></i> 图册
+            <i class="fas fa-angle-down  fa-lg"></i>
+        </div>
     </li>
     <li>
-      <div class="map-bar" (click)="initToolsClick()" #tools>
-        <i class="fas fa-box fa-lg"></i> 工具箱
-        <i class="fas fa-angle-down  fa-lg"></i>
-      </div>
+        <div class="map-bar" (click)="initToolsClick()" #tools>
+            <i class="fas fa-box fa-lg"></i> 工具箱
+            <i class="fas fa-angle-down  fa-lg"></i>
+        </div>
     </li>
-  </ul>
+</ul>
 
 
-  <div id="user-notice" >
+<div id="user-notice">
     <div id="notice" title="通知" (click)="initNoticeClick()" #notice>
-      <i class="far fa-bell fa-lg"></i>
+        <i class="far fa-bell fa-lg"></i>
     </div>
 
     <div id="user" title="用户中心" (click)="initUserClick()" #user>
-      <i class="fas fa-user  fa-lg"></i>
+        <i class="fas fa-user  fa-lg"></i>
     </div>
 
-  </div>
+</div>
 
-  <div id="tool-main">
-    <app-locations  *ngIf="locationsShown"></app-locations>
-    <app-atlas  *ngIf="atlasShown"></app-atlas>
-    <app-tools  *ngIf="toolsShown" ></app-tools>
-    <app-notice  *ngIf="noticeShown" ></app-notice>
-    <app-user   *ngIf="userShown"></app-user>
-  </div>
-  
+<div id="tool-main">
+    <app-locations *ngIf="statusService.isLocationsAction"></app-locations>
+    <app-atlas *ngIf="statusService.isAtlasAction"></app-atlas>
+    <app-tools *ngIf="statusService.isUtilAction"></app-tools>
+    <app-notice *ngIf="statusService.isNoticeAction"></app-notice>
+    <app-user *ngIf="statusService.isUserAction"></app-user>
+</div>
