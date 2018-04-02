@@ -33,10 +33,9 @@
   </div>
 
   <div id="tool-main">
-    <app-locations  *ngIf="locationsShown"></app-locations>
-    <app-atlas  *ngIf="atlasShown"></app-atlas>
-    <app-utils  *ngIf="toolsShown" ></app-utils>
-    <app-notice  *ngIf="noticeShown" ></app-notice>
-    <app-user   *ngIf="userShown"></app-user>
-  </div>
-  
+    <app-locations *ngIf="statusService.isLocationsAction"></app-locations>
+    <app-atlas *ngIf="statusService.isAtlasAction"></app-atlas>
+    <app-utils *ngIf="statusService.isUtilAction"></app-utils>
+    <app-notice *ngIf="statusService.isNoticeAction"></app-notice>
+    <app-user *ngIf="statusService.isUserAction"></app-user>
+</div>

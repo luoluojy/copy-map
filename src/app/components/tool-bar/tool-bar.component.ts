@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { ToolBarStatusService } from './tool-bar-status.service';
 
 @Component({
   selector: 'app-tool-bar',
@@ -7,77 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolBarComponent implements OnInit {
 
-  constructor() { }
-
-  locationsShown: boolean = false;
-  atlasShown: boolean = false;
-  toolsShown: boolean = false;
-  noticeShown: boolean = false;
-  userShown: boolean = false;
+  constructor(public statusService: ToolBarStatusService) { }
   
-  ngOnInit() {}
+  ngOnInit() { }
 
-  initLocationsClick(){
-    if(this.locationsShown==false){
-      this.locationsShown=true;
-      this.atlasShown=false;
-      this.toolsShown=false;
-      this.noticeShown=false;
-      this.userShown=false;
-    }else{
-        this.locationsShown=false;
-    }
-  }
-
-  initAtlasClick(){
-    if(this.atlasShown==false){
-      this.atlasShown=true;
-      this.toolsShown=false;
-      this.noticeShown=false;
-      this.userShown=false;
-      this.locationsShown=false;
-    }else{
-        this.atlasShown=false;
-    }
+  initLocationsClick() {
+    this.statusService.isLocationsAction = !this.statusService.isLocationsAction;
     
   }
 
-  initToolsClick(){
-    if(this.toolsShown==false){
-      this.toolsShown=true;
-      this.atlasShown=false;
-      this.locationsShown=false;
-      this.noticeShown=false;
-      this.userShown=false;
-    }else{
-        this.toolsShown=false;
-    }
+  initAtlasClick() {
+    this.statusService.isAtlasAction = !this.statusService.isAtlasAction;
     
   }
 
-  initNoticeClick(){
-    if(this.noticeShown==false){
-      this.noticeShown=true;
-      this.locationsShown=false;
-      this.atlasShown=false;
-      this.toolsShown=false;
-      this.userShown=false;
-    }else{
-      this.noticeShown=false;
-    }
-    
+  initToolsClick() {
+    this.statusService.isUtilAction = !this.statusService.isUtilAction;
+
   }
 
-  initUserClick(){
-    if(this.userShown==false){
-      this.userShown=true;
-      this.locationsShown=false;
-      this.atlasShown=false;
-      this.toolsShown=false;
-      this.noticeShown=false;
-    }else{
-      this.userShown=false;
-    }
-    
+  initNoticeClick() {
+    this.statusService.isNoticeAction = !this.statusService.isNoticeAction;
+
+  }
+
+  initUserClick() {
+    this.statusService.isUserAction = !this.statusService.isUserAction;
+
   }
 }
