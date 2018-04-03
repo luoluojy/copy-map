@@ -10,6 +10,7 @@ import { ToolBarStatusService } from './tool-bar-status.service';
 export class ToolBarComponent implements OnInit {
 
   constructor(public statusService: ToolBarStatusService) { }
+<<<<<<< HEAD
 
   // locationsShown: boolean = false;
   // atlasShown: boolean = false;
@@ -17,10 +18,14 @@ export class ToolBarComponent implements OnInit {
   // noticeShown: boolean = false;
   // userShown: boolean = false;
 
+=======
+  
+>>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
   ngOnInit() { }
 
   initLocationsClick() {
     this.statusService.isLocationsAction = !this.statusService.isLocationsAction;
+<<<<<<< HEAD
 
     // if (this.locationsShown == false) {
     //   this.locationsShown = true;
@@ -31,10 +36,14 @@ export class ToolBarComponent implements OnInit {
     // } else {
     //   this.locationsShown = false;
     // }
+=======
+    
+>>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
   }
 
   initAtlasClick() {
     this.statusService.isAtlasAction = !this.statusService.isAtlasAction;
+<<<<<<< HEAD
 
     // if (this.atlasShown == false) {
     //   this.atlasShown = true;
@@ -46,11 +55,15 @@ export class ToolBarComponent implements OnInit {
     //   this.atlasShown = false;
     // }
 
+=======
+    
+>>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
   }
 
   initToolsClick() {
     this.statusService.isUtilAction = !this.statusService.isUtilAction;
 
+<<<<<<< HEAD
     // if (this.toolsShown == false) {
     //   this.toolsShown = true;
     //   this.atlasShown = false;
@@ -61,11 +74,14 @@ export class ToolBarComponent implements OnInit {
     //   this.toolsShown = false;
     // }
 
+=======
+>>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
   }
 
   initNoticeClick() {
     this.statusService.isNoticeAction = !this.statusService.isNoticeAction;
 
+<<<<<<< HEAD
     // if (this.noticeShown == false) {
     //   this.noticeShown = true;
     //   this.locationsShown = false;
@@ -76,11 +92,14 @@ export class ToolBarComponent implements OnInit {
     //   this.noticeShown = false;
     // }
 
+=======
+>>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
   }
 
   initUserClick() {
     this.statusService.isUserAction = !this.statusService.isUserAction;
 
+<<<<<<< HEAD
     // if (this.userShown == false) {
     //   this.userShown = true;
     //   this.locationsShown = false;
@@ -91,5 +110,7 @@ export class ToolBarComponent implements OnInit {
     //   this.userShown = false;
     // }
 
+=======
+>>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
   }
 }
