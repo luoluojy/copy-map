@@ -1,7 +1,11 @@
 import { Component, OnInit, ElementRef, HostListener, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { Store } from '@ngrx/store';
+import { AppSettingService } from '../../app-setting.service';
 
+/**
+ *
+ */
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -9,15 +13,15 @@ import { Store } from '@ngrx/store';
 })
 export class MenuComponent implements OnInit, OnChanges {
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(public appSetting: AppSettingService, private elementRef: ElementRef) { }
   @Input() shown;
-  
+
   @Output() shownEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() createProjectEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   ngOnChanges(changes: SimpleChanges) {
-    
+
   }
   checkShown() {
     this.shownEmitter.emit(false);

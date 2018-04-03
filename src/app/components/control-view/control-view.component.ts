@@ -1,6 +1,11 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+import { AppSettingService } from '../../app-setting.service';
+
+/**
+ *
+ */
 @Component({
   selector: 'app-control-view',
   templateUrl: './control-view.component.html',
@@ -8,7 +13,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ControlViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(public appSetting: AppSettingService) { }
+
   @Output() actionCloseEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
 
   @Output() actionMenuEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
@@ -29,7 +35,7 @@ export class ControlViewComponent implements OnInit {
 
     this.actionMenuEmitter.emit(true);
     this.actionCloseEmitter.emit(false);
-  
+
     let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
     let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
     distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'

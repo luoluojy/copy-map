@@ -14,6 +14,7 @@ import { MapViewComponent } from './components/map-view/map-view.component';
 import { ControlViewComponent } from './components/control-view/control-view.component';
 import { TopComponent } from './components/top/top.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { AppSettingService } from './app-setting.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ModalComponent } from './components/modal/modal.component';
     BrowserAnimationsModule,
     ToolBarModule
   ],
-  providers: [],
+  providers: [AppSettingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

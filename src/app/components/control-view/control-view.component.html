@@ -1,10 +1,12 @@
 <div id="control-view-container">
     <div class="control-view-head-wrapper">
-        <div  class="control-view-head" >
-            <div  title="菜单" id="control-view-menu" (click)="reOpenMenu()">
+        <div class="control-view-head">
+            <div title="菜单" id="control-view-menu" (click)="reOpenMenu()">
                 <i class="fas fa-bars fa-lg"></i>
             </div>
-
+            <div>
+                <h2>{{appSetting.actionTile}}</h2>
+            </div>
             <div title="关闭" id="control-view-close" (click)="closeControlView()">
                 <i class="fas fa-times fa-lg"></i>
             </div>

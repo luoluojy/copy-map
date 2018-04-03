@@ -17,7 +17,7 @@ export class ToolBarStatusService {
    * 工具栏当前活动状态
    */
   private _action;
-  public get Action() {
+  public get Action(): ToolBarStatus {
     return this._action;
   }
   public set Action(value: ToolBarStatus) {
@@ -27,7 +27,7 @@ export class ToolBarStatusService {
   /**
    * 定位菜单活动控制
    */
-  public get isLocationsAction() {
+  public get isLocationsAction(): boolean {
     return this._action == ToolBarStatus.LocationAction;
   }
   public set isLocationsAction(value: boolean) {
@@ -41,7 +41,7 @@ export class ToolBarStatusService {
   /**
    * 图册菜单活动控制
    */
-  public get isAtlasAction() {
+  public get isAtlasAction(): boolean {
     return this._action == ToolBarStatus.AtlasAction;
   }
   public set isAtlasAction(value: boolean) {
@@ -55,7 +55,7 @@ export class ToolBarStatusService {
   /**
    * 工具菜单活动控制
    */
-  public get isUtilAction() {
+  public get isUtilAction(): boolean {
     return this._action == ToolBarStatus.UtilAction;
   }
   public set isUtilAction(value: boolean) {
@@ -69,7 +69,7 @@ export class ToolBarStatusService {
   /**
    * 通知菜单活动控制
    */
-  public get isNoticeAction() {
+  public get isNoticeAction(): boolean {
     return this._action == ToolBarStatus.NoticeAction;
   }
   public set isNoticeAction(value: boolean) {
@@ -83,7 +83,7 @@ export class ToolBarStatusService {
   /**
    * 用户菜单活动控制
    */
-  public get isUserAction() {
+  public get isUserAction(): boolean {
     return this._action == ToolBarStatus.UserAction;
   }
   public set isUserAction(value: boolean) {
