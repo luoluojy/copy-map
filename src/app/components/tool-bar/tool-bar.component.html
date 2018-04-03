@@ -31,17 +31,10 @@
 
 </div>
 
-<<<<<<< HEAD
 <div id="tool-main">
     <app-locations *ngIf="statusService.isLocationsAction"></app-locations>
     <app-atlas *ngIf="statusService.isAtlasAction"></app-atlas>
-    <app-tools *ngIf="statusService.isUtilAction"></app-tools>
-=======
-  <div id="tool-main">
-    <app-locations *ngIf="statusService.isLocationsAction"></app-locations>
-    <app-atlas *ngIf="statusService.isAtlasAction"></app-atlas>
     <app-utils *ngIf="statusService.isUtilAction"></app-utils>
->>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
     <app-notice *ngIf="statusService.isNoticeAction"></app-notice>
     <app-user *ngIf="statusService.isUserAction"></app-user>
 </div>

@@ -19,7 +19,6 @@
 #menu-bar input {
     padding: 10px 8px;
 }
-<<<<<<< HEAD
 
 #direction {
     display: inline-block;
@@ -39,23 +38,4 @@
     padding: 3px 0px;
     margin-right: 15px;
     text-align: center;
-=======
-#direction{
-    display:inline-block;
-    width:20px;
-    height:20px;
-    border-left:1px soild #d9d9d9;
-    padding:3px 0px;
-    margin-right:10px;
-    text-align:center;
-    background:url(assets/icon/png/directions.png) no-repeat 1px
-}
-#close{
-    display:none;
-    width:20px;
-    height:20px;
-    padding:3px 0px;
-    margin-right:15px;
-    text-align:center;
->>>>>>> c9f0c7eacc965b6e7d4c6b23a7698f559609b4de
 }
