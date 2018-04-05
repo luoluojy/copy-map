@@ -5,7 +5,9 @@ import { AtlasComponent } from './atlas/atlas.component';
 import { UtilsComponent } from './utils/utils.component';
 import { NoticeComponent } from './notice/notice.component';
 import { UserComponent } from './user/user.component';
+
 import { ToolBarStatusService } from './tool-bar-status.service';
+import { ToolBarService } from './tool-bar.service';
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { ToolBarStatusService } from './tool-bar-status.service';
   ],
   providers: [
     ToolBarStatusService,
+    ToolBarService,
   ],
   exports: [
     LocationsComponent,

@@ -7,6 +7,8 @@ import { OpenProjectComponent } from './open-project/open-project.component';
 import { MaintainProjectComponent } from './maintain-project/maintain-project.component';
 import { ProjectContentComponent } from './project-content/project-content.component';
 
+import { ControlService } from './control.service';
+
 /**
  *
  */
@@ -20,6 +22,7 @@ import { ProjectContentComponent } from './project-content/project-content.compo
     OpenProjectComponent,
     MaintainProjectComponent,
     ProjectContentComponent,
-  ]
+  ],
+  providers: [ControlService],
 })
 export class ControlModule { }
