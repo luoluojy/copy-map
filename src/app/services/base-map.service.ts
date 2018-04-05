@@ -15,6 +15,13 @@ export class BaseMapService {
   constructor() { }
 
   /**
+   * 返回缺省的地理底图
+   */
+  public getDefaultBaseMap():BaseMapItem{
+    return BaseMapItems[0];
+  }
+
+  /**
    * 返回地理底图列表
    */
   public getBaseMapItems(): BaseMapItem[] {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { MapComponent } from '../map-component';
-import { CesiumService } from '../cesium.service';
+import { CesiumService } from './cesium.service';
 
 declare let Cesium: any;
 /**
