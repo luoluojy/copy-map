@@ -1,46 +1,50 @@
 <div id="root">
 
-  <!-- layer0 -->
-  <div id="container">
-    <app-map-view></app-map-view>
-  </div>
-
-  <!-- layer1  -->
-  <div class="layer1">
-    <div id="menu-bar"  ><app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown"  (menuBarEmitter)="recMenuBarState($event)"></app-menu-bar></div>
-    <div id="tool-bar"  ><app-tool-bar></app-tool-bar></div>
-  </div>
-
-  <!-- layer2 -->
-  <div class="layer2">
-
-    <!-- left -->
-    <div id="left" >
-      <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"  (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
+    <!-- layer0 -->
+    <div id="container">
+        <app-map-view></app-map-view>
     </div>
 
-    <!-- right -->
-    <div id="right">
-
-      <!-- top -->
-      <div id="top">
-        <app-top [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)" (collapseEmitter)="recCollapseState($event)"></app-top>
-      </div>
-
-      <div id = "data-view-container">
-        <app-data-view *ngIf="viewState"></app-data-view>
-      </div>
-
-      <div id="footer-container">
-        <app-footer></app-footer>
-      </div>
-
+    <!-- layer1  -->
+    <div class="layer1">
+        <div id="menu-bar">
+            <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (menuBarEmitter)="recMenuBarState($event)"></app-menu-bar>
+        </div>
+        <div id="tool-bar">
+            <app-tool-bar></app-tool-bar>
+        </div>
     </div>
-  </div>
 
-  <!-- layer3 -->
-  <div class="layer3" *ngIf="shown">
-    <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-menu>
-  </div>
-  <app-modal *ngIf="modalShown" (modalEmitter)="recModalShown($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-modal>
+    <!-- layer2 -->
+    <div class="layer2">
+
+        <!-- left -->
+        <div id="left">
+            <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)" (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
+        </div>
+
+        <!-- right -->
+        <div id="right">
+
+            <!-- top -->
+            <div id="top">
+                <app-top [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)" (collapseEmitter)="recCollapseState($event)"></app-top>
+            </div>
+
+            <div id="data-view-container">
+                <app-data-view *ngIf="viewState"></app-data-view>
+            </div>
+
+            <div id="footer-container">
+                <app-footer></app-footer>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- layer3 -->
+    <div class="layer3" *ngIf="shown">
+        <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-menu>
+    </div>
+    <app-modal *ngIf="modalShown" (modalEmitter)="recModalShown($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-modal>
 </div>
