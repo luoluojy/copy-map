@@ -14,6 +14,7 @@ import { MapService } from './map.service';
     OpenlayersComponent,
     CesiumComponent
   ],
+  entryComponents: [ OpenlayersComponent, CesiumComponent ],
   providers:[
     OpenlayersService,
     CesiumService,

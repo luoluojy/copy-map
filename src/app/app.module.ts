@@ -18,6 +18,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 import { AppSettingService } from './app-setting.service';
+import { MapDirective } from './components/map-view/map.directive';
+import { MapModule } from './components/map/map.module';
 
 /**
  *
@@ -34,12 +36,14 @@ import { AppSettingService } from './app-setting.service';
     FooterComponent,
     MenuComponent,
     ModalComponent,
+    MapDirective,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ToolBarModule,
-    ControlModule
+    ControlModule,
+    MapModule
   ],
   providers: [AppSettingService],
   bootstrap: [AppComponent]

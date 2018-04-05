@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
 
-import { InitCesiumService } from './services/init-cesium.service';
 import { AppSettingService } from './app-setting.service';
 
 @Component({
@@ -8,15 +7,14 @@ import { AppSettingService } from './app-setting.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
-    InitCesiumService,
+
   ]
 })
 export class AppComponent implements OnInit {
 
-  constructor(public appSetting: AppSettingService, private elementRef: ElementRef, private initCesiumService: InitCesiumService) { }
+  constructor(public appSetting: AppSettingService, private elementRef: ElementRef) { }
 
   ngOnInit() {
-    this.initCesiumService.initCesium();
     this.blurElements();
   }
   shown: boolean = false;
