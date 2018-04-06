@@ -14,18 +14,19 @@ import { AppCommandService } from '../../app-command.service';
 })
 export class MapViewComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  /**
+   * 地图创建指令
+   */
   @ViewChild(MapViewDirective) mapHost: MapViewDirective;
 
   /**
    *
    * @param appSetting
    * @param appCommands
-   * @param componentFactoryResolver
    */
   constructor(
     private appSetting: AppSettingService,
-    private appCommands: AppCommandService,
-    private componentFactoryResolver: ComponentFactoryResolver) {
+    private appCommands: AppCommandService) {
 
     this.appCommands.mapView = this;
 
@@ -43,22 +44,7 @@ export class MapViewComponent implements OnInit, OnDestroy, AfterViewInit {
    *
    */
   ngAfterViewInit() {
-    this.loadMapComponent();
+    this.mapHost.CreateCesium();
   }
 
-  /**
-   * 加载地图组件
-   */
-  private loadMapComponent() {
-
-    let component: Type<any> = CesiumComponent;
-
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-
-    let viewContainerRef = this.mapHost.viewContainerRef;
-    viewContainerRef.clear();
-
-    let componentRef = viewContainerRef.createComponent(componentFactory);
-
-  }
 }

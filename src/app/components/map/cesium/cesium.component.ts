@@ -16,7 +16,10 @@ export class CesiumComponent implements MapComponent, OnInit, OnDestroy, AfterVi
   /**
    * 地图标签
    */
-  public mapTarget: string = 'cesiumContainer';
+  private _mapTag: string = 'cesiumContainer';
+  public get mapTag(): string {
+    return this._mapTag;
+  }
   /**
    * 地图配置名称
    */
@@ -57,6 +60,6 @@ export class CesiumComponent implements MapComponent, OnInit, OnDestroy, AfterVi
    * 视图初始化之后
    */
   ngAfterViewInit() {
-    this.mapService.initBingMap();
+    this.mapService.initBingMap(this.mapTag);
   }
 }

@@ -12,9 +12,10 @@ export class CesiumService {
 
   /**
    * 初始化BingMap
+   * @param mapTag 地图标签
    */
-  public initBingMap() {
-    let a = document.getElementById('cesiumContainer');
+  public initBingMap(mapTag: string) {
+    let a = document.getElementById(mapTag);
     Cesium.BingMapsApi.defaultKey = "AtCjSjc6kRhasDrx-5bt8VIkUvI6fNAVz3zRK_8cD9kqS_EwiT8ohYDMwVrPSYfO";
     let viewer = new Cesium.Viewer('cesiumContainer', {
       animation: false,
