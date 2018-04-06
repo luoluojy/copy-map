@@ -1,11 +1,28 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { AppSettingService } from '../../app-setting.service';
+import { AppCommandService } from '../../app-command.service';
 
+/**
+ *
+ */
 @Component({
-  selector: 'app-top',
-  templateUrl: './top.component.html',
-  styleUrls: ['./top.component.css']
+  selector: 'app-content-view',
+  templateUrl: './content-view.component.html',
+  styleUrls: ['./content-view.component.css']
 })
-export class TopComponent implements OnInit {
+export class ContentViewComponent implements OnInit {
+
+  /**
+   * 构造函数
+   * @param appSetting
+   * @param appCommands
+   */
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService) {
+
+    this.appCommands.contentView = this;
+  }
 
   @Input() collapseShown: boolean = false;
   @Input() viewShown: boolean = false;
@@ -13,12 +30,9 @@ export class TopComponent implements OnInit {
   @Output() menuEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() collapseEmitter: EventEmitter<true> = new EventEmitter<true>();
 
+  ngOnInit() { }
 
-  constructor() { }
-
-  ngOnInit() {}
-
-  expandDataView(){
+  expandDataView() {
     let expand = document.getElementById('expand');
     let expandBottom = window.getComputedStyle(expand, null).bottom
     if (this.viewShown == false) {
@@ -69,5 +83,6 @@ export class TopComponent implements OnInit {
     this.collapseEmitter.emit(true);
 
   }
+
 
 }

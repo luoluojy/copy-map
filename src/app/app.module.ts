@@ -11,18 +11,21 @@ import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { ControlViewComponent } from './components/control-view/control-view.component';
 import { DataViewComponent } from './components/data-view/data-view.component';
-import { TopComponent } from './components/top/top.component';
+import { ContentViewComponent } from './components/content-view/content-view.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 import { ModalComponent } from './components/modal/modal.component';
 
+import { MapViewDirective } from './components/map-view/map-view.directive';
+
 import { AppSettingService } from './app-setting.service';
-import { MapDirective } from './components/map-view/map.directive';
+import { AppCommandService } from './app-command.service';
+
 import { MapModule } from './components/map/map.module';
 
 /**
- *
+ * 根应用模块
  */
 @NgModule({
   declarations: [
@@ -32,11 +35,11 @@ import { MapModule } from './components/map/map.module';
     MenuBarComponent,
     ControlViewComponent,
     DataViewComponent,
-    TopComponent,
+    ContentViewComponent,
     FooterComponent,
     MenuComponent,
     ModalComponent,
-    MapDirective,
+    MapViewDirective,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,10 @@ import { MapModule } from './components/map/map.module';
     ControlModule,
     MapModule
   ],
-  providers: [AppSettingService],
+  providers: [
+    AppSettingService,
+    AppCommandService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

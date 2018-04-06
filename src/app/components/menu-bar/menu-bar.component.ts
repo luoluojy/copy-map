@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { AppSettingService } from '../../app-setting.service';
+import { AppCommandService } from '../../app-command.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -8,18 +10,30 @@ import { Observable } from 'rxjs/Observable';
 })
 export class MenuBarComponent implements OnInit {
 
-  constructor(private elementRef: ElementRef) { }
+  /**
+   * 构造函数
+   * @param appSetting
+   * @param appCommands
+   * @param elementRef
+   */
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService,
+    private elementRef: ElementRef) {
 
-  @Output() shownEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
-  
-  @Output() rightEmitter:EventEmitter<string>=new EventEmitter<string>();
-  @Output() menuBarEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
-  ngOnInit() {}
+    this.appCommands.menuBar = this;
+  }
 
-  openMenu(){
+  @Output() shownEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @Output() rightEmitter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  ngOnInit() { }
+
+  openMenu() {
     this.shownEmitter.emit(true);
     this.menuBarEmitter.emit(false);
-  
+
   }
 
 }

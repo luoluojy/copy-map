@@ -10,7 +10,7 @@ import { ProjectContentComponent } from './project-content/project-content.compo
 import { ControlService } from './control.service';
 
 /**
- *
+ * 功能控制模块
  */
 @NgModule({
   imports: [
@@ -23,6 +23,7 @@ import { ControlService } from './control.service';
     MaintainProjectComponent,
     ProjectContentComponent,
   ],
+  entryComponents: [NewProjectComponent, OpenProjectComponent, MaintainProjectComponent, ProjectContentComponent],
   providers: [ControlService],
 })
 export class ControlModule { }

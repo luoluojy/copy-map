@@ -1,14 +1,10 @@
 import { Component, OnInit, ElementRef, AfterViewInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { delay } from 'rxjs/operators'
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import 'rxjs/add/observable/fromEvent'
 import { Observable } from 'rxjs/Observable';
+import { AppSettingService } from '../../app-setting.service';
+import { AppCommandService } from '../../app-command.service';
 
 @Component({
   selector: 'app-data-view.',
@@ -30,9 +26,22 @@ import { Observable } from 'rxjs/Observable';
 export class DataViewComponent implements OnInit, AfterViewInit {
 
   nativeElement: any;
-  
+
   @Input() displayFlagState: string;
-  constructor(private elementRef: ElementRef) {
+
+  /**
+   * 构造函数
+   * @param appSetting
+   * @param appCommands
+   * @param elementRef
+   */
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService,
+    private elementRef: ElementRef) {
+
+    this.appCommands.dataView = this;
+
     this.displayFlagState = 'false';
     this.nativeElement = this.elementRef.nativeElement;
   }
@@ -42,5 +51,5 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     viewerContainer.style.width = document.body.clientWidth + 'px';
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() { }
 }

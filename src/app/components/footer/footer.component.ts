@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppSettingService } from '../../app-setting.service';
+import { AppCommandService } from '../../app-command.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * 构造函数
+   * @param appSetting
+   * @param appCommands
+   */
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService) {
+
+    this.appCommands.footer = this;
+  }
 
   ngOnInit() {
   }

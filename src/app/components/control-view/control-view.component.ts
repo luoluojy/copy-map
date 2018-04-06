@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { AppSettingService } from '../../app-setting.service';
+import { AppCommandService } from '../../app-command.service';
 
 /**
  *
@@ -13,15 +14,26 @@ import { AppSettingService } from '../../app-setting.service';
 })
 export class ControlViewComponent implements OnInit {
 
-  constructor(public appSetting: AppSettingService) { }
+  /**
+   * 构造函数
+   * @param appSetting
+   * @param appCommands
+   */
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService) {
 
-  @Output() actionCloseEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
+    this.appCommands.controlView = this;
+  }
 
-  @Output() actionMenuEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
-  @Output() menuBarEmitter:EventEmitter<boolean>=new EventEmitter<boolean>();
-  ngOnInit() {}
+  @Output() actionCloseEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  closeControlView(){
+  @Output() actionMenuEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  ngOnInit() { }
+
+  closeControlView() {
 
     this.actionCloseEmitter.emit(false);
     this.menuBarEmitter.emit(true)
@@ -31,7 +43,7 @@ export class ControlViewComponent implements OnInit {
     distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
   }
 
-  reOpenMenu(){
+  reOpenMenu() {
 
     this.actionMenuEmitter.emit(true);
     this.actionCloseEmitter.emit(false);

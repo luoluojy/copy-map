@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
-
 import { Store } from '@ngrx/store';
 import { AppSettingService } from '../../app-setting.service';
+import { AppCommandService } from '../../app-command.service';
 
 /**
  *
@@ -13,7 +13,16 @@ import { AppSettingService } from '../../app-setting.service';
 })
 export class MenuComponent implements OnInit, OnChanges {
 
-  constructor(public appSetting: AppSettingService, private elementRef: ElementRef) { }
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService,
+    private elementRef: ElementRef) {
+
+    this.appCommands.menu = this;
+
+  }
+
+
   @Input() shown;
 
   @Output() shownEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -30,13 +39,14 @@ export class MenuComponent implements OnInit, OnChanges {
     let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
     distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
   }
-  clsoeMenu(){
+  clsoeMenu() {
     this.shownEmitter.emit(false);
     this.menuBarEmitter.emit(true);
   }
 
 
-  createProject(){.0
+  createProject() {
+    .0
     this.shownEmitter.emit(false);
     this.createProjectEmitter.emit(true);
   }

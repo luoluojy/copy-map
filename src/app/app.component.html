@@ -28,7 +28,7 @@
 
             <!-- top -->
             <div id="top">
-                <app-top [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)" (collapseEmitter)="recCollapseState($event)"></app-top>
+                <app-content-view [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)" (collapseEmitter)="recCollapseState($event)"></app-content-view>
             </div>
 
             <div id="data-view-container">

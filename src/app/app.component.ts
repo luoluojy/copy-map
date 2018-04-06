@@ -1,7 +1,11 @@
 import { Component, OnInit, ElementRef, Input } from '@angular/core';
 
 import { AppSettingService } from './app-setting.service';
+import { AppCommandService } from './app-command.service';
 
+/**
+ * 应用程序组件
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +16,19 @@ import { AppSettingService } from './app-setting.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(public appSetting: AppSettingService, private elementRef: ElementRef) { }
+  /**
+   * 构造函数
+   * @param appSetting
+   * @param appCommands
+   * @param elementRef
+   */
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService,
+    private elementRef: ElementRef) {
+
+    this.appCommands.appComponent = this;
+  }
 
   ngOnInit() {
     this.blurElements();

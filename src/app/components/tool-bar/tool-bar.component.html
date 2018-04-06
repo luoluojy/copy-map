@@ -32,9 +32,9 @@
 </div>
 
 <div id="tool-main">
-    <app-locations *ngIf="statusService.isLocationsAction"></app-locations>
-    <app-atlas *ngIf="statusService.isAtlasAction"></app-atlas>
-    <app-utils *ngIf="statusService.isUtilAction"></app-utils>
-    <app-notice *ngIf="statusService.isNoticeAction"></app-notice>
-    <app-user *ngIf="statusService.isUserAction"></app-user>
+    <app-locations *ngIf="isLocationsAction"></app-locations>
+    <app-atlas *ngIf="isAtlasAction"></app-atlas>
+    <app-utils *ngIf="isUtilAction"></app-utils>
+    <app-notice *ngIf="isNoticeAction"></app-notice>
+    <app-user *ngIf="isUserAction"></app-user>
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, ComponentFactoryResolver, ViewChild, Type, AfterViewInit } from '@angular/core';
-import { MapDirective } from './map.directive';
+import { MapViewDirective } from './map-view.directive';
 import { CesiumComponent } from '../map/cesium/cesium.component';
+import { AppSettingService } from '../../app-setting.service';
+import { AppCommandService } from '../../app-command.service';
 
 /**
  * 地图视图
@@ -12,13 +14,22 @@ import { CesiumComponent } from '../map/cesium/cesium.component';
 })
 export class MapViewComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild(MapDirective) mapHost: MapDirective;
+  @ViewChild(MapViewDirective) mapHost: MapViewDirective;
 
   /**
    *
+   * @param appSetting
+   * @param appCommands
    * @param componentFactoryResolver
    */
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(
+    private appSetting: AppSettingService,
+    private appCommands: AppCommandService,
+    private componentFactoryResolver: ComponentFactoryResolver) {
+
+    this.appCommands.mapView = this;
+
+  }
 
   ngOnInit() {
     // this.loadComponent();
