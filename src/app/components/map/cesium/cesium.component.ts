@@ -23,13 +23,11 @@ export class CesiumComponent implements MapComponent, OnInit, OnDestroy, AfterVi
   /**
    * 地图配置名称
    */
-  @Input()
   public name: string;
   /**
    * 地图配置
    */
   private _setting: any;
-  @Input()
   public set setting(value: any) {
     this._setting = value;
   };
