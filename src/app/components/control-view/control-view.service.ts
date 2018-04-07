@@ -44,32 +44,21 @@ export class ControlViewService {
    * 活动功能标题
    */
   public get actionTile(): string {
-    switch (this.actionStatus) {
-      case ControlViewStatus.NewProject:
-        return "新建项目";
-
-      case ControlViewStatus.OpenProject:
-        return "打开项目";
-
-      case ControlViewStatus.SaveProject:
-        return "保存项目";
-
-      case ControlViewStatus.MaintainProject:
-        return "项目管理";
-
-      case ControlViewStatus.ProjectContent:
-        return "项目详情";
-
-      case ControlViewStatus.DataResource:
-        return "数据查询";
-
-      case ControlViewStatus.AnalysisTask:
-        return "数据分析";
-
-      default:
-        return "";
-    }
+    var key: string = ControlViewStatus[this.actionStatus];
+    return this._tiles[key];
   }
+  /**
+   * 活动标题字典
+   */
+  private _tiles: { [key: string]: string; } = {
+    "NewProject": "新建项目",
+    "OpenProject": "打开项目",
+    "SaveProject": "保存项目",
+    "MaintainProject": "项目管理",
+    "ProjectContent": "项目详情",
+    "DataResource": "数据查询",
+    "AnalysisTask": "数据分析"
+  };
 
   /**
    * 新建项目命令

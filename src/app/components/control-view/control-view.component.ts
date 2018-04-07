@@ -64,72 +64,38 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    * @param action
    */
   private createActionComponent(action: ControlViewStatus) {
-    switch (action) {
-      case ControlViewStatus.NewProject:
-        this.createNewProjectComponent();
-        break;
-      case ControlViewStatus.OpenProject:
-        this.createOpenProjectComponent();
-        break;
-      case ControlViewStatus.SaveProject:
-        this.createSaveProjectComponent();
-        break;
-      case ControlViewStatus.MaintainProject:
-        this.createMaintainProjectComponent();
-        break;
-      case ControlViewStatus.ProjectContent:
-        this.createProjectContentComponent()
-        break;
-      case ControlViewStatus.DataResource:
-        this.createDataResourceComponent();
-        break;
-      case ControlViewStatus.AnalysisTask:
-        this.createAnalysisTaskComponent();
-        break;
+    var key: string = ControlViewStatus[action];
+    var func = this._actions[key];
+    if (func != undefined) {
+      func();
     }
   }
   /**
-   * 创建新建项目组件
+   * 活动组件创建字典
    */
-  private createNewProjectComponent() {
-    this.actionHost.createNewProjectComponent();
-  }
-  /**
-   * 创建打开项目组件
-   */
-  private createOpenProjectComponent() {
-    this.actionHost.createOpenProjectComponent();
-  }
-  /**
-   * 创建保存项目组件
-   */
-  private createSaveProjectComponent() {
-    this.actionHost.createSaveProjectComponent();
-  }
-  /**
-   * 创建项目管理组件
-   */
-  private createMaintainProjectComponent() {
-    this.actionHost.createMaintainProjectComponent();
-  }
-  /**
-   * 创建项目内容组件
-   */
-  private createProjectContentComponent() {
-    this.actionHost.createProjectContentComponent();
-  }
-  /**
-   * 创建数据查询组件
-   */
-  private createDataResourceComponent() {
-    this.actionHost.createDataResourceComponent();
-  }
-  /**
-   * 创建数据分析组件
-   */
-  private createAnalysisTaskComponent() {
-    this.actionHost.creatAnalysisTaskComponent();
-  }
+  private _actions: { [key: string]: any; } = {
+    "NewProject": () => {
+      this.actionHost.createNewProjectComponent();
+    },
+    "OpenProject": () => {
+      this.actionHost.createOpenProjectComponent();
+    },
+    "SaveProject": () => {
+      this.actionHost.createSaveProjectComponent();
+    },
+    "MaintainProject": () => {
+      this.actionHost.createMaintainProjectComponent();
+    },
+    "ProjectContent": () => {
+      this.actionHost.createProjectContentComponent();
+    },
+    "DataResource": () => {
+      this.actionHost.createDataResourceComponent();
+    },
+    "AnalysisTask": () => {
+      this.actionHost.creatAnalysisTaskComponent();
+    }
+  };
 
   @Output() actionCloseEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
