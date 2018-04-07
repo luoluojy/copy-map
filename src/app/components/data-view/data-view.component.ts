@@ -3,8 +3,7 @@ import { delay } from 'rxjs/operators'
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import 'rxjs/add/observable/fromEvent'
 import { Observable } from 'rxjs/Observable';
-import { AppSettingService } from '../../app-setting.service';
-import { AppCommandService } from '../../app-command.service';
+import { DataViewService } from './data-view.service';
 
 @Component({
   selector: 'app-data-view.',
@@ -25,26 +24,20 @@ import { AppCommandService } from '../../app-command.service';
 })
 export class DataViewComponent implements OnInit, AfterViewInit {
 
-  nativeElement: any;
-
-  @Input() displayFlagState: string;
-
   /**
    * 构造函数
-   * @param appSetting
-   * @param appCommands
-   * @param elementRef
+   * @param service
    */
-  constructor(
-    private appSetting: AppSettingService,
-    private appCommands: AppCommandService,
-    private elementRef: ElementRef) {
-
-    this.appCommands.dataView = this;
+  constructor(private service: DataViewService, private elementRef: ElementRef) {
+    this.service.owner = this;
 
     this.displayFlagState = 'false';
     this.nativeElement = this.elementRef.nativeElement;
   }
+
+  nativeElement: any;
+
+  @Input() displayFlagState: string;
 
   ngOnInit() {
     let viewerContainer: any = this.nativeElement.querySelector('#viewer-container');

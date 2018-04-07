@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToolBarModule } from './components/tool-bar/tool-bar.module';
 import { ControlModule } from './components/controls/control.module';
+import { MapModule } from './components/map/map.module';
 
 import { AppComponent } from './app.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
@@ -21,10 +22,18 @@ import { ControlViewDirective } from './components/control-view/control-view.dir
 import { MapViewDirective } from './components/map-view/map-view.directive';
 
 import { AppSettingService } from './app-setting.service';
+import { AppService } from './app.service';
+import { MapViewService } from './components/map-view/map-view.service';
+import { MenuBarService } from './components/menu-bar/menu-bar.service';
+import { ToolBarService } from './components/tool-bar/tool-bar.service';
+import { DataViewService } from './components/data-view/data-view.service';
+import { ContentViewService } from './components/content-view/content-view.service';
+import { FooterService } from './components/footer/footer.service';
+import { MenuService } from './components/menu/menu.service';
 import { ControlViewService } from './components/control-view/control-view.service';
 import { AppCommandService } from './app-command.service';
-
-import { MapModule } from './components/map/map.module';
+import { BaseMapService } from './services/base-map.service';
+import { ProjectService } from './services/project.service';
 
 /**
  * 根应用模块
@@ -53,7 +62,17 @@ import { MapModule } from './components/map/map.module';
   ],
   providers: [
     AppSettingService,
+    AppService,
+    MapViewService,
+    MenuBarService,
+    ToolBarService,
     ControlViewService,
+    DataViewService,
+    ContentViewService,
+    FooterService,
+    MenuService,
+    BaseMapService,
+    ProjectService,
     AppCommandService,
   ],
   bootstrap: [AppComponent]

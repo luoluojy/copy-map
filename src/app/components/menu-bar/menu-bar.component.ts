@@ -1,8 +1,10 @@
 import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { AppSettingService } from '../../app-setting.service';
-import { AppCommandService } from '../../app-command.service';
+import { MenuBarService } from './menu-bar.service';
 
+/**
+ *
+ */
 @Component({
   selector: 'app-menu-bar',
   templateUrl: './menu-bar.component.html',
@@ -12,16 +14,10 @@ export class MenuBarComponent implements OnInit {
 
   /**
    * 构造函数
-   * @param appSetting
-   * @param appCommands
-   * @param elementRef
+   * @param service
    */
-  constructor(
-    private appSetting: AppSettingService,
-    private appCommands: AppCommandService,
-    private elementRef: ElementRef) {
-
-    this.appCommands.menuBar = this;
+  constructor(private service: MenuBarService) {
+    this.service.owner = this;
   }
 
   @Output() shownEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();

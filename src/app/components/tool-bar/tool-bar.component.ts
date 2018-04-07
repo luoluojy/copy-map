@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ToolBarStatusService } from './tool-bar-status.service';
-import { AppSettingService } from '../../app-setting.service';
-import { AppCommandService } from '../../app-command.service';
+import { ToolBarService } from './tool-bar.service';
 
 /**
  * 工具栏组件
@@ -16,88 +14,88 @@ export class ToolBarComponent implements OnInit {
 
   /**
    * 构造函数
-   * @param appSetting
-   * @param appCommands
-   * @param statusService
+   * @param service
    */
-  constructor(
-    private appSetting: AppSettingService,
-    private appCommands: AppCommandService,
-    private statusService: ToolBarStatusService) {
-
-    this.appCommands.toolBar = this;
+  constructor(private service: ToolBarService) {
+    this.service.owner = this;
   }
 
   /**
    * 定位栏活动状态
    */
   public get isLocationsAction() {
-    return this.statusService.isLocationsAction;
+    return this.service.isLocationsAction;
   }
   public set isLocationsAction(value: boolean) {
-    this.statusService.isLocationsAction = value;
+    this.service.isLocationsAction = value;
   }
   /**
    * 图册栏活动状态
    */
   public get isAtlasAction() {
-    return this.statusService.isAtlasAction;
+    return this.service.isAtlasAction;
   }
   public set isAtlasAction(value: boolean) {
-    this.statusService.isAtlasAction = value;
+    this.service.isAtlasAction = value;
   }
   /**
    * 地图工具活动状态
    */
   public get isUtilAction() {
-    return this.statusService.isUtilAction;
+    return this.service.isUtilAction;
   }
   public set isUtilAction(value: boolean) {
-    this.statusService.isUtilAction = value;
+    this.service.isUtilAction = value;
   }
   /**
    * 通知火种状态
    */
   public get isNoticeAction() {
-    return this.statusService.isNoticeAction;
+    return this.service.isNoticeAction;
   }
   public set isNoticeAction(value: boolean) {
-    this.statusService.isNoticeAction = value;
+    this.service.isNoticeAction = value;
   }
   /**
    * 用户中心活动状态
    */
   public get isUserAction() {
-    return this.statusService.isUserAction;
+    return this.service.isUserAction;
   }
   public set isUserAction(value: boolean) {
-    this.statusService.isUserAction = value;
+    this.service.isUserAction = value;
   }
 
   ngOnInit() { }
 
-  initLocationsClick() {
-    this.statusService.isLocationsAction = !this.statusService.isLocationsAction;
-
+  /**
+   *
+   */
+  onLocationsClick() {
+    this.service.isLocationsAction = !this.service.isLocationsAction;
   }
-
-  initAtlasClick() {
-    this.statusService.isAtlasAction = !this.statusService.isAtlasAction;
-
+  /**
+   *
+   */
+  onAtlasClick() {
+    this.service.isAtlasAction = !this.service.isAtlasAction;
   }
-
-  initToolsClick() {
-    this.statusService.isUtilAction = !this.statusService.isUtilAction;
-
+  /**
+   *
+   */
+  onToolsClick() {
+    this.service.isUtilAction = !this.service.isUtilAction;
   }
-
-  initNoticeClick() {
-    this.statusService.isNoticeAction = !this.statusService.isNoticeAction;
-
+  /**
+   *
+   */
+  onNoticeClick() {
+    this.service.isNoticeAction = !this.service.isNoticeAction;
   }
-
-  initUserClick() {
-    this.statusService.isUserAction = !this.statusService.isUserAction;
-
+  /**
+   *
+   */
+  onUserClick() {
+    this.service.isUserAction = !this.service.isUserAction;
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { AppSettingService } from '../../app-setting.service';
-import { AppCommandService } from '../../app-command.service';
+import { ContentViewService } from './content-view.service';
 
 /**
  *
@@ -14,14 +13,10 @@ export class ContentViewComponent implements OnInit {
 
   /**
    * 构造函数
-   * @param appSetting
-   * @param appCommands
+   * @param service
    */
-  constructor(
-    private appSetting: AppSettingService,
-    private appCommands: AppCommandService) {
-
-    this.appCommands.contentView = this;
+  constructor(private service: ContentViewService) {
+    this.service.owner = this;
   }
 
   @Input() collapseShown: boolean = false;

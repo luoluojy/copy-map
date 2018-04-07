@@ -55,7 +55,7 @@ export class ControlViewService {
         return "项目管理";
 
       case ControlViewStatus.ProjectContent:
-        return "项目内容";
+        return "项目详情";
 
       default:
         return "";

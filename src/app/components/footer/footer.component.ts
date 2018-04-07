@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppSettingService } from '../../app-setting.service';
-import { AppCommandService } from '../../app-command.service';
+import { FooterService } from './footer.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,14 +10,10 @@ export class FooterComponent implements OnInit {
 
   /**
    * 构造函数
-   * @param appSetting
-   * @param appCommands
+   * @param service
    */
-  constructor(
-    private appSetting: AppSettingService,
-    private appCommands: AppCommandService) {
-
-    this.appCommands.footer = this;
+  constructor(private service: FooterService) {
+    this.service.owner = this;
   }
 
   ngOnInit() {

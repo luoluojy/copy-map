@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, HostListener, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppSettingService } from '../../app-setting.service';
+import { MenuService } from './menu.service';
 import { AppCommandService } from '../../app-command.service';
 import { AppCommand } from '../../app-command.enum';
 
@@ -16,27 +16,21 @@ export class MenuComponent implements OnInit, OnChanges {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param service
    * @param appCommands
-   * @param elementRef
    */
-  constructor(
-    private appSetting: AppSettingService,
-    private appCommands: AppCommandService,
-    private elementRef: ElementRef) {
-
-    this.appCommands.menu = this;
-
+  constructor(private service: MenuService, private appCommands: AppCommandService) {
+    this.service.owner = this;
   }
 
   /**
    * 应用标题
    */
   public get appTile(): string {
-    return this.appSetting.appTile;
+    return this.service.appTile;
   }
-  public set appTile(value:string){
-    this.appSetting.appTile = value;
+  public set appTile(value: string) {
+    this.service.appTile = value;
   }
 
 
