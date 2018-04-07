@@ -17,9 +17,11 @@ import { MenuComponent } from './components/menu/menu.component';
 
 import { ModalComponent } from './components/modal/modal.component';
 
+import { ControlViewDirective } from './components/control-view/control-view.directive';
 import { MapViewDirective } from './components/map-view/map-view.directive';
 
 import { AppSettingService } from './app-setting.service';
+import { ControlViewService } from './components/control-view/control-view.service';
 import { AppCommandService } from './app-command.service';
 
 import { MapModule } from './components/map/map.module';
@@ -40,6 +42,7 @@ import { MapModule } from './components/map/map.module';
     MenuComponent,
     ModalComponent,
     MapViewDirective,
+    ControlViewDirective,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { MapModule } from './components/map/map.module';
   ],
   providers: [
     AppSettingService,
-    AppCommandService
+    ControlViewService,
+    AppCommandService,
   ],
   bootstrap: [AppComponent]
 })

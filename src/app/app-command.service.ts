@@ -9,12 +9,18 @@ import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DataViewComponent } from './components/data-view/data-view.component';
 import { ContentViewComponent } from './components/content-view/content-view.component';
+import { NewProjectComponent } from './components/controls/new-project/new-project.component';
+import { ControlViewService } from './components/control-view/control-view.service';
 
 /**
  * 应用命令服务
  */
 @Injectable()
 export class AppCommandService {
+  /**
+   * 构造函数
+   */
+  constructor(private controlViewService: ControlViewService) { }
   /**
    * 应用程序组件
    */
@@ -24,16 +30,6 @@ export class AppCommandService {
   }
   public set appComponent(value: AppComponent) {
     this._appComponent = value;
-  }
-  /**
-   * 控制视图组件
-   */
-  private _controlView: ControlViewComponent;
-  public get controlView(): ControlViewComponent {
-    return this._controlView;
-  }
-  public set controlView(value: ControlViewComponent) {
-    this._controlView = value;
   }
   /**
    * 地图视图组件
@@ -106,10 +102,7 @@ export class AppCommandService {
     this._footer = value;
   }
 
-  /**
-   * 构造函数
-   */
-  constructor() { }
+
 
   /**
    * 执行命令
@@ -117,7 +110,22 @@ export class AppCommandService {
    * @param param 命令参数
    */
   public executeCommand(command: AppCommand, param?: any) {
-
+    switch (command) {
+      case AppCommand.NewProject:
+        this.controlViewService.newProjectCommand(param);
+        break;
+      case AppCommand.OpenProject:
+        this.controlViewService.openProjectCommand(param);
+        break;
+      case AppCommand.MaintainProject:
+        this.controlViewService.maintainProjectCommand(param);
+        break;
+      case AppCommand.ProjectContent:
+        this.controlViewService.projectContentCommand(param)
+        break;
+    }
   }
+
+
 
 }
