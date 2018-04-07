@@ -13,6 +13,10 @@ export enum AppCommand {
   /**
    *
    */
+  SaveProject,
+  /**
+   *
+   */
   MaintainProject,
   /**
    *

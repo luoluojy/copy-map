@@ -71,6 +71,9 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
       case ControlViewStatus.OpenProject:
         this.createOpenProjectComponent();
         break;
+      case ControlViewStatus.SaveProject:
+        this.createSaveProjectComponent();
+        break;
       case ControlViewStatus.MaintainProject:
         this.createMaintainProjectComponent();
         break;
@@ -96,6 +99,12 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   private createOpenProjectComponent() {
     this.actionHost.createOpenProjectComponent();
+  }
+  /**
+   * 创建保存项目组件
+   */
+  private createSaveProjectComponent() {
+    this.actionHost.createSaveProjectComponent();
   }
   /**
    * 创建项目管理组件

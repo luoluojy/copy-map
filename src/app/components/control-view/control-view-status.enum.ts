@@ -14,6 +14,10 @@ export enum ControlViewStatus {
   /**
    *
    */
+  SaveProject,
+  /**
+   *
+   */
   MaintainProject,
   /**
    *

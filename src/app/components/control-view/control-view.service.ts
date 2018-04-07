@@ -51,6 +51,9 @@ export class ControlViewService {
       case ControlViewStatus.OpenProject:
         return "打开项目";
 
+      case ControlViewStatus.SaveProject:
+        return "保存项目";
+
       case ControlViewStatus.MaintainProject:
         return "项目管理";
 
@@ -81,6 +84,13 @@ export class ControlViewService {
    */
   public openProjectCommand(param?: any): any {
     this.actionStatus = ControlViewStatus.OpenProject;
+  }
+  /**
+   * 保存项目命令
+   * @param param
+   */
+  public saveProjectCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.SaveProject;
   }
   /**
    * 维护项目命令

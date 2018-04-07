@@ -23,6 +23,8 @@ export class MenuComponent implements OnInit, OnChanges {
     this.service.owner = this;
   }
 
+  ngOnInit() { }
+
   /**
    * 应用标题
    */
@@ -32,7 +34,6 @@ export class MenuComponent implements OnInit, OnChanges {
   public set appTile(value: string) {
     this.service.appTile = value;
   }
-
 
   @Input() shown;
 
@@ -69,6 +70,16 @@ export class MenuComponent implements OnInit, OnChanges {
     this.appCommands.executeCommand(AppCommand.OpenProject);
   }
 
+  onSaveProjectClick() {
+    this.shownEmitter.emit(false);
+    this.actionEmitter.emit(true)
+    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+
+    this.appCommands.executeCommand(AppCommand.SaveProject);
+  }
+
   onMaintaiProjectClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
@@ -89,12 +100,32 @@ export class MenuComponent implements OnInit, OnChanges {
     this.appCommands.executeCommand(AppCommand.ProjectContent);
   }
 
-  onCreateProjectClick() {
+  onDataResourceClick() {
     this.shownEmitter.emit(false);
-    this.createProjectEmitter.emit(true);
+    this.actionEmitter.emit(true)
+    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
-    this.appCommands.executeCommand(AppCommand.NewProject);
+    this.appCommands.executeCommand(AppCommand.DataResource);
   }
-  ngOnInit() { }
+
+  onAnalysisTaskClick() {
+    this.shownEmitter.emit(false);
+    this.actionEmitter.emit(true)
+    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+
+    this.appCommands.executeCommand(AppCommand.AnalysisTask);
+  }
+
+
+  // onCreateProjectClick() {
+  //   this.shownEmitter.emit(false);
+  //   this.createProjectEmitter.emit(true);
+
+  //   this.appCommands.executeCommand(AppCommand.NewProject);
+  // }
 
 }

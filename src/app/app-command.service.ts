@@ -44,11 +44,23 @@ export class AppCommandService {
       case AppCommand.OpenProject:
         this.controlViewService.openProjectCommand(param);
         break;
+      case AppCommand.SaveProject:
+        this.controlViewService.saveProjectCommand(param);
+        break;
       case AppCommand.MaintainProject:
         this.controlViewService.maintainProjectCommand(param);
         break;
       case AppCommand.ProjectContent:
         this.controlViewService.projectContentCommand(param)
+        break;
+      case AppCommand.DataResource:
+        this.controlViewService.dataResourceCommand(param);
+        break;
+      case AppCommand.AnalysisTask:
+        this.controlViewService.analysisTaskCommand(param)
+        break;
+      default:
+
         break;
     }
   }

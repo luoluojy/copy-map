@@ -1,6 +1,7 @@
 import { Directive, ComponentFactoryResolver, ViewContainerRef, Type } from '@angular/core';
 import { NewProjectComponent } from '../controls/new-project/new-project.component';
 import { OpenProjectComponent } from '../controls/open-project/open-project.component';
+import { SaveProjectComponent } from '../controls/save-project/save-project.component';
 import { MaintainProjectComponent } from '../controls/maintain-project/maintain-project.component';
 import { ProjectContentComponent } from '../controls/project-content/project-content.component';
 import { DataResourceComponent } from '../controls/data-resource/data-resource.component';
@@ -35,6 +36,15 @@ export class ControlViewDirective {
    */
   public createOpenProjectComponent() {
     let component: Type<any> = OpenProjectComponent;
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    this.viewContainerRef.clear();
+    this.viewContainerRef.createComponent(componentFactory);
+  }
+  /**
+   * 创建保存项目组件
+   */
+  public createSaveProjectComponent() {
+    let component: Type<any> = SaveProjectComponent;
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     this.viewContainerRef.createComponent(componentFactory);
