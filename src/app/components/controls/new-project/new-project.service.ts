@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AppSettingService } from '../../../app-setting.service';
-import { OpenlayersComponent } from './openlayers.component';
+import { NewProjectComponent } from './new-project.component';
 
-/**
- * Openlayers地图引擎服务
- */
 @Injectable()
-export class OpenlayersService {
+export class NewProjectService {
 
   /**
    * 构造函数
@@ -17,11 +14,11 @@ export class OpenlayersService {
   /**
    * 服务所属的组件
    */
-  private _owner: OpenlayersComponent;
-  public get owner(): OpenlayersComponent {
+  private _owner: NewProjectComponent;
+  public get owner(): NewProjectComponent {
     return this._owner;
   }
-  public set owner(value: OpenlayersComponent) {
+  public set owner(value: NewProjectComponent) {
     this._owner = value;
   }
 

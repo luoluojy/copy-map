@@ -4,7 +4,6 @@ import { OpenlayersComponent } from './openlayers/openlayers.component';
 import { CesiumComponent } from './cesium/cesium.component';
 import { OpenlayersService } from './openlayers/openlayers.service';
 import { CesiumService } from './cesium/cesium.service';
-import { MapService } from './map.service';
 
 /**
  *
@@ -21,7 +20,6 @@ import { MapService } from './map.service';
   providers:[
     OpenlayersService,
     CesiumService,
-    MapService
   ]
 })
 export class MapModule { }

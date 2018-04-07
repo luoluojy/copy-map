@@ -77,6 +77,12 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
       case ControlViewStatus.ProjectContent:
         this.createProjectContentComponent()
         break;
+      case ControlViewStatus.DataResource:
+        this.createDataResourceComponent();
+        break;
+      case ControlViewStatus.AnalysisTask:
+        this.createAnalysisTaskComponent();
+        break;
     }
   }
   /**
@@ -102,6 +108,18 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   private createProjectContentComponent() {
     this.actionHost.createProjectContentComponent();
+  }
+  /**
+   * 创建数据查询组件
+   */
+  private createDataResourceComponent() {
+    this.actionHost.createDataResourceComponent();
+  }
+  /**
+   * 创建数据分析组件
+   */
+  private createAnalysisTaskComponent() {
+    this.actionHost.creatAnalysisTaskComponent();
   }
 
   @Output() actionCloseEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();

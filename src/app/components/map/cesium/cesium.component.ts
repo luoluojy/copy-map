@@ -14,6 +14,14 @@ declare let Cesium: any;
 export class CesiumComponent implements MapComponent, OnInit, OnDestroy, AfterViewInit {
 
   /**
+   * 构造函数
+   * @param service
+   */
+  constructor(private service: CesiumService) {
+    this.service.owner = this;
+  }
+
+  /**
    * 地图标签
    */
   private _mapTag: string = 'cesiumContainer';
@@ -36,14 +44,6 @@ export class CesiumComponent implements MapComponent, OnInit, OnDestroy, AfterVi
   }
 
   /**
-   * 构造函数
-   * @param mapService
-   */
-  constructor(public mapService: CesiumService) {
-
-  }
-
-  /**
    *
    */
   ngOnInit() {
@@ -58,6 +58,6 @@ export class CesiumComponent implements MapComponent, OnInit, OnDestroy, AfterVi
    * 视图初始化之后
    */
   ngAfterViewInit() {
-    this.mapService.initBingMap(this.mapTag);
+    this.service.initBingMap(this.mapTag);
   }
 }

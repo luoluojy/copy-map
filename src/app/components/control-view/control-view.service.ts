@@ -4,7 +4,7 @@ import { AppSettingService } from '../../app-setting.service';
 import { ControlViewStatus } from './control-view-status.enum';
 
 /**
- *
+ * 控制视图组件服务
  */
 @Injectable()
 export class ControlViewService {
@@ -57,6 +57,12 @@ export class ControlViewService {
       case ControlViewStatus.ProjectContent:
         return "项目详情";
 
+      case ControlViewStatus.DataResource:
+        return "数据查询";
+
+      case ControlViewStatus.AnalysisTask:
+        return "数据分析";
+
       default:
         return "";
     }
@@ -89,6 +95,18 @@ export class ControlViewService {
    */
   public projectContentCommand(param?: any): any {
     this.actionStatus = ControlViewStatus.ProjectContent;
+  }
+  /**
+   * 数据资源查询命令
+   */
+  public dataResourceCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.DataResource;
+  }
+  /**
+   * 分析任务构建命令
+   */
+  public analysisTaskCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.AnalysisTask;
   }
 
 }

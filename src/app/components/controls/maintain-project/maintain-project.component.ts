@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MaintainProjectService } from './maintain-project.service';
 
 @Component({
   selector: 'app-maintain-project',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaintainProjectComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * 构造函数
+   * @param service
+   */
+  constructor(private service: MaintainProjectService) {
+    this.service.owner = this;
+  }
 
   ngOnInit() {
   }

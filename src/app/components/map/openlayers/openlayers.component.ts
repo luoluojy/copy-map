@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, AfterViewInit, OnDestroy } from '@angular/core';
 import { MapComponent } from '../map-component';
+import { AppSettingService } from '../../../app-setting.service';
+import { OpenlayersService } from './openlayers.service';
 
 /**
  * Openlayers地图组件
@@ -10,6 +12,28 @@ import { MapComponent } from '../map-component';
   styleUrls: ['./openlayers.component.css']
 })
 export class OpenlayersComponent implements MapComponent, OnInit, OnDestroy, AfterViewInit {
+
+  /**
+   * 构造函数
+   * @param service
+   */
+  constructor(private service: OpenlayersService) {
+    this.service.owner = this;
+  }
+  /**
+   *
+   */
+  ngOnInit() {
+  }
+  /**
+   *
+   */
+  ngOnDestroy(): void {
+    // throw new Error("Method not implemented.");
+  }
+  ngAfterViewInit(): void {
+    // throw new Error("Method not implemented.");
+  }
 
   /**
    * 地图配置名称
@@ -28,23 +52,4 @@ export class OpenlayersComponent implements MapComponent, OnInit, OnDestroy, Aft
     return this._setting;
   }
 
-  /**
-   * 构造函数
-   */
-  constructor() { }
-
-  /**
-   *
-   */
-  ngOnInit() {
-  }
-  /**
-   *
-   */
-  ngOnDestroy(): void {
-    // throw new Error("Method not implemented.");
-  }
-  ngAfterViewInit(): void {
-    // throw new Error("Method not implemented.");
-  }
 }

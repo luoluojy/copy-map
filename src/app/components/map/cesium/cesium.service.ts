@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { AppSettingService } from '../../../app-setting.service';
+import { CesiumComponent } from './cesium.component';
 
 declare let Cesium: any;
 
@@ -8,7 +10,22 @@ declare let Cesium: any;
 @Injectable()
 export class CesiumService {
 
-  constructor() { }
+  /**
+   * 构造函数
+   * @param appSetting
+   */
+  constructor(private appSetting: AppSettingService) { }
+
+  /**
+   * 服务所属的组件
+   */
+  private _owner: CesiumComponent;
+  public get owner(): CesiumComponent {
+    return this._owner;
+  }
+  public set owner(value: CesiumComponent) {
+    this._owner = value;
+  }
 
   /**
    * 初始化BingMap

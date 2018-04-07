@@ -3,6 +3,8 @@ import { NewProjectComponent } from '../controls/new-project/new-project.compone
 import { OpenProjectComponent } from '../controls/open-project/open-project.component';
 import { MaintainProjectComponent } from '../controls/maintain-project/maintain-project.component';
 import { ProjectContentComponent } from '../controls/project-content/project-content.component';
+import { DataResourceComponent } from '../controls/data-resource/data-resource.component';
+import { AnalysisTaskComponent } from '../controls/analysis-task/analysis-task.component';
 
 @Directive({
   selector: '[action-host]'
@@ -58,10 +60,19 @@ export class ControlViewDirective {
   /**
    * 创建数据查询组件
    */
-  // public CreateNewProjectComponent() {
-  //   let component: Type<any> = NewProjectComponent;
-  //   let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-  //   this.viewContainerRef.clear();
-  //   this.viewContainerRef.createComponent(componentFactory);
-  // }
+  public createDataResourceComponent() {
+    let component: Type<any> = DataResourceComponent;
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    this.viewContainerRef.clear();
+    this.viewContainerRef.createComponent(componentFactory);
+  }
+  /**
+   * 创建数据分析组件
+   */
+  public creatAnalysisTaskComponent() {
+    let component: Type<any> = AnalysisTaskComponent;
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    this.viewContainerRef.clear();
+    this.viewContainerRef.createComponent(componentFactory);
+  }
 }

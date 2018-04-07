@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectContentService } from './project-content.service';
 
 @Component({
   selector: 'app-project-content',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectContentComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * 构造函数
+   * @param service
+   */
+  constructor(private service: ProjectContentService) {
+    this.service.owner = this;
+  }
 
   ngOnInit() {
   }

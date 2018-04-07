@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OpenProjectService } from './open-project.service';
 
 @Component({
   selector: 'app-open-project',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpenProjectComponent implements OnInit {
 
-  constructor() { }
+  /**
+   * 构造函数
+   * @param service
+   */
+  constructor(private service: OpenProjectService) {
+    this.service.owner = this;
+  }
 
   ngOnInit() {
   }
