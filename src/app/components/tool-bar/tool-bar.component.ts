@@ -30,6 +30,15 @@ export class ToolBarComponent implements OnInit {
     this.service.isLocationsAction = value;
   }
   /**
+   * 实时栏活动状态
+   */
+  public get isRealTimeAction() {
+    return this.service.isRealTimeAction;
+  }
+  public set isRealTimeAction(value: boolean) {
+    this.service.isRealTimeAction = value;
+  }
+  /**
    * 图册栏活动状态
    */
   public get isAtlasAction() {
@@ -77,13 +86,19 @@ export class ToolBarComponent implements OnInit {
   /**
    *
    */
+  onRealTimeClick() {
+    this.service.isRealTimeAction = !this.service.isRealTimeAction;
+  }
+  /**
+   *
+   */
   onAtlasClick() {
     this.service.isAtlasAction = !this.service.isAtlasAction;
   }
   /**
    *
    */
-  onToolsClick() {
+  onUtilsClick() {
     this.service.isUtilAction = !this.service.isUtilAction;
   }
   /**

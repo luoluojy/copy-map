@@ -53,6 +53,22 @@ export class ToolBarService {
       this._action = ToolBarStatus.None;
     }
   }
+  
+
+  /**
+   * 实时菜单活动控制
+   */
+  public get isRealTimeAction(): boolean {
+    return this._action == ToolBarStatus.RealTimeAction;
+  }
+  public set isRealTimeAction(value: boolean) {
+    if (value) {
+      this._action = ToolBarStatus.RealTimeAction;
+    }
+    else {
+      this._action = ToolBarStatus.None;
+    }
+  }
   /**
    * 图册菜单活动控制
    */

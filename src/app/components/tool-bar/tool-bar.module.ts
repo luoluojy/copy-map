@@ -6,6 +6,7 @@ import { AtlasComponent } from './atlas/atlas.component';
 import { UtilsComponent } from './utils/utils.component';
 import { NoticeComponent } from './notice/notice.component';
 import { UserComponent } from './user/user.component';
+import { RealTimeComponent } from './real-time/real-time.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { UserComponent } from './user/user.component';
     AtlasComponent,
     UtilsComponent,
     NoticeComponent,
-    UserComponent
+    UserComponent,
+    RealTimeComponent
   ],
   providers: [
 
@@ -26,7 +28,8 @@ import { UserComponent } from './user/user.component';
     AtlasComponent,
     UtilsComponent,
     NoticeComponent,
-    UserComponent
+    UserComponent,
+    RealTimeComponent
   ]
 })
 export class ToolBarModule { }

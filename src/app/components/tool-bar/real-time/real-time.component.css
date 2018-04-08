@@ -1,12 +1,12 @@
-#locations-container{
-    width:334px;
-    height:390px;
+#real-time-container{
+    width:160px;
+    height:300px;
     position: absolute;
-    right:100px;
+    right:200px;
     top:6px;
     background-color: white;
 }
-#locations-close{
+#real-time-close{
     position:absolute;
     top:0px;
     right:0px;

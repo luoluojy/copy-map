@@ -19,6 +19,10 @@ export enum ToolBarStatus {
    */
   LocationAction,
   /**
+   * 实时菜单
+   */
+  RealTimeAction,
+  /**
    * 图册菜单
    */
   AtlasAction,

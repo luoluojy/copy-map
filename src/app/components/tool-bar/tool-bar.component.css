@@ -3,7 +3,6 @@
     position: absolute;
     right:100px;
     background-color:white;z-index:1;
-    width:260px;
 }
 #map li{
     list-style: none;

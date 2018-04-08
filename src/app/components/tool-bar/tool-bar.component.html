@@ -1,18 +1,24 @@
 <ul id="map" class="control">
     <li>
-        <div class="map-bar" (click)="onLocationsClick()" #regions>
+        <div class="map-bar" (click)="onLocationsClick()" >
             <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
             <i class="fas fa-angle-down  fa-lg"></i>
         </div>
     </li>
     <li>
-        <div class="map-bar" (click)="onAtlasClick()" #maps>
+        <div class="map-bar" (click)="onRealTimeClick()" >
+            <i class="fas fa-database  fa-lg"></i> 实时
+            <i class="fas fa-angle-down  fa-lg"></i>
+        </div>
+    </li>
+    <li>
+        <div class="map-bar" (click)="onAtlasClick()" >
             <i class="fas fa-map  fa-lg"></i> 图册
             <i class="fas fa-angle-down  fa-lg"></i>
         </div>
     </li>
     <li>
-        <div class="map-bar" (click)="onToolsClick()" #tools>
+        <div class="map-bar" (click)="onUtilsClick()" >
             <i class="fas fa-box fa-lg"></i> 工具箱
             <i class="fas fa-angle-down  fa-lg"></i>
         </div>
@@ -32,6 +38,7 @@
 
 <div id="tool-main">
     <app-locations *ngIf="isLocationsAction"></app-locations>
+    <app-real-time *ngIf="isRealTimeAction"></app-real-time>
     <app-atlas *ngIf="isAtlasAction"></app-atlas>
     <app-utils *ngIf="isUtilAction"></app-utils>
     <app-notice *ngIf="isNoticeAction"></app-notice>
