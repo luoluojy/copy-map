@@ -67,7 +67,10 @@ export class AppCommandService {
     },
     "AnalysisTask": (param?: any) => {
       this.controlViewService.analysisTaskCommand(param);
-    }
+    },
+    "BasemapResource": (param?: any) => {
+      this.controlViewService.basemapResourceCommand(param);
+    },
   };
 
 
