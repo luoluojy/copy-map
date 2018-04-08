@@ -7,6 +7,7 @@ import { UtilsComponent } from './utils/utils.component';
 import { NoticeComponent } from './notice/notice.component';
 import { UserComponent } from './user/user.component';
 import { RealTimeComponent } from './real-time/real-time.component';
+import { ClickedStyleDirective } from './clicked-style.directive';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { RealTimeComponent } from './real-time/real-time.component';
     UtilsComponent,
     NoticeComponent,
     UserComponent,
-    RealTimeComponent
+    RealTimeComponent,
+    ClickedStyleDirective
   ],
   providers: [
 
@@ -29,7 +31,8 @@ import { RealTimeComponent } from './real-time/real-time.component';
     UtilsComponent,
     NoticeComponent,
     UserComponent,
-    RealTimeComponent
+    RealTimeComponent,
+    ClickedStyleDirective
   ]
 })
 export class ToolBarModule { }

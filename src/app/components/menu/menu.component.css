@@ -26,7 +26,7 @@ ul{
     color:#9A9A9A;
 }
 
-.project li:nth-child(4),.project li:nth-child(7){
+.project li:nth-child(1),.project li:nth-child(4),.project li:nth-child(7){
     border-bottom: 1px solid #d9d9d9;
 }
 
