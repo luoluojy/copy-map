@@ -29,6 +29,10 @@ export enum AppCommand {
   /**
    *
    */
-  AnalysisTask
+  AnalysisTask,
+  /**
+   *
+   */
+  BasemapResource
 
 }

@@ -120,6 +120,15 @@ export class MenuComponent implements OnInit, OnChanges {
     this.appCommands.executeCommand(AppCommand.AnalysisTask);
   }
 
+  onBasemapResourceClick() {
+    this.shownEmitter.emit(false);
+    this.actionEmitter.emit(true)
+    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+
+    this.appCommands.executeCommand(AppCommand.BasemapResource);
+  }
 
   // onCreateProjectClick() {
   //   this.shownEmitter.emit(false);

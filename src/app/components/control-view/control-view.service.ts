@@ -57,7 +57,8 @@ export class ControlViewService {
     "MaintainProject": "项目管理",
     "ProjectContent": "项目详情",
     "DataResource": "数据查询",
-    "AnalysisTask": "数据分析"
+    "AnalysisTask": "数据分析",
+    "BasemapResource": "地理底图"
   };
 
   /**
@@ -107,5 +108,10 @@ export class ControlViewService {
   public analysisTaskCommand(param?: any): any {
     this.actionStatus = ControlViewStatus.AnalysisTask;
   }
-
+  /**
+   * 地理底图构建命令
+   */
+  public basemapResourceCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.BasemapResource;
+  }
 }

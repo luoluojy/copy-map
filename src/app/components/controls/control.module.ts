@@ -17,6 +17,8 @@ import { MaintainProjectService } from './maintain-project/maintain-project.serv
 import { ProjectContentService } from './project-content/project-content.service';
 import { DataResourceService } from './data-resource/data-resource.service';
 import { AnalysisTaskService } from './analysis-task/analysis-task.service';
+import { BasemapResourceComponent } from './basemap-resource/basemap-resource.component';
+import { BasemapResourceService } from './basemap-resource/basemap-resource.service';
 
 /**
  * 功能控制模块
@@ -33,7 +35,8 @@ import { AnalysisTaskService } from './analysis-task/analysis-task.service';
     MaintainProjectComponent,
     ProjectContentComponent,
     DataResourceComponent,
-    AnalysisTaskComponent
+    AnalysisTaskComponent,
+    BasemapResourceComponent
   ],
   entryComponents: [
     NewProjectComponent,
@@ -42,7 +45,8 @@ import { AnalysisTaskService } from './analysis-task/analysis-task.service';
     MaintainProjectComponent,
     ProjectContentComponent,
     DataResourceComponent,
-    AnalysisTaskComponent
+    AnalysisTaskComponent,
+    BasemapResourceComponent
   ],
   providers: [
     NewProjectService,
@@ -51,7 +55,8 @@ import { AnalysisTaskService } from './analysis-task/analysis-task.service';
     MaintainProjectService,
     ProjectContentService,
     DataResourceService,
-    AnalysisTaskService
+    AnalysisTaskService,
+    BasemapResourceService
   ],
 })
 export class ControlModule { }

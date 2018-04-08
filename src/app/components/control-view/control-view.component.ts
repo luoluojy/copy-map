@@ -94,6 +94,9 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
     },
     "AnalysisTask": () => {
       this.actionHost.creatAnalysisTaskComponent();
+    },
+    "BasemapResource": () => {
+      this.actionHost.createBasemapResourceComponent();
     }
   };
 
