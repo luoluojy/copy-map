@@ -30,5 +30,9 @@ export enum ControlViewStatus {
   /**
    *
    */
-  AnalysisTask
+  AnalysisTask,
+  /**
+   *
+   */
+  BasemapResource
 }

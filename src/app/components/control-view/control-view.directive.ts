@@ -6,6 +6,7 @@ import { MaintainProjectComponent } from '../controls/maintain-project/maintain-
 import { ProjectContentComponent } from '../controls/project-content/project-content.component';
 import { DataResourceComponent } from '../controls/data-resource/data-resource.component';
 import { AnalysisTaskComponent } from '../controls/analysis-task/analysis-task.component';
+import { BasemapResourceComponent } from '../controls/basemap-resource/basemap-resource.component';
 
 @Directive({
   selector: '[action-host]'
@@ -81,6 +82,15 @@ export class ControlViewDirective {
    */
   public creatAnalysisTaskComponent() {
     let component: Type<any> = AnalysisTaskComponent;
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    this.viewContainerRef.clear();
+    this.viewContainerRef.createComponent(componentFactory);
+  }
+  /**
+   * 创建地理底图组件
+   */
+  public createBasemapResourceComponent() {
+    let component: Type<any> = BasemapResourceComponent;
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     this.viewContainerRef.createComponent(componentFactory);
