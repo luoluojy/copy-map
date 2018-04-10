@@ -1,3 +1,20 @@
-<p>
-  dialog-login works!
-</p>
+
+<div style="z-index:2;position: fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:-webkit-flex;-webkit-justify-content:center;-webkit-align-items:center">
+  <div (click)="$event.stopPropagation();" style="z-index:3;height:400px;width:800px;background: rgb(238,238,238);border-radius: 4px;;padding: 4px;">
+    <div  style="position: relative;border-bottom:1px solid black">
+      <span>用户登陆</span>
+      <div title="关闭" (click)="closeLoginDialog()" style="display:inline;position: absolute;top:0px;right:0px">
+        <i class="fas fa-times fa-lg"></i>
+      </div>
+    </div>
+    <div id="dialog-main">
+        <form #f="ngForm" (ngSubmit)="login(f.value)">
+                <label for="username">用户名：</label><input type="text" id="login" name="login" ngModel/> <br/>
+                <label for="username">密  码：</label><input type="password" id="password" name="password" ngModel /> 
+            <button type="submit" >登陆</button>
+            <button (click)="closeLoginDialog()">返回</button>
+        </form>
+        
+    </div>
+  </div>
+</div>

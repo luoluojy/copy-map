@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-
+  isLogin:boolean = false; 
   constructor() { }
   ngOnInit() {
+  }
+  toLogin(){
+    this.isLogin = true;
+  }
+  recIsLogin(event){
+    this.isLogin =event;
   }
 
 }

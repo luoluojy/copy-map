@@ -10,9 +10,11 @@ import { RealTimeComponent } from './real-time/real-time.component';
 import { ClickedStyleDirective } from './clicked-style.directive';
 import { DialogLoginComponent } from './user/dialog-login/dialog-login.component';
 
+import { FormsModule }   from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule
   ],
   declarations: [
     LocationsComponent,

@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ToolBarModule } from './components/tool-bar/tool-bar.module';
 import { ControlModule } from './components/controls/control.module';
 import { MapModule } from './components/map/map.module';
+
 
 import { AppComponent } from './app.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
@@ -58,7 +59,8 @@ import { ProjectService } from './services/project.service';
     BrowserAnimationsModule,
     ToolBarModule,
     ControlModule,
-    MapModule
+    MapModule,
+    HttpClientModule,
   ],
   providers: [
     AppSettingService,
