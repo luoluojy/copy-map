@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
 
   recShown(event) {
     this.shown = event;
+    this.modalShown= event;
   }
   recActionShown(event) {
     this.actionShown = event;
