@@ -12,13 +12,21 @@ import { OpenlayersService } from './openlayers.service';
   styleUrls: ['./openlayers.component.css']
 })
 export class OpenlayersComponent implements MapComponent, OnInit, OnDestroy, AfterViewInit {
-
+  
   /**
    * 构造函数
    * @param service
    */
   constructor(private service: OpenlayersService) {
     this.service.owner = this;
+  }
+  
+  /**
+   * 地图标签
+   */
+  private _mapTag: string = 'openLayersContainer';
+  public get mapTag(): string {
+    return this._mapTag;
   }
   /**
    *
@@ -33,6 +41,7 @@ export class OpenlayersComponent implements MapComponent, OnInit, OnDestroy, Aft
   }
   ngAfterViewInit(): void {
     // throw new Error("Method not implemented.");
+    this.service.initOSM(this.mapTag)
   }
 
   /**

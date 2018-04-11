@@ -37,7 +37,8 @@ export class MapViewComponent implements OnInit, OnDestroy, AfterViewInit {
    *
    */
   ngAfterViewInit() {
-    this.mapHost.CreateCesium();
+    // this.mapHost.CreateCesium();
+    this.mapHost.CreateOpenLayers();
   }
 
 }

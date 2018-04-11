@@ -33,6 +33,7 @@
     "cesiumnavigation": "^1.0.0",
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
+    "layui-src": "^2.2.5",
     "ngx-bootstrap": "^2.0.3",
     "ol": "^4.6.5",
     "rxjs": "^5.5.6",
