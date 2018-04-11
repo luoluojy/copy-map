@@ -12,7 +12,7 @@ ul{
 }
 
 #menu-panel > button{
-    position:absolute;top:12px;right:0px;color:#9A9A9A;
+    position:absolute;top:12px;right:10px;color:#9A9A9A;
 }
 .project li:first-child{
     cursor: pointer;

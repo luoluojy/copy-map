@@ -4,7 +4,7 @@ div,h2{margin:0;padding:0;}
 #drag .title{position:relative;height:27px;margin:5px;}
 #drag .title h2{font-size:14px;height:27px;line-height:24px;border-bottom:1px solid #A1B4B0;}
 #drag .title div{position:absolute;height:19px;top:2px;right:0;}
-#drag .title a,a.open{float:left;width:21px;height:19px;display:block;margin-left:5px;}
+#drag .title a,a.open{float:left;width:21px;height:19px;display:block;margin-left:5px;background: url(assets/icon/png/tool.png) no-repeat}
 a.open{position:absolute;top:10px;left:50%;margin-left:-10px;background-position:0 0;}
 a.open:hover{background-position:0 -29px;}
 #drag .title a.min{background-position:-29px 0;}
@@ -15,7 +15,7 @@ a.open:hover{background-position:0 -29px;}
 #drag .title a.revert:hover{background-position:-149px -29px;}
 #drag .title a.close{background-position:-89px 0;}
 #drag .title a.close:hover{background-position:-89px -29px;}
-#drag .content{overflow:auto;margin:0 5px;}
+#drag .content{overflow:hidden;margin:0 5px;}
 #drag .resizeBR{position:absolute;width:14px;height:14px;right:0;bottom:0;overflow:hidden;cursor:nw-resize;}
 #drag .resizeL,#drag .resizeT,#drag .resizeR,#drag .resizeB,#drag .resizeLT,#drag .resizeTR,#drag .resizeLB{position:absolute;background:#000;overflow:hidden;opacity:0;filter:alpha(opacity=0);}
 #drag .resizeL,#drag .resizeR{top:0;width:5px;height:100%;cursor:w-resize;}
