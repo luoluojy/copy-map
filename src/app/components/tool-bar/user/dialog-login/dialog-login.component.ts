@@ -32,6 +32,7 @@ export class DialogLoginComponent implements OnInit {
         alert('登录成功'+value['token'])
       }
     },(error)=>{
+      console.log(error);
         alert('登录失败'+error['error']['non_field_errors']);
     })
   }
