@@ -21,7 +21,7 @@ export class DialogLoginComponent implements OnInit {
   login(value){
     let username = value['login'];
     let password = value['password'];
-    this.http.post('http://58.213.133.181:7774/api2/auth-token/',JSON.stringify({
+    this.http.post('https://58.213.133.181:7774/api2/auth-token',JSON.stringify({
       username:username,
       password:password
     }),{
