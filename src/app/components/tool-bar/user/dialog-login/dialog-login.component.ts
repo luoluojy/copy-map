@@ -204,7 +204,7 @@ export class DialogLoginComponent implements OnInit {
     let password = value["password"];
     this.http
       .post(
-        "/api2/auth-token/",
+        environment.http_href + "/api2/auth-token/",
         "username=" + username + "&&password=" + password,
         {
           headers: new HttpHeaders({
@@ -219,6 +219,7 @@ export class DialogLoginComponent implements OnInit {
             alert("登录成功" + value["token"]);
             this.http
               .get(
+                environment.http_href +
                   "/api2/avatars/user/" +
                   username +
                   "/resized/80/",
