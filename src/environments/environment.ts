@@ -6,5 +6,4 @@
 export const environment = {
   production: false,
   cesium_base_href:'/assets/plugin/cesium',
-  http_href:''
 };

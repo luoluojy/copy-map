@@ -189,6 +189,7 @@ export class DialogLoginComponent implements OnInit {
   login(value) {
     let username = value["login"];
     let password = value["password"];
+    
     this.http
       .post("/api2/auth-token/",
         "username=" + username + "&&password=" + password,
