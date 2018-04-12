@@ -1,58 +1,40 @@
-<!-- <div style="z-index:2;position: fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:-webkit-flex;-webkit-justify-content:center;-webkit-align-items:center">
-  <div (click)="$event.stopPropagation();" style="z-index:3;height:300px;width:500px;background: rgb(238,238,238);border-radius: 4px;;padding: 4px;">
-    <div  style="position: relative;">
-      <div title="最小化" (click)="closeLoginDialog()" style="display:inline;position: absolute;top:-7px;right:60px">
-        <i class="far fa-window-minimize fa-lg"></i>
-      </div>
-      <div title="最大化" (click)="closeLoginDialog()" style="display:inline;position: absolute;top:0px;right:30px">
-        <i class="far fa-window-maximize fa-lg"></i>
-      </div>
-      <div title="关闭" (click)="closeLoginDialog()" style="display:inline;position: absolute;top:0px;right:0px">
-        <i class="fas fa-times fa-lg"></i>
+<!-- 全屏模态框 -->
+<div class="dialog-login__modal" >
+  <!-- 最外层拖拽 -->
+  <div class="dialog-login__container" id="drag">
+    <!-- 对话框头 -->
+    <div class="dialog-login__head title">
+      <h2>用户登录</h2>
+      <div class="dialog-login__window-btns">
+        <a class="min" href="javascript:;" (click)="minDialog($event)" title="最小化">
+        </a>
+        <a class="max" href="javascript:;" (click)="maxDialog($event)" title="最大化">
+        </a>
+        <a class="revert" href="javascript:;" (click)="revertDialog($event)" title="还原">
+        </a>
+        <a class="close" href="javascript:;" (click)="closeDialog()" title="关闭">
+        </a>
       </div>
     </div>
-    <div id="dialog-main" style="margin-top:30px;">
-        <form #f="ngForm" (ngSubmit)="login(f.value)">
-          <div class="form-group dialog-main__field">
-                <label for="username">用户名</label>
-                <input type="email" class="form-control" id="login"aria-describedby="emailHelp" placeholder="Enter email"  name="login" ngModel/> 
-          </div>
-          <div  class="form-group dialog-main__field">
-            <label for="username">密  码</label>
-            <input type="password" class="form-control" id="password" name="password"  placeholder="Password" ngModel /> 
-          </div>
-          <button type="submit" class="btn btn-primary">登陆</button>
-          <button type="button" class="btn btn-secondary"(click)="closeLoginDialog()">返回</button>
-        </form>
-    </div>
-  </div>
-</div> -->
-
-<div style="z-index:2;position: fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:-webkit-flex;-webkit-justify-content:center;-webkit-align-items:center">
-<div id="drag">
-  <div class="title">
-    <h2>用户登录</h2>
-    <div>
-      <a class="min" href="javascript:;" (click)="minDialog($event)" title="最小化">
-      </a>
-      <a class="max" href="javascript:;" (click)="maxDialog($event)" title="最大化">
-      </a>
-      <a class="revert" href="javascript:;" (click)="revertDialog($event)"  title="还原">
-      </a>
-      <a class="close" href="javascript:;" (click)="closeDialog()"title="关闭">
-      </a>
-    </div>
-  </div>
-  <div class="resizeL"></div>
-  <div class="resizeT"></div>
-  <div class="resizeR"></div>
-  <div class="resizeB"></div>
-  <div class="resizeLT"></div>
-  <div class="resizeTR"></div>
-  <div class="resizeBR"></div>
-  <div class="resizeLB"></div>
-  <div class="content">
-    <div id="dialog-main">
+    <!-- 左边界 -->
+    <div class="dialog-login__resizeL resizeL"></div>
+    <!-- 上边界 -->
+    <div class="dialog-login__resizeT resizeT"></div>
+    <!-- 右边界 -->
+    <div class="dialog-login__resizeR resizeR"></div>
+    <!-- 下边界 -->
+    <div class="dialog-login__resizeB resizeB"></div>
+    <!-- 左上角 -->
+    <div class="dialog-login__resizeLT resizeLT"></div>
+    <!-- 右上角 -->
+    <div class="dialog-login__resizeTR resizeTR"></div>
+    <!-- 右下角 -->
+    <div class="dialog-login__resizeBR resizeBR"></div>
+    <!-- 左下角 -->
+    <div class="dialog-login__resizeLB resizeLB"></div>
+    <!-- 对话框内容 -->
+    <div class="dialog-login__content content">
+      <!-- 登录表单 -->
       <form #f="ngForm" (ngSubmit)="login(f.value)">
         <div class="form-group dialog-main__field">
           <label for="username">用户名</label>
@@ -69,5 +51,4 @@
       </form>
     </div>
   </div>
-</div>
 </div>

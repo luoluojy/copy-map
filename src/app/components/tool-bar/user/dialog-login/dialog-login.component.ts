@@ -8,45 +8,43 @@ import {
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
-import { environment } from "../../../../../environments/environment";
 @Component({
   selector: "app-dialog-login",
   templateUrl: "./dialog-login.component.html",
   styleUrls: ["./dialog-login.component.css"]
 })
 export class DialogLoginComponent implements OnInit {
-  @Output() loginEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-  constructor(private elementRef: ElementRef, private http: HttpClient) {}
 
+  nativeElement:any;
+  @Output() loginEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  // 对话框最小高度及宽度
   dragMinWidth = 500;
   dragMinHeight = 300;
+
+  constructor(private elementRef: ElementRef, private http: HttpClient) {
+    this.nativeElement = this.elementRef.nativeElement;
+  }
+
   ngOnInit() {
     this.loadDialog();
     window.onresize = () => {
       this.loadDialog();
     };
   }
+
+  // 加载对话框中各元素resize事件，
   loadDialog() {
-    var oDrag = this.elementRef.nativeElement.querySelector("#drag");
-    var oTitle = this.elementRef.nativeElement.getElementsByClassName(
-      "title"
-    )[0];
-    var oL = this.elementRef.nativeElement.getElementsByClassName("resizeL")[0];
-    var oT = this.elementRef.nativeElement.getElementsByClassName("resizeT")[0];
-    var oR = this.elementRef.nativeElement.getElementsByClassName("resizeR")[0];
-    var oB = this.elementRef.nativeElement.getElementsByClassName("resizeB")[0];
-    var oLT = this.elementRef.nativeElement.getElementsByClassName(
-      "resizeLT"
-    )[0];
-    var oTR = this.elementRef.nativeElement.getElementsByClassName(
-      "resizeTR"
-    )[0];
-    var oBR = this.elementRef.nativeElement.getElementsByClassName(
-      "resizeBR"
-    )[0];
-    var oLB = this.elementRef.nativeElement.getElementsByClassName(
-      "resizeLB"
-    )[0];
+    let oDrag = this.nativeElement.getElementsByClassName("dialog-login__container")[0];
+    let oTitle = this.nativeElement.getElementsByClassName("title")[0];
+    let oL = this.nativeElement.getElementsByClassName("resizeL")[0];
+    let oT = this.nativeElement.getElementsByClassName("resizeT")[0];
+    let oR = this.nativeElement.getElementsByClassName("resizeR")[0];
+    let oB = this.nativeElement.getElementsByClassName("resizeB")[0];
+    let oLT = this.nativeElement.getElementsByClassName("resizeLT")[0];
+    let oTR = this.nativeElement.getElementsByClassName("resizeTR")[0];
+    let oBR = this.nativeElement.getElementsByClassName("resizeBR")[0];
+    let oLB = this.nativeElement.getElementsByClassName("resizeLB")[0];
     this.drag(oDrag, oTitle);
     //四角
     this.resize(oDrag, oLT, true, true, false, false);
@@ -58,17 +56,15 @@ export class DialogLoginComponent implements OnInit {
     this.resize(oDrag, oT, false, true, true, false);
     this.resize(oDrag, oR, false, false, false, true);
     this.resize(oDrag, oB, false, false, true, false);
-    oDrag.style.left =
-      (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
-    oDrag.style.top =
-      (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
+    oDrag.style.left = (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
+    oDrag.style.top = (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
   }
 
   /*-------------------------- +
  改变大小函数
  +-------------------------- */
   resize(oParent, handle, isLeft, isTop, lockX, lockY) {
-    handle.onmousedown = function(event) {
+    handle.onmousedown = event => {
       var event = event || window.event;
       var disX = event.clientX - handle.offsetLeft;
       var disY = event.clientY - handle.offsetTop;
@@ -80,10 +76,8 @@ export class DialogLoginComponent implements OnInit {
         var event = <MouseEvent>(event || window.event);
         var iL = event.clientX - disX;
         var iT = event.clientY - disY;
-        var maxW =
-          document.documentElement.clientWidth - oParent.offsetLeft - 2;
-        var maxH =
-          document.documentElement.clientHeight - oParent.offsetTop - 2;
+        var maxW = document.documentElement.clientWidth - oParent.offsetLeft - 2;
+        var maxH = document.documentElement.clientHeight - oParent.offsetTop - 2;
         var iW = isLeft ? iParentWidth - iL : handle.offsetWidth + iL;
         var iH = isTop ? iParentHeight - iT : handle.offsetHeight + iT;
         isLeft && (oParent.style.left = iParentLeft + iL + "px");
@@ -94,10 +88,7 @@ export class DialogLoginComponent implements OnInit {
         iH < this.dragMinHeight && (iH = this.dragMinHeight);
         iH > maxH && (iH = maxH);
         lockY || (oParent.style.height = iH + "px");
-        if (
-          (isLeft && iW == this.dragMinWidth) ||
-          (isTop && iH == this.dragMinHeight)
-        )
+        if ((isLeft && iW == this.dragMinWidth) ||(isTop && iH == this.dragMinHeight))
           document.onmousemove = null;
         return false;
       };
@@ -115,10 +106,10 @@ export class DialogLoginComponent implements OnInit {
   drag(oDrag, handle) {
     var disX = 0;
     var disY = 0;
-    var oMin = this.elementRef.nativeElement.getElementsByClassName("min")[0];
-    var oMax = this.elementRef.nativeElement.getElementsByClassName("max")[0];
-    var oRevert = this.elementRef.nativeElement.getElementsByClassName("revert")[0];
-    var oClose = this.elementRef.nativeElement.getElementsByClassName("close")[0];
+    var oMin = this.nativeElement.getElementsByClassName("min")[0];
+    var oMax = this.nativeElement.getElementsByClassName("max")[0];
+    var oRevert = this.nativeElement.getElementsByClassName("revert")[0];
+    var oClose = this.nativeElement.getElementsByClassName("close")[0];
     handle = handle || oDrag;
     handle.style.cursor = "move";
     handle.onmousedown = function(event) {
@@ -159,7 +150,7 @@ export class DialogLoginComponent implements OnInit {
   // 最大化时还原对话框
   revertDialog(event) {
     let revertAnchor = event.target;
-    var container = this.elementRef.nativeElement.querySelector("#drag");
+    var container = this.nativeElement.querySelector("#drag");
     container.style.width = this.dragMinWidth + "px";
     container.style.height = this.dragMinHeight + "px";
     container.style.left =
@@ -168,9 +159,7 @@ export class DialogLoginComponent implements OnInit {
       (document.documentElement.clientHeight - container.offsetHeight) / 2 +
       "px";
     revertAnchor.style.display = "none";
-    let maxAnchor = this.elementRef.nativeElement.getElementsByClassName(
-      "max"
-    )[0];
+    let maxAnchor = this.nativeElement.getElementsByClassName("max")[0];
     maxAnchor.style.display = "block";
   }
 
@@ -183,14 +172,12 @@ export class DialogLoginComponent implements OnInit {
   // 最大化对话框
   maxDialog(event) {
     let maxAnchor = event.target;
-    var container = this.elementRef.nativeElement.querySelector("#drag");
+    var container = this.nativeElement.querySelector("#drag");
     container.style.top = container.style.left = 0;
     container.style.width = document.documentElement.clientWidth - 2 + "px";
     container.style.height = document.documentElement.clientHeight - 2 + "px";
     maxAnchor.style.display = "none";
-    let revertAnchor = this.elementRef.nativeElement.getElementsByClassName(
-      "revert"
-    )[0];
+    let revertAnchor = this.nativeElement.getElementsByClassName("revert")[0];
     revertAnchor.style.display = "block";
   }
 
@@ -203,8 +190,7 @@ export class DialogLoginComponent implements OnInit {
     let username = value["login"];
     let password = value["password"];
     this.http
-      .post(
-        environment.http_href + "/api2/auth-token/",
+      .post("/api2/auth-token/",
         "username=" + username + "&&password=" + password,
         {
           headers: new HttpHeaders({
@@ -218,9 +204,7 @@ export class DialogLoginComponent implements OnInit {
             this.loginEmitter.emit(false);
             alert("登录成功" + value["token"]);
             this.http
-              .get(
-                environment.http_href +
-                  "/api2/avatars/user/" +
+              .get( "/api2/avatars/user/" +
                   username +
                   "/resized/80/",
                 {
