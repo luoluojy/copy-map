@@ -8,6 +8,7 @@ import {
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
+import { environment } from "../../../../../environments/environment";
 @Component({
   selector: "app-dialog-login",
   templateUrl: "./dialog-login.component.html",
@@ -190,7 +191,8 @@ export class DialogLoginComponent implements OnInit {
     let username = value["login"];
     let password = value["password"];
     this.http
-      .post("/api2/auth-token/",
+      .post(
+        environment.http_href + "/api2/auth-token/",
         "username=" + username + "&&password=" + password,
         {
           headers: new HttpHeaders({
@@ -204,7 +206,9 @@ export class DialogLoginComponent implements OnInit {
             this.loginEmitter.emit(false);
             alert("登录成功" + value["token"]);
             this.http
-              .get( "/api2/avatars/user/" +
+              .get(
+                environment.http_href +
+                  "/api2/avatars/user/" +
                   username +
                   "/resized/80/",
                 {
