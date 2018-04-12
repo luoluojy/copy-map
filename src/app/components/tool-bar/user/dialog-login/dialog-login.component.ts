@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output,ElementRef } from "@angular/cor
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
+import { environment } from '../../../../../environments/environment';
 @Component({
   selector: "app-dialog-login",
   templateUrl: "./dialog-login.component.html",
@@ -186,7 +187,7 @@ loadDialog(){
     let password = value["password"];
     this.http
       .post(
-        "/api2/auth-token/",
+        environment.http_href+"/api2/auth-token/",
         "username=" + username + "&&password=" + password,
         {
           headers: new HttpHeaders({
@@ -200,7 +201,7 @@ loadDialog(){
             this.loginEmitter.emit(false);
             alert("登录成功" + value["token"]);
             this.http
-              .get("/api2/avatars/user/"+username+"/resized/80/", {
+              .get(environment.http_href+"/api2/avatars/user/"+username+"/resized/80/", {
                 headers: new HttpHeaders({
                   Authorization: "Token " + value["token"]
                 })
