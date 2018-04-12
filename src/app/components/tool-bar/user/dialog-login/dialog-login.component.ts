@@ -1,8 +1,14 @@
-import { Component, OnInit, EventEmitter, Output,ElementRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ElementRef
+} from "@angular/core";
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
-import { environment } from '../../../../../environments/environment';
+import { environment } from "../../../../../environments/environment";
 @Component({
   selector: "app-dialog-login",
   templateUrl: "./dialog-login.component.html",
@@ -10,44 +16,53 @@ import { environment } from '../../../../../environments/environment';
 })
 export class DialogLoginComponent implements OnInit {
   @Output() loginEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-  constructor(private elementRef:ElementRef,private http: HttpClient) {}
+  constructor(private elementRef: ElementRef, private http: HttpClient) {}
 
-  dragMinWidth = 250;
-  dragMinHeight = 124;
+  dragMinWidth = 500;
+  dragMinHeight = 300;
   ngOnInit() {
     this.loadDialog();
     window.onresize = () => {
       this.loadDialog();
+    };
   }
-}
-loadDialog(){
-  var oDrag = this.elementRef.nativeElement.querySelector("#drag");
-  var oTitle = this.elementRef.nativeElement.getElementsByClassName("title")[0];
-  var oL = this.elementRef.nativeElement.getElementsByClassName("resizeL")[0];
-  var oT = this.elementRef.nativeElement.getElementsByClassName("resizeT")[0];
-  var oR = this.elementRef.nativeElement.getElementsByClassName("resizeR")[0];
-  var oB = this.elementRef.nativeElement.getElementsByClassName("resizeB")[0];
-  var oLT = this.elementRef.nativeElement.getElementsByClassName("resizeLT")[0];
-  var oTR = this.elementRef.nativeElement.getElementsByClassName("resizeTR")[0];
-  var oBR = this.elementRef.nativeElement.getElementsByClassName("resizeBR")[0];
-  var oLB = this.elementRef.nativeElement.getElementsByClassName("resizeLB")[0];
-  this.drag(oDrag, oTitle);
-  //四角
-  this.resize(oDrag, oLT, true, true, false, false);
-  this.resize(oDrag, oTR, false, true, false, false);
-  this.resize(oDrag, oBR, false, false, false, false);
-  this.resize(oDrag, oLB, true, false, false, false);
-  //四边
-  this.resize(oDrag, oL, true, false, false, true);
-  this.resize(oDrag, oT, false, true, true, false);
-  this.resize(oDrag, oR, false, false, false, true);
-  this.resize(oDrag, oB, false, false, true, false);
-  oDrag.style.left =
-    (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
-  oDrag.style.top =
-    (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
-};
-
+  loadDialog() {
+    var oDrag = this.elementRef.nativeElement.querySelector("#drag");
+    var oTitle = this.elementRef.nativeElement.getElementsByClassName(
+      "title"
+    )[0];
+    var oL = this.elementRef.nativeElement.getElementsByClassName("resizeL")[0];
+    var oT = this.elementRef.nativeElement.getElementsByClassName("resizeT")[0];
+    var oR = this.elementRef.nativeElement.getElementsByClassName("resizeR")[0];
+    var oB = this.elementRef.nativeElement.getElementsByClassName("resizeB")[0];
+    var oLT = this.elementRef.nativeElement.getElementsByClassName(
+      "resizeLT"
+    )[0];
+    var oTR = this.elementRef.nativeElement.getElementsByClassName(
+      "resizeTR"
+    )[0];
+    var oBR = this.elementRef.nativeElement.getElementsByClassName(
+      "resizeBR"
+    )[0];
+    var oLB = this.elementRef.nativeElement.getElementsByClassName(
+      "resizeLB"
+    )[0];
+    this.drag(oDrag, oTitle);
+    //四角
+    this.resize(oDrag, oLT, true, true, false, false);
+    this.resize(oDrag, oTR, false, true, false, false);
+    this.resize(oDrag, oBR, false, false, false, false);
+    this.resize(oDrag, oLB, true, false, false, false);
+    //四边
+    this.resize(oDrag, oL, true, false, false, true);
+    this.resize(oDrag, oT, false, true, true, false);
+    this.resize(oDrag, oR, false, false, false, true);
+    this.resize(oDrag, oB, false, false, true, false);
+    oDrag.style.left =
+      (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
+    oDrag.style.top =
+      (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
+  }
 
   /*-------------------------- +
  改变大小函数
@@ -132,41 +147,6 @@ loadDialog(){
       return false;
     };
 
-    //最大化按钮
-    oMax.onclick = function() {
-      oDrag.style.top = oDrag.style.left = 0;
-      oDrag.style.width = document.documentElement.clientWidth - 2 + "px";
-      oDrag.style.height = document.documentElement.clientHeight - 2 + "px";
-      this.style.display = "none";
-      oRevert.style.display = "block";
-    };
-    //还原按钮
-    oRevert.onclick = function() {
-      oDrag.style.width = this.dragMinWidth + "px";
-      oDrag.style.height = this.dragMinHeight + "px";
-      oDrag.style.left =
-        (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
-      oDrag.style.top =
-        (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
-      this.style.display = "none";
-      oMax.style.display = "block";
-    };
-    //最小化按钮
-    oMin.onclick = oClose.onclick = ()=> {
-      oDrag.style.display = "none";
-      var oA = document.createElement("a");
-      oA.className = "open";
-      oA.href = "javascript:;";
-      oA.title = "还原";
-      document.body.appendChild(oA);
-      oA.onclick = function() {
-        oDrag.style.display = "block";
-        document.body.removeChild(this);
-        this.onclick = null;
-      };
-      
-    this.loginEmitter.emit(false);
-    };
     //阻止冒泡
     oMin.onmousedown = oMax.onmousedown = oClose.onmousedown = function(event) {
       this.onfocus = function() {
@@ -176,9 +156,46 @@ loadDialog(){
     };
   }
 
+  // 最大化时还原对话框
+  revertDialog(event) {
+    let revertAnchor = event.target;
+    var container = this.elementRef.nativeElement.querySelector("#drag");
+    container.style.width = this.dragMinWidth + "px";
+    container.style.height = this.dragMinHeight + "px";
+    container.style.left =
+      (document.documentElement.clientWidth - container.offsetWidth) / 2 + "px";
+    container.style.top =
+      (document.documentElement.clientHeight - container.offsetHeight) / 2 +
+      "px";
+    revertAnchor.style.display = "none";
+    let maxAnchor = this.elementRef.nativeElement.getElementsByClassName(
+      "max"
+    )[0];
+    maxAnchor.style.display = "block";
+  }
 
+  // 最小化对话框
+  minDialog(event) {
+    let minAnchor = event.target;
+    this.loginEmitter.emit(false);
+  }
 
-  closeLoginDialog() {
+  // 最大化对话框
+  maxDialog(event) {
+    let maxAnchor = event.target;
+    var container = this.elementRef.nativeElement.querySelector("#drag");
+    container.style.top = container.style.left = 0;
+    container.style.width = document.documentElement.clientWidth - 2 + "px";
+    container.style.height = document.documentElement.clientHeight - 2 + "px";
+    maxAnchor.style.display = "none";
+    let revertAnchor = this.elementRef.nativeElement.getElementsByClassName(
+      "revert"
+    )[0];
+    revertAnchor.style.display = "block";
+  }
+
+  // 关闭对话框
+  closeDialog() {
     this.loginEmitter.emit(false);
   }
 
@@ -187,7 +204,7 @@ loadDialog(){
     let password = value["password"];
     this.http
       .post(
-        environment.http_href+"/api2/auth-token/",
+        environment.http_href + "/api2/auth-token/",
         "username=" + username + "&&password=" + password,
         {
           headers: new HttpHeaders({
@@ -201,11 +218,17 @@ loadDialog(){
             this.loginEmitter.emit(false);
             alert("登录成功" + value["token"]);
             this.http
-              .get(environment.http_href+"/api2/avatars/user/"+username+"/resized/80/", {
-                headers: new HttpHeaders({
-                  Authorization: "Token " + value["token"]
-                })
-              })
+              .get(
+                environment.http_href +
+                  "/api2/avatars/user/" +
+                  username +
+                  "/resized/80/",
+                {
+                  headers: new HttpHeaders({
+                    Authorization: "Token " + value["token"]
+                  })
+                }
+              )
               .subscribe(res => {
                 let avatarUrl = res["url"];
                 this.http

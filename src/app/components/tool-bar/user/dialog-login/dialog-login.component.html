@@ -33,13 +33,13 @@
   <div class="title">
     <h2>用户登录</h2>
     <div>
-      <a class="min" href="javascript:;" title="最小化">
+      <a class="min" href="javascript:;" (click)="minDialog($event)" title="最小化">
       </a>
-      <a class="max" href="javascript:;" title="最大化">
+      <a class="max" href="javascript:;" (click)="maxDialog($event)" title="最大化">
       </a>
-      <a class="revert" href="javascript:;" title="还原">
+      <a class="revert" href="javascript:;" (click)="revertDialog($event)"  title="还原">
       </a>
-      <a class="close" href="javascript:;" title="关闭">
+      <a class="close" href="javascript:;" (click)="closeDialog()"title="关闭">
       </a>
     </div>
   </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="dialog-main__btn" style="margin-top:10px;">
           <button type="submit" class="layui-btn">登陆</button>
-          <button type="button" class="layui-btn  layui-btn-primary" (click)="closeLoginDialog()">返回</button>
+          <button type="button" class="layui-btn  layui-btn-primary" (click)="closeDialog()">返回</button>
         </div>
       </form>
     </div>
