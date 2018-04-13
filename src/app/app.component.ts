@@ -19,9 +19,7 @@ export class AppComponent implements OnInit {
     this.service.owner = this;
   }
 
-  ngOnInit() {
-    this.blurElements();
-  }
+  ngOnInit() {}
 
   shown: boolean = false;
   actionShown: boolean = false;
@@ -35,7 +33,6 @@ export class AppComponent implements OnInit {
 
   recShown(event) {
     this.shown = event;
-    this.modalShown= event;
   }
   recActionShown(event) {
     this.actionShown = event;
@@ -47,26 +44,6 @@ export class AppComponent implements OnInit {
 
   recCollapseState(event) {
     this.collapseShown = event
-  }
-
-  modalShown: boolean = false;
-  recCreateProjectState(event) {
-    this.modalShown = event;
-  }
-
-  recModalShown(event) {
-    this.modalShown = event;
-    this.shown = !event;
-  }
-
-  blurElements() {
-    let elements = document.querySelectorAll('.unfocus');
-    for (let i = 0; i < elements.length; i++) {
-      let element = <HTMLElement>elements[i];
-      element.onfocus = function () {
-        element.blur();
-      }
-    }
   }
 
 }

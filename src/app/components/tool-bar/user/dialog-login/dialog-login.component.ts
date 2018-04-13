@@ -65,21 +65,19 @@ export class DialogLoginComponent implements OnInit {
  +-------------------------- */
   resize(oParent, handle, isLeft, isTop, lockX, lockY) {
     handle.onmousedown = event => {
-      var event = event || window.event;
-      var disX = event.clientX - handle.offsetLeft;
-      var disY = event.clientY - handle.offsetTop;
-      var iParentTop = oParent.offsetTop;
-      var iParentLeft = oParent.offsetLeft;
-      var iParentWidth = oParent.offsetWidth;
-      var iParentHeight = oParent.offsetHeight;
+      let disX = event.clientX - handle.offsetLeft;
+      let disY = event.clientY - handle.offsetTop;
+      let iParentTop = oParent.offsetTop;
+      let iParentLeft = oParent.offsetLeft;
+      let iParentWidth = oParent.offsetWidth;
+      let iParentHeight = oParent.offsetHeight;
       document.onmousemove = event => {
-        var event = <MouseEvent>(event || window.event);
-        var iL = event.clientX - disX;
-        var iT = event.clientY - disY;
-        var maxW = document.documentElement.clientWidth - oParent.offsetLeft - 2;
-        var maxH = document.documentElement.clientHeight - oParent.offsetTop - 2;
-        var iW = isLeft ? iParentWidth - iL : handle.offsetWidth + iL;
-        var iH = isTop ? iParentHeight - iT : handle.offsetHeight + iT;
+        let iL = event.clientX - disX;
+        let iT = event.clientY - disY;
+        let maxW = document.documentElement.clientWidth - oParent.offsetLeft - 2;
+        let maxH = document.documentElement.clientHeight - oParent.offsetTop - 2;
+        let iW = isLeft ? iParentWidth - iL : handle.offsetWidth + iL;
+        let iH = isTop ? iParentHeight - iT : handle.offsetHeight + iT;
         isLeft && (oParent.style.left = iParentLeft + iL + "px");
         isTop && (oParent.style.top = iParentTop + iT + "px");
         iW < this.dragMinWidth && (iW = this.dragMinWidth);
@@ -104,24 +102,22 @@ export class DialogLoginComponent implements OnInit {
  拖拽函数
  +-------------------------- */
   drag(oDrag, handle) {
-    var disX = 0;
-    var disY = 0;
-    var oMin = this.nativeElement.getElementsByClassName("min")[0];
-    var oMax = this.nativeElement.getElementsByClassName("max")[0];
-    var oRevert = this.nativeElement.getElementsByClassName("revert")[0];
-    var oClose = this.nativeElement.getElementsByClassName("close")[0];
+    let disX = 0;
+    let disY = 0;
+    let oMin = this.nativeElement.getElementsByClassName("min")[0];
+    let oMax = this.nativeElement.getElementsByClassName("max")[0];
+    let oRevert = this.nativeElement.getElementsByClassName("revert")[0];
+    let oClose = this.nativeElement.getElementsByClassName("close")[0];
     handle = handle || oDrag;
     handle.style.cursor = "move";
     handle.onmousedown = function(event) {
-      var event = event || window.event;
       disX = event.clientX - oDrag.offsetLeft;
       disY = event.clientY - oDrag.offsetTop;
       document.onmousemove = function(event) {
-        var event = <MouseEvent>(event || window.event);
-        var iL = event.clientX - disX;
-        var iT = event.clientY - disY;
-        var maxL = document.documentElement.clientWidth - oDrag.offsetWidth;
-        var maxT = document.documentElement.clientHeight - oDrag.offsetHeight;
+        let iL = event.clientX - disX;
+        let iT = event.clientY - disY;
+        let maxL = document.documentElement.clientWidth - oDrag.offsetWidth;
+        let maxT = document.documentElement.clientHeight - oDrag.offsetHeight;
         iL <= 0 && (iL = 0);
         iT <= 0 && (iT = 0);
         iL >= maxL && (iL = maxL);
@@ -150,14 +146,11 @@ export class DialogLoginComponent implements OnInit {
   // 最大化时还原对话框
   revertDialog(event) {
     let revertAnchor = event.target;
-    var container = this.nativeElement.querySelector("#drag");
+    let container = this.nativeElement.querySelector("#drag");
     container.style.width = this.dragMinWidth + "px";
     container.style.height = this.dragMinHeight + "px";
-    container.style.left =
-      (document.documentElement.clientWidth - container.offsetWidth) / 2 + "px";
-    container.style.top =
-      (document.documentElement.clientHeight - container.offsetHeight) / 2 +
-      "px";
+    container.style.left = ( document.documentElement.clientWidth - container.offsetWidth) / 2 + "px";
+    container.style.top = ( document.documentElement.clientHeight - container.offsetHeight) / 2 +"px";
     revertAnchor.style.display = "none";
     let maxAnchor = this.nativeElement.getElementsByClassName("max")[0];
     maxAnchor.style.display = "block";
@@ -172,7 +165,7 @@ export class DialogLoginComponent implements OnInit {
   // 最大化对话框
   maxDialog(event) {
     let maxAnchor = event.target;
-    var container = this.nativeElement.querySelector("#drag");
+    let container = this.nativeElement.querySelector("#drag");
     container.style.top = container.style.left = 0;
     container.style.width = document.documentElement.clientWidth - 2 + "px";
     container.style.height = document.documentElement.clientHeight - 2 + "px";

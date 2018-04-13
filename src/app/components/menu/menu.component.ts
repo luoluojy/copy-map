@@ -53,9 +53,9 @@ export class MenuComponent implements OnInit, OnChanges {
   onNewProjectClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.NewProject);
   }
@@ -63,9 +63,9 @@ export class MenuComponent implements OnInit, OnChanges {
   onOpenProjectClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.OpenProject);
   }
@@ -73,9 +73,9 @@ export class MenuComponent implements OnInit, OnChanges {
   onSaveProjectClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.SaveProject);
   }
@@ -83,9 +83,9 @@ export class MenuComponent implements OnInit, OnChanges {
   onMaintaiProjectClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.MaintainProject);
   }
@@ -93,9 +93,9 @@ export class MenuComponent implements OnInit, OnChanges {
   onProjectContentClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.ProjectContent);
   }
@@ -103,9 +103,9 @@ export class MenuComponent implements OnInit, OnChanges {
   onDataResourceClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.DataResource);
   }
@@ -113,9 +113,9 @@ export class MenuComponent implements OnInit, OnChanges {
   onAnalysisTaskClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.AnalysisTask);
   }
@@ -123,18 +123,12 @@ export class MenuComponent implements OnInit, OnChanges {
   onBasemapResourceClick() {
     this.shownEmitter.emit(false);
     this.actionEmitter.emit(true)
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) + 410 + 'px'
 
     this.appCommands.executeCommand(AppCommand.BasemapResource);
   }
 
-  // onCreateProjectClick() {
-  //   this.shownEmitter.emit(false);
-  //   this.createProjectEmitter.emit(true);
-
-  //   this.appCommands.executeCommand(AppCommand.NewProject);
-  // }
 
 }
