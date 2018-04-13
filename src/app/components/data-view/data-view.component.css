@@ -1,16 +1,9 @@
-/* .viewer-detail{
-    margin-top:-30px;
-    background-color:rgba(47,53,60,.8);
-    color:white;
-    font-size:12px;
-    text-align: center; 
-    padding: 6px 30px;
-    width:100px;
-    cursor: pointer;
-    float: left;
-} */
 
 #viewer-container{
     height:180px;
     background-color:#eeeeee;
+}
+
+.data-view__top{
+    height:5px;width:100%;top:0px;cursor:n-resize;
 }

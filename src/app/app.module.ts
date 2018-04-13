@@ -17,8 +17,6 @@ import { ContentViewComponent } from './components/content-view/content-view.com
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuComponent } from './components/menu/menu.component';
 
-import { ModalComponent } from './components/modal/modal.component';
-
 import { ControlViewDirective } from './components/control-view/control-view.directive';
 import { MapViewDirective } from './components/map-view/map-view.directive';
 
@@ -50,7 +48,6 @@ import { ProjectService } from './services/project.service';
     ContentViewComponent,
     FooterComponent,
     MenuComponent,
-    ModalComponent,
     MapViewDirective,
     ControlViewDirective,
   ],
