@@ -1,9 +1,5 @@
 <div id="root">
 
-    <div id="map-view-wrapper">
-        <app-map-view></app-map-view>
-    </div>
-
     <div class="bar-wrapper">
         <div class="menu-bar-wrapper">
             <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (menuBarEmitter)="recMenuBarState($event)"></app-menu-bar>
@@ -27,6 +23,10 @@
 
             <div class="data-view-wrapper">
                 <app-data-view *ngIf="viewState"></app-data-view>
+            </div>
+
+            <div class="map-view-wrapper">
+                <app-map-view></app-map-view>
             </div>
 
             <div class="footer-wrapper">

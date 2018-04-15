@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { AppService } from './app.service';
 
 /**
@@ -15,11 +15,13 @@ export class AppComponent implements OnInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: AppService) {
+  constructor(private service: AppService,private elementRef:ElementRef) {
     this.service.owner = this;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.elementRef.nativeElement.querySelector('.map-view-wrapper').style.width = document.body.clientWidth + 'px'; 
+  }
 
   shown: boolean = false;
   actionShown: boolean = false;
