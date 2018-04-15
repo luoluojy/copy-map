@@ -4,7 +4,7 @@
     left: 0px;
 }
 
-#container {
+.map-view-wrapper {
     position: absolute;
     left: 0px;
     right: 0px;
@@ -12,14 +12,14 @@
     height: 100%;
 }
 
-.layer1 {
+.bar-wrapper {
     position: relative;
     top: 0px;
     left: 0px;
     z-index: 1;
 }
 
-.layer2 {
+.view-wrapper {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -27,45 +27,34 @@
     z-index: 2;
 }
 
-#left {
+.control-view-wrapper {
     float: left;
     height: 100%;
     background-color: white;
     z-index: 3;
 }
 
-#right {
+.right-view-wrapper {
     height: 100%;
     float: left;
     position: relative;
 }
 
-#data-view-container {
+.data-view-wrapper {
     position: absolute;
     bottom: 18px;
     left: 2px;
 }
 
-#footer {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-}
 
-#menu-bar {
+.menu-bar-wrapper {
     position: absolute;
     top: 20px;
     left: 20px;
 }
 
-#tool-bar {
+.tool-bar-wrapper {
     position: relative;
     top: 20px;
     right: 20px;
-}
-
-#modal {
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }

@@ -7,11 +7,15 @@ import {
 } from "@angular/core";
 
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-
+import { CloudStorageService } from '../../../../services/cloud-storage.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: "app-dialog-login",
   templateUrl: "./dialog-login.component.html",
-  styleUrls: ["./dialog-login.component.css"]
+  styleUrls: ["./dialog-login.component.css"],
+  providers:[
+    CloudStorageService
+  ]
 })
 export class DialogLoginComponent implements OnInit {
 
@@ -22,7 +26,7 @@ export class DialogLoginComponent implements OnInit {
   dragMinWidth = 500;
   dragMinHeight = 300;
 
-  constructor(private elementRef: ElementRef, private http: HttpClient) {
+  constructor(private elementRef: ElementRef, private http: HttpClient,private cloudStorageService:CloudStorageService) {
     this.nativeElement = this.elementRef.nativeElement;
   }
 
@@ -178,49 +182,11 @@ export class DialogLoginComponent implements OnInit {
   closeDialog() {
     this.loginEmitter.emit(false);
   }
+  avatar:any;
 
   login(value) {
     let username = value["login"];
     let password = value["password"];
-    
-    this.http
-      .post("/api2/auth-token/",
-        "username=" + username + "&&password=" + password,
-        {
-          headers: new HttpHeaders({
-            "Content-Type": "application/x-www-form-urlencoded"
-          })
-        }
-      )
-      .subscribe(
-        value => {
-          if (value["token"]) {
-            this.loginEmitter.emit(false);
-            alert("登录成功" + value["token"]);
-            this.http
-              .get( "/api2/avatars/user/" +
-                  username +
-                  "/resized/80/",
-                {
-                  headers: new HttpHeaders({
-                    Authorization: "Token " + value["token"]
-                  })
-                }
-              )
-              .subscribe(res => {
-                let avatarUrl = res["url"];
-                this.http
-                  .get(avatarUrl, { responseType: "blob" })
-                  .subscribe((data: Blob) => {
-                    console.log(data);
-                  });
-              });
-          }
-        },
-        error => {
-          console.log(error);
-          alert("登录失败" + error["error"]["non_field_errors"]);
-        }
-      );
+    this.cloudStorageService.login(username,password); 
   }
 }

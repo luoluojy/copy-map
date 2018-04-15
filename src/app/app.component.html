@@ -1,49 +1,42 @@
 <div id="root">
 
-    <!-- layer0 -->
-    <div id="container">
+    <div id="map-view-wrapper">
         <app-map-view></app-map-view>
     </div>
 
-    <!-- layer1  -->
-    <div class="layer1">
-        <div id="menu-bar">
+    <div class="bar-wrapper">
+        <div class="menu-bar-wrapper">
             <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (menuBarEmitter)="recMenuBarState($event)"></app-menu-bar>
         </div>
-        <div id="tool-bar">
+        <div class="tool-bar-wrapper">
             <app-tool-bar></app-tool-bar>
         </div>
     </div>
 
-    <!-- layer2 -->
-    <div class="layer2">
+    <div class="view-wrapper">
 
-        <!-- left -->
-        <div id="left">
+        <div class="control-view-wrapper" >
             <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)" (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
         </div>
 
-        <!-- right -->
-        <div id="right">
+        <div class="right-view-wrapper">
 
-            <!-- top -->
-            <div id="top">
+            <div class="content-view-wrapper">
                 <app-content-view [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)" (collapseEmitter)="recCollapseState($event)"></app-content-view>
             </div>
 
-            <div id="data-view-container">
+            <div class="data-view-wrapper">
                 <app-data-view *ngIf="viewState"></app-data-view>
             </div>
 
-            <div id="footer-container">
+            <div class="footer-wrapper">
                 <app-footer></app-footer>
             </div>
 
         </div>
     </div>
 
-    <!-- layer3 -->
-    <div class="layer3" *ngIf="shown">
+    <div class="menu-wrapper" *ngIf="shown">
         <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-menu>
     </div>
 </div>
