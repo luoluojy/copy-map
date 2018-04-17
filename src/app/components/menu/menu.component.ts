@@ -50,7 +50,7 @@ export class MenuComponent implements OnInit, OnChanges {
   closeMenu() {
     // this.shownEmitter.emit(false);
     this.menuBarEmitter.emit(true);
-    this.dialogRef.close(-1);
+    this.dialogRef.close();
   }
 
   onNewProjectClick() {
