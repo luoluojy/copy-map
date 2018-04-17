@@ -37,6 +37,9 @@ import { FormsModule }   from '@angular/forms';
     UserComponent,
     RealTimeComponent,
     ClickedStyleDirective
+  ],
+  entryComponents:[
+    DialogLoginComponent
   ]
 })
 export class ToolBarModule { }

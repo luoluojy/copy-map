@@ -3,12 +3,14 @@ import {
   OnInit,
   EventEmitter,
   Output,
-  ElementRef
+  ElementRef,
+  Inject
 } from "@angular/core";
-
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { CloudStorageService } from '../../../../services/cloud-storage.service';
 import { Observable } from 'rxjs';
+
 @Component({
   selector: "app-dialog-login",
   templateUrl: "./dialog-login.component.html",
@@ -26,7 +28,9 @@ export class DialogLoginComponent implements OnInit {
   dragMinWidth = 500;
   dragMinHeight = 300;
 
-  constructor(private elementRef: ElementRef, private http: HttpClient,private cloudStorageService:CloudStorageService) {
+  constructor(private elementRef: ElementRef, private http: HttpClient,
+    private cloudStorageService:CloudStorageService,
+    private dialogRef:MatDialogRef<DialogLoginComponent>,@Inject(MAT_DIALOG_DATA) public data:any) {
     this.nativeElement = this.elementRef.nativeElement;
   }
 
@@ -161,9 +165,10 @@ export class DialogLoginComponent implements OnInit {
   }
 
   // 最小化对话框
-  minDialog(event) {
-    let minAnchor = event.target;
-    this.loginEmitter.emit(false);
+  minDialog() {
+    // let minAnchor = event.target;
+    // this.loginEmitter.emit(false);
+    this.dialogRef.close();
   }
 
   // 最大化对话框
@@ -180,7 +185,8 @@ export class DialogLoginComponent implements OnInit {
 
   // 关闭对话框
   closeDialog() {
-    this.loginEmitter.emit(false);
+    // this.loginEmitter.emit(false);
+    this.dialogRef.close();
   }
   avatar:any;
 

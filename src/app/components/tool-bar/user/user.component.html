@@ -1,6 +1,6 @@
 <div id="user-container">
     <div id="user-head">
-        <a href="javascript:void(0)" (click)="toLogin()">登录</a>
+        <a href="javascript:void(0)" (click)="openLoginDialog()">登录</a>
     </div>
     <ul>
         <li>
@@ -20,4 +20,3 @@
         <a hrf="javascript:void(0);">退出账户</a>
     </div>
 </div>
-<app-dialog-login *ngIf="isLogin" (loginEmitter)="recIsLogin($event)"></app-dialog-login>

@@ -148,7 +148,7 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
 
       let selectedItem = <number>result;
-    
+      
       if (selectedItem == 0) {
         this.appCommands.executeCommand(AppCommand.ProjectContent);
       } else if (selectedItem == 1) {

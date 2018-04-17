@@ -34,31 +34,21 @@ export class MenuBarComponent implements OnInit {
     this.service.owner = this;
   }
 
-  @Output() shownEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  @Output() rightEmitter: EventEmitter<string> = new EventEmitter<string>();
   @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() menuItemEmitter: EventEmitter<number> = new EventEmitter<number>();
   @Output() actionEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
   ngOnInit() {}
-
-  openMenu() {
-    this.shownEmitter.emit(true);
-    this.menuBarEmitter.emit(false);
-  }
 
   openMenuDialog() {
     let dialogRef = this.dialog.open(MenuComponent, {
       position: {
         left: "0",
         top: "0"
-      },
-      data: { selectedItem: -1 }
+      }
     });
     dialogRef.afterClosed().subscribe(result => {
       let selectedItem = <number>result;
-
-      if (selectedItem != -1) {
+      if (selectedItem!=undefined) {
         this.actionEmitter.emit(true);
         this.menuBarEmitter.emit(false);
       }
@@ -81,6 +71,4 @@ export class MenuBarComponent implements OnInit {
       }
     });
   }
-
-
 }

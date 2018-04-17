@@ -7,3 +7,9 @@
 .data-view__top{
     height:5px;width:100%;top:0px;cursor:n-resize;
 }
+.gisc-data-view-content{
+    width:1920px;
+}
+.gisc-data-view-content--overflow{
+    width:1500px;
+}

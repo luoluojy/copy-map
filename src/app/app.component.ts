@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef,Renderer2 } from '@angular/core';
 import { AppService } from './app.service';
 
 /**
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: AppService,private elementRef:ElementRef) {
+  constructor(private service: AppService,private elementRef:ElementRef,private renderer:Renderer2) {
     this.service.owner = this;
   }
 
@@ -38,6 +38,14 @@ export class AppComponent implements OnInit {
   }
   recActionShown(event) {
     this.actionShown = event;
+    let data_view = document.getElementById('viewer-container');
+    if(data_view){
+      if(this.actionShown==true){
+        this.renderer.addClass(data_view,'gisc-data-view-content--overflow')
+      }else{
+        this.renderer.removeClass(data_view,'gisc-data-view-content--overflow')
+      }
+    }
   }
   recViewState(event) {
     this.viewState = event;

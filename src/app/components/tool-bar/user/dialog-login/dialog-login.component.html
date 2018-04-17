@@ -1,12 +1,11 @@
-<!-- 全屏模态框 -->
-<div class="dialog-login__modal" >
+
   <!-- 最外层拖拽 -->
   <div class="dialog-login__container" id="drag">
     <!-- 对话框头 -->
     <div class="dialog-login__head title">
       <h2>用户登录</h2>
       <div class="dialog-login__window-btns">
-        <a class="min" href="javascript:;" (click)="minDialog($event)" title="最小化">
+        <a class="min" href="javascript:;" (click)="minDialog()" title="最小化">
         </a>
         <a class="max" href="javascript:;" (click)="maxDialog($event)" title="最大化">
         </a>
@@ -51,4 +50,3 @@
       </form>
     </div>
   </div>
-</div>

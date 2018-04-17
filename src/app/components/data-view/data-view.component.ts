@@ -42,7 +42,6 @@ export class DataViewComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     let viewerContainer: any = this.nativeElement.querySelector('#viewer-container');
-    viewerContainer.style.width = document.body.clientWidth + 'px';
     let resizeT = viewerContainer.querySelector('.data-view__top');
     this.resize(viewerContainer,resizeT,false,true,true,false);
   }
