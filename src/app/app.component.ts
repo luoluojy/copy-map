@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.elementRef.nativeElement.querySelector('.map-view-wrapper').style.width = document.body.clientWidth + 'px'; 
+    this.elementRef.nativeElement.querySelector('.gisc-map-view-wrapper').style.width = document.body.clientWidth + 'px'; 
   }
 
   shown: boolean = false;
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   }
   recActionShown(event) {
     this.actionShown = event;
-    this.collapseShown = event;
+    // this.collapseShown = event;
   }
   recViewState(event) {
     this.viewState = event;
@@ -46,6 +46,11 @@ export class AppComponent implements OnInit {
 
   recCollapseState(event) {
     this.collapseShown = event
+  }
+
+  selectedMenuItem:number;
+  recMenuItem(event){
+    this.selectedMenuItem =event;
   }
 
 }

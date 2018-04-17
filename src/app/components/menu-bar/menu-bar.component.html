@@ -1,18 +1,15 @@
-<div id="menu-bar">
-  <button id="menu" title="菜单" (click)="openMenu()" class="unfocus">
-    <i class="fas fa-bars fa-lg"></i>
-  </button>
-
-  <input type="text" style="width:290px;" placeholder="Search" />
-
-  <button id="search" type="button" title="搜索" class="unfocus">
-    <i class="fas fa-search fa-lg"></i>
-  </button>
-  <span style="font-size:20px;padding:0 5px">|</span>
-  <button title="路径" id="direction" >
-  </button>
-
-  <button title="关闭" id="close" >
-    <i class="fas fa-times fa-lg"></i>
-  </button>
+<div class="gisc-menu-bar-wrapper">
+  <div class="button-row">
+    <button mat-button title="菜单" class="gisc-menu-bar__button" (click)="openMenuDialog()" >
+      <i class="material-icons md-24">menu</i>
+    </button>
+    <input type="text" style="width:290px;" placeholder="Search" />
+    <button mat-button  title="搜索"  class="gisc-menu-bar__button">
+      <i class="material-icons md-24">search</i>
+    </button>
+    <span style="font-size:20px;">|</span>
+    <button mat-button  title="搜索"  class="gisc-menu-bar__button">
+      <i class="material-icons md-24">directions</i>
+    </button>
+  </div>
 </div>

@@ -4,21 +4,21 @@
     left: 0px;
 }
 
-.map-view-wrapper {
+.gisc-map-view-wrapper {
     position: absolute;
     left: 0px;
     top: 0px;
     height: 100%;
 }
 
-.bar-wrapper {
+.gisc-bar-wrapper {
     position: relative;
     top: 0px;
     left: 0px;
     z-index: 3;
 }
 
-.view-wrapper {
+.gisc-view-wrapper {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -26,34 +26,42 @@
     z-index: 2;
 }
 
-.control-view-wrapper {
+.gisc-control-view-wrapper {
     float: left;
     height: 100%;
     background-color: white;
     z-index: 3;
 }
 
-.right-view-wrapper {
+.gisc-right-view-wrapper {
     height: 100%;
     float: left;
     position: relative;
 }
 
-.data-view-wrapper {
+.gisc-data-view-wrapper {
     position: absolute;
     bottom: 18px;
     left: 2px;
     z-index:3;
 }
 
-.menu-bar-wrapper {
+.gisc-menu-bar-wrapper {
     position: absolute;
     top: 20px;
     left: 20px;
 }
 
-.tool-bar-wrapper {
+.gisc-tool-bar-wrapper {
     position: relative;
-    top: 20px;
+    top: 10px;
     right: 20px;
 }
+
+
+.gisc-left-view-wrapper--is-unexpand{
+    margin-left:-410px;
+  }
+  .gisc-left-view-wrapper--is-expand{
+    margin-left:0;
+  }

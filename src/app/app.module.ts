@@ -7,6 +7,8 @@ import { ControlModule } from './components/controls/control.module';
 import { MapModule } from './components/map/map.module';
 
 
+import { CustomMaterialModule } from './custom-material.module';
+
 import { AppComponent } from './app.component';
 import { MapViewComponent } from './components/map-view/map-view.component';
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
@@ -58,6 +60,7 @@ import { ProjectService } from './services/project.service';
     ControlModule,
     MapModule,
     HttpClientModule,
+    CustomMaterialModule,
   ],
   providers: [
     AppSettingService,
@@ -74,6 +77,7 @@ import { ProjectService } from './services/project.service';
     ProjectService,
     AppCommandService,
   ],
+  entryComponents: [ MenuComponent, ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

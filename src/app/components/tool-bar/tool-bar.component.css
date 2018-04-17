@@ -59,3 +59,25 @@ ul{
     top:0px;
     right:0px;
 }
+
+
+.gisc-tool-bar-list {
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+    background-color: #fff;
+    padding: 0;
+    display:inline-block;
+    margin-right:10px;
+}
+
+.gisc-tool-bar-list .gisc-tool-bar-list__item {
+    display: inline-block;
+    height: 36px;
+}
+
+.gisc-tool-bar-list__item button {
+    font-size: 12px;
+    padding: 0px;
+}
+.button-row{
+    display:inline-block;
+}

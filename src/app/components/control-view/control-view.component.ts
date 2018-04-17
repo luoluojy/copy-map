@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, OnDestroy, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ControlViewDirective } from './control-view.directive';
 import { ControlViewService } from './control-view.service';
@@ -22,7 +22,7 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: ControlViewService) {
+  constructor(private service: ControlViewService,private elementRef:ElementRef,private renderer:Renderer2) {
     this.service.owner = this;
     this._actionStatus = this.service.actionStatus;
   }
@@ -35,6 +35,7 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   ngAfterViewInit(): void {
     this.createActionComponent(this.actionStatus);
+    this.toggle(this.drawer)
   }
   /**
    *
@@ -127,5 +128,33 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
     let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
     let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
     distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
+  }
+
+
+@ViewChild('drawer') drawer:ElementRef;
+  flag = 0;
+  toggle(drawer) {
+    // console.log(this.nativeElement.querySelectorAll('.gisc-tool-bar-list .gisc-tool-bar-list__item'))
+    // console.log(this.nativeElement.querySelectorAll('.gisc-tool-bar-list__item'))
+
+    drawer.toggle();
+
+    let wrapper: HTMLElement = this.elementRef.nativeElement.querySelector(
+      ".gisc-control-view-wrapper"
+    ).parentNode.parentNode;
+    let toggle = this.elementRef.nativeElement.querySelector(".gisc-control-view-wrapper button");
+    if (this.flag == 0) {
+      this.flag = 1;
+      this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--is-unexpand');
+      this.renderer.addClass(wrapper,'gisc-left-view-wrapper--is-expand');
+      this.renderer.removeClass(toggle,'gisc-control-view-button--is-unexpand');
+      this.renderer.addClass(toggle,'gisc-control-view-button--is-expand')
+    } else {
+      this.flag = 0;
+      this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--is-expand');
+      this.renderer.addClass(wrapper,'gisc-left-view-wrapper--is-unexpand');
+      this.renderer.removeClass(toggle,'gisc-control-view-button--is-expand');
+      this.renderer.addClass(toggle,'gisc-control-view-button--is-unexpand')
+    }
   }
 }

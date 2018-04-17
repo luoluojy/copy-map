@@ -1,9 +1,9 @@
 #locations-container{
-    width:334px;
+    width:364px;
     height:390px;
     position: absolute;
-    right:100px;
-    top:6px;
+    right:115px;
+    top:15px;
     background-color: white;
 }
 #locations-close{

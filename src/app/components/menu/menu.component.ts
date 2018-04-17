@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef, HostListener, EventEmitter, Output, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, EventEmitter, Output, Input, OnChanges, SimpleChanges,Inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { MenuService } from './menu.service';
 import { AppCommandService } from '../../app-command.service';
 import { AppCommand } from '../../app-command.enum';
-
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 /**
  * 菜单组件
  */
@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit, OnChanges {
    * @param service
    * @param appCommands
    */
-  constructor(private service: MenuService, private appCommands: AppCommandService) {
+  constructor(private service: MenuService, private appCommands: AppCommandService,private dialogRef:MatDialogRef<MenuComponent>,@Inject(MAT_DIALOG_DATA) public data:any) {
     this.service.owner = this;
   }
 
@@ -35,6 +35,8 @@ export class MenuComponent implements OnInit, OnChanges {
     this.service.appTile = value;
   }
 
+
+
   @Input() shown;
 
   @Output() shownEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -45,9 +47,10 @@ export class MenuComponent implements OnInit, OnChanges {
 
   }
 
-  clsoeMenu() {
-    this.shownEmitter.emit(false);
-    this.menuBarEmitter.emit(true);
+  closeMenu() {
+    // this.shownEmitter.emit(false);
+    // this.menuBarEmitter.emit(true);
+    this.dialogRef.close();
   }
 
   onNewProjectClick() {

@@ -1,20 +1,64 @@
-<div id="modal" style="z-index:2;position: fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);">
-    <div id="menu-panel">
-        <div id="menu-head">
-            <h2>{{appTile}}</h2>
-            <button (click)="clsoeMenu()" title="收回" class="unfocus">
-                <i class="fas fa-angle-double-left"></i>
-            </button>
-        </div>
-        <ul class="project">
-            <li (click)="onProjectContentClick()">项目详情</li>
-            <li (click)="onDataResourceClick()">数据查询</li>
-            <li (click)="onAnalysisTaskClick()">数据分析</li>
-            <li (click)="onBasemapResourceClick()">地理底图</li>
-            <li (click)="onNewProjectClick()">新建项目</li>
-            <li (click)="onOpenProjectClick()">打开项目</li>
-            <li (click)="onSaveProjectClick()">保存项目</li>
-            <li (click)="onMaintaiProjectClick()">项目管理</li>
-        </ul>
+<div id="menu-panel">
+    <!-- <div id="menu-head">
+        <h2>{{appTile}}</h2>
+        <button (click)="clsoeMenu()" title="收回" class="unfocus">
+            <i class="fas fa-angle-double-left"></i>
+        </button>
     </div>
+    <ul class="project">
+        <li (click)="onProjectContentClick()">项目详情</li>
+        <li (click)="onDataResourceClick()">数据查询</li>
+        <li (click)="onAnalysisTaskClick()">数据分析</li>
+        <li (click)="onBasemapResourceClick()">地理底图</li>
+        <li (click)="onNewProjectClick()">新建项目</li>
+        <li (click)="onOpenProjectClick()">打开项目</li>
+        <li (click)="onSaveProjectClick()">保存项目</li>
+        <li (click)="onMaintaiProjectClick()">项目管理</li>
+    </ul> -->
+
+    <div class="gisc-menu-head">
+        <h2>{{appTile}}</h2>
+        <button mat-icon-button class="gisc-menu-head__button gisc-menu-head__button--left" (click)="closeMenu()"title="关闭">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    
+    <mat-list class="gisc-menu-list" mat-dialog-actions>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="0" cdkFocusInitial>项目详情</button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="1" cdkFocusInitial>数据查询</button>
+        </mat-list-item>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="2" cdkFocusInitial>数据分析</button>
+        </mat-list-item>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="3" cdkFocusInitial>地理底图</button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="4" cdkFocusInitial>新建项目</button>
+        </mat-list-item>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="5" cdkFocusInitial>打开项目</button>
+        </mat-list-item>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="6" cdkFocusInitial>保存项目</button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="gisc-menu-list__item">
+            <button mat-button [mat-dialog-close]="7" cdkFocusInitial>项目管理</button>
+        </mat-list-item>
+    </mat-list>
 </div>
+
+<!-- <mat-list>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>Item 3</mat-list-item>
+  </mat-list> -->

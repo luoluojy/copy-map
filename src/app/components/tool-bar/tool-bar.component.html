@@ -1,4 +1,4 @@
-<ul id="map" class="control">
+<!-- <ul id="map" class="control">
     <li>
         <div class="map-bar" [appClickedStyle]="isLocationsAction" (click)="onLocationsClick()" >
             <i class="fas fa-map-marker-alt fa-lg"></i> 南京市
@@ -32,6 +32,46 @@
 
     <div id="user" title="用户中心" (click)="onUserClick()" #user>
         <i class="fas fa-user  fa-lg"></i>
+    </div>
+
+</div> -->
+
+
+<div style="position: absolute;top:0;right:0;">
+    <mat-nav-list class="gisc-tool-bar-list">
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="位置" (click)="onLocationsClick()" [appClickedStyle]="isLocationsAction">
+                <i class="material-icons md-18">place</i> 南京市
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="实时" (click)="onRealTimeClick()" [appClickedStyle]="isRealTimeAction">
+                <i class="material-icons md-18">cloud_queue</i> 实时
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="图册" (click)="onAtlasClick()" [appClickedStyle]="isAtlasAction">
+                <i class="material-icons md-18">map</i> 图册
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="工具箱" (click)="onUtilsClick()" [appClickedStyle]="isUtilAction">
+                <i class="material-icons md-18">build</i> 工具箱
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+    </mat-nav-list>
+
+    <div class="button-row">
+        <button mat-mini-fab title="通知" (click)="onNoticeClick()">
+            <i class="material-icons md-18">notifications_none</i>
+        </button>
+        <button mat-fab color="primary" title="用户中心" (click)="onUserClick()">
+            <i class="material-icons md-24">person</i>
+        </button>
     </div>
 
 </div>

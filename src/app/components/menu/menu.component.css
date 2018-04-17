@@ -11,7 +11,7 @@ ul{
     z-index:3;width: 410px;height: 100%
 }
 
-#menu-head > button{
+.gisc-menu-head__button{
     position:absolute;top:12px;right:10px;color:#9A9A9A;
 }
 
@@ -31,12 +31,20 @@ ul{
     cursor: pointer;
     color:#3C82FF;
 }
-h2{
-    padding:6px 20px
+.gisc-menu-head{
+    padding:0 20px;
 }
 
 #menu-head{
     width:100%;
     height:50px;
     border-bottom:1px solid #d9d9d9
+}
+
+.gisc-menu-list{
+    display: block;
+}
+.gisc-menu-list .gisc-menu-list__item {
+    display: block;
+    height: 36px;
 }

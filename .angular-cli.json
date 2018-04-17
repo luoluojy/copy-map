@@ -24,16 +24,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/cesium/Build/Cesium/Widgets/widgets.css",
-        "assets/css/bootstrap/bootstrap.min.css",
-        "assets/icon/fontawesome/css/fontawesome-all.min.css"
+        "styles.css"
       ],
-      "scripts": [
-        "assets/js/jquery/jquery.min.js",
-        "../node_modules/cesium/Build/Cesium/Cesium.js",
-        "assets/plugin/cesiumnavigation/viewerCesiumNavigationMixin.min.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

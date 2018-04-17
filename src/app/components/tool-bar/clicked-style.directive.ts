@@ -28,10 +28,12 @@ export class ClickedStyleDirective implements OnChanges {
     let angleIcon = this.selfDiv.getElementsByTagName("i")[1];
     if (this.clickedStyleStatus == true) {
       this.selfDiv.style.color = "#0C88E8";
-      angleIcon.setAttribute("class", "fas fa-angle-up  fa-lg");
+      // angleIcon.setAttribute("class", "fas fa-angle-up  fa-lg");
+      angleIcon.innerHTML = 'keyboard_arrow_up';
     } else {
       this.selfDiv.style.color = "#9A9A9A";
-      angleIcon.setAttribute("class", "fas fa-angle-down  fa-lg");
+      // angleIcon.setAttribute("class", "fas fa-angle-down  fa-lg");
+      angleIcon.innerHTML = 'keyboard_arrow_down';
     }
   }
 }

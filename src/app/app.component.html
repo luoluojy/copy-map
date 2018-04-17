@@ -1,42 +1,46 @@
 <div id="root">
 
-    <div class="bar-wrapper">
-        <div class="menu-bar-wrapper">
-            <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (menuBarEmitter)="recMenuBarState($event)"></app-menu-bar>
+    <div class="gisc-bar-wrapper">
+        <div class="gisc-menu-bar-wrapper">
+            <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (menuItemEmitter)="recMenuItem($event)"></app-menu-bar>
         </div>
-        <div class="tool-bar-wrapper">
+        <div class="gisc-tool-bar-wrapper">
             <app-tool-bar></app-tool-bar>
         </div>
     </div>
 
-    <div class="view-wrapper">
+    <div class="gisc-menu-wrapper" *ngIf="shown">
+        <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)"
+            (createProjectEmitter)="recCreateProjectState($event)"></app-menu>
+    </div>
 
-        <div class="control-view-wrapper" >
-            <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)" (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
+    <div class="gisc-view-wrapper">
+
+        <div class="gisc-control-view-wrapper gisc-left-view-wrapper gisc-left-view-wrapper--is-unexpand">
+            <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"
+                (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
         </div>
 
-        <div class="right-view-wrapper">
+        <div class="gisc-right-view-wrapper">
 
-            <div class="content-view-wrapper">
-                <app-content-view [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)" (collapseEmitter)="recCollapseState($event)"></app-content-view>
+            <div class="gisc-content-view-wrapper">
+                <app-content-view [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)"
+                    (collapseEmitter)="recCollapseState($event)"></app-content-view>
             </div>
 
-            <div class="data-view-wrapper">
+            <div class="gisc-data-view-wrapper">
                 <app-data-view *ngIf="viewState"></app-data-view>
             </div>
 
-            <div class="map-view-wrapper">
+            <div class="gisc-map-view-wrapper">
                 <app-map-view></app-map-view>
             </div>
 
-            <div class="footer-wrapper">
+            <div class="gisc-footer-wrapper">
                 <app-footer></app-footer>
             </div>
 
         </div>
     </div>
 
-    <div class="menu-wrapper" *ngIf="shown">
-        <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (createProjectEmitter)="recCreateProjectState($event)"></app-menu>
-    </div>
 </div>

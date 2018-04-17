@@ -45,3 +45,58 @@ h2 {
     display: inline-block;
     margin-top: -5px;
 }
+
+
+
+.gisc-control-view-wrapper {
+    height: 100%;
+    width: 410px;
+}
+
+.gisc-control-view-container {
+    float: left;
+    height: 100%;
+}
+
+.gisc-control-view-button {
+    min-width: 0px;
+    padding: 0 3px;
+    position: absolute;
+    z-index:3;
+}
+
+.gisc-control-view-sidenav {
+    padding: 20px;
+    width: 410px;
+    height: 949px;
+    background-color: aquamarine;
+}
+
+.gisc-control-view-button--is-unexpand {
+    left: 0;
+}
+
+.gisc-control-view-button--is-expand {
+    left: 410px;
+}
+
+.gisc-tool-bar-list {
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
+    background-color: #fff;
+    padding: 0;
+    display:inline-block;
+    margin-right:10px;
+}
+
+.gisc-tool-bar-list .gisc-tool-bar-list__item {
+    display: inline-block;
+    height: 36px;
+}
+
+.gisc-tool-bar-list__item button {
+    font-size: 12px;
+    padding: 0px;
+}
+.button-row{
+    display:inline-block;
+}
