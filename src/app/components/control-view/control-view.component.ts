@@ -4,6 +4,12 @@ import { ControlViewDirective } from './control-view.directive';
 import { ControlViewService } from './control-view.service';
 import { ControlViewStatus } from './control-view-status.enum';
 
+
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { MenuComponent } from "../menu/menu.component";
+import { AppCommandService } from "../../app-command.service";
+
+import { AppCommand } from "../../app-command.enum";
 /**
  * 功能控制视图组件
  */
@@ -22,20 +28,21 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: ControlViewService,private elementRef:ElementRef,private renderer:Renderer2) {
+  constructor(private service: ControlViewService,private elementRef:ElementRef,private renderer:Renderer2,
+    private dialog: MatDialog,private appCommands: AppCommandService) {
     this.service.owner = this;
     this._actionStatus = this.service.actionStatus;
   }
   /**
    *
    */
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.toggle(this.drawer)}
   /**
    *
    */
   ngAfterViewInit(): void {
     this.createActionComponent(this.actionStatus);
-    this.toggle(this.drawer)
   }
   /**
    *
@@ -106,55 +113,84 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
   @Output() actionMenuEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-
-
-
-
   closeControlView() {
 
     this.actionCloseEmitter.emit(false);
     this.menuBarEmitter.emit(true)
 
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
   }
 
   reOpenMenu() {
 
-    this.actionMenuEmitter.emit(true);
-    this.actionCloseEmitter.emit(false);
+    // this.actionMenuEmitter.emit(true);
+    // this.actionCloseEmitter.emit(false);
 
-    let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
+    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
+    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
+    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
+    
   }
+
+  
+
+
+  openMenuDialog() {
+    let dialogRef = this.dialog.open(MenuComponent, {
+      position: {
+        left: "0",
+        top: "0"
+      },
+      data: { selectedItem: -1 }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+
+      let selectedItem = <number>result;
+    
+      if (selectedItem == 0) {
+        this.appCommands.executeCommand(AppCommand.ProjectContent);
+      } else if (selectedItem == 1) {
+        this.appCommands.executeCommand(AppCommand.DataResource);
+      } else if (selectedItem == 2) {
+        this.appCommands.executeCommand(AppCommand.AnalysisTask);
+      } else if (selectedItem == 3) {
+        this.appCommands.executeCommand(AppCommand.BasemapResource);
+      } else if (selectedItem == 4) {
+        this.appCommands.executeCommand(AppCommand.NewProject);
+      } else if (selectedItem == 5) {
+        this.appCommands.executeCommand(AppCommand.OpenProject);
+      } else if (selectedItem == 6) {
+        this.appCommands.executeCommand(AppCommand.SaveProject);
+      } else if (selectedItem == 7) {
+        this.appCommands.executeCommand(AppCommand.MaintainProject);
+      }
+    
+    });
+  }
+
 
 
 @ViewChild('drawer') drawer:ElementRef;
   flag = 0;
   toggle(drawer) {
-    // console.log(this.nativeElement.querySelectorAll('.gisc-tool-bar-list .gisc-tool-bar-list__item'))
-    // console.log(this.nativeElement.querySelectorAll('.gisc-tool-bar-list__item'))
-
     drawer.toggle();
-
     let wrapper: HTMLElement = this.elementRef.nativeElement.querySelector(
       ".gisc-control-view-wrapper"
     ).parentNode.parentNode;
-    let toggle = this.elementRef.nativeElement.querySelector(".gisc-control-view-wrapper button");
+    let toggle = this.elementRef.nativeElement.querySelector(".gisc-control-view__button--expand");
+    let toggleIcon =toggle.querySelector('i');
     if (this.flag == 0) {
       this.flag = 1;
-      this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--is-unexpand');
-      this.renderer.addClass(wrapper,'gisc-left-view-wrapper--is-expand');
-      this.renderer.removeClass(toggle,'gisc-control-view-button--is-unexpand');
-      this.renderer.addClass(toggle,'gisc-control-view-button--is-expand')
+      this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--unexpand');
+      this.renderer.removeClass(toggle,'gisc-control-view__button--unexpand');
+      toggleIcon.setAttribute('class','fas fa-caret-left fa-lg');
     } else {
       this.flag = 0;
-      this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--is-expand');
-      this.renderer.addClass(wrapper,'gisc-left-view-wrapper--is-unexpand');
-      this.renderer.removeClass(toggle,'gisc-control-view-button--is-expand');
-      this.renderer.addClass(toggle,'gisc-control-view-button--is-unexpand')
+      this.renderer.addClass(wrapper,'gisc-left-view-wrapper--unexpand');
+      this.renderer.addClass(toggle,'gisc-control-view__button--unexpand')
+      toggleIcon.setAttribute('class','fas fa-caret-right fa-lg');
     }
   }
 }

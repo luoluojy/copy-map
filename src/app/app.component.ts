@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
   }
   recActionShown(event) {
     this.actionShown = event;
-    // this.collapseShown = event;
   }
   recViewState(event) {
     this.viewState = event;

@@ -24,9 +24,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "assets/icon/fontawesome/css/fontawesome-all.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/js/jquery/jquery.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

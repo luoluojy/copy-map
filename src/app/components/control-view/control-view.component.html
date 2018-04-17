@@ -23,28 +23,20 @@
 <div class="gisc-control-view-wrapper">
     <mat-drawer-container class="gisc-control-view-container">
         <mat-drawer #drawer class="gisc-control-view-sidenav" mode="side">
-            <!-- <div class="control-view-head">
-                <div title="菜单" id="control-view-menu" (click)="reOpenMenu()">
-                    <i class="fas fa-bars fa-lg"></i>
-                </div>
-                <div>
+            <div class="button-row gisc-control-view-head">
+                    <button mat-button title="菜单" class="gisc-control-view__button--menu" (click)="openMenuDialog()">
+                        <i class="material-icons md-24">menu</i>
+                    </button>
                     <h2>{{actionTile}}</h2>
+                    <button mat-button title="关闭" class="gisc-control-view__button--clear" (click)="closeControlView()">
+                            <i class="material-icons md-24">clear</i>
+                        </button>
                 </div>
-                <div title="关闭" id="control-view-close" (click)="closeControlView()">
-                    <i class="fas fa-times fa-lg"></i>
-                </div>
-            </div> -->
-
-            <!-- <div class="gisc-control-view-head">
-                <button mat-button title="菜单" class="gisc-control-view__button--menu">
-                    <i class="material-icons md-24">menu</i>
-                </button>
-            </div> -->
             <ng-template action-host></ng-template>
         </mat-drawer>
     </mat-drawer-container>
 
-    <button type="button" class="gisc-control-view-button gisc-control-view-button--is-expand" mat-button (click)="toggle(drawer);">
-        Toggle
+    <button type="button" class="gisc-control-view__button--expand" mat-button title="收回" (click)="toggle(drawer);">
+        <i class="fas fa-caret-left fa-lg"></i>
     </button>
 </div>

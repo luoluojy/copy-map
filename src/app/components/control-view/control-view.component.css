@@ -58,26 +58,24 @@ h2 {
     height: 100%;
 }
 
-.gisc-control-view-button {
+.gisc-control-view__button--expand{
     min-width: 0px;
     padding: 0 3px;
     position: absolute;
     z-index:3;
+    left:410px;
+    background-color:rgba(255,255,255,0.9) ;
 }
 
 .gisc-control-view-sidenav {
-    padding: 20px;
+    padding: 0;
     width: 410px;
-    height: 949px;
+    height: 100%;
     background-color: aquamarine;
 }
 
-.gisc-control-view-button--is-unexpand {
+.gisc-control-view__button--unexpand {
     left: 0;
-}
-
-.gisc-control-view-button--is-expand {
-    left: 410px;
 }
 
 .gisc-tool-bar-list {
@@ -100,3 +98,24 @@ h2 {
 .button-row{
     display:inline-block;
 }
+.gisc-control-view-head{
+    background-color: #007bff;
+    width: 100%;
+    color:white;
+    position: relative;
+    text-align: center;
+    height:36px;
+}
+.gisc-control-view-head h2{
+    display: inline;
+    vertical-align: middle;
+}
+.gisc-control-view__button--menu{
+    position: absolute;
+    left:0;
+}
+.gisc-control-view__button--clear{
+    position: absolute;
+    right:0;
+}
+

@@ -29,7 +29,6 @@
 .gisc-control-view-wrapper {
     float: left;
     height: 100%;
-    background-color: white;
     z-index: 3;
 }
 
@@ -59,9 +58,9 @@
 }
 
 
-.gisc-left-view-wrapper--is-unexpand{
-    margin-left:-410px;
+.gisc-left-view-wrapper--unexpand{
+    margin-left:-410px!important;
   }
-  .gisc-left-view-wrapper--is-expand{
+  .gisc-left-view-wrapper{
     margin-left:0;
   }

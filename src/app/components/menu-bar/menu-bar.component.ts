@@ -47,39 +47,40 @@ export class MenuBarComponent implements OnInit {
     this.menuBarEmitter.emit(false);
   }
 
-  selectedItem: number;
-
   openMenuDialog() {
     let dialogRef = this.dialog.open(MenuComponent, {
       position: {
         left: "0",
         top: "0"
       },
-      data: { selectedItem: this.selectedItem }
+      data: { selectedItem: -1 }
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.selectedItem = <number>result;
-      this.menuItemEmitter.emit(this.selectedItem);
+      let selectedItem = <number>result;
 
-      this.actionEmitter.emit(true);
-      this.menuBarEmitter.emit(false);
-      if (this.selectedItem == 0) {
+      if (selectedItem != -1) {
+        this.actionEmitter.emit(true);
+        this.menuBarEmitter.emit(false);
+      }
+      if (selectedItem == 0) {
         this.appCommands.executeCommand(AppCommand.ProjectContent);
-      } else if (this.selectedItem == 1) {
+      } else if (selectedItem == 1) {
         this.appCommands.executeCommand(AppCommand.DataResource);
-      } else if (this.selectedItem == 2) {
+      } else if (selectedItem == 2) {
         this.appCommands.executeCommand(AppCommand.AnalysisTask);
-      } else if (this.selectedItem == 3) {
+      } else if (selectedItem == 3) {
         this.appCommands.executeCommand(AppCommand.BasemapResource);
-      } else if (this.selectedItem == 4) {
+      } else if (selectedItem == 4) {
         this.appCommands.executeCommand(AppCommand.NewProject);
-      } else if (this.selectedItem == 5) {
+      } else if (selectedItem == 5) {
         this.appCommands.executeCommand(AppCommand.OpenProject);
-      } else if (this.selectedItem == 6) {
+      } else if (selectedItem == 6) {
         this.appCommands.executeCommand(AppCommand.SaveProject);
-      } else if (this.selectedItem == 7) {
+      } else if (selectedItem == 7) {
         this.appCommands.executeCommand(AppCommand.MaintainProject);
       }
     });
   }
+
+
 }
