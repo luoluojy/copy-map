@@ -19,11 +19,11 @@
     <div class="gisc-map-view-wrapper">
             <app-map-view></app-map-view>
         </div>
-        
+
     <div class="gisc-view-wrapper">
 
         <div class="gisc-control-view-wrapper gisc-left-view-wrapper">
-            <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"
+            <app-control-view  (actionCloseEmitter)="recActionShown($event)" (actionEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"
                 (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
         </div>
 
@@ -35,7 +35,7 @@
             </div>
 
             <div class="gisc-data-view-wrapper">
-                <app-data-view *ngIf="viewState"></app-data-view>
+                <app-data-view ></app-data-view>
             </div>
 
             <div class="gisc-footer-wrapper">

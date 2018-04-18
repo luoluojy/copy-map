@@ -177,21 +177,21 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
   flag = 0;
   toggle(drawer) {
     drawer.toggle();
-    let wrapper: HTMLElement = this.elementRef.nativeElement.querySelector(
-      ".gisc-control-view-wrapper"
-    ).parentNode.parentNode;
-    let toggle = this.elementRef.nativeElement.querySelector(".gisc-control-view__button--expand");
-    let toggleIcon =toggle.querySelector('i');
-    if (this.flag == 0) {
-      this.flag = 1;
-      this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--unexpand');
-      this.renderer.removeClass(toggle,'gisc-control-view__button--unexpand');
-      toggleIcon.setAttribute('class','fas fa-caret-left fa-lg');
-    } else {
-      this.flag = 0;
-      this.renderer.addClass(wrapper,'gisc-left-view-wrapper--unexpand');
-      this.renderer.addClass(toggle,'gisc-control-view__button--unexpand')
-      toggleIcon.setAttribute('class','fas fa-caret-right fa-lg');
-    }
+    // let wrapper: HTMLElement = this.elementRef.nativeElement.querySelector(
+    //   ".gisc-control-view-wrapper"
+    // ).parentNode.parentNode;
+    // let toggle = this.elementRef.nativeElement.querySelector(".gisc-control-view__button--expand");
+    // let toggleIcon =toggle.querySelector('i');
+    // if (this.flag == 0) {
+    //   this.flag = 1;
+    //   this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--unexpand');
+    //   this.renderer.removeClass(toggle,'gisc-control-view__button--unexpand');
+    //   toggleIcon.setAttribute('class','fas fa-caret-left fa-lg');
+    // } else {
+    //   this.flag = 0;
+    //   this.renderer.addClass(wrapper,'gisc-left-view-wrapper--unexpand');
+    //   this.renderer.addClass(toggle,'gisc-control-view__button--unexpand')
+    //   toggleIcon.setAttribute('class','fas fa-caret-right fa-lg');
+    // }
   }
 }
