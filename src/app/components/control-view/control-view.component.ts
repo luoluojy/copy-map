@@ -37,7 +37,8 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    *
    */
   ngOnInit(): void { 
-    this.toggle(this.drawer)}
+    this.toggle(this.drawer)
+  }
   /**
    *
    */
