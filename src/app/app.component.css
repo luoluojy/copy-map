@@ -1,14 +1,7 @@
-#root {
+.gisc-root-wrapper {
     position: absolute;
     top: 0px;
     left: 0px;
-}
-
-.gisc-map-view-wrapper {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    height: 100%;
 }
 
 .gisc-bar-wrapper {
@@ -16,18 +9,56 @@
     top: 0px;
     left: 0px;
     z-index: 3;
+    background-color: red;
 }
 
-.gisc-view-wrapper {
+.gisc-menu-bar-wrapper {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 20px;
+    left: 20px;
+}
+
+.gisc-sidenav-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.gisc-tool-bar-wrapper {
+    position: relative;
+    top: 10px;
+    right: 20px;
+}
+
+.gisc-sidenav-content {
+    overflow: hidden;
+}
+
+.gisc-map-view-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100%;
-    z-index: 3;
+    width: 100%
+}
+
+.gisc-sidenav-content-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%
+}
+
+.gisc-content-view-wrapper {
+    pointer-events: none;
+    flex: 1;
+    position: relative;
 }
 
 .gisc-control-view-wrapper {
-    float: left;
     height: 100%;
     z-index: 3;
 }
@@ -39,28 +70,18 @@
 }
 
 .gisc-data-view-wrapper {
-    position: absolute;
-    bottom: 18px;
-    left: 2px;
-    z-index:3;
-}
-
-.gisc-menu-bar-wrapper {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-.gisc-tool-bar-wrapper {
     position: relative;
-    top: 10px;
-    right: 20px;
+    left: 2px;
+    bottom: 18px;
+    height: 180px;
+    width: 100%;
+    display: none;
 }
 
-
-.gisc-left-view-wrapper--unexpand{
-    margin-left:-410px!important;
-  }
-  .gisc-left-view-wrapper{
-    margin-left:0;
-  }
+.gisc-footer-wrapper {
+    position: absolute;
+    bottom: 0px;
+    left: 2px;
+    height: 18px;
+    width: 500px;
+}

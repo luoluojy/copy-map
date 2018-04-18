@@ -19,6 +19,8 @@ export class ContentViewComponent implements OnInit {
     this.service.owner = this;
   }
 
+  @Input() sidenav:any;
+
   @Input() collapseShown: boolean = false;
   @Input() viewShown: boolean = false;
   @Output() viewEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();

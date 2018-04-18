@@ -109,16 +109,13 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   };
 
-  @Output() actionCloseEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() actionEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Output() actionMenuEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   closeControlView() {
-
-    this.actionCloseEmitter.emit(false);
-    this.menuBarEmitter.emit(true)
-
+    this.actionEmitter.emit(false);
     // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
     // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
     // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'

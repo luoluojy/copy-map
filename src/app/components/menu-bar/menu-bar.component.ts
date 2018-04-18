@@ -51,6 +51,7 @@ export class MenuBarComponent implements OnInit {
       if (selectedItem!=undefined) {
         this.actionEmitter.emit(true);
         this.menuBarEmitter.emit(false);
+        console.log(result)
       }
       if (selectedItem == 0) {
         this.appCommands.executeCommand(AppCommand.ProjectContent);

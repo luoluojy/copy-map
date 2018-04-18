@@ -1,8 +1,9 @@
-<div id="root">
+<!-- <div id="root">
 
     <div class="gisc-bar-wrapper">
         <div class="gisc-menu-bar-wrapper">
-            <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (menuItemEmitter)="recMenuItem($event)"></app-menu-bar>
+            <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)"
+                (menuItemEmitter)="recMenuItem($event)"></app-menu-bar>
         </div>
         <div class="gisc-tool-bar-wrapper">
             <app-tool-bar></app-tool-bar>
@@ -10,20 +11,19 @@
     </div>
 
     <div class="gisc-menu-wrapper" *ngIf="shown">
-        <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)"
-        ></app-menu>
+        <app-menu (shownEmitter)="recShown($event)" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)"></app-menu>
     </div>
-    
-    
+
+
 
     <div class="gisc-map-view-wrapper">
-            <app-map-view></app-map-view>
-        </div>
+        <app-map-view></app-map-view>
+    </div>
 
     <div class="gisc-view-wrapper">
 
         <div class="gisc-control-view-wrapper gisc-left-view-wrapper">
-            <app-control-view  (actionCloseEmitter)="recActionShown($event)" (actionEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"
+            <app-control-view (actionCloseEmitter)="recActionShown($event)" (actionEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"
                 (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
         </div>
 
@@ -35,7 +35,7 @@
             </div>
 
             <div class="gisc-data-view-wrapper">
-                <app-data-view ></app-data-view>
+                <app-data-view></app-data-view>
             </div>
 
             <div class="gisc-footer-wrapper">
@@ -45,80 +45,50 @@
         </div>
     </div>
 
-</div>
+</div> -->
 
+<div id="root" class="gisc-root-wrapper">
 
-
-
-<!-- 
-<div id="root">
-
-        <div class="gisc-map-view-wrapper">
-            <app-map-view></app-map-view>
+    <div class="gisc-bar-wrapper">
+        <div class="gisc-menu-bar-wrapper">
+            <app-menu-bar *ngIf="menuBarShown" (actionEmitter)="recActionShown($event)"></app-menu-bar>
         </div>
-        
-        <div class="gisc-bar-wrapper">
-            <div class="gisc-menu-bar-wrapper">
-                <app-menu-bar (shownEmitter)="recShown($event)" *ngIf="menuBarShown" (actionEmitter)="recActionShown($event)" (menuBarEmitter)="recMenuBarState($event)" (menuItemEmitter)="recMenuItem($event)"></app-menu-bar>
-            </div>
-            <div class="gisc-tool-bar-wrapper">
-                <app-tool-bar></app-tool-bar>
-            </div>
-        </div>
-        
-        <mat-sidenav-container class="gisc-view-wrapper">
-    
-            <mat-sidenav  mode="side" opened="true" class="gisc-control-view-wrapper gisc-left-view-wrapper" style="height:100%;width:430px;">
-                <app-control-view *ngIf="actionShown" (actionCloseEmitter)="recActionShown($event)" (actionEmitter)="recActionShown($event)" (actionMenuEmitter)="recShown($event)"
-                    (menuBarEmitter)="recMenuBarState($event)"></app-control-view>
-            </mat-sidenav>
-    
-            <mat-sidenav-content class="gisc-right-view-wrapper" style="height:200px;width:1500px;">
-    
-                <div class="gisc-content-view-wrapper">
-                    <app-content-view [collapseShown]="collapseShown" [viewShown]="viewState" (viewEmitter)="recViewState($event)" (menuEmitter)="recActionShown($event)"
-                        (collapseEmitter)="recCollapseState($event)"></app-content-view>
-                </div>
-    
-                <div class="gisc-data-view-wrapper">
-                    <app-data-view *ngIf="viewState"></app-data-view>
-                </div>
-    
-                <div class="gisc-footer-wrapper">
-                    <app-footer></app-footer>
-                </div>
-    
-            </mat-sidenav-content>
-
-        </mat-sidenav-container>
-    
-    </div>
-    
-    
-    <div class="gisc-root-wrapper">
-        <div class="gisc-map-view-wrapper">
-            <app-map-view></app-map-view>
-        </div>
-    
-        <div class="gisc-bar-wrapper">
-            <app-menu-bar></app-menu-bar>
+        <div class="gisc-tool-bar-wrapper">
             <app-tool-bar></app-tool-bar>
         </div>
-    
-        <div class="gisc-menu-wrapper">
-            <app-menu></app-menu>
-        </div>
-    
-        <mat-drawer-container>
-            <mat-drawer mode="side" opened="true">
-                <app-control-view></app-control-view>
-            </mat-drawer>
-    
-            <mat-drawer-content>
-                <app-content-view></app-content-view>
-                <app-data-view></app-data-view>
-                <app-footer></app-footer>
-            </mat-drawer-content>
-        </mat-drawer-container>
+    </div>
 
-    </div> -->
+    <mat-sidenav-container class="gisc-sidenav-container">
+        <mat-sidenav #sidenav mode="side" class="gisc-sidenav-control-view">
+            <div class="gisc-control-view-wrapper">
+                <app-control-view (actionEmitter)="recActionShown($event)"></app-control-view>
+            </div>
+        </mat-sidenav>
+
+        <mat-sidenav-content class="gisc-sidenav-content">
+
+            <!-- 绝对定位fixed，保证不受右移影响 -->
+            <div class="gisc-map-view-wrapper">
+                <app-map-view></app-map-view>
+            </div>
+
+            <div class="gisc-sidenav-content-top">
+                <div class="gisc-content-view-wrapper">
+                    <!-- <app-content-view></app-content-view> -->
+                    <button *ngIf="collapseShown" mat-button (click)="sidenav.toggle()" style="position:absolute;top:0;left:0;pointer-events: visible;padding: 0 5px;min-width: 0;background-color:rgba(255,255,255,0.9) ">
+                        <i class="fas fa-caret-left fa-lg"></i>
+                    </button>
+                    <button mat-button (click)="expandDataView()" style="position:absolute;right:10px;bottom:18px;pointer-events: visible;background-color:rgba(255,255,255,0.9) ">expand</button>
+                </div>
+                <div class="gisc-data-view-wrapper">
+                    <app-data-view></app-data-view>
+                </div>
+            </div>
+
+            <div class="gisc-footer-wrapper">
+                <app-footer></app-footer>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+</div>
