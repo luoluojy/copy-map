@@ -9,12 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        {
-          "glob": "**/*",
-          "input": "../node_modules/cesium/Build/Cesium",
-          "output": "assets/plugin/cesium"
-        }
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -25,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "assets/icon/fontawesome/css/fontawesome-all.min.css"
+        "assets/css/fontawesome/css/fontawesome-all.min.css",
+        "assets/css/material/iconfont/material-icons.css"
       ],
       "scripts": [
         "assets/js/jquery/jquery.min.js"

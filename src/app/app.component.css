@@ -9,7 +9,6 @@
     top: 0px;
     left: 0px;
     z-index: 3;
-    background-color: red;
 }
 
 .gisc-menu-bar-wrapper {
@@ -37,8 +36,16 @@
     overflow: hidden;
 }
 
-.gisc-map-view-wrapper {
+.gisc-fixed-div-wrapper {
     position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%
+}
+
+.gisc-map-view-wrapper {
+    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
@@ -52,7 +59,7 @@
     height: 100%
 }
 
-.gisc-content-view-wrapper {
+.gisc-toggle-wrapper {
     pointer-events: none;
     flex: 1;
     position: relative;
@@ -84,4 +91,23 @@
     left: 2px;
     height: 18px;
     width: 500px;
+}
+
+.gisc-toggle__button {
+    pointer-events: visible;
+    background-color: rgba(255, 255, 255, 0.9)
+}
+
+.gisc-toggle__button--collapse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 5px;
+    min-width: 0;
+}
+
+.gisc-toggle__button--expand {
+    position: absolute;
+    right: 10px;
+    bottom: 18px;
 }
