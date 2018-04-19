@@ -36,7 +36,7 @@ export class AppCommandService {
    * @param command 命名指令
    * @param param 命令参数
    */
-  public executeCommand(command: AppCommand, param?: any) {
+  public execute(command: AppCommand, param?: any) {
     var key: string = AppCommand[command];
     var func = this._commands[key];
     if (func != undefined) {
@@ -47,28 +47,48 @@ export class AppCommandService {
    * 命令列表
    */
   private _commands: { [key: string]: any; } = {
-    "NewProject": (param?: any) => {
-      this.controlViewService.newProjectCommand(param);
+    "EnterOrderCommand": (param?: any) => {
+      this.appService.enterOrderCommand(param);
     },
-    "OpenProject": (param?: any) => {
-      this.controlViewService.openProjectCommand(param);
+    "EnterReadyCommand": (param?: any) => {
+      this.appService.enterReadyCommand(param);
     },
-    "SaveProject": (param?: any) => {
-      this.controlViewService.saveProjectCommand(param);
+    "EnterOperationCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
     },
-    "MaintainProject": (param?: any) => {
-      this.controlViewService.maintainProjectCommand(param);
+    "CollapseDataViewCommand": (param?: any) => {
+      this.appService.collapseDataViewCommand(param);
     },
-    "ProjectContent": (param?: any) => {
-      this.controlViewService.projectContentCommand(param);
+    "NewScenarioCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
+      this.controlViewService.newScenarioCommand(param);
     },
-    "DataResource": (param?: any) => {
+    "OpenScenarioCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
+      this.controlViewService.openScenarioCommand(param);
+    },
+    "SaveScenarioCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
+      this.controlViewService.saveScenarioCommand(param);
+    },
+    "MaintainScenarioCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
+      this.controlViewService.maintainScenarioCommand(param);
+    },
+    "ScenarioContentCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
+      this.controlViewService.scenarioContentCommand(param);
+    },
+    "DataResourceCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
       this.controlViewService.dataResourceCommand(param);
     },
-    "AnalysisTask": (param?: any) => {
+    "AnalysisTaskCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
       this.controlViewService.analysisTaskCommand(param);
     },
-    "BasemapResource": (param?: any) => {
+    "BasemapResourceCommand": (param?: any) => {
+      this.appService.enterOperationCommand(param);
       this.controlViewService.basemapResourceCommand(param);
     },
   };

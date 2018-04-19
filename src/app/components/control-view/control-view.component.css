@@ -1,103 +1,11 @@
-#control-view-container {
-    width: 410px;
-    height: 100%;
-    position: relative;
-}
-
-.control-view-head-wrapper {
-    background-color: #007bff;
-    height: 50px;
-    width: 100%;
-}
-
-.control-view-body-wrapper {
-    background-color: #ffffff;
-    height: 100%;
-    width: 100%;
-}
-
-.control-view-head {
-    position: relative;
-    top: 10px;
-    left: 20px;
-    height: 50px;
-    width: 360px;
-    text-align: center;
-}
-
-#control-view-menu {
-    position: absolute;
-    top: 0px;
-    left: 15px;
-    display: inline-block;
-    color: white;
-}
-
-#control-view-close {
-    position: absolute;
-    top: 0px;
-    right: 15px;
-    display: inline-block;
-    color: white;
-}
-
-h2 {
-    display: inline-block;
-    margin-top: -5px;
-}
-
-
-
-.gisc-control-view-wrapper {
-    height: 100%;
-    /* width: 40px; */
-}
-
 .gisc-control-view-container {
-    float: left;
-    height: 100%;
-}
-
-.gisc-control-view__button--expand{
-    min-width: 0px;
-    padding: 0 3px;
-    position: absolute;
-    z-index:3;
-    left:410px;
-    background-color:rgba(255,255,255,0.9) ;
-}
-
-.gisc-control-view-sidenav {
     padding: 0;
     width: 410px;
     height: 100%;
     background-color: aquamarine;
+    overflow: hidden;
 }
 
-.gisc-control-view__button--unexpand {
-    left: 0;
-}
-
-.gisc-tool-bar-list {
-    box-shadow: 1px 2px 1px rgba(0, 0, 0, .15);
-    background-color: #fff;
-    padding: 0;
-    display:inline-block;
-    margin-right:10px;
-}
-
-.gisc-tool-bar-list .gisc-tool-bar-list__item {
-    display: inline-block;
-    height: 36px;
-}
-
-.gisc-tool-bar-list__item button {
-    font-size: 12px;
-    padding: 0px;
-}
-.button-row{
-    display:inline-block;
-}
 .gisc-control-view-head{
     background-color: #007bff;
     width: 100%;

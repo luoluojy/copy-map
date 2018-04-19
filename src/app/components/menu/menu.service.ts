@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AppSettingService } from '../../app-setting.service';
+import { AppSettingsService } from '../../services/app-settings.service';
 import { MenuComponent } from './menu.component';
+import { AppInfo } from '../../services/app-info';
 
 /**
  *
@@ -10,9 +11,9 @@ export class MenuService {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param appSettings
    */
-  constructor(private appSetting: AppSettingService) { }
+  constructor(private appSettings: AppSettingsService) { }
 
   /**
    * 服务所属的组件
@@ -28,11 +29,8 @@ export class MenuService {
   /**
    * 应用标题
    */
-  public get appTile(): string {
-    return this.appSetting.appTile;
+  public get appInfo(): AppInfo {
+    console.log(this.appSettings.settings.appInfo);
+    return this.appSettings.settings.appInfo;
   }
-  public set appTile(value: string) {
-    this.appSetting.appTile = value;
-  }
-
 }

@@ -1,4 +1,4 @@
-#user-container {
+.gisc-user-container {
     position: absolute;
     top: 25px;
     right: 0px;
@@ -6,12 +6,12 @@
     background-color: white;
 }
 
-#user-container ul {
+.gisc-user-container ul {
     margin: 0px;
     padding: 0px;
 }
 
-#user-container ul li {
+.gisc-user-container ul li {
     list-style-type: none;
     height: 40px;
     line-height: 42px;
@@ -19,18 +19,15 @@
     position: relative;
     text-indent: 5px;
     font-size: 12px;
-}
-
-#user-container ul li:hover {
     cursor: pointer;
 }
 
-#user-head {
+.gisc-user-head {
     width: 100%;
     height: 80px;
     background-color: #3385FF;
 }
-#user-head a{
+.gisc-user-head a{
     position: absolute;
     display: block;
     width: 48px;
@@ -45,13 +42,13 @@
     font-size: 14px;
     text-align: center;
 }
-.user-container__logout{
+.gisc-user-container__logout{
     float: right;
     padding: 2px;
     font-size: 12px;
     background-color: #fff;
     color: #999;
 }
-.user-container__logout a:hover{
+.gisc-user-container__logout a:hover{
     color:#3385ff
 }

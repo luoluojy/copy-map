@@ -1,4 +1,4 @@
-#maps-container{
+.gisc-atlas-container{
     width: 85px;
     position: absolute;
     right: 195px;
@@ -6,17 +6,14 @@
     background-color: white;
 }
 
-#maps-container ul{
+.gisc-atlas-container ul{
     margin:0px;
     padding:0px;
 }
 
-#maps-container ul li{
+.gisc-atlas-container ul li{
     list-style-type: none;
     padding:5px;
     text-align: center;
-}
-
-#maps-container ul li:hover{
     cursor: pointer;
 }

@@ -1,4 +1,4 @@
-#notice-container{
+.gisc-notice-container{
     position: absolute;
     top: 25px;
     right: 0px;
@@ -6,7 +6,7 @@
     height: 470px;
     background-color: white;
 }
-#notice-close{
+.gisc-notice-container__close{
     position:absolute;
     top:0px;
     right:5px;

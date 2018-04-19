@@ -1,49 +1,29 @@
-ul{
-    padding:0px;
-    margin:0px;
-}
-#menu-panel{
-    box-shadow: 0 -1px 24px rgba(0,0,0,0.4);
+.gisc-menu-container {
+    box-shadow: 0 -1px 24px rgba(0, 0, 0, 0.4);
     background-color: white;
     position: absolute;
-    top:0px;
-    overflow:auto;
-    z-index:3;width: 410px;height: 100%
+    top: 0px;
+    overflow: auto;
+    z-index: 3;
+    width: 410px;
+    height: 100%
 }
 
-.gisc-menu-head__button{
-    position:absolute;top:12px;right:10px;color:#9A9A9A;
+.gisc-menu-head__button {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    color: #9A9A9A;
 }
 
-.project li{
-    padding:10px 30px;
-    font-size:12px;
-    line-height: 24px;
-    list-style-type: none;
-    color:#9A9A9A;
+.gisc-menu-head {
+    padding: 0 20px;
 }
 
-.project li:nth-child(1),.project li:nth-child(4),.project li:nth-child(7){
-    border-bottom: 1px solid #d9d9d9;
-}
-
-#menu-panel ul li:hover{
-    cursor: pointer;
-    color:#3C82FF;
-}
-.gisc-menu-head{
-    padding:0 20px;
-}
-
-#menu-head{
-    width:100%;
-    height:50px;
-    border-bottom:1px solid #d9d9d9
-}
-
-.gisc-menu-list{
+.gisc-menu-list {
     display: block;
 }
+
 .gisc-menu-list .gisc-menu-list__item {
     display: block;
     height: 36px;

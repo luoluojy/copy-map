@@ -4,9 +4,10 @@ import { MatButtonModule, MatCheckboxModule } from "@angular/material";
 import { MatListModule } from "@angular/material/list";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatSidenavModule } from "@angular/material/sidenav";
-import {MatIconModule} from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
@@ -28,7 +30,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule
   ],
   declarations: []
 })

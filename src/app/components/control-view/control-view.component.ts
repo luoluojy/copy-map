@@ -1,9 +1,16 @@
-import { Component, OnInit, EventEmitter, Output, ViewChild, OnDestroy, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { ControlViewDirective } from './control-view.directive';
-import { ControlViewService } from './control-view.service';
-import { ControlViewStatus } from './control-view-status.enum';
-
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  ViewChild,
+  OnDestroy,
+  AfterViewInit
+} from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { ControlViewDirective } from "./control-view.directive";
+import { ControlViewService } from "./control-view.service";
+import { ControlViewStatus } from "./control-view-status.enum";
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { MenuComponent } from "../menu/menu.component";
@@ -14,9 +21,9 @@ import { AppCommand } from "../../app-command.enum";
  * 功能控制视图组件
  */
 @Component({
-  selector: 'app-control-view',
-  templateUrl: './control-view.component.html',
-  styleUrls: ['./control-view.component.css']
+  selector: "app-control-view",
+  templateUrl: "./control-view.component.html",
+  styleUrls: ["./control-view.component.css"]
 })
 export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
   /**
@@ -28,17 +35,18 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: ControlViewService,private elementRef:ElementRef,private renderer:Renderer2,
-    private dialog: MatDialog,private appCommands: AppCommandService) {
+  constructor(
+    private service: ControlViewService,
+    private dialog: MatDialog,
+    private appCommands: AppCommandService
+  ) {
     this.service.owner = this;
     this._actionStatus = this.service.actionStatus;
   }
   /**
    *
    */
-  ngOnInit(): void { 
-    this.toggle(this.drawer)
-  }
+  ngOnInit(): void {}
   /**
    *
    */
@@ -82,113 +90,67 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
   /**
    * 活动组件创建字典
    */
-  private _actions: { [key: string]: any; } = {
-    "NewProject": () => {
-      this.actionHost.createNewProjectComponent();
+  private _actions: { [key: string]: any } = {
+    NewScenario: () => {
+      this.actionHost.createNewScenarioComponent();
     },
-    "OpenProject": () => {
-      this.actionHost.createOpenProjectComponent();
+    OpenScenario: () => {
+      this.actionHost.createOpenScenarioComponent();
     },
-    "SaveProject": () => {
-      this.actionHost.createSaveProjectComponent();
+    SaveScenario: () => {
+      this.actionHost.createSaveScenarioComponent();
     },
-    "MaintainProject": () => {
-      this.actionHost.createMaintainProjectComponent();
+    MaintainScenario: () => {
+      this.actionHost.createMaintainScenarioComponent();
     },
-    "ProjectContent": () => {
-      this.actionHost.createProjectContentComponent();
+    ScenarioContent: () => {
+      this.actionHost.createScenarioContentComponent();
     },
-    "DataResource": () => {
+    DataResource: () => {
       this.actionHost.createDataResourceComponent();
     },
-    "AnalysisTask": () => {
+    AnalysisTask: () => {
       this.actionHost.creatAnalysisTaskComponent();
     },
-    "BasemapResource": () => {
+    BasemapResource: () => {
       this.actionHost.createBasemapResourceComponent();
     }
   };
 
-  @Output() actionEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  @Output() actionMenuEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() toggleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   closeControlView() {
-    this.actionEmitter.emit(false);
-    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
+    this.toggleEmitter.emit();
+    this.appCommands.execute(AppCommand.EnterReadyCommand);
   }
-
-  reOpenMenu() {
-
-    // this.actionMenuEmitter.emit(true);
-    // this.actionCloseEmitter.emit(false);
-
-    // let distance_legend = <HTMLElement>document.getElementsByClassName('distance-legend')[0];
-    // let distanceLegendLeft = window.getComputedStyle(distance_legend, null).left;
-    // distance_legend.style.left = parseInt(distanceLegendLeft.substr(0, distanceLegendLeft.length - 2), 10) - 410 + 'px'
-    
-  }
-
-  
-
 
   openMenuDialog() {
     let dialogRef = this.dialog.open(MenuComponent, {
       position: {
         left: "0",
         top: "0"
-      },
-      data: { selectedItem: -1 }
+      }
     });
     dialogRef.afterClosed().subscribe(result => {
-
       let selectedItem = <number>result;
-      
+
       if (selectedItem == 0) {
-        this.appCommands.executeCommand(AppCommand.ProjectContent);
+        this.appCommands.execute(AppCommand.NewScenarioCommand);
       } else if (selectedItem == 1) {
-        this.appCommands.executeCommand(AppCommand.DataResource);
+        this.appCommands.execute(AppCommand.OpenScenarioCommand);
       } else if (selectedItem == 2) {
-        this.appCommands.executeCommand(AppCommand.AnalysisTask);
+        this.appCommands.execute(AppCommand.SaveScenarioCommand);
       } else if (selectedItem == 3) {
-        this.appCommands.executeCommand(AppCommand.BasemapResource);
+        this.appCommands.execute(AppCommand.ScenarioContentCommand);
       } else if (selectedItem == 4) {
-        this.appCommands.executeCommand(AppCommand.NewProject);
+        this.appCommands.execute(AppCommand.DataResourceCommand);
       } else if (selectedItem == 5) {
-        this.appCommands.executeCommand(AppCommand.OpenProject);
+        this.appCommands.execute(AppCommand.AnalysisTaskCommand);
       } else if (selectedItem == 6) {
-        this.appCommands.executeCommand(AppCommand.SaveProject);
+        this.appCommands.execute(AppCommand.BasemapResourceCommand);
       } else if (selectedItem == 7) {
-        this.appCommands.executeCommand(AppCommand.MaintainProject);
+        this.appCommands.execute(AppCommand.MaintainScenarioCommand);
       }
-    
     });
-  }
-
-
-
-@ViewChild('drawer') drawer:ElementRef;
-  flag = 0;
-  toggle(drawer) {
-    drawer.toggle();
-    // let wrapper: HTMLElement = this.elementRef.nativeElement.querySelector(
-    //   ".gisc-control-view-wrapper"
-    // ).parentNode.parentNode;
-    // let toggle = this.elementRef.nativeElement.querySelector(".gisc-control-view__button--expand");
-    // let toggleIcon =toggle.querySelector('i');
-    // if (this.flag == 0) {
-    //   this.flag = 1;
-    //   this.renderer.removeClass(wrapper,'gisc-left-view-wrapper--unexpand');
-    //   this.renderer.removeClass(toggle,'gisc-control-view__button--unexpand');
-    //   toggleIcon.setAttribute('class','fas fa-caret-left fa-lg');
-    // } else {
-    //   this.flag = 0;
-    //   this.renderer.addClass(wrapper,'gisc-left-view-wrapper--unexpand');
-    //   this.renderer.addClass(toggle,'gisc-control-view__button--unexpand')
-    //   toggleIcon.setAttribute('class','fas fa-caret-right fa-lg');
-    // }
   }
 }

@@ -1,4 +1,4 @@
-#tools-container {
+.gisc-utils-container{
     position: absolute;
     top: 15px;
     right: 115px;
@@ -6,12 +6,12 @@
     background-color: white;
 }
 
-#tools-container ul {
+.gisc-utils-container ul {
     padding: 0px;
     margin: 0px;
 }
 
-#tools-container ul li {
+.gisc-utils-container ul li {
     list-style: none;
     font-size: 12px;
     padding: 7px 15px;

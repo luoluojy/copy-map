@@ -6,23 +6,23 @@ export enum ControlViewStatus {
   /**
    *
    */
-  NewProject,
+  NewScenario,
   /**
    *
    */
-  OpenProject,
+  OpenScenario,
   /**
    *
    */
-  SaveProject,
+  SaveScenario,
   /**
    *
    */
-  MaintainProject,
+  MaintainScenario,
   /**
    *
    */
-  ProjectContent,
+  ScenarioContent,
   /**
    *
    */

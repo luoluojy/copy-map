@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppSettingService } from '../../../app-setting.service';
+import { AppSettingsService } from '../../../services/app-settings.service';
 import { OpenlayersComponent } from './openlayers.component';
 import Map from "ol/map";
 import View from "ol/view";
@@ -19,7 +19,7 @@ export class OpenlayersService {
    * 构造函数
    * @param appSetting
    */
-  constructor(private appSetting: AppSettingService) { }
+  constructor(private appSettings: AppSettingsService) { }
 
   /**
    * 服务所属的组件

@@ -1,9 +1,9 @@
 import { Directive, ComponentFactoryResolver, ViewContainerRef, Type } from '@angular/core';
-import { NewProjectComponent } from '../controls/new-project/new-project.component';
-import { OpenProjectComponent } from '../controls/open-project/open-project.component';
-import { SaveProjectComponent } from '../controls/save-project/save-project.component';
-import { MaintainProjectComponent } from '../controls/maintain-project/maintain-project.component';
-import { ProjectContentComponent } from '../controls/project-content/project-content.component';
+import { NewScenarioComponent } from '../controls/new-scenario/new-scenario.component';
+import { OpenScenarioComponent } from '../controls/open-scenario/open-scenario.component';
+import { SaveScenarioComponent } from '../controls/save-scenario/save-scenario.component';
+import { MaintainScenarioComponent } from '../controls/maintain-scenario/maintain-scenario.component';
+import { ScenarioContentComponent } from '../controls/scenario-content/scenario-content.component';
 import { DataResourceComponent } from '../controls/data-resource/data-resource.component';
 import { AnalysisTaskComponent } from '../controls/analysis-task/analysis-task.component';
 import { BasemapResourceComponent } from '../controls/basemap-resource/basemap-resource.component';
@@ -26,8 +26,8 @@ export class ControlViewDirective {
   /**
    * 创建新建项目组件
    */
-  public createNewProjectComponent() {
-    let component: Type<any> = NewProjectComponent;
+  public createNewScenarioComponent() {
+    let component: Type<any> = NewScenarioComponent;
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     this.viewContainerRef.createComponent(componentFactory);
@@ -35,8 +35,8 @@ export class ControlViewDirective {
   /**
    * 创建打开项目组件
    */
-  public createOpenProjectComponent() {
-    let component: Type<any> = OpenProjectComponent;
+  public createOpenScenarioComponent() {
+    let component: Type<any> = OpenScenarioComponent;
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     this.viewContainerRef.createComponent(componentFactory);
@@ -44,8 +44,8 @@ export class ControlViewDirective {
   /**
    * 创建保存项目组件
    */
-  public createSaveProjectComponent() {
-    let component: Type<any> = SaveProjectComponent;
+  public createSaveScenarioComponent() {
+    let component: Type<any> = SaveScenarioComponent;
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     this.viewContainerRef.createComponent(componentFactory);
@@ -53,8 +53,8 @@ export class ControlViewDirective {
   /**
    * 创建项目管理组件
    */
-  public createMaintainProjectComponent() {
-    let component: Type<any> = MaintainProjectComponent;
+  public createMaintainScenarioComponent() {
+    let component: Type<any> = MaintainScenarioComponent;
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     this.viewContainerRef.createComponent(componentFactory);
@@ -62,8 +62,8 @@ export class ControlViewDirective {
   /**
    * 创建项目内容组件
    */
-  public createProjectContentComponent() {
-    let component: Type<any> = ProjectContentComponent;
+  public createScenarioContentComponent() {
+    let component: Type<any> = ScenarioContentComponent;
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     this.viewContainerRef.clear();
     this.viewContainerRef.createComponent(componentFactory);

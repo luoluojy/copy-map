@@ -1,4 +1,4 @@
-#real-time-container{
+.gisc-real-time-container{
     width:160px;
     height:300px;
     position: absolute;
@@ -6,7 +6,7 @@
     top:15px;
     background-color: white;
 }
-#real-time-close{
+.gisc-real-time__close{
     position:absolute;
     top:0px;
     right:0px;

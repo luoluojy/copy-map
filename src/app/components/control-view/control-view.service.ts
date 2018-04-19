@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ControlViewComponent } from './control-view.component';
-import { AppSettingService } from '../../app-setting.service';
+import { AppSettingsService } from '../../services/app-settings.service';
 import { ControlViewStatus } from './control-view-status.enum';
 
 /**
@@ -11,10 +11,10 @@ export class ControlViewService {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param appSettings
    */
-  constructor(private appSetting: AppSettingService) {
-    this.actionStatus = ControlViewStatus.ProjectContent
+  constructor(private appSettings: AppSettingsService) {
+    this.actionStatus = ControlViewStatus.ScenarioContent
   }
 
   /**
@@ -51,50 +51,50 @@ export class ControlViewService {
    * 活动标题字典
    */
   private _tiles: { [key: string]: string; } = {
-    "NewProject": "新建项目",
-    "OpenProject": "打开项目",
-    "SaveProject": "保存项目",
-    "MaintainProject": "项目管理",
-    "ProjectContent": "项目详情",
+    "NewScenario": "新建场景",
+    "OpenScenario": "打开场景",
+    "SaveScenario": "保存场景",
+    "MaintainScenario": "场景管理",
+    "ScenarioContent": "场景详情",
     "DataResource": "数据查询",
     "AnalysisTask": "数据分析",
     "BasemapResource": "地理底图"
   };
 
   /**
-   * 新建项目命令
+   * 新建场景命令
    * @param param
    */
-  public newProjectCommand(param?: any) {
-    this.actionStatus = ControlViewStatus.NewProject;
+  public newScenarioCommand(param?: any) {
+    this.actionStatus = ControlViewStatus.NewScenario;
   }
   /**
-   * 打开项目命令
+   * 打开场景命令
    * @param param
    */
-  public openProjectCommand(param?: any): any {
-    this.actionStatus = ControlViewStatus.OpenProject;
+  public openScenarioCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.OpenScenario;
   }
   /**
-   * 保存项目命令
+   * 保存场景命令
    * @param param
    */
-  public saveProjectCommand(param?: any): any {
-    this.actionStatus = ControlViewStatus.SaveProject;
+  public saveScenarioCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.SaveScenario;
   }
   /**
-   * 维护项目命令
+   * 维护场景命令
    * @param param
    */
-  public maintainProjectCommand(param?: any): any {
-    this.actionStatus = ControlViewStatus.MaintainProject;
+  public maintainScenarioCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.MaintainScenario;
   }
   /**
-   * 项目内容命令
+   * 场景内容命令
    * @param param
    */
-  public projectContentCommand(param?: any): any {
-    this.actionStatus = ControlViewStatus.ProjectContent;
+  public scenarioContentCommand(param?: any): any {
+    this.actionStatus = ControlViewStatus.ScenarioContent;
   }
   /**
    * 数据资源查询命令

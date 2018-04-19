@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppSettingService } from '../../app-setting.service';
+import { AppSettingsService } from '../../services/app-settings.service';
 import { DataViewComponent } from './data-view.component';
 
 /**
@@ -12,7 +12,7 @@ export class DataViewService {
    * 构造函数
    * @param appSetting
    */
-  constructor(private appSetting: AppSettingService) { }
+  constructor(private appSettings: AppSettingsService) { }
 
   /**
    * 服务所属的组件

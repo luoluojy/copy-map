@@ -3,36 +3,52 @@
  */
 export enum AppCommand {
   /**
-   *
+   * 打开功能菜单
    */
-  NewProject,
+  EnterOrderCommand,
   /**
-   *
+   * 关闭功能菜单
    */
-  OpenProject,
+  EnterReadyCommand,
   /**
-   *
+   * 进入功能操作
    */
-  SaveProject,
+  EnterOperationCommand,
   /**
-   *
+   * 展开数据视图
    */
-  MaintainProject,
+  CollapseDataViewCommand,
   /**
-   *
+   * 新建场景
    */
-  ProjectContent,
+  NewScenarioCommand,
   /**
-   *
+   * 打开场景
    */
-  DataResource,
+  OpenScenarioCommand,
   /**
-   *
+   * 保存场景
    */
-  AnalysisTask,
+  SaveScenarioCommand,
   /**
-   *
+   * 管理场景
    */
-  BasemapResource
+  MaintainScenarioCommand,
+  /**
+   * 场景内容
+   */
+  ScenarioContentCommand,
+  /**
+   * 数据资源
+   */
+  DataResourceCommand,
+  /**
+   * 数据分析
+   */
+  AnalysisTaskCommand,
+  /**
+   * 地理底图
+   */
+  BasemapResourceCommand
 
 }

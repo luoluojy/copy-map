@@ -1,4 +1,4 @@
-#locations-container{
+.gisc-locations-container{
     width:364px;
     height:390px;
     position: absolute;
@@ -6,7 +6,7 @@
     top:15px;
     background-color: white;
 }
-#locations-close{
+.gisc-locations-container__close{
     position:absolute;
     top:0px;
     right:0px;

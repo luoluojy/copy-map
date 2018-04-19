@@ -34,8 +34,7 @@ export class MenuBarComponent implements OnInit {
     this.service.owner = this;
   }
 
-  @Output() menuBarEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() actionEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() toggleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   ngOnInit() {}
 
@@ -49,26 +48,25 @@ export class MenuBarComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       let selectedItem = <number>result;
       if (selectedItem!=undefined) {
-        this.actionEmitter.emit(true);
-        this.menuBarEmitter.emit(false);
-        console.log(result)
+        this.toggleEmitter.emit(true);
       }
+ 
       if (selectedItem == 0) {
-        this.appCommands.executeCommand(AppCommand.ProjectContent);
+        this.appCommands.execute(AppCommand.NewScenarioCommand);
       } else if (selectedItem == 1) {
-        this.appCommands.executeCommand(AppCommand.DataResource);
+        this.appCommands.execute(AppCommand.OpenScenarioCommand);
       } else if (selectedItem == 2) {
-        this.appCommands.executeCommand(AppCommand.AnalysisTask);
+        this.appCommands.execute(AppCommand.SaveScenarioCommand);
       } else if (selectedItem == 3) {
-        this.appCommands.executeCommand(AppCommand.BasemapResource);
+        this.appCommands.execute(AppCommand.ScenarioContentCommand);
       } else if (selectedItem == 4) {
-        this.appCommands.executeCommand(AppCommand.NewProject);
+        this.appCommands.execute(AppCommand.DataResourceCommand);
       } else if (selectedItem == 5) {
-        this.appCommands.executeCommand(AppCommand.OpenProject);
+        this.appCommands.execute(AppCommand.AnalysisTaskCommand);
       } else if (selectedItem == 6) {
-        this.appCommands.executeCommand(AppCommand.SaveProject);
+        this.appCommands.execute(AppCommand.BasemapResourceCommand);
       } else if (selectedItem == 7) {
-        this.appCommands.executeCommand(AppCommand.MaintainProject);
+        this.appCommands.execute(AppCommand.MaintainScenarioCommand);
       }
     });
   }

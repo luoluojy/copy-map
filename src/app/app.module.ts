@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+
 import { ToolBarModule } from './components/tool-bar/tool-bar.module';
 import { ControlModule } from './components/controls/control.module';
 import { MapModule } from './components/map/map.module';
-
 
 import { CustomMaterialModule } from './custom-material.module';
 
@@ -22,8 +23,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ControlViewDirective } from './components/control-view/control-view.directive';
 import { MapViewDirective } from './components/map-view/map-view.directive';
 
-import { AppSettingService } from './app-setting.service';
 import { AppService } from './app.service';
+import { AppCommandService } from './app-command.service';
 import { MapViewService } from './components/map-view/map-view.service';
 import { MenuBarService } from './components/menu-bar/menu-bar.service';
 import { ToolBarService } from './components/tool-bar/tool-bar.service';
@@ -32,9 +33,9 @@ import { ContentViewService } from './components/content-view/content-view.servi
 import { FooterService } from './components/footer/footer.service';
 import { MenuService } from './components/menu/menu.service';
 import { ControlViewService } from './components/control-view/control-view.service';
-import { AppCommandService } from './app-command.service';
+import { AppSettingsService } from './services/app-settings.service';
 import { BaseMapService } from './services/base-map.service';
-import { ProjectService } from './services/project.service';
+import { ScenarioService } from './services/scenario.service';
 
 /**
  * 根应用模块
@@ -55,15 +56,16 @@ import { ProjectService } from './services/project.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
+    MatListModule,
     ToolBarModule,
     ControlModule,
     MapModule,
-    HttpClientModule,
-    CustomMaterialModule,
+    CustomMaterialModule
   ],
   providers: [
-    AppSettingService,
+    AppSettingsService,
     AppService,
     MapViewService,
     MenuBarService,
@@ -74,7 +76,7 @@ import { ProjectService } from './services/project.service';
     FooterService,
     MenuService,
     BaseMapService,
-    ProjectService,
+    ScenarioService,
     AppCommandService,
   ],
   entryComponents: [ MenuComponent, ],

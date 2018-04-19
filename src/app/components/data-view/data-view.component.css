@@ -1,15 +1,27 @@
-
-#viewer-container{
-    height:180px;
-    background-color:#eeeeee;
+.gisc-data-view-container {
+    height: 180px;
+    background-color: #eeeeee;
 }
 
-.data-view__top{
-    height:5px;width:100%;top:0px;cursor:n-resize;
+.gisc-data-view-container__top {
+    height: 5px;
+    width: 100%;
+    top: 0px;
+    cursor: n-resize;
 }
-.gisc-data-view-content{
-    width:1920px;
-}
-.gisc-data-view-content--overflow{
-    width:1500px;
-}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  .mat-header-cell.mat-sort-header-sorted {
+    color: black;
+  }
+  

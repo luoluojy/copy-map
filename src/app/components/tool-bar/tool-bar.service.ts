@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppSettingService } from '../../app-setting.service';
+import { AppSettingsService } from '../../services/app-settings.service';
 import { ToolBarComponent } from './tool-bar.component';
 import { ToolBarStatus } from './tool-bar-status.enum';
 
@@ -13,7 +13,7 @@ export class ToolBarService {
    * 构造函数
    * @param appSetting
    */
-  constructor(private appSetting: AppSettingService) {
+  constructor(private appSettings: AppSettingsService) {
     this._action = ToolBarStatus.None;
   }
 

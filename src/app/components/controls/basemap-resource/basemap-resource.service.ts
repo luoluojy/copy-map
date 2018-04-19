@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AppSettingService } from '../../../app-setting.service';
 import { BasemapResourceComponent } from './basemap-resource.component';
+import { AppSettingsService } from '../../../services/app-settings.service';
 
 /**
  *
@@ -10,9 +10,9 @@ export class BasemapResourceService {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param appSettings
    */
-  constructor(private appSetting: AppSettingService) { }
+  constructor(private appSettings: AppSettingsService) { }
 
   /**
    * 服务所属的组件
