@@ -17,7 +17,7 @@
     left: 20px;
 }
 
-.gisc-sidenav-container {
+.gisc-drawer-container {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -32,7 +32,7 @@
     right: 20px;
 }
 
-.gisc-sidenav-content {
+.gisc-drawer-content {
     overflow: hidden;
 }
 
@@ -52,7 +52,7 @@
     width: 100%
 }
 
-.gisc-sidenav-content-top {
+.gisc-drawer-content-top {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

@@ -28,10 +28,10 @@ export class AppComponent implements OnInit {
   }
 
 
-  @ViewChild('sidenav') sidenav:any;
+  @ViewChild('drawer') drawer:any;
 
   recActionShown(event) {
-    this.sidenav.toggle();
+    this.drawer.toggle();
   }
 
   expandFlag=true;

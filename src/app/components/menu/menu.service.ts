@@ -30,7 +30,6 @@ export class MenuService {
    * 应用标题
    */
   public get appInfo(): AppInfo {
-    console.log(this.appSettings.settings.appInfo);
     return this.appSettings.settings.appInfo;
   }
 }
