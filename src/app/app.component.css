@@ -79,7 +79,7 @@
 .gisc-data-view-wrapper {
     position: relative;
     left: 2px;
-    bottom: 18px;
+    bottom: 21px;
     height: 180px;
     width: 100%;
     display: none;
@@ -109,5 +109,5 @@
 .gisc-toggle__button--expand {
     position: absolute;
     right: 10px;
-    bottom: 18px;
+    bottom: 21px;
 }

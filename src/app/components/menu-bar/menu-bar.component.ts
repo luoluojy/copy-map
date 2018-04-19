@@ -45,6 +45,7 @@ export class MenuBarComponent implements OnInit {
         top: "0"
       }
     });
+    // this.appCommands.execute(AppCommand.EnterOrderCommand);
     dialogRef.afterClosed().subscribe(result => {
       let selectedItem = <number>result;
       if (selectedItem!=undefined) {

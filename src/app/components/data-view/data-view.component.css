@@ -1,6 +1,5 @@
 .gisc-data-view-container {
     height: 180px;
-    background-color: #eeeeee;
 }
 
 .gisc-data-view-container__top {
@@ -18,7 +17,7 @@
   
   .mat-table {
     overflow: auto;
-    max-height: 500px;
+    height: 175px;
   }
   
   .mat-header-cell.mat-sort-header-sorted {
