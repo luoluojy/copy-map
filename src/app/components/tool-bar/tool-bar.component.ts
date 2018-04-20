@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { ToolBarService } from './tool-bar.service';
+import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { ToolBarService } from "./tool-bar.service";
 
 /**
  * 工具栏组件
  */
 @Component({
-  selector: 'app-tool-bar',
-  templateUrl: './tool-bar.component.html',
-  styleUrls: ['./tool-bar.component.css']
+  selector: "app-tool-bar",
+  templateUrl: "./tool-bar.component.html",
+  styleUrls: ["./tool-bar.component.css"]
 })
 export class ToolBarComponent implements OnInit {
-
   /**
    * 构造函数
    * @param service
@@ -57,7 +56,7 @@ export class ToolBarComponent implements OnInit {
     this.service.isUtilAction = value;
   }
   /**
-   * 通知火种状态
+   * 通知活动状态
    */
   public get isNoticeAction() {
     return this.service.isNoticeAction;
@@ -75,8 +74,46 @@ export class ToolBarComponent implements OnInit {
     this.service.isUserAction = value;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.dragAndCloseToolItem()
+  }
 
+/**
+ * 拖动地图时，关闭先打开的tool-bar项
+ */
+  dragAndCloseToolItem(){
+    let mapContainer = document.getElementById("mapContainer");
+    mapContainer.addEventListener("mousedown", () => {
+        let flag = this.service.Action;
+        mapContainer.addEventListener("mousemove", () => {
+            setTimeout(()=>{
+              if (flag) {
+                if(this.isAtlasAction){
+                  this.isAtlasAction = false;
+                }
+                if(this.isLocationsAction){
+                  this.isLocationsAction = false;
+                }
+                if(this.isNoticeAction){
+                  this.isNoticeAction = false;
+                }
+                if(this.isRealTimeAction){
+                  this.isRealTimeAction = false;
+                }
+                if(this.isUserAction){
+                  this.isUserAction = false;
+                }
+                if(this.isUtilAction){
+                  this.isUtilAction = false;
+                }
+                flag=0;   
+            }},200);
+          });
+          mapContainer.addEventListener('mouseup',()=>{
+            flag=0;
+          })
+      });
+  }
   /**
    *
    */

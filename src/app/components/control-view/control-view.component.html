@@ -1,12 +1,14 @@
 <div class="gisc-control-view-container">
     <div class="button-row gisc-control-view-head">
-        <button mat-button title="菜单" class="gisc-control-view__button--menu" (click)="openMenuDialog()">
-            <i class="material-icons md-24">menu</i>
-        </button>
-        <h2>{{actionTile}}</h2>
-        <button mat-button title="关闭" class="gisc-control-view__button--clear" (click)="closeControlView()">
-            <i class="material-icons md-24">clear</i>
-        </button>
+        <!-- <mat-toolbar> -->
+            <button mat-button title="菜单" class="gisc-control-view__button--menu" (click)="openMenuDialog()">
+                <i class="material-icons md-24">menu</i>
+            </button>
+            <h2>{{actionTile}}</h2>
+            <button mat-button title="关闭" class="gisc-control-view__button--clear" (click)="closeControlView()">
+                <i class="material-icons md-24">clear</i>
+            </button>
+        <!-- </mat-toolbar> -->
     </div>
     <ng-template action-host></ng-template>
 </div>

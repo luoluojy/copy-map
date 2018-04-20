@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, ElementRef,Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { AppService } from './app.service';
-
+import { ToolBarService}  from './components/tool-bar/tool-bar.service';
 /**
  * 应用程序组件
  */
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: AppService,private elementRef:ElementRef,private renderer:Renderer2) {
+  constructor(private service: AppService,private elementRef:ElementRef,private toolbarService:ToolBarService) {
     this.service.owner = this;
   }
 
@@ -27,15 +27,8 @@ export class AppComponent implements OnInit {
     this.service.initAppSettings();
   }
 
-
-  @ViewChild('drawer') drawer:any;
-
-  recActionShown(event) {
-    this.drawer.toggle();
-  }
-
   expandFlag=true;
-  // 事件调用元素expand按钮
+  
   expandDataView(){
     let dataView = this.elementRef.nativeElement.querySelector('.gisc-data-view-wrapper');
     // 将data-view调整显示方式
@@ -43,6 +36,27 @@ export class AppComponent implements OnInit {
       dataView.style.display = 'block';
     }else{    // 收回操作
       dataView.style.display = 'none'
+    }
+    // 关闭现有打开的tool-bar项
+    if(this.toolbarService.Action){
+      if(this.toolbarService.isAtlasAction){
+        this.toolbarService.isAtlasAction = false;
+      }
+      if(this.toolbarService.isLocationsAction){
+        this.toolbarService.isLocationsAction = false;
+      }
+      if(this.toolbarService.isNoticeAction){
+        this.toolbarService.isNoticeAction = false;
+      }
+      if(this.toolbarService.isRealTimeAction){
+        this.toolbarService.isRealTimeAction = false;
+      }
+      if(this.toolbarService.isUserAction){
+        this.toolbarService.isUserAction = false;
+      }
+      if(this.toolbarService.isUtilAction){
+        this.toolbarService.isUtilAction = false;
+      }
     }
     this.expandFlag=!this.expandFlag;
   }

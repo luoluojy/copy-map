@@ -29,6 +29,16 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     this.nativeElement = this.elementRef.nativeElement;
   }
 
+  
+  displayedColumns = ["position", "name", "weight", "symbol"];
+  dataSource = new MatTableDataSource(TEST_DATA);
+
+  @ViewChild(MatSort) sort: MatSort;
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
+
+  
   minHeight: 180;
   nativeElement: any;
 
@@ -40,14 +50,6 @@ export class DataViewComponent implements OnInit, AfterViewInit {
       ".gisc-data-view-container__top"
     );
     this.resize(viewerContainer, resizeT, false, true, true, false);
-  }
-  
-  displayedColumns = ["position", "name", "weight", "symbol"];
-  dataSource = new MatTableDataSource(TEST_DATA);
-
-  @ViewChild(MatSort) sort: MatSort;
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
   }
 
   /*-------------------------- +

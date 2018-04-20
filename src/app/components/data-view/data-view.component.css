@@ -9,11 +9,11 @@
     cursor: n-resize;
 }
 
-.example-container {
+.gisc-table-container {
     display: flex;
     flex-direction: column;
     min-width: 300px;
-    height: 100%;
+    height: calc(100% - 5px);
   }
   
   .mat-table {
