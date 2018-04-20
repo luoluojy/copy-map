@@ -1,65 +1,74 @@
-<div id="root" class="gisc-root-wrapper">
+<mat-drawer-container class="gisc-root-container">
+    <!-- 弹出菜单功能区 -->
+    <mat-drawer #drawer mode="side" class="gisc-drawer-menu">
+        <div class="gisc-menu-wrapper">
+            <app-menu [drawer]='drawer' [sidenav]='sidenav'></app-menu>
+        </div>
+    </mat-drawer>
 
-    <mat-drawer-container class="gisc-drawer-container">
+    <mat-drawer-content>
+        <!-- 功能开关条-->
+        <div class="gisc-bar-wrapper">
 
-        <!-- 切换侧边栏 -->
-        <mat-drawer #drawer mode="side" class="gisc-drawer-control-view">
-            <div class="gisc-control-view-wrapper">
-                <app-control-view (toggleEmitter)="drawer.toggle()"></app-control-view>
+            <!-- 菜单条 -->
+            <div class="gisc-menu-bar-wrapper">
+                <app-menu-bar *ngIf="isMenuBarVisible" [drawer]='drawer'></app-menu-bar>
             </div>
-        </mat-drawer>
 
-        <!-- 内容区 -->
-        <mat-drawer-content class="gisc-drawer-content">
+            <!-- 工具条 -->
+            <div class="gisc-tool-bar-wrapper">
+                <app-tool-bar></app-tool-bar>
+            </div>
+        </div>
 
-            <!-- 绝对定位fixed，保证不受右移影响 -->
-            <div class="gisc-fixed-div-wrapper">
+        <mat-sidenav-container class="gisc-sidenav-container">
 
-                <!-- 功能开关条-->
-                <div class="gisc-bar-wrapper">
+            <!-- 切换侧边栏 -->
+            <mat-sidenav #sidenav mode="side" class="gisc-sidenav-control-view">
+                <div class="gisc-control-view-wrapper">
+                    <app-control-view [drawer]='drawer' [sidenav]='sidenav'></app-control-view>
+                </div>
+            </mat-sidenav>
 
-                    <!-- 菜单条 -->
-                    <div class="gisc-menu-bar-wrapper">
-                        <app-menu-bar *ngIf="isMenuBarVisible" (toggleEmitter)="drawer.toggle()"></app-menu-bar>
+            <!-- 内容区 -->
+            <mat-sidenav-content class="gisc-sidenav-content">
+
+                <!-- 绝对定位fixed，保证不受右移影响 -->
+                <div class="gisc-fixed-div-wrapper">
+
+                    <!-- 地图视图 -->
+                    <div class="gisc-map-view-wrapper">
+                        <app-map-view></app-map-view>
                     </div>
 
-                    <!-- 工具条 -->
-                    <div class="gisc-tool-bar-wrapper">
-                        <app-tool-bar></app-tool-bar>
+                </div>
+
+                <div class="gisc-sidenav-content-top">
+
+                    <!-- 切换按钮 -->
+                    <div class="gisc-toggle-wrapper">
+                        <button *ngIf="isConrolViewVisible" mat-button (click)="sidenav.toggle()" class="gisc-toggle__button gisc-toggle__button--collapse">
+                            <i class="fas fa-caret-left fa-lg"></i>
+                        </button>
+                        <button mat-button (click)="expandDataView()" class="gisc-toggle__button gisc-toggle__button--expand">expand</button>
                     </div>
+
+                    <!-- 数据视图 -->
+                    <div class="gisc-data-view-wrapper">
+                        <app-data-view></app-data-view>
+                    </div>
+
                 </div>
 
-                <!-- 地图视图 -->
-                <div class="gisc-map-view-wrapper">
-                    <app-map-view></app-map-view>
+                <!-- 底部版权信息 -->
+                <div class="gisc-footer-wrapper">
+                    <app-footer></app-footer>
                 </div>
 
-            </div>
+            </mat-sidenav-content>
 
-            <div class="gisc-drawer-content-top">
+        </mat-sidenav-container>
 
-                <!-- 切换按钮 -->
-                <div class="gisc-toggle-wrapper">
-                    <button *ngIf="isConrolViewVisible" mat-button (click)="drawer.toggle()" class="gisc-toggle__button gisc-toggle__button--collapse">
-                        <i class="fas fa-caret-left fa-lg"></i>
-                    </button>
-                    <button mat-button (click)="expandDataView()" class="gisc-toggle__button gisc-toggle__button--expand">expand</button>
-                </div>
+    </mat-drawer-content>
 
-                <!-- 数据视图 -->
-                <div class="gisc-data-view-wrapper">
-                    <app-data-view></app-data-view>
-                </div>
-
-            </div>
-
-            <!-- 底部版权信息 -->
-            <div class="gisc-footer-wrapper">
-                <app-footer></app-footer>
-            </div>
-
-        </mat-drawer-content>
-
-    </mat-drawer-container>
-
-</div>
+</mat-drawer-container>

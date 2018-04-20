@@ -4,21 +4,35 @@
     left: 0px;
 }
 
+.gisc-root-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
+}
+
+.gisc-drawer-menu {
+    height: 100%;
+    width: 410px;
+    overflow-y:visible;
+}
+
 .gisc-bar-wrapper {
-    position: relative;
-    top: 0px;
-    left: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 3;
 }
 
 .gisc-menu-bar-wrapper {
-    position: absolute;
+    position: relative;
     top: 20px;
     left: 20px;
 }
 
-.gisc-drawer-container {
-    position: absolute;
+.gisc-sidenav-container {
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -27,12 +41,12 @@
 }
 
 .gisc-tool-bar-wrapper {
-    position: relative;
+    position: fixed;
     top: 10px;
     right: 20px;
 }
 
-.gisc-drawer-content {
+.gisc-sidenav-content {
     overflow: hidden;
 }
 
@@ -52,7 +66,7 @@
     width: 100%
 }
 
-.gisc-drawer-content-top {
+.gisc-sidenav-content-top {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

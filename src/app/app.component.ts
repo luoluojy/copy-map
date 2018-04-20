@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AppService } from './app.service';
 import { ToolBarService}  from './components/tool-bar/tool-bar.service';
 /**
@@ -73,5 +73,12 @@ export class AppComponent implements OnInit {
   public get isConrolViewVisible(): boolean {
     return this.service.isConrolViewVisible;
   }
+@ViewChild('drawer') drawer:any;
+@ViewChild('sidenav') sidenav:any;
+  toggle(){
+    this.drawer.toggle();
+    this.sidenav.toggle();
+  }
+
 
 }

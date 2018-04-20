@@ -1,4 +1,4 @@
-<div class="gisc-tool-bar-container">
+<div class="gisc-tool-bar-container"  style="position: relative;">
     <mat-nav-list class="gisc-tool-bar-list">
         <mat-list-item class="gisc-tool-bar-list__item">
             <button mat-button title="位置" (click)="onLocationsClick()" [appClickedStyle]="isLocationsAction">
@@ -26,7 +26,7 @@
         </mat-list-item>
     </mat-nav-list>
 
-    <div class="button-row">
+    <div class="button-row" style="position: relative;">
         <button mat-mini-fab title="通知" (click)="onNoticeClick()">
             <i class="material-icons md-18">notifications_none</i>
         </button>

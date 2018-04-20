@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, EventEmitter, Input } from '@angular/core';
 import { MenuService } from './menu.service';
 import { AppCommandService } from '../../app-command.service';
 import { AppCommand } from '../../app-command.enum';
@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
    * @param service
    * @param appCommands
    */
-  constructor(private service: MenuService, private appCommands: AppCommandService,private dialogRef:MatDialogRef<MenuComponent>,@Inject(MAT_DIALOG_DATA) public data:any) {
+  constructor(private service: MenuService, private appCommands: AppCommandService) {
     this.service.owner = this;
   }
 
@@ -28,12 +28,65 @@ export class MenuComponent implements OnInit {
   /**
    * 应用标题
    */
-  public get appTile(): string {
+  public get appTitle(): string {
     return this.service.appInfo.title;
   }
 
-  closeMenu() {
-    this.dialogRef.close();
+  @Input() drawer:any;
+  @Input() sidenav:any;
+
+  onCloseClick() {
+    this.drawer.toggle();
+    this.appCommands.execute(AppCommand.EnterReadyCommand);
   }
+
+  onNewScenarioClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.NewScenarioCommand);
+  }
+
+  onOpenScenarioClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.OpenScenarioCommand);
+  }
+
+  onSaveScenarioClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.SaveScenarioCommand);
+  }
+
+  onMaintainScenarioClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.MaintainScenarioCommand);
+  }
+
+  onScenarioContentClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.ScenarioContentCommand);
+  }
+
+  onDataResourceClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.DataResourceCommand);
+  }
+
+  onAnalysisTaskClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.AnalysisTaskCommand);
+  }
+
+  onBasemapResourceClick() {
+    this.drawer.toggle();
+    this.sidenav.toggle();
+    this.appCommands.execute(AppCommand.BasemapResourceCommand);
+  }
+
 
 }

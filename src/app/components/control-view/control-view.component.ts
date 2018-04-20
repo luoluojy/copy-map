@@ -5,7 +5,8 @@ import {
   Output,
   ViewChild,
   OnDestroy,
-  AfterViewInit
+  AfterViewInit,
+  Input
 } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { ControlViewDirective } from "./control-view.directive";
@@ -117,40 +118,17 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   };
 
-  @Output() toggleEmitter: EventEmitter<boolean> = new EventEmitter<boolean>();
-
+ 
+  @Input() drawer:any;
+  @Input() sidenav:any;
+  
   closeControlView() {
-    this.toggleEmitter.emit();
+    this.sidenav.toggle();
     this.appCommands.execute(AppCommand.EnterReadyCommand);
   }
 
-  openMenuDialog() {
-    let dialogRef = this.dialog.open(MenuComponent, {
-      position: {
-        left: "0",
-        top: "0"
-      }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      let selectedItem = <number>result;
-
-      if (selectedItem == 0) {
-        this.appCommands.execute(AppCommand.NewScenarioCommand);
-      } else if (selectedItem == 1) {
-        this.appCommands.execute(AppCommand.OpenScenarioCommand);
-      } else if (selectedItem == 2) {
-        this.appCommands.execute(AppCommand.SaveScenarioCommand);
-      } else if (selectedItem == 3) {
-        this.appCommands.execute(AppCommand.ScenarioContentCommand);
-      } else if (selectedItem == 4) {
-        this.appCommands.execute(AppCommand.DataResourceCommand);
-      } else if (selectedItem == 5) {
-        this.appCommands.execute(AppCommand.AnalysisTaskCommand);
-      } else if (selectedItem == 6) {
-        this.appCommands.execute(AppCommand.BasemapResourceCommand);
-      } else if (selectedItem == 7) {
-        this.appCommands.execute(AppCommand.MaintainScenarioCommand);
-      }
-    });
+  openMenuPanel() {
+    this.sidenav.toggle();
+    this.drawer.toggle();
   }
 }
