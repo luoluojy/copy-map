@@ -80,7 +80,7 @@
     position: relative;
     left: 2px;
     bottom: 21px;
-    height: 180px;
+    /* height: 180px; */
     width: 100%;
     display: none;
 }

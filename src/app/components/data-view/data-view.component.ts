@@ -41,6 +41,7 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     );
     this.resize(viewerContainer, resizeT, false, true, true, false);
   }
+  
   displayedColumns = ["position", "name", "weight", "symbol"];
   dataSource = new MatTableDataSource(TEST_DATA);
 
