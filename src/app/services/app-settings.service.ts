@@ -50,8 +50,10 @@ export class AppSettingsService {
   public initAppSettings() {
     this.getAppSettings()
       .subscribe(
-        appsettings =>
-          this._settings = appsettings);
+        appsettings =>{
+          this._settings = appsettings
+        }
+          );
   }
   /**
    * 获取配置文件
