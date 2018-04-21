@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { MenuService } from './menu.service';
 import { AppCommandService } from '../../app-command.service';
 import { AppCommand } from '../../app-command.enum';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 
 /**
  * 菜单组件
@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
    * @param service
    * @param appCommands
    */
-  constructor(private service: MenuService, private appCommands: AppCommandService) {
+  constructor(private service: MenuService, private appCommands: AppCommandService,private elementRef:ElementRef) {
     this.service.owner = this;
   }
 
@@ -36,53 +36,71 @@ export class MenuComponent implements OnInit {
   @Input() sidenav:any;
 
   onCloseClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.appCommands.execute(AppCommand.EnterReadyCommand);
   }
 
   onNewScenarioClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.NewScenarioCommand);
   }
 
   onOpenScenarioClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.OpenScenarioCommand);
   }
 
   onSaveScenarioClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.SaveScenarioCommand);
   }
 
   onMaintainScenarioClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.MaintainScenarioCommand);
   }
 
   onScenarioContentClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.ScenarioContentCommand);
   }
 
   onDataResourceClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.DataResourceCommand);
   }
 
   onAnalysisTaskClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.AnalysisTaskCommand);
   }
 
   onBasemapResourceClick() {
+    let modal = this.elementRef.nativeElement.querySelector('.gisc-modal');
+    modal.style.visibility = 'hidden'
     this.drawer.toggle();
     this.sidenav.toggle();
     this.appCommands.execute(AppCommand.BasemapResourceCommand);

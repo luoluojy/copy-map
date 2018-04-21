@@ -9,7 +9,6 @@ import {
 } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { MenuBarService } from "./menu-bar.service";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { MenuComponent } from "../menu/menu.component";
 import { AppCommandService } from "../../app-command.service";
 
@@ -29,7 +28,6 @@ export class MenuBarComponent implements OnInit {
    */
   constructor(
     private service: MenuBarService,
-    private dialog: MatDialog,
     private appCommands: AppCommandService
   ) {
     this.service.owner = this;
@@ -42,5 +40,9 @@ export class MenuBarComponent implements OnInit {
   openMenuPanel() {
     this.appCommands.execute(AppCommand.EnterOrderCommand)
     this.drawer.toggle();
+    // setTimeout(()=>{
+      let modal =  <HTMLElement>document.getElementsByClassName('gisc-modal')[0];
+      modal.style.visibility = 'visible';  
+    // },150);
   }
 }

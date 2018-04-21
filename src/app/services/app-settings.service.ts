@@ -52,8 +52,7 @@ export class AppSettingsService {
       .subscribe(
         appsettings =>{
           this._settings = appsettings
-        }
-          );
+        });
   }
   /**
    * 获取配置文件
