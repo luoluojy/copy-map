@@ -30,6 +30,10 @@ export class MenuService {
    * 应用标题
    */
   public get appInfo(): AppInfo {
+    if (this.appSettings.settings == undefined)
+    {
+        return undefined;
+    }
     return this.appSettings.settings.appInfo;
   }
 }

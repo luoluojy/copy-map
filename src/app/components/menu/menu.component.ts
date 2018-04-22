@@ -29,6 +29,10 @@ export class MenuComponent implements OnInit {
    * 应用标题
    */
   public get appTitle(): string {
+    if (this.service.appInfo == undefined)
+    {
+      return "";
+    }
     return this.service.appInfo.title;
   }
 
