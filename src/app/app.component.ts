@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //初始化应用配置
     this.service.initAppSettings();
-    console.log(11);
   }
 
   expandFlag = true;
@@ -37,13 +36,18 @@ export class AppComponent implements OnInit {
     let dataView = this.elementRef.nativeElement.querySelector(
       ".gisc-data-view-wrapper"
     );
+    let expand = this.elementRef.nativeElement.querySelector('.gisc-toggle__button--expand');
+    let icon = expand.querySelector('i');
+    let iconClass = icon.getAttribute('class');
     // 将data-view调整显示方式
     if (this.expandFlag) {
       // 展开操作
       dataView.style.display = "block";
+      icon.setAttribute('class','fas fa-angle-double-down fa-lg');
     } else {
       // 收回操作
       dataView.style.display = "none";
+      icon.setAttribute('class','fas fa-angle-double-up fa-lg');
     }
     // 关闭现有打开的tool-bar项
     if (this.toolbarService.Action) {

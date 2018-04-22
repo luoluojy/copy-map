@@ -1,9 +1,9 @@
 {
-  "/api2/*": {
+  "/crimeanalysis/storage/": {
     "target": "https://58.213.133.181:7774",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
-    "pathRewrite": {"^/api2" : "https://58.213.133.181:7774/api2"}
+    "pathRewrite": {"^/crimeanalysis/storage/" : "https://58.213.133.181:7774/api2/"}
   }
 }

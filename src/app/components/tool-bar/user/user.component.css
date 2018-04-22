@@ -27,20 +27,21 @@
     height: 80px;
     background-color: #3385FF;
 }
-.gisc-user-head a{
+.gisc-user-head button{
     position: absolute;
     display: block;
-    width: 48px;
+    /* width: 48px;
     height: 26px;
-    line-height: 26px;
-    background: #fff;
-    color: #3385ff;
+    line-height: 26px; */
     border-radius: 2px;
     text-decoration: none;
-    top: 29px;
+    top: 20px;
     right: 14px;
     font-size: 14px;
     text-align: center;
+}
+.mat-raised-button{
+    min-width: 0;
 }
 .gisc-user-container__logout{
     float: right;

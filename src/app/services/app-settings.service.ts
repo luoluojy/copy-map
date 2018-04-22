@@ -5,6 +5,7 @@ import { tap, map, catchError } from 'rxjs/operators';
 
 import { AppSettings } from './app-settings';
 import { UserInfo } from './user-info';
+import { AppInfoSettings } from '../../assets/conf/appsettings';
 
 /**
  * 应用全局配置服务
@@ -37,7 +38,7 @@ export class AppSettingsService {
   /**
    * 应用程序设置
    */
-  private _settings: AppSettings;
+  private _settings: any;
   public get settings(): AppSettings {
     return this._settings;
   }
@@ -48,11 +49,12 @@ export class AppSettingsService {
    * 初始化应用配置
    */
   public initAppSettings() {
-    this.getAppSettings()
-      .subscribe(
-        appsettings =>{
-          this._settings = appsettings
-        });
+    // this.getAppSettings()
+    //   .subscribe(
+    //     appsettings =>{
+    //       this._settings = appsettings
+    //     });
+    this._settings = AppInfoSettings;
   }
   /**
    * 获取配置文件

@@ -52,9 +52,15 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     this.resize(viewerContainer, resizeT, false, true, true, false);
   }
 
-  /*-------------------------- +
- 改变大小函数
- +-------------------------- */
+ /**
+  * 改变data-view大小
+  * @param oParent 
+  * @param handle 
+  * @param isLeft 
+  * @param isTop 
+  * @param lockX 
+  * @param lockY 
+  */
   resize(oParent, handle, isLeft, isTop, lockX, lockY) {
     handle.onmousedown = event => {
       let disX = event.clientX - handle.offsetLeft;

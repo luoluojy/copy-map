@@ -9,12 +9,13 @@ import { UserComponent } from './user/user.component';
 import { RealTimeComponent } from './real-time/real-time.component';
 import { ClickedStyleDirective } from './clicked-style.directive';
 import { DialogLoginComponent } from './user/dialog-login/dialog-login.component';
-
+import { CustomMaterialModule } from '../../custom-material.module';
 import { FormsModule }   from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    CustomMaterialModule
   ],
   declarations: [
     LocationsComponent,

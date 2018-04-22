@@ -130,5 +130,7 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
   openMenuPanel() {
     this.sidenav.toggle();
     this.drawer.toggle();
+    let modal =  <HTMLElement>document.getElementsByClassName('gisc-modal')[0];
+    modal.style.visibility = 'visible';  
   }
 }
