@@ -15,7 +15,7 @@ export class AppSettingsService {
   /**
    * 配置文件地址
    */
-  private appSettingsUrl = "/assets/conf/appsettings.json";
+  private appSettingsUrl = "assets/conf/appsettings.json";
   /**
    * 构造函数
    */
