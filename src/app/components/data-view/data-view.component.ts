@@ -21,15 +21,10 @@ export class DataViewComponent implements OnInit, AfterViewInit {
    * 构造函数
    * @param service
    */
-  constructor(
-    private service: DataViewService,
-    private elementRef: ElementRef
-  ) {
+  constructor(private service: DataViewService) {
     this.service.owner = this;
-    this.nativeElement = this.elementRef.nativeElement;
   }
 
-  
   displayedColumns = ["position", "name", "weight", "symbol"];
   dataSource = new MatTableDataSource(TEST_DATA);
 
@@ -38,29 +33,31 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  
   minHeight: 180;
-  nativeElement: any;
+
+  @ViewChild("container") containerRef: ElementRef;
+  @ViewChild("resizeTop") resizeTopRef: ElementRef;
 
   ngOnInit() {
-    let viewerContainer: any = this.nativeElement.querySelector(
-      ".gisc-data-view-container"
+    this.resize(
+      this.containerRef.nativeElement,
+      this.resizeTopRef.nativeElement,
+      false,
+      true,
+      true,
+      false
     );
-    let resizeT = this.nativeElement.querySelector(
-      ".gisc-data-view-container__top"
-    );
-    this.resize(viewerContainer, resizeT, false, true, true, false);
   }
 
- /**
-  * 改变data-view大小
-  * @param oParent 
-  * @param handle 
-  * @param isLeft 
-  * @param isTop 
-  * @param lockX 
-  * @param lockY 
-  */
+  /**
+   * 改变data-view大小
+   * @param oParent
+   * @param handle
+   * @param isLeft
+   * @param isTop
+   * @param lockX
+   * @param lockY
+   */
   resize(oParent, handle, isLeft, isTop, lockX, lockY) {
     handle.onmousedown = event => {
       let disX = event.clientX - handle.offsetLeft;
@@ -75,7 +72,7 @@ export class DataViewComponent implements OnInit, AfterViewInit {
         let maxW =
           document.documentElement.clientWidth - oParent.offsetLeft - 2;
         let maxH =
-          document.documentElement.clientHeight - oParent.offsetTop - 2;
+          document.documentElement.clientHeight - oParent.offsetTop - 2 - 50;
         let iW = isLeft ? iParentWidth - iL : handle.offsetWidth + iL;
         let iH = isTop ? iParentHeight - iT : handle.offsetHeight + iT;
         isLeft && (oParent.style.left = iParentLeft + iL + "px");

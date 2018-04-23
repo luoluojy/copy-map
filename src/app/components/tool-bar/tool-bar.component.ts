@@ -74,51 +74,19 @@ export class ToolBarComponent implements OnInit {
     this.service.isUserAction = value;
   }
 
-  ngOnInit() {
-    this.dragAndCloseToolItem()
-  }
+  ngOnInit() { }
 
-/**
- * 拖动地图时，关闭先打开的tool-bar项
- */
-  dragAndCloseToolItem(){
-    let mapContainer = document.getElementById("mapContainer");
-    mapContainer.addEventListener("mousedown", () => {
-        let flag = this.service.Action;
-        mapContainer.addEventListener("mousemove", () => {
-            setTimeout(()=>{
-              if (flag) {
-                if(this.isAtlasAction){
-                  this.isAtlasAction = false;
-                }
-                if(this.isLocationsAction){
-                  this.isLocationsAction = false;
-                }
-                if(this.isNoticeAction){
-                  this.isNoticeAction = false;
-                }
-                if(this.isRealTimeAction){
-                  this.isRealTimeAction = false;
-                }
-                if(this.isUserAction){
-                  this.isUserAction = false;
-                }
-                if(this.isUtilAction){
-                  this.isUtilAction = false;
-                }
-                flag=0;   
-            }},200);
-          });
-          mapContainer.addEventListener('mouseup',()=>{
-            flag=0;
-          })
-      });
-  }
   /**
    *
    */
   onLocationsClick() {
     this.service.isLocationsAction = !this.service.isLocationsAction;
+  }
+  /**
+   *
+   */
+  onLocationsBlur() {
+    this.service.isLocationsAction = false;
   }
   /**
    *
@@ -129,8 +97,20 @@ export class ToolBarComponent implements OnInit {
   /**
    *
    */
+  onRealTimeBlur() {
+    this.service.isRealTimeAction = false;
+  }
+  /**
+   *
+   */
   onAtlasClick() {
     this.service.isAtlasAction = !this.service.isAtlasAction;
+  }
+   /**
+   *
+   */
+  onAtlasBlur() {
+    this.service.isAtlasAction = false;
   }
   /**
    *
@@ -141,13 +121,31 @@ export class ToolBarComponent implements OnInit {
   /**
    *
    */
+  onUtilsBlur() {
+    this.service.isUtilAction = false;
+  }
+  /**
+   *
+   */
   onNoticeClick() {
     this.service.isNoticeAction = !this.service.isNoticeAction;
   }
   /**
    *
    */
+  onNoticeBlur() {
+    this.service.isNoticeAction = false;
+  }
+  /**
+   *
+   */
   onUserClick() {
     this.service.isUserAction = !this.service.isUserAction;
+  }
+  /**
+   *
+   */
+  onUserBlur() {
+    this.service.isUserAction = false;
   }
 }

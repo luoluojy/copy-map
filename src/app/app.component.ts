@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { AppService } from "./app.service";
-import { ToolBarService } from "./components/tool-bar/tool-bar.service";
 /**
  * 应用程序组件
  */
@@ -14,11 +13,7 @@ export class AppComponent implements OnInit {
    * 构造函数
    * @param service
    */
-  constructor(
-    private service: AppService,
-    private elementRef: ElementRef,
-    private toolbarService: ToolBarService
-  ) {
+  constructor(private service: AppService) {
     this.service.owner = this;
   }
 
@@ -30,15 +25,19 @@ export class AppComponent implements OnInit {
     this.service.initAppSettings();
   }
 
-  expandFlag = true;
+  @ViewChild("outerDrawer") outerDrawer: any;
+  @ViewChild("innerDrawer") innerDrawer: any;
 
-  expandDataView() {
-    let dataView = this.elementRef.nativeElement.querySelector(
-      ".gisc-data-view-wrapper"
-    );
-    let expand = this.elementRef.nativeElement.querySelector(
-      ".gisc-toggle__button--expand"
-    );
+  // 默认展开标志
+  expandFlag = true;
+  /**
+   * 展开data-view
+   * 通过模板引用变量获取data-view和其展开按钮
+   * @param dataView
+   * @param expandRef
+   */
+  expandDataView(dataView, expandRef) {
+    let expand = expandRef._elementRef.nativeElement;
     let text = expand.querySelector(".gisc-toggle__button--content");
     let icon = expand.querySelector("i");
     let iconClass = icon.getAttribute("class");
@@ -54,28 +53,23 @@ export class AppComponent implements OnInit {
       text.innerText = "展开";
       icon.setAttribute("class", "fas fa-angle-double-up fa-lg");
     }
-    // 关闭现有打开的tool-bar项
-    if (this.toolbarService.Action) {
-      if (this.toolbarService.isAtlasAction) {
-        this.toolbarService.isAtlasAction = false;
-      }
-      if (this.toolbarService.isLocationsAction) {
-        this.toolbarService.isLocationsAction = false;
-      }
-      if (this.toolbarService.isNoticeAction) {
-        this.toolbarService.isNoticeAction = false;
-      }
-      if (this.toolbarService.isRealTimeAction) {
-        this.toolbarService.isRealTimeAction = false;
-      }
-      if (this.toolbarService.isUserAction) {
-        this.toolbarService.isUserAction = false;
-      }
-      if (this.toolbarService.isUtilAction) {
-        this.toolbarService.isUtilAction = false;
-      }
-    }
     this.expandFlag = !this.expandFlag;
+  }
+
+  /**
+   * 切换control-view，同时控制图标箭头
+   * @elementRef collapse按钮引用
+   */
+  toggle(collapseRef) {
+    this.innerDrawer.toggle();
+    let collapse = collapseRef._elementRef.nativeElement;
+    let collapseIcon = collapse.querySelector("i");
+    let iconClass = collapseIcon.getAttribute("class");
+    if (iconClass == "fas fa-caret-left fa-lg") {
+      collapseIcon.setAttribute("class", "fas fa-caret-right fa-lg");
+    } else {
+      collapseIcon.setAttribute("class", "fas fa-caret-left fa-lg");
+    }
   }
 
   /**
@@ -89,23 +83,5 @@ export class AppComponent implements OnInit {
    */
   public get isConrolViewVisible(): boolean {
     return this.service.isConrolViewVisible;
-  }
-  @ViewChild("outerDrawer") outerDrawer: any;
-  @ViewChild("innerDrawer") innerDrawer: any;
-
-  /**
-   * 切换control-view，同时控制图标箭头
-   */
-  toggle() {
-    this.innerDrawer.toggle();
-    let collapseIcon = this.elementRef.nativeElement.querySelector(
-      ".gisc-toggle__button--collapse i"
-    );
-    let iconClass = collapseIcon.getAttribute("class");
-    if (iconClass == "fas fa-caret-left fa-lg") {
-      collapseIcon.setAttribute("class", "fas fa-caret-right fa-lg");
-    } else {
-      collapseIcon.setAttribute("class", "fas fa-caret-left fa-lg");
-    }
   }
 }

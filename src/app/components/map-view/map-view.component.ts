@@ -39,6 +39,25 @@ export class MapViewComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit() {
     // this.mapHost.CreateCesium();
     this.mapHost.CreateOpenLayers();
+    this.toggleMapContainerCursor();
   }
+  
+
+@ViewChild('mapContainer') mapContainer:any;
+/**
+ * 拖动地图时，修改指针样式
+ */
+toggleMapContainerCursor(){
+  let container = this.mapContainer.nativeElement;
+  container.onmousedown = () => {
+    container.onmousemove = () => {
+      container.style.cursor = 'move';
+        };
+        container.onmouseup = ()=>{
+          container.style.cursor = 'default';
+          container.onmousemove = null;
+        }
+    };
+}
 
 }

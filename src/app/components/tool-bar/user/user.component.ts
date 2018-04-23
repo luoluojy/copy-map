@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {}
 
   openLoginDialog(){
+    console.log(111)
     let dialogRef = this.dialog.open(DialogLoginComponent, {
     });
   }
