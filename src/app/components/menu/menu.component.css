@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100%;
     visibility: hidden;
-    background: rgba(0, 0, 0, .5);
+    /* background: rgba(0, 0, 0, .5); */
 }
 
 .gisc-menu-container {

@@ -38,7 +38,7 @@
 </div>
 
 <div id="tool-main">
-    <app-locations *ngIf="isLocationsAction"></app-locations>
+    <app-locations *ngIf="isLocationsAction" #locations></app-locations>
     <app-real-time *ngIf="isRealTimeAction"></app-real-time>
     <app-atlas *ngIf="isAtlasAction"></app-atlas>
     <app-utils *ngIf="isUtilAction"></app-utils>

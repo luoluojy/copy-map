@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { ToolBarService } from "./tool-bar.service";
+
 
 /**
  * 工具栏组件
@@ -15,7 +16,7 @@ export class ToolBarComponent implements OnInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: ToolBarService) {
+  constructor(private service: ToolBarService,private elementRef:ElementRef) {
     this.service.owner = this;
   }
 
@@ -74,8 +75,8 @@ export class ToolBarComponent implements OnInit {
     this.service.isUserAction = value;
   }
 
-  ngOnInit() { }
-
+  ngOnInit() {}
+  
   /**
    *
    */
@@ -86,7 +87,14 @@ export class ToolBarComponent implements OnInit {
    *
    */
   onLocationsBlur() {
-    this.service.isLocationsAction = false;
+    document.onclick = e => {
+      let container  = this.elementRef.nativeElement.querySelector('app-locations');
+      if(this.isLocationsAction&&!container.contains(e.srcElement)){
+        this.service.isLocationsAction = false;
+        document.onclick = null;
+      }
+    };
+    
   }
   /**
    *
@@ -98,7 +106,13 @@ export class ToolBarComponent implements OnInit {
    *
    */
   onRealTimeBlur() {
-    this.service.isRealTimeAction = false;
+    document.onclick = e => {
+      let container  = this.elementRef.nativeElement.querySelector('app-real-time');
+      if(this.isRealTimeAction&&!container.contains(e.srcElement)){
+        this.service.isRealTimeAction = false;
+        document.onclick = null;
+      }
+    };
   }
   /**
    *
@@ -106,11 +120,17 @@ export class ToolBarComponent implements OnInit {
   onAtlasClick() {
     this.service.isAtlasAction = !this.service.isAtlasAction;
   }
-   /**
+  /**
    *
    */
   onAtlasBlur() {
-    this.service.isAtlasAction = false;
+    document.onclick = e => {
+      let container  = this.elementRef.nativeElement.querySelector('app-atlas');
+      if(this.isAtlasAction&&!container.contains(e.srcElement)){
+        this.service.isAtlasAction = false;
+        document.onclick = null;
+      }
+    };
   }
   /**
    *
@@ -122,7 +142,13 @@ export class ToolBarComponent implements OnInit {
    *
    */
   onUtilsBlur() {
-    this.service.isUtilAction = false;
+    document.onclick = e => {
+      let container  = this.elementRef.nativeElement.querySelector('app-utils');
+      if(this.isUtilAction&&!container.contains(e.srcElement)){
+        this.service.isUtilAction = false;
+        document.onclick = null;
+      }
+    };
   }
   /**
    *
@@ -134,7 +160,13 @@ export class ToolBarComponent implements OnInit {
    *
    */
   onNoticeBlur() {
-    this.service.isNoticeAction = false;
+    document.onclick = e => {
+      let container  = this.elementRef.nativeElement.querySelector('app-notice');
+      if(this.isNoticeAction&&!container.contains(e.srcElement)){
+        this.service.isNoticeAction = false;
+        document.onclick = null;
+      }
+    };
   }
   /**
    *
@@ -146,6 +178,12 @@ export class ToolBarComponent implements OnInit {
    *
    */
   onUserBlur() {
-    this.service.isUserAction = false;
+    document.onclick = e => {
+      let container  = this.elementRef.nativeElement.querySelector('app-user');
+      if(this.isUserAction&&!container.contains(e.srcElement)){
+        this.service.isUserAction = false;
+        document.onclick = null;
+      }
+    };
   }
 }

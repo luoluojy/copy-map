@@ -40,9 +40,9 @@ export class MenuBarComponent implements OnInit {
   openMenuPanel() {
     this.appCommands.execute(AppCommand.EnterOrderCommand)
     this.outerDrawer.toggle();
-    // setTimeout(()=>{
+    setTimeout(()=>{
       let modal =  <HTMLElement>document.getElementsByClassName('gisc-modal')[0];
       modal.style.visibility = 'visible';  
-    // },150);
+    },250);
   }
 }

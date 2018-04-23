@@ -60,25 +60,15 @@ export class DataViewComponent implements OnInit, AfterViewInit {
    */
   resize(oParent, handle, isLeft, isTop, lockX, lockY) {
     handle.onmousedown = event => {
-      let disX = event.clientX - handle.offsetLeft;
+      let toolBarRectBounding = document.querySelector('.gisc-tool-bar-wrapper').getBoundingClientRect();
       let disY = event.clientY - handle.offsetTop;
       let iParentTop = oParent.offsetTop;
-      let iParentLeft = oParent.offsetLeft;
-      let iParentWidth = oParent.offsetWidth;
       let iParentHeight = oParent.offsetHeight;
       document.onmousemove = event => {
-        let iL = event.clientX - disX;
         let iT = event.clientY - disY;
-        let maxW =
-          document.documentElement.clientWidth - oParent.offsetLeft - 2;
-        let maxH =
-          document.documentElement.clientHeight - oParent.offsetTop - 2 - 50;
-        let iW = isLeft ? iParentWidth - iL : handle.offsetWidth + iL;
+        let maxH = document.documentElement.clientHeight - toolBarRectBounding.top -toolBarRectBounding.height - 60;
         let iH = isTop ? iParentHeight - iT : handle.offsetHeight + iT;
-        isLeft && (oParent.style.left = iParentLeft + iL + "px");
         isTop && (oParent.style.top = iParentTop + iT + "px");
-        iW > maxW && (iW = maxW);
-        lockX || (oParent.style.width = iW + "px");
         iH < 180 && (iH = 180);
         iH > maxH && (iH = maxH);
         lockY || (oParent.style.height = iH + "px");
