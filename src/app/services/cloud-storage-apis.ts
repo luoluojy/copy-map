@@ -9,11 +9,11 @@ export const CloudStorageAPIs: API[] = [
   {
     id: 0,
     description: 'exchange token',
-    url: '/crimeanalysis/storage/auth-token/'
+    url: '/crimeanalysis/storage/auth-token/',
   },{
     id:1,
     description:'get avatar',
-    url:'/crimeanalysis/storage/avatars/user/email/resized/80/'
+    url:'/crimeanalysis/storage/avatars/user/email/resized/80/',
   }
 
 ];

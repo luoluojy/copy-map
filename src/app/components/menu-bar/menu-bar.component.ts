@@ -33,13 +33,13 @@ export class MenuBarComponent implements OnInit {
     this.service.owner = this;
   }
 
-  @Input() drawer:any;
+  @Input() outerDrawer:any;
 
   ngOnInit() {}
 
   openMenuPanel() {
     this.appCommands.execute(AppCommand.EnterOrderCommand)
-    this.drawer.toggle();
+    this.outerDrawer.toggle();
     // setTimeout(()=>{
       let modal =  <HTMLElement>document.getElementsByClassName('gisc-modal')[0];
       modal.style.visibility = 'visible';  

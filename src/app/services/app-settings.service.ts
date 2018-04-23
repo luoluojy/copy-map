@@ -48,8 +48,8 @@ export class AppSettingsService {
   /**
    * 初始化应用配置
    */
-  public initAppSettings() {
-    // this.getAppSettings()
+  public async initAppSettings() {
+    //  this.getAppSettings()
     //   .subscribe(
     //     appsettings =>{
     //       this._settings = appsettings
@@ -59,7 +59,7 @@ export class AppSettingsService {
   /**
    * 获取配置文件
    */
-  public getAppSettings(): Observable<AppSettings> {
+  public  getAppSettings(): Observable<AppSettings> {
     const headers = new HttpHeaders().set("Content-Type", "application/json");
     return this.http.get<AppSettings>(this.appSettingsUrl, { headers });
   }

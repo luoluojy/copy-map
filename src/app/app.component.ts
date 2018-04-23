@@ -36,18 +36,23 @@ export class AppComponent implements OnInit {
     let dataView = this.elementRef.nativeElement.querySelector(
       ".gisc-data-view-wrapper"
     );
-    let expand = this.elementRef.nativeElement.querySelector('.gisc-toggle__button--expand');
-    let icon = expand.querySelector('i');
-    let iconClass = icon.getAttribute('class');
+    let expand = this.elementRef.nativeElement.querySelector(
+      ".gisc-toggle__button--expand"
+    );
+    let text = expand.querySelector(".gisc-toggle__button--content");
+    let icon = expand.querySelector("i");
+    let iconClass = icon.getAttribute("class");
     // 将data-view调整显示方式
     if (this.expandFlag) {
       // 展开操作
       dataView.style.display = "block";
-      icon.setAttribute('class','fas fa-angle-double-down fa-lg');
+      text.innerText = "收回";
+      icon.setAttribute("class", "fas fa-angle-double-down fa-lg");
     } else {
       // 收回操作
       dataView.style.display = "none";
-      icon.setAttribute('class','fas fa-angle-double-up fa-lg');
+      text.innerText = "展开";
+      icon.setAttribute("class", "fas fa-angle-double-up fa-lg");
     }
     // 关闭现有打开的tool-bar项
     if (this.toolbarService.Action) {
@@ -85,20 +90,22 @@ export class AppComponent implements OnInit {
   public get isConrolViewVisible(): boolean {
     return this.service.isConrolViewVisible;
   }
-  @ViewChild("drawer") drawer: any;
-  @ViewChild("sidenav") sidenav: any;
+  @ViewChild("outerDrawer") outerDrawer: any;
+  @ViewChild("innerDrawer") innerDrawer: any;
 
   /**
    * 切换control-view，同时控制图标箭头
    */
   toggle() {
-    this.sidenav.toggle();
-    let collapseIcon = this.elementRef.nativeElement.querySelector('.gisc-toggle__button--collapse i');
-    let iconClass = collapseIcon.getAttribute('class');
-    if(iconClass == 'fas fa-caret-left fa-lg'){
-      collapseIcon.setAttribute('class','fas fa-caret-right fa-lg')
-    }else{
-      collapseIcon.setAttribute('class','fas fa-caret-left fa-lg')
+    this.innerDrawer.toggle();
+    let collapseIcon = this.elementRef.nativeElement.querySelector(
+      ".gisc-toggle__button--collapse i"
+    );
+    let iconClass = collapseIcon.getAttribute("class");
+    if (iconClass == "fas fa-caret-left fa-lg") {
+      collapseIcon.setAttribute("class", "fas fa-caret-right fa-lg");
+    } else {
+      collapseIcon.setAttribute("class", "fas fa-caret-left fa-lg");
     }
   }
 }

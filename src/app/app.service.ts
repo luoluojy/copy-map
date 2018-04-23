@@ -69,7 +69,7 @@ export class AppService {
    * 初始化应用配置
    */
   public initAppSettings() {
-    this.appSettings.initAppSettings();
+     this.appSettings.initAppSettings();
   }
 
   /**

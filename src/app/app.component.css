@@ -12,7 +12,7 @@
     right: 0
 }
 
-.gisc-drawer-menu {
+.gisc-outer-drawer-menu {
     height: 100%;
     width: 410px;
     overflow-y:visible;
@@ -31,7 +31,7 @@
     left: 20px;
 }
 
-.gisc-sidenav-container {
+.gisc-outer-drawer-container {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -46,7 +46,7 @@
     right: 20px;
 }
 
-.gisc-sidenav-content {
+.gisc-outer-drawer-content {
     overflow: hidden;
 }
 
@@ -66,7 +66,7 @@
     width: 100%
 }
 
-.gisc-sidenav-content-top {
+.gisc-outer-drawer-content-top {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
