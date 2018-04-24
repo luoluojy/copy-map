@@ -39,6 +39,9 @@
     right: 0;
     overflow: hidden;
 }
+.gisc-inner-drawer-control-view{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
 
 .gisc-tool-bar-wrapper {
     position: fixed;
@@ -126,6 +129,7 @@
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
     background-color: rgba(255, 255, 255, 0.9);
     z-index:1;
+    margin-top:10px;
 }
 
 .gisc-toggle__button--expand {

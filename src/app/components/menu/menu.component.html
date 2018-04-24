@@ -10,32 +10,32 @@
         <mat-divider></mat-divider>
 
         <mat-list class="gisc-menu-list">
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onNewScenarioClick()">新建场景</button>
+            <mat-list-item class="gisc-menu-list__item" (click)="onNewScenarioClick()">
+                新建场景
             </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onOpenScenarioClick()">打开场景</button>
+            <mat-list-item class="gisc-menu-list__item" (click)="onOpenScenarioClick()">
+                打开场景
             </mat-list-item>
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onSaveScenarioClick()">保存场景</button>
+            <mat-list-item class="gisc-menu-list__item" (click)="onSaveScenarioClick()">
+                保存场景
             </mat-list-item>
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onScenarioContentClick()">场景详情</button>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onDataResourceClick()">数据查询</button>
-            </mat-list-item>
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onAnalysisTaskClick()">数据分析</button>
-            </mat-list-item>
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onBasemapResourceClick()">地理底图</button>
+            <mat-list-item class="gisc-menu-list__item" (click)="onScenarioContentClick()">
+                场景详情
             </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item class="gisc-menu-list__item">
-                <button mat-button (click)="onMaintainScenarioClick()">场景管理</button>
+            <mat-list-item class="gisc-menu-list__item" (click)="onDataResourceClick()">
+                数据查询
+            </mat-list-item>
+            <mat-list-item class="gisc-menu-list__item" (click)="onAnalysisTaskClick()">
+                数据分析
+            </mat-list-item>
+            <mat-list-item class="gisc-menu-list__item" (click)="onBasemapResourceClick()">
+                地理底图
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="gisc-menu-list__item" (click)="onMaintainScenarioClick()">
+                场景管理
             </mat-list-item>
         </mat-list>
     </div>

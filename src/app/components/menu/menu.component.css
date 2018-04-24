@@ -39,4 +39,12 @@
 .gisc-menu-list .gisc-menu-list__item {
     display: block;
     height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+}
+.gisc-menu-list__item:hover{
+    color:#4285F4;
+    cursor: pointer;
 }

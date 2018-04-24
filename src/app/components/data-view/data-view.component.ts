@@ -87,7 +87,4 @@ export class DataViewComponent implements OnInit, AfterViewInit {
   onCloseItem(event){
     console.log(event,this.matTabGroup,this.matTabGroup.selectedIndex);
   }
-  onSelectedTabChange(event){
-    console.log(event)
-  }
 }

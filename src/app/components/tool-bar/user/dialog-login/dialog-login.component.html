@@ -1,10 +1,10 @@
 <!-- 最外层拖拽 -->
-<div class="dialog-login__container" id="drag">
+<div class="dialog-login__container" #loginContainer>
   <!-- 对话框头 -->
-  <div class="dialog-login__head title">
+  <div class="dialog-login__head" #dragContainer (mousedown)="drag($event,loginContainer,dragContainer)">
     <h2>用户登录</h2>
     <div class="dialog-login__window-btns button-row">
-     <button mat-icon-button class="fullscreen" (click)="toggleFullscreenDialog()" title="全屏">
+     <button mat-icon-button class="fullscreen" (click)="toggleFullscreenDialog(loginContainer)" title="全屏">
         <i class="material-icons">fullscreen</i>
      </button>
      <button mat-icon-button class="close" (click)="closeDialog()" title="关闭">

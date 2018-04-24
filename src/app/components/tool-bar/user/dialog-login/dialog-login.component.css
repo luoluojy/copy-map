@@ -1,29 +1,56 @@
+.dialog-login__container {
+    position: absolute;
+    top:calc((100vh - 280px)/2);
+    left:calc((100vw - 500px)/2);
+    z-index: 3;
+    width: 500px;
+    height: 280px;
+    border-radius: 10px;
+    background: #fafafa;
+    border: 1px solid #ebebeb;
+    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
+}
 
-.dialog-login__container{position:fixed;top:100px;left:100px;z-index:3;width:500px;height:280px;border-radius:10px;background: #fafafa;border: 1px solid #ebebeb;box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;}
-.dialog-login__head{
+.dialog-login__head {
     margin: 0;
     background-color: #FEAB79;
     color: white;
     border-radius: 10px 10px 0 0;
-    padding:10px;
+    padding: 10px;
+    cursor: move;
 }
-.dialog-login__head h2{text-align:center;margin:0;}
-.dialog-login__window-btns{position:absolute;top:0;right:0;}
-.dialog-login__window-btns div{cursor:pointer;}
 
-.dialog-login__content{overflow:hidden;margin:0 5px;}
-
-
-.dialog-login__form{
-    padding:10px;
-    margin:1em auto;
-	
+.dialog-login__head h2 {
+    text-align: center;
+    margin: 0;
 }
-.dialog-login__btn{
-    text-align:center;
+
+.dialog-login__window-btns {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
-.mat-icon-button{
-    width:24px;
-    height:24px;
-    line-height:24px;
+
+.dialog-login__window-btns div {
+    cursor: pointer;
+}
+
+.dialog-login__content {
+    overflow: hidden;
+    margin: 0 5px;
+}
+
+.dialog-login__form {
+    padding: 10px;
+    margin: 1em auto;
+}
+
+.dialog-login__btn {
+    text-align: center;
+}
+
+.mat-icon-button {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
 }

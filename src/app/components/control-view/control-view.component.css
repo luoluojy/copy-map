@@ -2,17 +2,18 @@
     padding: 0;
     width: 410px;
     height: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     overflow: hidden;
 }
 
 .gisc-control-view-head{
-    background-color: #007bff;
-    width: 100%;
+    background-color: #3f51b5;
+    /* width: 100%; */
     color:white;
     position: relative;
     text-align: center;
     height:36px;
+    margin: 10px;
 }
 .gisc-control-view-head h2{
     display: inline;
