@@ -38,6 +38,7 @@ export class DataViewComponent implements OnInit, AfterViewInit {
   @ViewChild("container") containerRef: ElementRef;
   @ViewChild("resizeTop") resizeTopRef: ElementRef;
 
+@ViewChild('matTabGroup') matTabGroup:any;
   ngOnInit() {
     this.resize(
       this.containerRef.nativeElement,
@@ -81,5 +82,12 @@ export class DataViewComponent implements OnInit, AfterViewInit {
       };
       return false;
     };
+  }
+
+  onCloseItem(event){
+    console.log(event,this.matTabGroup,this.matTabGroup.selectedIndex);
+  }
+  onSelectedTabChange(event){
+    console.log(event)
   }
 }

@@ -1,18 +1,11 @@
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  Output,
-  EventEmitter,
-  Inject,
-  Input
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { MenuBarService } from "./menu-bar.service";
 import { MenuComponent } from "../menu/menu.component";
 import { AppCommandService } from "../../app-command.service";
 
 import { AppCommand } from "../../app-command.enum";
+
 /**
  *
  */
@@ -33,16 +26,12 @@ export class MenuBarComponent implements OnInit {
     this.service.owner = this;
   }
 
-  @Input() outerDrawer:any;
+  ngOnInit() { }
 
-  ngOnInit() {}
-
-  openMenuPanel() {
+  /**
+   * 点击菜单按钮
+   */
+  onMenuClick() {
     this.appCommands.execute(AppCommand.EnterOrderCommand)
-    this.outerDrawer.toggle();
-    setTimeout(()=>{
-      let modal =  <HTMLElement>document.getElementsByClassName('gisc-modal')[0];
-      modal.style.visibility = 'visible';  
-    },250);
   }
 }

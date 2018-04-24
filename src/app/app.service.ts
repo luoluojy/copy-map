@@ -34,28 +34,50 @@ export class AppService {
     return this._appStatus;
   }
   public set appStatus(value: AppStatus) {
+    this._preAppStatus = this._appStatus;
     this._appStatus = value;
+    switch (value) {
+      case AppStatus.Ready:
+        this.owner.outerDrawer.close();
+        this.owner.innerDrawer.close();
+        break;
+      case AppStatus.Order:
+        this.owner.outerDrawer.open();
+        this.owner.innerDrawer.close();
+        break;
+      case AppStatus.Operation:
+        this.owner.outerDrawer.close();
+        this.owner.innerDrawer.open();
+        break;
+    }
   }
   /**
-   *
+   * 应用程序先前状态
    */
-  public get isMenuBarVisible(): boolean {
+  private _preAppStatus: AppStatus = AppStatus.Ready;
+  public get preAppStatus(): AppStatus {
+    return this._preAppStatus;
+  }
+  /**
+   * 是否处于准备状态
+   */
+  public get isReadyStatus(): boolean {
     return this.appStatus == AppStatus.Ready;
   }
   /**
-   *
+   * 是否处于待命状态
    */
-  public get isMenuVisible(): boolean {
+  public get isOrderStatus(): boolean {
     return this.appStatus == AppStatus.Order;
   }
   /**
-   *
+   * 是否处于操作状态
    */
-  public get isConrolViewVisible(): boolean {
+  public get isOperationStatus(): boolean {
     return this.appStatus == AppStatus.Operation;
   }
   /**
-   *
+   * 数据视图状态
    */
   private _isDataViewVisible: boolean = false;
   public get isDataViewVisible(): boolean {
@@ -69,30 +91,38 @@ export class AppService {
    * 初始化应用配置
    */
   public initAppSettings() {
-     this.appSettings.initAppSettings();
+    this.appSettings.initAppSettings();
   }
 
   /**
-   * 打开功能菜单
+   * 进入待命状态
    * @param param
    */
   public enterOrderCommand(param?: any) {
     this.appStatus = AppStatus.Order;
   }
   /**
-   * 关闭功能菜单
+   * 退出待命状态
+   * @param param
+   */
+  public exitOrderCommand(param?: any) {
+    this.appStatus = this.preAppStatus;
+  }
+  /**
+   * 进入准备状态
    * @param param
    */
   public enterReadyCommand(param?: any) {
     this.appStatus = AppStatus.Ready;
   }
   /**
-   * 进入功能操作
+   * 进入操作状态
    * @param param
    */
   public enterOperationCommand(param?: any) {
     this.appStatus = AppStatus.Operation;
   }
+
   /**
    * 展开数据视图
    * @param param

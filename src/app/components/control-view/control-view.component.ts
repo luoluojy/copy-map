@@ -1,19 +1,9 @@
-import {
-  Component,
-  OnInit,
-  EventEmitter,
-  Output,
-  ViewChild,
-  OnDestroy,
-  AfterViewInit,
-  Input
-} from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { ControlViewDirective } from "./control-view.directive";
 import { ControlViewService } from "./control-view.service";
 import { ControlViewStatus } from "./control-view-status.enum";
 
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { MenuComponent } from "../menu/menu.component";
 import { AppCommandService } from "../../app-command.service";
 
@@ -38,7 +28,6 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   constructor(
     private service: ControlViewService,
-    private dialog: MatDialog,
     private appCommands: AppCommandService
   ) {
     this.service.owner = this;
@@ -47,7 +36,7 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
   /**
    *
    */
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   /**
    *
    */
@@ -59,6 +48,18 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
    */
   ngOnDestroy(): void {
     // throw new Error("Method not implemented.");
+  }
+  /**
+   *
+   */
+  onMenuClick() {
+    this.appCommands.execute(AppCommand.EnterOrderCommand);
+  }
+  /**
+   *
+   */
+  onCloseClick() {
+    this.appCommands.execute(AppCommand.EnterReadyCommand);
   }
   /**
    * 控件功能状态
@@ -118,19 +119,4 @@ export class ControlViewComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   };
 
- 
-  @Input() outerDrawer:any;
-  @Input() innerDrawer:any;
-  
-  closeControlView() {
-    this.innerDrawer.toggle();
-    this.appCommands.execute(AppCommand.EnterReadyCommand);
-  }
-
-  openMenuPanel() {
-    this.innerDrawer.toggle();
-    this.outerDrawer.toggle();
-    let modal =  <HTMLElement>document.getElementsByClassName('gisc-modal')[0];
-    modal.style.visibility = 'visible';  
-  }
 }

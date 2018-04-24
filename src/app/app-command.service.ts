@@ -50,6 +50,9 @@ export class AppCommandService {
     "EnterOrderCommand": (param?: any) => {
       this.appService.enterOrderCommand(param);
     },
+    "ExitOrderCommand": (param?: any) => {
+      this.appService.exitOrderCommand(param);
+    },
     "EnterReadyCommand": (param?: any) => {
       this.appService.enterReadyCommand(param);
     },

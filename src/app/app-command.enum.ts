@@ -3,15 +3,19 @@
  */
 export enum AppCommand {
   /**
-   * 打开功能菜单
+   * 进入待命状态
    */
   EnterOrderCommand,
   /**
-   * 关闭功能菜单
+   * 退出待命状态
+   */
+  ExitOrderCommand,
+  /**
+   * 进入准备状态
    */
   EnterReadyCommand,
   /**
-   * 进入功能操作
+   * 进入操作状态
    */
   EnterOperationCommand,
   /**

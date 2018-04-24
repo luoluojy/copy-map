@@ -3,56 +3,32 @@
   <!-- 对话框头 -->
   <div class="dialog-login__head title">
     <h2>用户登录</h2>
-    <div class="dialog-login__window-btns">
-      <a class="min" href="javascript:;" (click)="minDialog()" title="最小化">
-      </a>
-      <a class="max" href="javascript:;" (click)="maxDialog($event)" title="最大化">
-      </a>
-      <a class="revert" href="javascript:;" (click)="revertDialog($event)" title="还原">
-      </a>
-      <a class="close" href="javascript:;" (click)="closeDialog()" title="关闭">
-      </a>
+    <div class="dialog-login__window-btns button-row">
+     <button mat-icon-button class="fullscreen" (click)="toggleFullscreenDialog()" title="全屏">
+        <i class="material-icons">fullscreen</i>
+     </button>
+     <button mat-icon-button class="close" (click)="closeDialog()" title="关闭">
+        <i class="material-icons">clear</i>
+     </button>
     </div>
   </div>
-  <!-- 左边界 -->
-  <div class="dialog-login__resize resizeL"></div>
-  <!-- 上边界 -->
-  <div class="dialog-login__resize resizeT"></div>
-  <!-- 右边界 -->
-  <div class="dialog-login__resize resizeR"></div>
-  <!-- 下边界 -->
-  <div class="dialog-login__resize resizeB"></div>
-  <!-- 左上角 -->
-  <div class="dialog-login__resize resizeLT"></div>
-  <!-- 右上角 -->
-  <div class="dialog-login__resize resizeTR"></div>
-  <!-- 右下角 -->
-  <div class="dialog-login__resize resizeBR"></div>
-  <!-- 左下角 -->
-  <div class="dialog-login__resize resizeLB"></div>
   <!-- 对话框内容 -->
   <div class="dialog-login__content content">
     <!-- 登录表单 -->
     <form class="dialog-login__form" #f="ngForm" (ngSubmit)="login(f.value)">
-      <!-- <div class="form-group dialog-main__field">
-        <label for="username">用户名</label>
-        <input type="email" class="form-control" id="login" aria-describedby="emailHelp" placeholder="Enter email" name="login" ngModel/>
-      </div>
-      <div class="form-group dialog-main__field">
-        <label for="username">密 码</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel />
-      </div> -->
       
       <mat-form-field class="example-full-width"  style="width:100%;">
-        <input matInput placeholder="邮箱" type="email" id="login"  name="login" ngModel>
+        <span matPrefix> <i class="material-icons">account_circle</i> </span>
+        <input matInput placeholder="账户" type="email" id="login"  name="login" ngModel>
       </mat-form-field>
 
       <mat-form-field class="example-full-width" style="width:100%;">
+      <span matPrefix><i class="material-icons">vpn_key</i></span>
         <input matInput placeholder="密码" type="password" id="password" name="password" ngModel>
       </mat-form-field>
       <div class="dialog-login__btn button-row">
-        <button mat-raised-button color="primary">登录</button>
-        <button mat-raised-button (click)="closeDialog()">返回</button>
+        <button type="submit" mat-raised-button color="primary">登录</button>
+        <button type="button" mat-raised-button (click)="closeDialog()">返回</button>
       </div>
 
     </form>

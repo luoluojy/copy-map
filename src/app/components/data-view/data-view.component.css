@@ -1,5 +1,6 @@
 .gisc-data-view-container {
-    height: 180px;
+    height: 180px;    
+    overflow: hidden;
 }
 
 .gisc-data-view-container__top {
@@ -23,5 +24,17 @@
   
   .mat-header-cell.mat-sort-header-sorted {
     color: black;
+  }
+  .demo-tab-group {
+    border: 1px solid #e8e8e8;
+  }
+  
+  .demo-tab-content {
+    padding: 16px;
+  }
+  .gisc-tabpages-wrapper{
+    height: 100%;
+    min-height:180px;
+    overflow: scroll;
   }
   
