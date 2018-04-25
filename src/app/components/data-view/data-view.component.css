@@ -1,6 +1,8 @@
 .gisc-data-view-container {
     height: 180px;    
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .gisc-data-view-container__top {
@@ -31,15 +33,14 @@
   
   .demo-tab-content {
     padding: 16px;
-    height: calc(150% - 150px);
+    /* height: calc(150% - 150px); */
   }
   .gisc-tabpages-wrapper{
     height: 100%;
-    min-height:180px;
+    min-height:175px;
     /* overflow: auto; */
     padding: 0;
   }
   .gisc-data-view-tabs__clear{
     margin-left: 20px;
   }
-  
