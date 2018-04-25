@@ -1,51 +1,57 @@
-.dialog-login__container {
-    position: absolute;
-    top:calc((100vh - 280px)/2);
-    left:calc((100vw - 500px)/2);
+.gisc-login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.gisc-login-head {
+    width: 100vw;
+    height: 100px;
+    background-color: #3f51b5
+}
+
+.gisc-form-container {
+    position: fixed;
+    top: calc((100vh - 280px)/2);
+    left: calc((100vw - 500px)/2);
     z-index: 3;
     width: 500px;
     height: 280px;
-    border-radius: 10px;
     background: #fafafa;
-    border: 1px solid #ebebeb;
+    border: 1px solid #d5d5d5;
     box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px 0px, rgba(0, 0, 0, 0.09804) 0px 1px 2px 0px;
 }
 
-.dialog-login__head {
+.gisc-form-head {
     margin: 0;
-    background-color: #FEAB79;
+    background-color: #3f51b5;
     color: white;
-    border-radius: 10px 10px 0 0;
     padding: 10px;
-    cursor: move;
 }
 
-.dialog-login__head h2 {
+.gisc-form-head h2 {
     text-align: center;
     margin: 0;
+    cursor: default;
 }
 
-.dialog-login__window-btns {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
 
-.dialog-login__window-btns div {
-    cursor: pointer;
-}
-
-.dialog-login__content {
+.gisc-form-content {
     overflow: hidden;
     margin: 0 5px;
 }
 
-.dialog-login__form {
+.gisc-form-content--detail {
     padding: 10px;
-    margin: 1em auto;
+    margin: 0 auto;
 }
-
-.dialog-login__btn {
+.gisc-form-content--detail label{
+    font-size: 16px;
+}
+.gisc-form-content__button {
     text-align: center;
 }
 

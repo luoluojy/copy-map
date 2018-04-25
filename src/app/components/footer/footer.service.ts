@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AppSettingsService } from '../../services/app-settings.service';
 import { FooterComponent } from './footer.component';
+import { AppInfo } from '../../services/app-info';
 
 /**
  *
@@ -23,6 +24,17 @@ export class FooterService {
   }
   public set owner(value: FooterComponent) {
     this._owner = value;
+  }
+
+  /**
+   * 应用标题
+   */
+  public get appInfo(): AppInfo {
+    if (this.appSettings.settings == undefined)
+    {
+        return undefined;
+    }
+    return this.appSettings.settings.appInfo;
   }
 
 }

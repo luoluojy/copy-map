@@ -8,16 +8,16 @@
 
 .gisc-control-view-head{
     background-color: #3f51b5;
-    /* width: 100%; */
+    width: 100%;
     color:white;
     position: relative;
     text-align: center;
-    height:36px;
-    margin: 10px;
+    height:40px;
 }
-.gisc-control-view-head h2{
+.gisc-control-view-head h3{
     display: inline;
     vertical-align: middle;
+    line-height: 40px;
 }
 .gisc-control-view__button--menu{
     position: absolute;

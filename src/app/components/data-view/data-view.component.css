@@ -31,10 +31,15 @@
   
   .demo-tab-content {
     padding: 16px;
+    height: calc(150% - 150px);
   }
   .gisc-tabpages-wrapper{
     height: 100%;
     min-height:180px;
-    overflow: scroll;
+    /* overflow: auto; */
+    padding: 0;
+  }
+  .gisc-data-view-tabs__clear{
+    margin-left: 20px;
   }
   

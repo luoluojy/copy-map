@@ -75,12 +75,12 @@ export class AppComponent implements OnInit {
       // 展开操作
       dataView.style.display = "block";
       text.innerText = "收回";
-      icon.setAttribute("class", "fas fa-angle-double-down fa-lg");
+      icon.innerText = 'keyboard_arrow_down';
     } else {
       // 收回操作
       dataView.style.display = "none";
       text.innerText = "展开";
-      icon.setAttribute("class", "fas fa-angle-double-up fa-lg");
+      icon.innerText = 'keyboard_arrow_up'
     }
     this.expandFlag = !this.expandFlag;
   }

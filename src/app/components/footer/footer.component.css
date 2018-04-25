@@ -1,10 +1,20 @@
-footer{
+.gisc-footer-container{
     position:absolute;
     left:0px;
     bottom:0px;
-    background-color: rgb(238, 238, 238);
+    background-color: rgba(255,255,255,0.8);
 }
-footer span{
-    font-size:12px;
-    padding:0 10px;
+.gisc-footer-content{
+    padding:0 6px;
+}
+.gisc-footer-content__link{
+    text-decoration: none;
+    font-size: 12px;
+}
+.gisc-footer-content__link:hover{
+    text-decoration: underline;
+    font-weight: bolder;
+}
+.gisc-footer-content__link:visited{
+    color:#3385FF;
 }

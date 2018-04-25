@@ -21,7 +21,8 @@
       "styles": [
         "styles.css",
         "assets/css/fontawesome/css/fontawesome-all.min.css",
-        "assets/css/material/iconfont/material-icons.css"
+        "assets/css/material/iconfont/material-icons.css",
+        "assets/css/ol/ol.css"
       ],
       "scripts": [
         "assets/js/jquery/jquery.min.js"

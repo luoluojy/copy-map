@@ -1,36 +1,48 @@
-<!-- 最外层拖拽 -->
-<div class="dialog-login__container" #loginContainer>
-  <!-- 对话框头 -->
-  <div class="dialog-login__head" #dragContainer (mousedown)="drag($event,loginContainer,dragContainer)">
-    <h2>用户登录</h2>
-    <div class="dialog-login__window-btns button-row">
-     <button mat-icon-button class="fullscreen" (click)="toggleFullscreenDialog(loginContainer)" title="全屏">
-        <i class="material-icons">fullscreen</i>
-     </button>
-     <button mat-icon-button class="close" (click)="closeDialog()" title="关闭">
-        <i class="material-icons">clear</i>
-     </button>
+<div class="gisc-login-container">
+  <!-- 最外层拖拽 -->
+  <div class="gisc-login-head"></div>
+  <div class="gisc-form-container" #loginContainer>
+    <!-- 对话框头 -->
+    <div class="gisc-form-head">
+      <h2>用户登录</h2>
     </div>
-  </div>
-  <!-- 对话框内容 -->
-  <div class="dialog-login__content content">
-    <!-- 登录表单 -->
-    <form class="dialog-login__form" #f="ngForm" (ngSubmit)="login(f.value)">
-      
-      <mat-form-field class="example-full-width"  style="width:100%;">
-        <span matPrefix> <i class="material-icons">account_circle</i> </span>
-        <input matInput placeholder="账户" type="email" id="login"  name="login" ngModel>
-      </mat-form-field>
+    <!-- 对话框内容 -->
+    <div class="gisc-form-content">
+      <!-- 登录表单 -->
+      <form class="gisc-form-content--detail" #f="ngForm" (ngSubmit)="login(f.value)">
 
-      <mat-form-field class="example-full-width" style="width:100%;">
-      <span matPrefix><i class="material-icons">vpn_key</i></span>
-        <input matInput placeholder="密码" type="password" id="password" name="password" ngModel>
-      </mat-form-field>
-      <div class="dialog-login__btn button-row">
-        <button type="submit" mat-raised-button color="primary">登录</button>
-        <button type="button" mat-raised-button (click)="closeDialog()">返回</button>
+          <label for="username">账 户</label>
+        <mat-form-field style="width:100%;">
+            <!-- <span matPrefix> <i class="material-icons">account_circle</i> </span> -->
+          <input matInput type="email" id="login" name="login" ngModel>
+        </mat-form-field>
+
+        <label for="password">密 码</label>
+        <mat-form-field style="width:100%;">
+            <!-- <span matPrefix> <i class="material-icons">vpn_key</i> </span> -->
+          <input  matInput type="password" id="password" name="password" ngModel>
+        </mat-form-field>
+        <label class="checkbox-label">
+            <input type="checkbox" name="remember_me" class="vam" tabindex="3">
+            <span class="vam">保持登录</span>
+        </label>
+        
+         
+
+     <!-- <div>
+        <label for="username">账 户</label>
+        <input type="email"  id="login" aria-describedby="emailHelp" placeholder="Enter email" name="login" ngModel/>
       </div>
+      <div>
+        <label for="username">密 码</label>
+        <input type="password" id="password" name="password" placeholder="Password" ngModel />
+      </div> -->
+        <div class="gisc-form-content__button button-row">
+          <button type="submit" mat-raised-button color="primary">登录</button>
+          <button type="button" mat-raised-button (click)="closeDialog()">返回</button>
+        </div>
 
-    </form>
+      </form>
+    </div>
   </div>
 </div>

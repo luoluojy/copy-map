@@ -3,17 +3,13 @@
   <mat-card class="gisc-tabpages-wrapper">
     <mat-card-content>
       <!-- <h2 class="example-h2">Tabs with text labels</h2> -->
-      <mat-tab-group #matTabGroup class="demo-tab-group">
+      <mat-tab-group #matTabGroup class="demo-tab-group" >
         <mat-tab label="Tab 1" >
           <ng-template mat-tab-label>
-            <div class="button-row">
-              <button mat-button>
                 Tab 1
-              </button>
-              <span  title="关闭" (click)="onCloseItem($event)">
-                  <i class="material-icons">clear</i>
+              <span  title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem($event)">
+                  <i class="material-icons md-18">clear</i>
               </span>
-            </div>
           </ng-template>
 
           <div class="demo-tab-content">
@@ -51,14 +47,10 @@
         </mat-tab>
         <mat-tab label="Tab 2">
             <ng-template mat-tab-label>
-              <div class="button-row">
-                <button mat-button>
                   Tab 2
-                </button>
-                <span mat-button title="关闭">
-                    <i class="material-icons">clear</i>
+                <span mat-button title="关闭"  class="gisc-data-view-tabs__clear" >
+                    <i class="material-icons md-18">clear</i>
                 </span>
-              </div>
             </ng-template>
           <div class="demo-tab-content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
@@ -69,14 +61,10 @@
         </mat-tab>
         <mat-tab label="Tab 3">
             <ng-template mat-tab-label>
-              <div class="button-row">
-                <button mat-button>
                   Tab 3
-                </button>
-                <span mat-button title="关闭">
-                    <i class="material-icons">clear</i>
+                <span mat-button title="关闭" class="gisc-data-view-tabs__clear" >
+                    <i class="material-icons md-18">clear</i>
                 </span>
-              </div>
             </ng-template>
           No content
         </mat-tab>

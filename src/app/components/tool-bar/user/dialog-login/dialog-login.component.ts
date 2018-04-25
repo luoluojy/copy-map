@@ -24,28 +24,28 @@ export class DialogLoginComponent implements OnInit {
   /*-------------------------- +
  拖拽函数
  +-------------------------- */
-  drag(event, oDrag, handle) {
-    let disX = event.clientX - oDrag.offsetLeft;
-    let disY = event.clientY - oDrag.offsetTop;
-    document.onmousemove = function(event) {
-      let iL = event.clientX - disX;
-      let iT = event.clientY - disY;
-      let maxL = document.documentElement.clientWidth - oDrag.offsetWidth;
-      let maxT = document.documentElement.clientHeight - oDrag.offsetHeight;
-      iL <= 0 && (iL = 0);
-      iT <= 0 && (iT = 0);
-      iL >= maxL && (iL = maxL);
-      iT >= maxT && (iT = maxT);
-      oDrag.style.left = iL + "px";
-      oDrag.style.top = iT + "px";
-      return false;
-    };
-    document.onmouseup = function() {
-      document.onmousemove = null;
-      document.onmouseup = null;
-    };
-    return false;
-  }
+  // drag(event, oDrag, handle) {
+  //   let disX = event.clientX - oDrag.offsetLeft;
+  //   let disY = event.clientY - oDrag.offsetTop;
+  //   document.onmousemove = function(event) {
+  //     let iL = event.clientX - disX;
+  //     let iT = event.clientY - disY;
+  //     let maxL = document.documentElement.clientWidth - oDrag.offsetWidth;
+  //     let maxT = document.documentElement.clientHeight - oDrag.offsetHeight;
+  //     iL <= 0 && (iL = 0);
+  //     iT <= 0 && (iT = 0);
+  //     iL >= maxL && (iL = maxL);
+  //     iT >= maxT && (iT = maxT);
+  //     oDrag.style.left = iL + "px";
+  //     oDrag.style.top = iT + "px";
+  //     return false;
+  //   };
+  //   document.onmouseup = function() {
+  //     document.onmousemove = null;
+  //     document.onmouseup = null;
+  //   };
+  //   return false;
+  // }
 
   // 关闭对话框
   closeDialog() {

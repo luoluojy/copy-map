@@ -15,6 +15,16 @@ export class FooterComponent implements OnInit {
   constructor(private service: FooterService) {
     this.service.owner = this;
   }
+    /**
+  *
+  * @param changes
+  */
+ public get appCopyright(): string {
+   if (this.service.appInfo == undefined) {
+     return "";
+   }
+   return this.service.appInfo.copyright;
+ }
 
   ngOnInit() {
   }

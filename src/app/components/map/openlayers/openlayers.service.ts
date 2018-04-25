@@ -50,11 +50,10 @@ export class OpenlayersService {
       controls: Control.defaults({
         attribution: false,
         rotate: false,
-        zoom: true
+        zoom: false
       })
     });
     map.addControl(new ScaleLine())
   }
-
 
 }
