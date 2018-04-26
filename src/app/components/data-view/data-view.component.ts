@@ -21,7 +21,7 @@ export class DataViewComponent implements OnInit, AfterViewInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: DataViewService,) {
+  constructor(private service: DataViewService) {
     this.service.owner = this;
   }
 
@@ -45,7 +45,12 @@ export class DataViewComponent implements OnInit, AfterViewInit {
   @ViewChild("matTabGroup") matTabGroup: any;
 
   ngOnInit() {
-    this.resize(this.containerRef.nativeElement,this.resizeTopRef.nativeElement,true,false);
+    this.resize(
+      this.containerRef.nativeElement,
+      this.resizeTopRef.nativeElement,
+      true,
+      false
+    );
   }
 
   /**
@@ -57,13 +62,19 @@ export class DataViewComponent implements OnInit, AfterViewInit {
    */
   resize(oParent, handle, isTop, lockY) {
     handle.onmousedown = event => {
-      let toolBarRectBounding = document.querySelector(".gisc-tool-bar-wrapper").getBoundingClientRect();
+      let toolBarRectBounding = document
+        .querySelector(".gisc-tool-bar-wrapper")
+        .getBoundingClientRect();
       let disY = event.clientY - handle.offsetTop;
       let iParentTop = oParent.offsetTop;
       let iParentHeight = oParent.offsetHeight;
       document.onmousemove = event => {
         let iT = event.clientY - disY;
-        let maxH = document.body.clientHeight -toolBarRectBounding.top - toolBarRectBounding.height - 30;
+        let maxH =
+          document.body.clientHeight -
+          toolBarRectBounding.top -
+          toolBarRectBounding.height -
+          30;
         let iH = isTop ? iParentHeight - iT : handle.offsetHeight + iT;
         isTop && (oParent.style.top = iParentTop + iT + "px");
         iH < 180 && (iH = this.minHeight);
@@ -80,31 +91,61 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     };
   }
 
-  // 关闭算法还有问题
-  closedCount: number = 0;
+  closedTabpageIndexs: number[] = [];
   onCloseTabpageClick(index) {
-    index -= this.closedCount;
+    let count = 0;  // 统计index前面的tabpages是否被关闭完
+    for (let i = 0; i < this.closedTabpageIndexs.length; i++) {
+      if (this.closedTabpageIndexs[i] < index) {
+        count++;
+        continue;
+      }
+    }
+    this.closedTabpageIndexs.push(index);
+    if (count == index) { //如果索引index前面的tabpages被关闭完，则关闭0号索引的tabpages
+      index = 0;
+    } else {  // 否则 若索引前面有tabpage关闭了，将当前删除索引序号前置 关闭长度-1个位置
+      if(count!=0){
+        console.log(index,this.closedTabpageIndexs.length);
+        index = index - (this.closedTabpageIndexs.length - 1); 
+      }
+      // 否则 直接删除原索引index
+    }
     this.matTabGroup._tabs._results.splice(index, 1);
-    this.closedCount++;
+
+    // 无tabpages时，关闭显示data-view
     if (this.matTabGroup._tabs._results.length == 0) {
-      let dataViewWrapper = <HTMLElement>document.querySelector(".gisc-data-view-wrapper");
+      let dataViewWrapper = <HTMLElement>document.querySelector(
+        ".gisc-data-view-wrapper"
+      );
       dataViewWrapper.style.display = "none";
-      let expand = <HTMLElement>document.querySelector( ".gisc-toggle__button--expand");
+      let expand = <HTMLElement>document.querySelector(
+        ".gisc-toggle__button--expand"
+      );
       expand.style.display = "inline-block";
     }
   }
 
   onCloseDataViewClick() {
-    let dataViewWrapper = <HTMLElement>document.querySelector(".gisc-data-view-wrapper");
+    let dataViewWrapper = <HTMLElement>document.querySelector(
+      ".gisc-data-view-wrapper"
+    );
     dataViewWrapper.style.display = "none";
-    let expand = <HTMLElement>document.querySelector(".gisc-toggle__button--expand");
+    let expand = <HTMLElement>document.querySelector(
+      ".gisc-toggle__button--expand"
+    );
     expand.style.display = "inline-block";
   }
 
   onMaxDataViewClick() {
     // 获取元素，计算最大高度保证不被tool-bar遮挡
-    let toolBarRectBounding = document.querySelector(".gisc-tool-bar-wrapper").getBoundingClientRect();
-    let maxH =document.documentElement.clientHeight -toolBarRectBounding.top -toolBarRectBounding.height -30;
+    let toolBarRectBounding = document
+      .querySelector(".gisc-tool-bar-wrapper")
+      .getBoundingClientRect();
+    let maxH =
+      document.documentElement.clientHeight -
+      toolBarRectBounding.top -
+      toolBarRectBounding.height -
+      30;
     this.containerRef.nativeElement.style.height = maxH + "px";
 
     let maxButton = this.maxRef._elementRef.nativeElement;
