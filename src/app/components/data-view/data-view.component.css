@@ -41,17 +41,23 @@
     /* overflow: auto; */
     padding: 0;
   }
-  .gisc-data-view-tabs__clear{
-    margin-left: 10px;
-  }
   .gisc-data-view__button--min{
     /* visibility: hidden; */
     display: none;
   }
   .gisc-tab-label{
-    margin-left:15px;
+    /* margin-left:15px; */
+    padding: 0 40px 0 15px;
   }
   .gisc-data-view-tabs__clear:hover{
-    color:red;
+    color:white;
     font-weight: bolder;
+    background-color: red;
+  }
+
+  .gisc-data-view-tabs__clear{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 18px;
   }

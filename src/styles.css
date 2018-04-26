@@ -46,4 +46,5 @@ button:hover{
 .mat-tab-label{
     min-width: 0!important;
     height: 40px!important;
+    padding:0!important;
 }

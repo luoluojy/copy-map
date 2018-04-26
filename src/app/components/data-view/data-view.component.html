@@ -8,9 +8,9 @@
           <ng-template mat-tab-label>
             <div class="gisc-tab-label">
                 Tab 1
-                <button mat-icon-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(0)">
+                <span  title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(0)">
                   <i class="material-icons md-18">clear</i>
-                </button>
+                </span>
             </div>
           </ng-template>
 
@@ -48,12 +48,12 @@
         </mat-tab>
         <mat-tab label="Tab 2">
           <ng-template mat-tab-label>
-              <div class="gisc-tab-label">
-                  Tab 2
-                  <button mat-icon-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(1)">
-                    <i class="material-icons md-18">clear</i>
-                  </button>
-              </div>
+            <div class="gisc-tab-label">
+              Tab 2
+              <span  title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(1)">
+                <i class="material-icons md-18">clear</i>
+              </span>
+          </div>
           </ng-template>
           <div class="demo-tab-content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
@@ -88,12 +88,12 @@
         </mat-tab>
         <mat-tab label="Tab 3">
           <ng-template mat-tab-label>
-              <div class="gisc-tab-label">
-                  Tab 3
-                  <button mat-icon-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(2)">
-                    <i class="material-icons md-18">clear</i>
-                  </button>
-              </div>
+            <div class="gisc-tab-label">
+              Tab 3
+              <span  title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(2)">
+                <i class="material-icons md-18">clear</i>
+              </span>
+          </div>
           </ng-template>
           <div class="demo-tab-content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
@@ -129,7 +129,7 @@
       </mat-tab-group>
     </mat-card-content>
   </mat-card>
-  <div class="button-row " style="position: absolute;top:10px;right:10px;z-index: 1;">
+  <div class="button-row " style="position: absolute;top:0;right:0;z-index: 1;">
     <button mat-icon-button title="最大化" #max class="gisc-data-view__button--max" (click)="onMaxDataViewClick()">
       <i class="material-icons md-18">keyboard_arrow_up</i>
     </button>
