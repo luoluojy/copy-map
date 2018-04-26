@@ -44,3 +44,7 @@
   .gisc-data-view-tabs__clear{
     margin-left: 20px;
   }
+  .gisc-data-view__button--min{
+    /* visibility: hidden; */
+    display: none;
+  }

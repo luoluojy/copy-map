@@ -53,7 +53,7 @@ export class OpenlayersService {
         zoom: false
       })
     });
-    map.addControl(new ScaleLine())
+    // map.addControl(new ScaleLine())
   }
 
 }

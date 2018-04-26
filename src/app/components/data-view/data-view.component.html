@@ -1,15 +1,15 @@
 <div class="gisc-data-view-container" #container>
   <div class="gisc-data-view-container__top" #resizeTop></div>
+
   <mat-card class="gisc-tabpages-wrapper">
     <mat-card-content>
-      <!-- <h2 class="example-h2">Tabs with text labels</h2> -->
-      <mat-tab-group #matTabGroup class="demo-tab-group" >
-        <mat-tab label="Tab 1" >
+      <mat-tab-group #matTabGroup class="demo-tab-group">
+        <mat-tab label="Tab 1">
           <ng-template mat-tab-label>
-                Tab 1
-              <span  title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem($event)">
-                  <i class="material-icons md-18">clear</i>
-              </span>
+            Tab 1
+            <span title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem(0)">
+              <i class="material-icons md-18">clear</i>
+            </span>
           </ng-template>
 
           <div class="demo-tab-content">
@@ -17,114 +17,122 @@
             vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
             felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim
             rutrum enim, vel tempor sapien arcu a tellus.
-                
-            <mat-table #table [dataSource]="dataSource" matSort>
 
-                <ng-container matColumnDef="position">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                </ng-container>
-          
-                <ng-container matColumnDef="name">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                </ng-container>
-          
-                <ng-container matColumnDef="weight">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-                </ng-container>
-          
-                <ng-container matColumnDef="symbol">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-                </ng-container>
-          
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-              </mat-table> 
+            <mat-table #table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="weight">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="symbol">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
           </div>
         </mat-tab>
         <mat-tab label="Tab 2">
-            <ng-template mat-tab-label>
-                  Tab 2
-                <span mat-button title="关闭"  class="gisc-data-view-tabs__clear" >
-                    <i class="material-icons md-18">clear</i>
-                </span>
-            </ng-template>
+          <ng-template mat-tab-label>
+            Tab 2
+            <span mat-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem(1)">
+              <i class="material-icons md-18">clear</i>
+            </span>
+          </ng-template>
           <div class="demo-tab-content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
             vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
             felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim
-            rutrum enim, vel tempor sapien arcu a tellus.     
+            rutrum enim, vel tempor sapien arcu a tellus.
             <mat-table #table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+              </ng-container>
 
-                <ng-container matColumnDef="position">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                </ng-container>
-          
-                <ng-container matColumnDef="name">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                </ng-container>
-          
-                <ng-container matColumnDef="weight">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-                </ng-container>
-          
-                <ng-container matColumnDef="symbol">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-                </ng-container>
-          
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-              </mat-table> 
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="weight">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="symbol">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
           </div>
         </mat-tab>
         <mat-tab label="Tab 3">
-            <ng-template mat-tab-label>
-                  Tab 3
-                <span mat-button title="关闭" class="gisc-data-view-tabs__clear" >
-                    <i class="material-icons md-18">clear</i>
-                </span>
-            </ng-template>
-            <div class="demo-tab-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
-                vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
-                felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim
-                rutrum enim, vel tempor sapien arcu a tellus.
-              </div>     
-              <mat-table #table [dataSource]="dataSource" matSort>
-  
-                  <ng-container matColumnDef="position">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                  </ng-container>
-            
-                  <ng-container matColumnDef="name">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-                  </ng-container>
-            
-                  <ng-container matColumnDef="weight">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-                  </ng-container>
-            
-                  <ng-container matColumnDef="symbol">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-                  </ng-container>
-            
-                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                </mat-table> 
+          <ng-template mat-tab-label>
+            Tab 3
+            <span mat-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem(2)">
+              <i class="material-icons md-18">clear</i>
+            </span>
+          </ng-template>
+          <div class="demo-tab-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis
+            vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur
+            felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim
+            rutrum enim, vel tempor sapien arcu a tellus.
+          </div>
+          <mat-table #table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="position">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="weight">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Weight </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="symbol">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
         </mat-tab>
       </mat-tab-group>
     </mat-card-content>
   </mat-card>
+  <div class="button-row " style="position: absolute;top:10px;right:10px;z-index: 1;">
+    <button mat-icon-button title="最大化" #max class="gisc-data-view__button--max" (click)="onMaxDataViewClick(max)">
+      <i class="material-icons md-18">keyboard_arrow_up</i>
+    </button>
+    <button mat-icon-button title="最小化" #min class="gisc-data-view__button--min" (click)="onMinDataViewClick(min)">
+        <i class="material-icons md-18">keyboard_arrow_down</i>
+      </button>
+    <button mat-icon-button title="关闭" (click)="onCloseDataViewClick()">
+      <i class="material-icons md-18">clear</i>
+    </button>
+  </div>
 
 </div>
