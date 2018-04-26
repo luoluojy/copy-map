@@ -42,9 +42,16 @@
     padding: 0;
   }
   .gisc-data-view-tabs__clear{
-    margin-left: 20px;
+    margin-left: 10px;
   }
   .gisc-data-view__button--min{
     /* visibility: hidden; */
     display: none;
+  }
+  .gisc-tab-label{
+    margin-left:15px;
+  }
+  .gisc-data-view-tabs__clear:hover{
+    color:red;
+    font-weight: bolder;
   }

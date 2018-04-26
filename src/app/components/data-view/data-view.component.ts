@@ -105,13 +105,16 @@ export class DataViewComponent implements OnInit, AfterViewInit {
       index = 0;
     } else {  // 否则 若索引前面有tabpage关闭了，将当前删除索引序号前置 关闭长度-1个位置
       if(count!=0){
-        console.log(index,this.closedTabpageIndexs.length);
         index = index - (this.closedTabpageIndexs.length - 1); 
       }
       // 否则 直接删除原索引index
     }
     this.matTabGroup._tabs._results.splice(index, 1);
-
+    if(this.matTabGroup.selectedIndex == index){
+      this.matTabGroup.selectedIndex = index-1;
+    }else{
+        this.matTabGroup.selectedIndex = index;
+    }
     // 无tabpages时，关闭显示data-view
     if (this.matTabGroup._tabs._results.length == 0) {
       let dataViewWrapper = <HTMLElement>document.querySelector(
@@ -141,11 +144,7 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     let toolBarRectBounding = document
       .querySelector(".gisc-tool-bar-wrapper")
       .getBoundingClientRect();
-    let maxH =
-      document.documentElement.clientHeight -
-      toolBarRectBounding.top -
-      toolBarRectBounding.height -
-      30;
+    let maxH = document.documentElement.clientHeight - toolBarRectBounding.top -toolBarRectBounding.height - 30;
     this.containerRef.nativeElement.style.height = maxH + "px";
 
     let maxButton = this.maxRef._elementRef.nativeElement;

@@ -42,3 +42,8 @@ button:hover{
     display: flex;
     flex: 1;
 }
+
+.mat-tab-label{
+    min-width: 0!important;
+    height: 40px!important;
+}
