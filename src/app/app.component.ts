@@ -28,6 +28,8 @@ export class AppComponent implements OnInit {
   @ViewChild("outerDrawer") outerDrawer: any;
   @ViewChild("innerDrawer") innerDrawer: any;
 
+  @ViewChild('dataView') dataView:any;
+
   /**
    * 是否处于准备状态，菜单栏是否可视
    */
@@ -67,25 +69,8 @@ export class AppComponent implements OnInit {
    */
   expandDataView(dataView, expandRef) {
     let expand = expandRef._elementRef.nativeElement;
-    // let text = expand.querySelector(".gisc-toggle__button--content");
-    // let icon = expand.querySelector("i");
-    // let iconClass = icon.getAttribute("class");
-    // 将data-view调整显示方式
-    // if (this.expandFlag) {
-      // 展开操作
-      dataView.style.display = "block";
-      // text.innerText = "收回";
-      // icon.innerText = 'keyboard_arrow_down';
-      expand.style.display = 'none';
-    // } 
-    // else {
-    //   // 收回操作
-    //   dataView.style.display = "none";
-    //   // text.innerText = "展开";
-    //   // icon.innerText = 'keyboard_arrow_up
-    //   expand.style.visibility = 'visible';
-    // }
-    // this.expandFlag = !this.expandFlag;
+    dataView.style.display = "block";
+    expand.style.display = 'none';
   }
 
   /**

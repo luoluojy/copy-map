@@ -7,7 +7,7 @@
         <mat-tab label="Tab 1">
           <ng-template mat-tab-label>
             Tab 1
-            <span title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem(0)">
+            <span title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(0)">
               <i class="material-icons md-18">clear</i>
             </span>
           </ng-template>
@@ -47,7 +47,7 @@
         <mat-tab label="Tab 2">
           <ng-template mat-tab-label>
             Tab 2
-            <span mat-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem(1)">
+            <span mat-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(1)">
               <i class="material-icons md-18">clear</i>
             </span>
           </ng-template>
@@ -85,7 +85,7 @@
         <mat-tab label="Tab 3">
           <ng-template mat-tab-label>
             Tab 3
-            <span mat-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseItem(2)">
+            <span mat-button title="关闭" class="gisc-data-view-tabs__clear" (click)="onCloseTabpageClick(2)">
               <i class="material-icons md-18">clear</i>
             </span>
           </ng-template>
@@ -124,10 +124,10 @@
     </mat-card-content>
   </mat-card>
   <div class="button-row " style="position: absolute;top:10px;right:10px;z-index: 1;">
-    <button mat-icon-button title="最大化" #max class="gisc-data-view__button--max" (click)="onMaxDataViewClick(max)">
+    <button mat-icon-button title="最大化" #max class="gisc-data-view__button--max" (click)="onMaxDataViewClick()">
       <i class="material-icons md-18">keyboard_arrow_up</i>
     </button>
-    <button mat-icon-button title="最小化" #min class="gisc-data-view__button--min" (click)="onMinDataViewClick(min)">
+    <button mat-icon-button title="最小化" #min class="gisc-data-view__button--min" (click)="onMinDataViewClick()">
         <i class="material-icons md-18">keyboard_arrow_down</i>
       </button>
     <button mat-icon-button title="关闭" (click)="onCloseDataViewClick()">
