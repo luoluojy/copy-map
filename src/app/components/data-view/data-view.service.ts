@@ -49,11 +49,12 @@ export class DataViewService {
     }
     let matTabGroup = this.owner.matTabGroup;
     matTabGroup._tabs._results.splice(index, 1);
-    matTabGroup.selectedIndex = index-1;
 
+    matTabGroup.selectedIndex = index-1;
+    
      // 无tabpages时，关闭显示data-view
      if (matTabGroup._tabs._results.length == 0) {
-        this.closeTabpageCommand();
+        this.closeDataViewCommand();
     }
   }
 
