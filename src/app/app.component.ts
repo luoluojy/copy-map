@@ -28,7 +28,9 @@ export class AppComponent implements OnInit {
   @ViewChild("outerDrawer") outerDrawer: any;
   @ViewChild("innerDrawer") innerDrawer: any;
 
-  @ViewChild('dataView') dataView:any;
+  @ViewChild('dataViewWrapper') dataViewWrapper:any;
+  @ViewChild('toolBarWrapper') toolBarWrapper:any;
+  @ViewChild('expand') expand:any;
 
   /**
    * 是否处于准备状态，菜单栏是否可视

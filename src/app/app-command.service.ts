@@ -94,6 +94,18 @@ export class AppCommandService {
       this.appService.enterOperationCommand(param);
       this.controlViewService.basemapResourceCommand(param);
     },
+    "CloseDataViewCommand": (param?: any) => {
+      this.dataViewService.closeDataViewCommand(param)
+    },
+    "MaxDataViewCommand": (param?: any) => {
+      this.dataViewService.maxDataViewCommand(param)
+    },
+    "MinDataViewCommand": (param?: any) => {
+      this.dataViewService.minDataViewCommand(param)
+    },
+    "CloseTabpageCommand": (param?: any) => {
+      this.dataViewService.closeTabpageCommand(param)
+    },
   };
 
 

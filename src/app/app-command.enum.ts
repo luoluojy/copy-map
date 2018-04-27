@@ -53,6 +53,22 @@ export enum AppCommand {
   /**
    * 地理底图
    */
-  BasemapResourceCommand
+  BasemapResourceCommand,
+  /**
+   * 关闭数据视图
+   */
+  CloseDataViewCommand,
+  /**
+   * 最大化数据视图
+   */
+  MaxDataViewCommand,
+  /**
+   * 最小化数据视图
+   */
+  MinDataViewCommand,
+  /**
+   * 关闭tabpage
+   */
+  CloseTabpageCommand,
 
 }

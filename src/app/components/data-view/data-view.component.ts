@@ -9,6 +9,8 @@ import { TEST_DATA } from "./mock-data";
 import { Observable } from "rxjs/Observable";
 import { DataViewService } from "./data-view.service";
 import { MatTableDataSource, MatSort } from "@angular/material";
+import { AppCommandService } from '../../app-command.service';
+import { AppCommand } from '../../app-command.enum';
 
 @Component({
   selector: "app-data-view.",
@@ -21,7 +23,7 @@ export class DataViewComponent implements OnInit, AfterViewInit {
    * 构造函数
    * @param service
    */
-  constructor(private service: DataViewService) {
+  constructor(private service: DataViewService,private appCommands:AppCommandService) {
     this.service.owner = this;
   }
 
@@ -91,74 +93,77 @@ export class DataViewComponent implements OnInit, AfterViewInit {
     };
   }
 
-  closedTabpageIndexs: number[] = [];
+  // closedTabpageIndexs: number[] = [];
   onCloseTabpageClick(index) {
-    let count = 0;  // 统计index前面的tabpages是否被关闭完
-    for (let i = 0; i < this.closedTabpageIndexs.length; i++) {
-      if (this.closedTabpageIndexs[i] < index) {
-        count++;
-        continue;
-      }
-    }
-    this.closedTabpageIndexs.push(index);
-    if (count == index) { //如果索引index前面的tabpages被关闭完，则关闭0号索引的tabpages
-      index = 0;
-    } else {  // 否则 若索引前面有tabpage关闭了，将当前删除索引序号前置 关闭长度-1个位置
-      if(count!=0){
-        index = index - (this.closedTabpageIndexs.length - 1); 
-      }
-      // 否则 直接删除原索引index
-    }
-    this.matTabGroup._tabs._results.splice(index, 1);
-    if(this.matTabGroup.selectedIndex == index){
-      this.matTabGroup.selectedIndex = index-1;
-    }else{
-        this.matTabGroup.selectedIndex = index;
-    }
-    // 无tabpages时，关闭显示data-view
-    if (this.matTabGroup._tabs._results.length == 0) {
-      let dataViewWrapper = <HTMLElement>document.querySelector(
-        ".gisc-data-view-wrapper"
-      );
-      dataViewWrapper.style.display = "none";
-      let expand = <HTMLElement>document.querySelector(
-        ".gisc-toggle__button--expand"
-      );
-      expand.style.display = "inline-block";
-    }
+    this.appCommands.execute(AppCommand.CloseTabpageCommand,index);
+
+    // let count = 0;  // 统计index前面的tabpages是否被关闭完
+    // for (let i = 0; i < this.closedTabpageIndexs.length; i++) {
+    //   if (this.closedTabpageIndexs[i] < index) {
+    //     count++;
+    //     continue;
+    //   }
+    // }
+    // this.closedTabpageIndexs.push(index);
+    // if (count == index) { //如果索引index前面的tabpages被关闭完，则关闭0号索引的tabpages
+    //   index = 0;
+    // } else {  // 否则 若索引前面有tabpage关闭了，将当前删除索引序号前置 关闭长度-1个位置
+    //   if(count!=0){
+    //     index = index - (this.closedTabpageIndexs.length - 1); 
+    //   }
+    //   // 否则 直接删除原索引index
+    // }
+    // this.matTabGroup._tabs._results.splice(index, 1);
+
+    // this.matTabGroup.selectedIndex = index-1;
+    // // 无tabpages时，关闭显示data-view
+    // if (this.matTabGroup._tabs._results.length == 0) {
+    //   let dataViewWrapper = <HTMLElement>document.querySelector(
+    //     ".gisc-data-view-wrapper"
+    //   );
+    //   dataViewWrapper.style.display = "none";
+    //   let expand = <HTMLElement>document.querySelector(
+    //     ".gisc-toggle__button--expand"
+    //   );
+    //   expand.style.display = "inline-block";
+    // }
   }
 
   onCloseDataViewClick() {
-    let dataViewWrapper = <HTMLElement>document.querySelector(
-      ".gisc-data-view-wrapper"
-    );
-    dataViewWrapper.style.display = "none";
-    let expand = <HTMLElement>document.querySelector(
-      ".gisc-toggle__button--expand"
-    );
-    expand.style.display = "inline-block";
+    // let dataViewWrapper = <HTMLElement>document.querySelector(
+    //   ".gisc-data-view-wrapper"
+    // );
+    // dataViewWrapper.style.display = "none";
+    // let expand = <HTMLElement>document.querySelector(
+    //   ".gisc-toggle__button--expand"
+    // );
+    // expand.style.display = "inline-block";
+    this.appCommands.execute(AppCommand.CloseDataViewCommand);
   }
 
   onMaxDataViewClick() {
     // 获取元素，计算最大高度保证不被tool-bar遮挡
-    let toolBarRectBounding = document
-      .querySelector(".gisc-tool-bar-wrapper")
-      .getBoundingClientRect();
-    let maxH = document.documentElement.clientHeight - toolBarRectBounding.top -toolBarRectBounding.height - 30;
-    this.containerRef.nativeElement.style.height = maxH + "px";
+    // let toolBarRectBounding = document
+    //   .querySelector(".gisc-tool-bar-wrapper")
+    //   .getBoundingClientRect();
+    // let maxH = document.documentElement.clientHeight - toolBarRectBounding.top -toolBarRectBounding.height - 30;
+    // this.containerRef.nativeElement.style.height = maxH + "px";
 
-    let maxButton = this.maxRef._elementRef.nativeElement;
-    let minButton = this.minRef._elementRef.nativeElement;
-    maxButton.style.display = "none";
-    minButton.style.display = "inline-block";
+    // let maxButton = this.maxRef._elementRef.nativeElement;
+    // let minButton = this.minRef._elementRef.nativeElement;
+    // maxButton.style.display = "none";
+    // minButton.style.display = "inline-block";
+    this.appCommands.execute(AppCommand.MaxDataViewCommand)
   }
 
   onMinDataViewClick() {
-    this.containerRef.nativeElement.style.height = this.minHeight + "px";
+    // this.containerRef.nativeElement.style.height = this.minHeight + "px";
 
-    let maxButton = this.maxRef._elementRef.nativeElement;
-    let minButton = this.minRef._elementRef.nativeElement;
-    maxButton.style.display = "inline-block";
-    minButton.style.display = "none";
+    // let maxButton = this.maxRef._elementRef.nativeElement;
+    // let minButton = this.minRef._elementRef.nativeElement;
+    // maxButton.style.display = "inline-block";
+    // minButton.style.display = "none";
+    this.appCommands.execute(AppCommand.MinDataViewCommand)
+    
   }
 }
