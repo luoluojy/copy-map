@@ -70,5 +70,9 @@ export enum AppCommand {
    * 关闭tabpage
    */
   CloseTabpageCommand,
+  /**
+   * 调整data-view大小
+   */
+  ResizeDataViewCommand,
 
 }

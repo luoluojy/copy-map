@@ -106,6 +106,9 @@ export class AppCommandService {
     "CloseTabpageCommand": (param?: any) => {
       this.dataViewService.closeTabpageCommand(param)
     },
+    "ResizeDataViewCommand":(param?:any)=>{
+      this.dataViewService.resizeDataViewCommand(param);
+    }
   };
 
 
