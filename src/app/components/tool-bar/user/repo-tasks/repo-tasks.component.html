@@ -1,0 +1,31 @@
+<div style="display: flex;flex-direction: row">
+    <div style="width:100px;">目录树</div>
+  <div class="example-container mat-elevation-z8">
+ 
+  <table  mat-table #table [dataSource]="dataSource" >
+    <ng-container matColumnDef="checkbox">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> <mat-checkbox></mat-checkbox> </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <mat-checkbox></mat-checkbox> </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 序号 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 名称 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="mtime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> 更新时间 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.mtime}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="turnDir(row)"></mat-row>
+  </table>
+</div>
+
+</div>

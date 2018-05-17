@@ -1,0 +1,63 @@
+.gisc-data-view-container {
+    height: 180px;    
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.gisc-data-view-container__top {
+    height: 5px;
+    width: 100%;
+    top: 0px;
+    cursor: n-resize;
+}
+
+.gisc-table-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    height: calc(100% - 5px);
+  }
+  
+  .mat-table {
+    overflow: auto;
+    /* height: 175px; */
+  }
+  
+  .mat-header-cell.mat-sort-header-sorted {
+    color: black;
+  }
+  .demo-tab-group {
+    border: 1px solid #e8e8e8;
+  }
+  
+  .demo-tab-content {
+    padding: 16px;
+    /* height: calc(150% - 150px); */
+  }
+  .gisc-tabpages-wrapper{
+    height: 100%;
+    min-height:175px;
+    /* overflow: auto; */
+    padding: 0;
+  }
+  .gisc-data-view__button--min{
+    /* visibility: hidden; */
+    display: none;
+  }
+  .gisc-tab-label{
+    /* margin-left:15px; */
+    padding: 0 40px 0 15px;
+  }
+  .gisc-data-view-tabs__clear:hover{
+    color:white;
+    font-weight: bolder;
+    background-color: red;
+  }
+
+  .gisc-data-view-tabs__clear{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    height: 18px;
+  }

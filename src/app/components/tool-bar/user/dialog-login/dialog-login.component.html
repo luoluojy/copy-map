@@ -1,0 +1,37 @@
+<div class="gisc-login-container">
+  <!-- 最外层拖拽 -->
+  <div class="gisc-login-head"></div>
+  <div class="gisc-form-container" #loginContainer>
+    <!-- 对话框头 -->
+    <div class="gisc-form-head">
+      <h2>用户登录</h2>
+    </div>
+    <!-- 对话框内容 -->
+    <div class="gisc-form-content">
+      <!-- 登录表单 -->
+      <form class="gisc-form-content--detail" #f="ngForm" (ngSubmit)="login(f.value)">
+
+          <label for="username">邮箱或用户名</label>
+        <mat-form-field style="width:100%;">
+            <!-- <span matPrefix> <i class="material-icons">account_circle</i> </span> -->
+          <input matInput type="email" id="login" name="login" ngModel>
+        </mat-form-field>
+
+        <label for="password">密 码</label>
+        <mat-form-field style="width:100%;">
+            <!-- <span matPrefix> <i class="material-icons">vpn_key</i> </span> -->
+          <input  matInput type="password" id="password" name="password" ngModel>
+        </mat-form-field>
+        <label class="checkbox-label">
+            <input type="checkbox" name="remember_me" class="vam" tabindex="3">
+            <span class="vam">保持登录</span>
+        </label>
+        
+        <div class="gisc-form-content__button button-row">
+          <button type="submit" mat-raised-button  color="primary">登录</button>
+          <button type="button" mat-raised-button (click)="closeDialog()">返回</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

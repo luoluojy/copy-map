@@ -1,0 +1,47 @@
+<div class="gisc-tool-bar-container"  style="position: relative;">
+    <mat-nav-list class="gisc-tool-bar-list">
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="位置" (click)="onLocationsClick()" [appClickedStyle]="isLocationsAction" (blur)="onLocationsBlur()">
+                <i class="material-icons md-18">place</i> 南京市
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="实时" (click)="onRealTimeClick()" [appClickedStyle]="isRealTimeAction" (blur)="onRealTimeBlur()">
+                <i class="material-icons md-18">cloud_queue</i> 实时
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="图册" (click)="onAtlasClick()" [appClickedStyle]="isAtlasAction" (blur)="onAtlasBlur()">
+                <i class="material-icons md-18">map</i> 图册
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+        <mat-list-item class="gisc-tool-bar-list__item">
+            <button mat-button title="工具箱" (click)="onUtilsClick()" [appClickedStyle]="isUtilAction" (blur)="onUtilsBlur()">
+                <i class="material-icons md-18">build</i> 工具箱
+                <i class="material-icons md-18">keyboard_arrow_down</i>
+            </button>
+        </mat-list-item>
+    </mat-nav-list>
+
+    <div class="button-row" style="position: relative;">
+        <button mat-mini-fab title="通知" (click)="onNoticeClick()" (blur)="onNoticeBlur()">
+            <i class="material-icons md-18">notifications_none</i>
+        </button>
+        <button mat-fab color="primary" title="用户中心" (click)="onUserClick()" (blur)="onUserBlur()">
+            <i class="material-icons md-24">person</i>
+        </button>
+    </div>
+
+</div>
+
+<div id="tool-main">
+    <app-locations *ngIf="isLocationsAction" #locations></app-locations>
+    <app-real-time *ngIf="isRealTimeAction"></app-real-time>
+    <app-atlas *ngIf="isAtlasAction"></app-atlas>
+    <app-utils *ngIf="isUtilAction"></app-utils>
+    <app-notice *ngIf="isNoticeAction"></app-notice>
+    <app-user *ngIf="isUserAction"></app-user>
+</div>
