@@ -1,12 +1,13 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { CloudStorageService } from "../../../../services/cloud-storage.service";
+import { AppCommand } from '../../../../app-command.enum';
+import { AppCommandService } from '../../../../app-command.service';
+
 
 @Component({
   selector: "app-dialog-login",
   templateUrl: "./dialog-login.component.html",
   styleUrls: ["./dialog-login.component.css"],
-  providers: [CloudStorageService]
 })
 export class DialogLoginComponent implements OnInit {
   // 对话框最小高度及宽度
@@ -14,8 +15,8 @@ export class DialogLoginComponent implements OnInit {
   dragMinHeight = 280;
 
   constructor(
-    private cloudStorageService: CloudStorageService,
     private dialogRef: MatDialogRef<DialogLoginComponent>,
+    private appCommands:AppCommandService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -46,13 +47,12 @@ export class DialogLoginComponent implements OnInit {
     this.isFullScreen = !this.isFullScreen;
   }
   
-   async login(value) {
-    let username = value["login"];
-    let password = value["password"];
-    let avatar = await this.cloudStorageService.login(username, password);
-    console.log('avatar:',avatar);
-    let files = await this.cloudStorageService.getLibraryFiles(localStorage.getItem('cloudStorageToken'));
-    console.log('entities:',files)
+  login(value) {
+    this.appCommands.execute(AppCommand.LoginCommand,value);
+    // let avatar = await this.cloudStorageService.login(username, password);
+    // console.log('avatar:',avatar);
+    // let files = await this.cloudStorageService.getLibraryFiles(localStorage.getItem('cloudStorageToken'));
+    // console.log('entities:',files)
     // this.dialogRef.close(avatar);
     // avatar头像更改
     

@@ -74,5 +74,14 @@ export enum AppCommand {
    * 调整data-view大小
    */
   ResizeDataViewCommand,
+    /**
+   * 登录
+   */
+  LoginCommand,
+  /**
+   * 获取个人仓库目录文件信息
+   */
+  GetLibraryFilesCommand,
+
 
 }
