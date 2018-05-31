@@ -16,14 +16,13 @@ export class UserComponent implements OnInit {
 
   openLoginDialog(){
     let dialogRef = this.dialog.open(DialogLoginComponent, {});
-    dialogRef.afterClosed().subscribe(avatar =>{
-      // 获取头像数据打印输出
-      console.log(avatar);
-    })
+   
+    /* dialogRef.afterClosed().subscribe(avatar =>{
+     关闭对话框时 处理
+    }) */
   }
   
   openRepoTasks(){
-    console.log('repoTasks',localStorage.getItem('cloudStorageToken'));
     let dialogRef = this.dialog.open(RepoTasksComponent, {});
   }
 

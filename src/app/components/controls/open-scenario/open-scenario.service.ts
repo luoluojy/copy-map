@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Workspace } from '../../../services/workspace';
 import { OpenScenarioComponent } from './open-scenario.component';
-import { AppSettingsService } from '../../../services/app-settings.service';
 
+/**
+ * 打开场景组件服务
+ */
 @Injectable()
 export class OpenScenarioService {
 
   /**
    * 构造函数
-   * @param appSettings
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) { }
+  constructor(private workspace: Workspace) { }
 
   /**
    * 服务所属的组件

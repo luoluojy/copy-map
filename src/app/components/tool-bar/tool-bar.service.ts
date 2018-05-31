@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { AppSettingsService } from '../../services/app-settings.service';
+import { Workspace } from '../../services/workspace';
 import { ToolBarComponent } from './tool-bar.component';
 import { ToolBarStatus } from './tool-bar-status.enum';
 
 /**
- *
+ * 工具栏组件服务
  */
 @Injectable()
 export class ToolBarService {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) {
+  constructor(private workspace: Workspace) {
     this._action = ToolBarStatus.None;
   }
 
@@ -53,7 +53,7 @@ export class ToolBarService {
       this._action = ToolBarStatus.None;
     }
   }
-  
+
 
   /**
    * 实时菜单活动控制

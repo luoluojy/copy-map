@@ -114,9 +114,8 @@ export class AppCommandService {
     "LoginCommand":(param?:any)=>{
       this.cloudStorageService.loginCommand(param['login'],param['password'])
     },
-    "GetLibraryFilesCommand":(param?:any)=>{
-      this.cloudStorageService.getLibraryFilesCommand(param['cloudStorageToken'])
-      // 返回
+    "listLibraryEntitiesCommand": (param?:any)=>{
+      this.cloudStorageService.listLibraryEntitiesCommand()
     }
   };
 

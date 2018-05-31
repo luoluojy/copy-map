@@ -49,14 +49,7 @@ export class DialogLoginComponent implements OnInit {
   
   login(value) {
     this.appCommands.execute(AppCommand.LoginCommand,value);
-    // let avatar = await this.cloudStorageService.login(username, password);
-    // console.log('avatar:',avatar);
-    // let files = await this.cloudStorageService.getLibraryFiles(localStorage.getItem('cloudStorageToken'));
-    // console.log('entities:',files)
-    // this.dialogRef.close(avatar);
-    // avatar头像更改
-    
-    // 调用打开文件存储库
+    this.dialogRef.close();
 
   }
 }

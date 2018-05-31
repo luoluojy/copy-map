@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Workspace } from '../../../services/workspace';
 import { MaintainScenarioComponent } from './maintain-scenario.component';
-import { AppSettingsService } from '../../../services/app-settings.service';
 
+/**
+ * 场景维护管理组件服务
+ */
 @Injectable()
 export class MaintainScenarioService {
 
   /**
    * 构造函数
-   * @param appSettings
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) { }
+  constructor(private workspace: Workspace) { }
 
   /**
    * 服务所属的组件

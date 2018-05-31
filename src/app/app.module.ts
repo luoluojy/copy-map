@@ -31,8 +31,10 @@ import { ToolBarService } from "./components/tool-bar/tool-bar.service";
 import { CustomMaterialModule } from "./custom-material.module";
 import { AppSettingsService } from "./services/app-settings.service";
 import { BaseMapService } from "./services/base-map.service";
+import { CloudStorageAPIsService } from './services/cloud-storage-apis.service';
 import { CloudStorageService } from './services/cloud-storage.service';
 import { ScenarioService } from "./services/scenario.service";
+import { Workspace } from "./services/workspace";
 
 
 
@@ -81,6 +83,8 @@ import { ScenarioService } from "./services/scenario.service";
     BaseMapService,
     ScenarioService,
     CloudStorageService,
+    CloudStorageAPIsService,
+    Workspace,
     AppCommandService
   ],
   entryComponents: [MenuComponent],

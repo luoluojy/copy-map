@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { AppSettingsService } from './services/app-settings.service';
-import { AppComponent } from './app.component';
 import { AppStatus } from './app-status.enum';
+import { AppComponent } from './app.component';
+import { Workspace } from './services/workspace';
 
 /**
- *
+ * 应用系统服务
  */
 @Injectable()
 export class AppService {
 
   /**
    * 构造函数
-   * @param appSettings
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) { }
+  constructor(private workspace: Workspace) { }
 
   /**
    * 服务所属的组件
@@ -91,7 +91,7 @@ export class AppService {
    * 初始化应用配置
    */
   public initAppSettings() {
-    this.appSettings.initAppSettings();
+    this.workspace.initAppSettings();
   }
 
   /**

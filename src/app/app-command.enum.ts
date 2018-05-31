@@ -81,7 +81,7 @@ export enum AppCommand {
   /**
    * 获取个人仓库目录文件信息
    */
-  GetLibraryFilesCommand,
+  listLibraryEntitiesCommand,
 
 
 }

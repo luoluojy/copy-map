@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Workspace } from '../../services/workspace';
 import { ControlViewComponent } from './control-view.component';
-import { AppSettingsService } from '../../services/app-settings.service';
 import { ControlViewStatus } from './control-view-status.enum';
 
 /**
@@ -11,9 +11,9 @@ export class ControlViewService {
 
   /**
    * 构造函数
-   * @param appSettings
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) {
+  constructor(private workspace: Workspace) {
     this.actionStatus = ControlViewStatus.ScenarioContent
   }
 

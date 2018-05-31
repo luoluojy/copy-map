@@ -1,18 +1,19 @@
 import { Injectable } from "@angular/core";
-import { AppService } from "../../app.service";
-import { AppSettingsService } from "../../services/app-settings.service";
 import { DataViewComponent } from "./data-view.component";
+import { AppService } from "../../app.service";
+import { Workspace } from "../../services/workspace";
+
 /**
- *
+ * 数据视图组件服务
  */
 @Injectable()
 export class DataViewService {
   /**
    * 构造函数
-   * @param appSetting
+   * @param workspace
    */
   constructor(
-    private appSettings: AppSettingsService,
+    private workspace: Workspace,
     private service: AppService
   ) {}
 
@@ -52,7 +53,6 @@ export class DataViewService {
       // 否则 直接删除原索引index
     }
     let matTabGroup = this.owner.matTabGroup;
-    console.log(matTabGroup.selectedIndex)
     matTabGroup._tabs._results.splice(index, 1);
     // 当前删除索引若为当前选择的tab，则将选择tab索引-1
     if (index == matTabGroup.selectedIndex) {

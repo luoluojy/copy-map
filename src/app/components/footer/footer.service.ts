@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { AppSettingsService } from '../../services/app-settings.service';
+import { Workspace } from '../../services/workspace';
 import { FooterComponent } from './footer.component';
 import { AppInfo } from '../../services/app-info';
 
 /**
- *
+ * 脚注组件服务
  */
 @Injectable()
 export class FooterService {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) { }
+  constructor(private workspace: Workspace) { }
 
   /**
    * 服务所属的组件
@@ -27,14 +27,14 @@ export class FooterService {
   }
 
   /**
-   * 应用标题
+   * 应用系统标题
    */
   public get appInfo(): AppInfo {
-    if (this.appSettings.settings == undefined)
+    if (this.workspace.appsettings == undefined)
     {
         return undefined;
     }
-    return this.appSettings.settings.appInfo;
+    return this.workspace.appsettings.appInfo;
   }
 
 }

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AppSettingsService } from '../../../services/app-settings.service';
 import { OpenlayersComponent } from './openlayers.component';
 import Map from "ol/map";
 import View from "ol/view";
@@ -8,6 +7,7 @@ import OSM from "ol/source/osm";
 import Proj from "ol/proj";
 import Control from "ol/control";
 import ScaleLine from 'ol/control/scaleline';
+import { Workspace } from '../../../services/workspace';
 
 /**
  * Openlayers地图引擎服务
@@ -17,9 +17,9 @@ export class OpenlayersService {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) { }
+  constructor(private workspace: Workspace) { }
 
   /**
    * 服务所属的组件
