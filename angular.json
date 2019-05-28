@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "crime-analysis": {
+    "copy-map": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/crime-analysis",
+            "outputPath": "dist/copy-map",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,7 +27,7 @@
               "src/assets/css/fontawesome/css/fontawesome-all.min.css",
               "src/assets/css/material/iconfont/material-icons.css",
               "src/assets/css/ol/ol.css"
-              
+
             ],
             "scripts": []
           },
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "crime-analysis:build"
+            "browserTarget": "copy-map:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "crime-analysis:build:production"
+              "browserTarget": "copy-map:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crime-analysis:build"
+            "browserTarget": "copy-map:build"
           }
         },
         "test": {
@@ -99,7 +99,7 @@
         }
       }
     },
-    "crime-analysis-e2e": {
+    "copy-map-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -107,7 +107,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "crime-analysis:serve"
+            "devServerTarget": "copy-map:serve"
           }
         },
         "lint": {
@@ -122,5 +122,5 @@
       }
     }
   },
-  "defaultProject": "crime-analysis"
+  "defaultProject": "copy-map"
 }
