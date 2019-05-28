@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AppSettingsService } from '../../../services/app-settings.service';
 import { CesiumComponent } from './cesium.component';
+import { Workspace } from '../../../services/workspace';
 
 declare let Cesium: any;
 
@@ -12,9 +12,9 @@ export class CesiumService {
 
   /**
    * 构造函数
-   * @param appSetting
+   * @param workspace
    */
-  constructor(private appSettings: AppSettingsService) { }
+  constructor(private workspace: Workspace) { }
 
   /**
    * 服务所属的组件

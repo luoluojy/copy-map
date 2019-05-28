@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { ControlViewDirective } from "./control-view.directive";
 import { ControlViewService } from "./control-view.service";
 import { ControlViewStatus } from "./control-view-status.enum";

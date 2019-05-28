@@ -4,6 +4,6 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",
-    "pathRewrite": {"^/crimeanalysis/storage" : "https://58.213.133.181:7774/api2"}
+    "pathRewrite": {"^/crimeanalysis/storage" : "https://58.213.133.181:7774"}
   }
 }

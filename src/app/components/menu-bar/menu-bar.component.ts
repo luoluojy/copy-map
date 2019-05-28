@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { MenuBarService } from "./menu-bar.service";
 import { MenuComponent } from "../menu/menu.component";
 import { AppCommandService } from "../../app-command.service";

@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
+import { AppCommand } from './app-command.enum';
 import { AppService } from './app.service';
-import { MapViewService } from './components/map-view/map-view.service';
+import { ContentViewService } from './components/content-view/content-view.service';
 import { ControlViewService } from './components/control-view/control-view.service';
 import { DataViewService } from './components/data-view/data-view.service';
-import { ContentViewService } from './components/content-view/content-view.service';
 import { FooterService } from './components/footer/footer.service';
+import { MapViewService } from './components/map-view/map-view.service';
 import { MenuBarService } from './components/menu-bar/menu-bar.service';
-import { ToolBarService } from './components/tool-bar/tool-bar.service';
 import { MenuService } from './components/menu/menu.service';
-import { AppCommand } from './app-command.enum';
+import { ToolBarService } from './components/tool-bar/tool-bar.service';
+import { CloudStorageService } from './services/cloud-storage.service';
 
 /**
  * 应用命令服务
@@ -28,7 +29,8 @@ export class AppCommandService {
     private footerService: FooterService,
     private menuBarService: MenuBarService,
     private toolBarService: ToolBarService,
-    private menuService: MenuService
+    private menuService: MenuService,
+    private cloudStorageService:CloudStorageService
   ) { }
 
   /**
@@ -106,6 +108,15 @@ export class AppCommandService {
     "CloseTabpageCommand": (param?: any) => {
       this.dataViewService.closeTabpageCommand(param)
     },
+    "ResizeDataViewCommand":(param?:any)=>{
+      this.dataViewService.resizeDataViewCommand(param);
+    },
+    "LoginCommand":(param?:any)=>{
+      this.cloudStorageService.loginCommand(param['login'],param['password'])
+    },
+    "listLibraryEntitiesCommand": (param?:any)=>{
+      this.cloudStorageService.listLibraryEntitiesCommand()
+    }
   };
 
 

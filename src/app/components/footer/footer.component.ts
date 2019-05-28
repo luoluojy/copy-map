@@ -26,6 +26,27 @@ export class FooterComponent implements OnInit {
    return this.service.appInfo.copyright;
  }
 
+ public get appAboutUrl():string{
+  if (this.service.appInfo == undefined) {
+    return "";
+  }
+  return this.service.appInfo.aboutUrl;
+ }
+
+ public get appHelpUrl():string{
+  if (this.service.appInfo == undefined) {
+    return "";
+  }
+  return this.service.appInfo.helpUrl;
+ }
+
+ public get appFeedbackUrl():string{
+  if (this.service.appInfo == undefined) {
+    return "";
+  }
+  return this.service.appInfo.feedbackUrl;
+ }
+
   ngOnInit() {
   }
 

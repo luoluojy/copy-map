@@ -11,6 +11,7 @@ import { ClickedStyleDirective } from './clicked-style.directive';
 import { DialogLoginComponent } from './user/dialog-login/dialog-login.component';
 import { CustomMaterialModule } from '../../custom-material.module';
 import { FormsModule }   from '@angular/forms';
+import { RepoTasksComponent } from './user/repo-tasks/repo-tasks.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +26,8 @@ import { FormsModule }   from '@angular/forms';
     UserComponent,
     RealTimeComponent,
     ClickedStyleDirective,
-    DialogLoginComponent
+    DialogLoginComponent,
+    RepoTasksComponent
   ],
   providers: [
 
@@ -40,7 +42,8 @@ import { FormsModule }   from '@angular/forms';
     ClickedStyleDirective
   ],
   entryComponents:[
-    DialogLoginComponent
+    DialogLoginComponent,
+    RepoTasksComponent
   ]
 })
 export class ToolBarModule { }

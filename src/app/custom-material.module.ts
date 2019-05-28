@@ -7,11 +7,13 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card";
+import { MatTabsModule } from "@angular/material/tabs";
+
+import { CdkTableModule } from "@angular/cdk/table";
 @NgModule({
   imports: [
     CommonModule,
@@ -27,9 +29,11 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    CdkTableModule
   ],
   exports: [
+    CdkTableModule,
     MatButtonModule,
     MatCheckboxModule,
     MatSidenavModule,
